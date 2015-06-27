@@ -1,0 +1,261 @@
+<%# -*- coding: utf-8 %>
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>美馬研究室 研究記録</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="timepicker-css/bootstrap-timepicker.min.css" rel="stylesheet">
+
+  </head>
+  <body>
+
+    <!-- 1.ナビゲーションバーの設定 -->
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <!-- 2.ヘッダ情報 -->
+            <div class="navbar-header">
+                <a class="navbar-brand text-info" href="index.html">美馬研究室　研究記録</a>
+            </div>
+            <!-- 3.リストの配置 -->
+            <ul class="nav navbar-nav">
+                <li><a href="index.html">ホーム</a></li>
+                <li><a href="log.html">記録する</a></li>
+                <li><a href="graph.html">勉強ログ</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- main -->
+    <!-- main log -->
+    <div class="container" style="padding: 20px 0">
+      <form>
+        <div class="panel panel-default">
+          <table class="table table-bordered">
+            <thead>
+              <tr><th><span id="date">2015/06</span>の勉強を記録する</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+
+                  <div class="form-group">
+                    
+                    <!-- select task -->
+                    <p>
+                      <label for="task_select">タスク名</label>
+                      <select class="form-control" id="task_select">
+                        <option>VEP</option>
+                        <option>Rubyの学習</option>
+                        <option>英単語をやる</option>
+                        <option>メールを返す</option>
+                        <option>TOEICを申し込む</option>
+                      </select>
+                    </p>
+                    
+                    <!-- select name -->
+                    <p>
+                      <label for="name_select">作業者名</label>
+                      <select class="form-control" id="name_select">
+                        <option>一ノ瀬 智太</option>
+                        <option>佐々木拓真</option>
+                        <option>菅崎 葵</option>
+                        <option>佐藤 綾香</option>
+                        <option>佐藤 まや</option>
+                      </select>
+                    </p>
+                    
+                    <!-- input time -->
+                    <p>  
+                      <label for="time_select">作業した時間を入力</label>
+                      <div id="timepair">
+                        <input id="time_select" class="time start form-control" maxlength="8" type="text" />から
+                        <input class="time end form-control" maxlength="8" type="text" />
+                      </div>
+                    </p>
+                    
+                    <!--  -->
+                    <p>  
+                      <label for="task_comment">学習内容や感想など</label>
+                      <textarea name="task_comment" class="form-control" row="2" placeholder="学習内容や感想" style="resize: none;"></textarea>
+                      <p class="help-block">※できるだけ他の人もわかるように書きましょう。</p>
+                    </p>
+                    
+                    <p>
+                      <button type="button" class="btn btn-success">記録する</button>
+                    </p>
+
+                  </div>
+                    
+                </td>
+                </tr>
+              </tbody>
+          </table>
+        </div>
+      </form>
+
+      <!-- main graph -->
+      <form>
+        <div class="panel panel-default">
+          <table class="table table-bordered">
+            <thead>
+              <tr><th><span id="graph_date"></span>の勉強状況</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+
+                  <div class="form-group">
+                    <canvas id="chart1" width="500" height="400">
+                      
+                    </canvas>
+                  </div>
+                    
+                </td>
+                </tr>
+              </tbody>
+          </table>
+        </div>
+      </form>
+    </div>
+
+    
+
+    <!-- footer -->
+    <div id="footer" class="container" style="background: yellow">footer</div>
+
+    <!-- javascriptの読み込み -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="timepicker-js/bootstrap-timepicker.min.js"></script>
+    <script src="http://momentjs.com/downloads/moment.js"></script>
+    <script src="Chart.js"></script>
+    <script>
+
+      // 現在の日付を取得
+      var m = moment();
+      var date = m.format("YYYY年MM月DD日");
+
+      // グラフを描画する処理
+      var ctx = $("#chart1").get(0).getContext("2d");
+
+      // グラフのデータ
+      var data = {
+        // X軸のラベル
+        labels : ["あおぽん","さとあや","まや","いちとも","たくま","こうしょう"],
+        datasets : [
+            {
+              // グラフの描画設定
+              fillColor : "#00bfff",//面の色・透明度
+              strokeColor : "#00bfff",//線の色・透明度
+              pointColor : "#00bfff", //点の色・透明度
+              pointStrokeColor : "#fff",//点の周りの色
+              data : [65,59,90,81,56,55]//labelごとのデータ
+            }
+          ]
+      };
+
+      // グラフの設定
+      var option = {
+
+        // 値の開始値などを自分で設定するか
+        scaleOverride : true,
+
+        // y軸の値のステップ数
+        scaleSteps : 3,
+
+        // y軸のスッテプする大きさ
+        scaleStepWidth : 60,
+
+        // Y軸の値の始まりの値
+        scaleStartValue : 0,
+
+        // ラベルの表示 ( Y 軸の値 )
+        scaleShowLabels : true,
+        // ラベルの表示フォーマット ( Y 軸の値 )
+        //scaleLabel : "",
+        // X, Y 軸値のフォント
+        scaleFontFamily : "'Arial'",
+        // X, Y 軸値のフォントサイズ
+        scaleFontSize : 12,
+        // X, Y 軸値のフォントスタイル, normal, italic など
+        scaleFontStyle : "italic",
+        // X, Y 軸値の文字色
+        scaleFontColor : "#666",    
+
+
+        // Boolean - Whether the scale should start at zero, or an order of magnitude down from the lowest value
+        scaleBeginAtZero : true,
+
+        // Boolean - Whether grid lines are shown across the chart
+        scaleShowGridLines : true,
+
+        // String - Colour of the grid lines
+        scaleGridLineColor : "#c0c0c0",
+
+        // Number - Width of the grid lines
+        scaleGridLineWidth : 1,
+
+        // Boolean - Whether to show horizontal lines (except X axis)
+        scaleShowHorizontalLines: true,
+
+        // Boolean - Whether to show vertical lines (except Y axis)
+        scaleShowVerticalLines: true,
+
+        // Boolean - If there is a stroke on each bar
+        barShowStroke : true,
+
+        // Number - Pixel width of the bar stroke
+        barStrokeWidth : 2,
+
+        // Number - Spacing between each of the X value sets
+        barValueSpacing : 5,
+
+        // Number - Spacing between data sets within X values
+        barDatasetSpacing : 1,
+
+         // 表示の時のアニメーション
+        animation : true,
+        // アニメーションの速度 ( ステップ数 )
+        animationSteps : 60,
+        // アニメーションの種類, 以下が用意されている
+        // linear, easeInQuad, easeOutQuad, easeInOutQuad, easeInCubic, easeOutCubic,
+        // easeInOutCubic, easeInQuart, easeOutQuart, easeInOutQuart, easeInQuint,
+        // easeOutQuint, easeInOutQuint, easeInSine, easeOutSine, easeInOutSine,
+        // easeInExpo, easeOutExpo, easeInOutExpo, easeInCirc, easeOutCirc, easeInOutCirc,
+        // easeInElastic, easeOutElastic, easeInOutElastic, easeInBack, easeOutBack,
+        // easeInOutBack, easeInBounce, easeOutBounce, easeInOutBounce
+        animationEasing : "easeOutBounce",
+        // アニメーション終了後に実行する処理
+        // animation: false の時にも実行されるようです
+        // e.g. onAnimationComplete : function() {alert('complete');}
+        onAnimationComplete : null
+        
+      }
+      // グラフを描画する
+      var myNewChart = new Chart(ctx).Bar(data,option);
+      // optionは無くても描画可能
+      // var myNewChart = new Chart(ctx).Line(data);
+    
+
+      $(function() {
+
+        // 時間入力のUIを作成
+        $('#timepair .time').timepicker({
+          templare: 'modal'
+        });
+
+        // 現在の日付を表示
+        $("#date").html(date);
+        $("#graph_date").html(date);
+
+      });
+
+    </script>
+  </body>
+</html>
