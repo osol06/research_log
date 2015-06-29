@@ -11,7 +11,7 @@ require 'dbi'
 # DocumentRootは、現在のディレクトリを表す「.」を指定
 config = {
 	:Port => 8099,
-	:DocumentRoot => '.'
+	:DocumentRoot => 'index.erb'
 }
 
 # 拡張子erbのファイルをERBを呼び出して処理するERBHandlerと関連付ける
