@@ -1,100 +1,125 @@
 <%# -*- coding: utf-8 %>
+<%# 必要なライブラリの読み込み %>
+<% require 'rubygems' %>
+<% require 'dbi' %>
+
+<%# データベース接続 %>
+<% dbh = DBI.connect('DBI:SQLite3:research_log.db') %>
+
 <!DOCTYPE html>
 <html lang="ja">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>美馬研究室 研究記録</title>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <title>美馬研究室 研究記録</title>
 
-    <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <link href="timepicker-css/bootstrap-timepicker.min.css" rel="stylesheet" type="text/css">
-  </head>
-  <body>
+  <!-- BootStrapの読み込み -->
+  <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
 
-    <!-- 1.ナビゲーションバーの設定 -->
-    <nav class="navbar navbar-default">
-        <div class="container">
-            <!-- 2.ヘッダ情報 -->
-            <div class="navbar-header">
-                <a class="navbar-brand text-info" href="index.html">美馬研究室　研究記録</a>
-            </div>
-            <!-- 3.リストの配置 -->
-            <ul class="nav navbar-nav">
-                <li><a href="index.html">ホーム</a></li>
-                <li><a href="log.html">記録する</a></li>
-                <li><a href="graph.html">勉強ログ</a></li>
-            </ul>
+  <!-- TimePickerの読み込み -->
+  <link href="timepicker-css/bootstrap-timepicker.min.css" rel="stylesheet" type="text/css">
+
+</head>
+<body>
+
+  <!-- ナビゲーション -->
+  <nav class="navbar navbar-inverse" role="navigation">
+    <div class="container">
+
+        <!-- ナビゲーションヘッダー -->
+        <div class="navbar-header">
+
+          <!-- スマホサイズになった時のボタンの設定 -->
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand text-info" href="index.html">美馬研究室　研究記録</a>
+
         </div>
-    </nav>
+
+        <!-- ナビゲーションの内容 -->
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="index.html">ホーム</a></li>
+            <li><a href="log.html">記録する</a></li>
+            <li><a href="graph.html">勉強ログ</a></li>
+          </ul>
+        </div>
+
+    </div>
+  </nav>
+
     
-    <!-- main -->
-    <!-- main log -->
-    <div class="container" style="padding: 20px 0">
-      <form>
-        <div class="panel panel-default">
-          <table class="table table-bordered">
-            <thead>
-              <tr><th><span id="date">2015/06</span>の勉強を記録する</th></tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>
+  <!-- main -->
+  <!-- main log -->
+  <div class="container" style="padding: 20px 0">
+    <form>
+      <div class="panel panel-default">
+        <table class="table table-bordered">
+          <thead>
+            <tr><th><span id="date">2015/06</span>の勉強を記録する</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
 
-                  <div class="form-group">
+                <div class="form-group">
                     
-                    <!-- select task -->
-                    <p>
-                      <label for="task_select">タスク名</label>
-                      <select class="form-control" id="task_select">
-                        <option>VEP</option>
-                        <option>Rubyの学習</option>
-                        <option>英単語をやる</option>
-                        <option>メールを返す</option>
-                        <option>TOEICを申し込む</option>
-                      </select>
-                    </p>
+                  <!-- select task -->
+                  <p>
+                    <label for="task_select">タスク名</label>
+                    <select class="form-control" id="task_select">
+                      <option>VEP</option>
+                      <option>Rubyの学習</option>
+                      <option>英単語をやる</option>
+                      <option>メールを返す</option>
+                      <option>TOEICを申し込む</option>
+                    </select>
+                  </p>
                     
-                    <!-- select name -->
-                    <p>
-                      <label for="name_select">作業者名</label>
-                      <select class="form-control" id="name_select">
-                        <option>一ノ瀬 智太</option>
-                        <option>佐々木拓真</option>
-                        <option>菅崎 葵</option>
-                        <option>佐藤 綾香</option>
-                        <option>佐藤 まや</option>
-                      </select>
-                    </p>
+                  <!-- select name -->
+                  <p>
+                    <label for="name_select">作業者名</label>
+                    <select class="form-control" id="name_select">
+                      <option>一ノ瀬 智太</option>
+                      <option>佐々木拓真</option>
+                      <option>菅崎 葵</option>
+                      <option>佐藤 綾香</option>
+                      <option>佐藤 まや</option>
+                    </select>
+                  </p>
                     
-                    <!-- input time -->
-                    <p>  
-                      <label for="time_select">作業した時間を入力</label>
-                      <div id="timepair">
-                        <input id="time_select" class="time start form-control" maxlength="8" type="text" />から
-                        <input class="time end form-control" maxlength="8" type="text" />
-                      </div>
-                    </p>
+                  <!-- input time -->
+                  <p>  
+                    <label for="time_select">作業した時間を入力</label>
+                    <div id="timepair">
+                      <input id="time_select" class="time start form-control" maxlength="8" type="text" />から
+                      <input class="time end form-control" maxlength="8" type="text" />
+                    </div>
+                  </p>
                     
-                    <!--  -->
-                    <p>  
-                      <label for="task_comment">学習内容や感想など</label>
-                      <textarea name="task_comment" class="form-control" row="2" placeholder="学習内容や感想" style="resize: none;"></textarea>
-                      <p class="help-block">※できるだけ他の人もわかるように書きましょう。</p>
-                    </p>
+                  <!-- input comment -->
+                  <p>  
+                    <label for="task_comment">学習内容や感想など</label>
+                    <textarea name="task_comment" class="form-control" row="2" placeholder="学習内容や感想" style="resize: none;"></textarea>
+                    <p class="help-block">※できるだけ他の人もわかるように書きましょう。</p>
+                  </p>
                     
-                    <p>
-                      <button type="button" class="btn btn-success">記録する</button>
-                    </p>
+                  <p>
+                    <button type="button" class="btn btn-success">記録する</button>
+                  </p>
 
-                  </div>
+                </div>
                     
-                </td>
-                </tr>
-              </tbody>
-          </table>
+              </td>
+            </tr>
+          </tbody>
+      </table>
         </div>
       </form>
 
@@ -115,26 +140,26 @@
                     </canvas>
                   </div>
                     
-                </td>
-                </tr>
-              </tbody>
-          </table>
-        </div>
-      </form>
-    </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </form>
+  </div>
 
     
 
-    <!-- footer -->
-    <div id="footer" class="container" style="background: yellow">footer</div>
+  <!-- footer -->
+  <div id="footer" class="container" style="background: yellow">footer</div>
 
-    <!-- javascriptの読み込み -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="timepicker-js/bootstrap-timepicker.min.js"></script>
-    <script src="http://momentjs.com/downloads/moment.js"></script>
-    <script src="Chart.js"></script>
-    <script>
+  <!-- javascriptの読み込み -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="timepicker-js/bootstrap-timepicker.min.js"></script>
+  <script src="http://momentjs.com/downloads/moment.js"></script>
+  <script src="Chart.js"></script>
+  <script>
 
       // 現在の日付を取得
       var m = moment();
@@ -255,6 +280,6 @@
 
       });
 
-    </script>
-  </body>
+  </script>
+</body>
 </html>
