@@ -6,6 +6,7 @@
 <%# データベース接続 %>
 <% dbh = DBI.connect('DBI:SQLite3:research_log.db') %>
 
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -55,55 +56,67 @@
   </nav>
 
     
-  <!-- main -->
-  <!-- main log -->
+  <!-- メインコンテンツ -->
+  <!-- メインコンテンツ 記録フォーム -->
   <div class="container" style="padding: 20px 0">
     <form>
       <div class="panel panel-default">
         <table class="table table-bordered">
           <thead>
-            <tr><th><span id="date">2015/06</span>の勉強を記録する</th></tr>
+            <tr><th><span id="date"></span>の勉強を記録する</th></tr>
           </thead>
           <tbody>
             <tr>
               <td>
-
                 <div class="form-group">
-                    
-                  <!-- select task -->
+
+
+
+                  <!-- タスクの選択 -->
                   <p>
                     <label for="task_select">タスク名</label>
                     <select class="form-control" id="task_select">
-                      <option>VEP</option>
-                      <option>Rubyの学習</option>
-                      <option>英単語をやる</option>
-                      <option>メールを返す</option>
-                      <option>TOEICを申し込む</option>
+
+<%# タスク名をデータベースから取り出す %>
+<% sth_task = dbh.execute("select task_name from tasks;") %>
+
+<% sth_task.each do |row_task| %>
+
+                      <option><%= "#{row_task["task_name"].to_s}".force_encoding("utf-8") %></option>
+                      
+<% end %>
+
                     </select>
                   </p>
                     
-                  <!-- select name -->
+                  <!-- ユーザ名の選択 -->
                   <p>
                     <label for="name_select">作業者名</label>
                     <select class="form-control" id="name_select">
-                      <option>一ノ瀬 智太</option>
-                      <option>佐々木拓真</option>
-                      <option>菅崎 葵</option>
-                      <option>佐藤 綾香</option>
-                      <option>佐藤 まや</option>
+
+
+<%# ユーザ名をデータベースから取り出す %>
+<% sth_name = dbh.execute("select user_name from users;") %>
+
+<% sth_name.each do |row_name| %>
+
+                      <option><%= "#{row_name["user_name"]}".force_encoding("utf-8") %></option>
+                     
+<% end %>
+
                     </select>
                   </p>
                     
-                  <!-- input time -->
+                  <!-- 時間の入力 -->
                   <p>  
                     <label for="time_select">作業した時間を入力</label>
                     <div id="timepair">
                       <input id="time_select" class="time start form-control" maxlength="8" type="text" />から
-                      <input class="time end form-control" maxlength="8" type="text" />
+                      <input class="time form-control" maxlength="8" type="text" />
                     </div>
                   </p>
                     
-                  <!-- input comment -->
+                  <!-- コメントの入力 -->
                   <p>  
                     <label for="task_comment">学習内容や感想など</label>
                     <textarea name="task_comment" class="form-control" row="2" placeholder="学習内容や感想" style="resize: none;"></textarea>
@@ -123,7 +136,7 @@
         </div>
       </form>
 
-      <!-- main graph -->
+      <!-- 記録のグラフ -->
       <form>
         <div class="panel panel-default">
           <table class="table table-bordered">
@@ -283,3 +296,11 @@
   </script>
 </body>
 </html>
+
+<%# 実行結果を開放する %>
+<% sth_task.finish %>
+<% sth_name.finish %>
+
+
+<%# データベースとの接続を終了する %>
+<% dbh.disconnect %>
