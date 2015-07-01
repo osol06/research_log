@@ -23,14 +23,6 @@ s = WEBrick::HTTPServer.new( config )
 # erbのMIMEタイプを設定
 s.config[:MimeTypes]["erb"] = "text/html"
 
-# indexページを呼び出す
-s.mount_proc("/") { |req, res|
-
-	template = ERB.new( File.read('index.erb'))
-	res.body << template.result(binding)
-
-}
-
 #Ctrl-C割り込みがあった場合にサーバーを停止する処理を登録しておく
 trap(:INT) do
 	s.shutdown
