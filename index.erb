@@ -22,6 +22,9 @@
   <!-- TimePickerの読み込み -->
   <link href="timepicker-css/bootstrap-timepicker.min.css" rel="stylesheet" type="text/css">
 
+  <!-- Custom styles for this template -->
+  <link href="sticky-footer.css" rel="stylesheet">
+
 </head>
 <body>
 
@@ -146,16 +149,24 @@
             <tbody>
               <tr>
                 <td>
+
+                  <!-- みんなの学習時間グラフ -->
                   <p>
+                    <h4><span class="label label-default">美馬研生の学習時間</span></h4><br>
                     <canvas id="chart1" style=" width: 100% !important; max-width: 800px; height: auto !important;">
                     </canvas>
                   </p>
+
                   <hr>
+
+                  <!-- みんなの学習カテゴリグラフ -->
                   <p>
+                    <h4><span class="label label-default">美馬研生の学習カテゴリ</span></h4><br>
                     <canvas id="chart2" style=" width: 100% !important; max-width: 800px; height: auto !important;">
                     </canvas>
                     <div id="pieLegend" ></div>
-                  </p>               
+                  </p>
+
               </td>
             </tr>
           </tbody>
@@ -167,7 +178,12 @@
     
 
   <!-- footer -->
-  <div id="footer" class="container" style="background: yellow">footer</div>
+  <footer class="footer" style="height: 40px; background-color: #000000;">
+    <div class="container" >
+      <p class="text-muted" style="padding: 5px;">Copyright (C) 2015 Takuma Sasaki ALL Right Reserved.</p>
+    </div>
+  </footer>
+
 
   <!-- javascriptの読み込み -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
