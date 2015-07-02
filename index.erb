@@ -154,6 +154,7 @@
                   <p>
                     <canvas id="chart2" style=" width: 100% !important; max-width: 800px; height: auto !important;">
                     </canvas>
+                    <div id="pieLegend" ></div>
                   </p>               
               </td>
             </tr>
@@ -186,8 +187,8 @@
         datasets : [
             {
               // グラフの描画設定
-              fillColor : "#00bfff",//面の色・透明度
-              strokeColor : "#00bfff",//線の色・透明度
+              fillColor : "#87CEFA",//面の色・透明度
+              strokeColor : "#87CEFA",//線の色・透明度
               pointColor : "#00bfff", //点の色・透明度
               pointStrokeColor : "#fff",//点の周りの色
               data : [65,59,90,81,56,55]//labelごとのデータ
@@ -275,34 +276,44 @@
       var ctx2 = $("#chart2").get(0).getContext("2d");
 
       // 円グラフのデータ
-      var data2 = [
+      var datasets = [
             {
-                value: 55,
-                color:"#CCCCCC"
+                value : 55,
+                color : "#4169E1",
+                fillColor : "#4169E1",
+                label : "プログラミング"
             },
             {
                 value : 15,
-                color : "#FF3366"
+                color : "#FF3366",
+                fillColor : "#FF3366",
+                label : "英語",
             },
             {
                 value : 15,
-                color : "#339999"
+                color : "#339999",
+                fillColor : "#339999",
+                label : "授業"
             },
             {
                 value : 15,
-                color : "#FF9933"
+                color : "#FF9933",
+                fillColor : "#FF9933",
+                label : "情報技術者試験"
             }
         ];
 
       // 円グラフの設定
-      var option2 ={
-          segmentStrokeColor : "#666",// 区切り線の色
-          segmentStrokeWidth : 5,     // 区切り線の太さ
-          animation : true       // アニメーション有無
+      var option2 = {
+
+          // アニメーション有無
+          animation : true
+
       };
 
       // 円グラフを描画する
-      var myNewChart2 = new Chart(ctx2).Pie(data2,option2);
+      var myNewChart2 = new Chart(ctx2).Pie(datasets,option2);
+      $("#pieLegend").html(myNewChart2.generateLegend());
      
 
    　　// 現在の日付を取得
