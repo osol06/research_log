@@ -146,13 +146,15 @@
             <tbody>
               <tr>
                 <td>
-
-                  <div class="form-group">
+                  <p>
                     <canvas id="chart1" style=" width: 100% !important; max-width: 800px; height: auto !important;">
-                      
                     </canvas>
-                  </div>
-                    
+                  </p>
+                  <hr>
+                  <p>
+                    <canvas id="chart2" style=" width: 100% !important; max-width: 800px; height: auto !important;">
+                    </canvas>
+                  </p>               
               </td>
             </tr>
           </tbody>
@@ -174,15 +176,11 @@
   <script src="Chart.js"></script>
   <script>
 
-      // 現在の日付を取得
-      var m = moment();
-      var date = m.format("YYYY年MM月DD日");
+      // 棒グラフを描画する処理
+      var ctx1 = $("#chart1").get(0).getContext("2d");
 
-      // グラフを描画する処理
-      var ctx = $("#chart1").get(0).getContext("2d");
-
-      // グラフのデータ
-      var data = {
+      // 棒グラフのデータ
+      var data1 = {
         // X軸のラベル
         labels : ["あおぽん","さとあや","まや","いちとも","たくま","こうしょう"],
         datasets : [
@@ -197,8 +195,8 @@
           ]
       };
 
-      // グラフの設定
-      var option = {
+      // 棒グラフの設定
+      var option1 = {
 
         // 値の開始値などを自分で設定するか
         scaleOverride : true,
@@ -258,27 +256,58 @@
 
          // 表示の時のアニメーション
         animation : true,
+
         // アニメーションの速度 ( ステップ数 )
         animationSteps : 60,
+
         // アニメーションの種類, 以下が用意されている
-        // linear, easeInQuad, easeOutQuad, easeInOutQuad, easeInCubic, easeOutCubic,
-        // easeInOutCubic, easeInQuart, easeOutQuart, easeInOutQuart, easeInQuint,
-        // easeOutQuint, easeInOutQuint, easeInSine, easeOutSine, easeInOutSine,
-        // easeInExpo, easeOutExpo, easeInOutExpo, easeInCirc, easeOutCirc, easeInOutCirc,
-        // easeInElastic, easeOutElastic, easeInOutElastic, easeInBack, easeOutBack,
-        // easeInOutBack, easeInBounce, easeOutBounce, easeInOutBounce
         animationEasing : "easeOutBounce",
+
         // アニメーション終了後に実行する処理
-        // animation: false の時にも実行されるようです
-        // e.g. onAnimationComplete : function() {alert('complete');}
         onAnimationComplete : null
         
       }
-      // グラフを描画する
-      var myNewChart = new Chart(ctx).Bar(data,option);
-      // optionは無くても描画可能
-      // var myNewChart = new Chart(ctx).Line(data);
-    
+
+      // 棒グラフを描画する
+      var myNewChart1 = new Chart(ctx1).Bar(data1,option1);
+
+      // 円グラフを描画する処理
+      var ctx2 = $("#chart2").get(0).getContext("2d");
+
+      // 円グラフのデータ
+      var data2 = [
+            {
+                value: 55,
+                color:"#CCCCCC"
+            },
+            {
+                value : 15,
+                color : "#FF3366"
+            },
+            {
+                value : 15,
+                color : "#339999"
+            },
+            {
+                value : 15,
+                color : "#FF9933"
+            }
+        ];
+
+      // 円グラフの設定
+      var option2 ={
+          segmentStrokeColor : "#666",// 区切り線の色
+          segmentStrokeWidth : 5,     // 区切り線の太さ
+          animation : true       // アニメーション有無
+      };
+
+      // 円グラフを描画する
+      var myNewChart2 = new Chart(ctx2).Pie(data2,option2);
+     
+
+   　　// 現在の日付を取得
+      var m = moment();
+      var date = m.format("YYYY年MM月DD日");
 
       $(function() {
 
