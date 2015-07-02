@@ -6,7 +6,6 @@
 <%# データベース接続 %>
 <% dbh = DBI.connect('DBI:SQLite3:research_log.db') %>
 
-
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -73,8 +72,6 @@
               <td>
                 <div class="form-group">
 
-
-
                   <!-- タスクの選択 -->
                   <p>
                     <label for="task_select">タスク名</label>
@@ -96,7 +93,6 @@
                   <p>
                     <label for="name_select">作業者名</label>
                     <select class="form-control" id="name_select">
-
 
 <%# ユーザ名をデータベースから取り出す %>
 <% sth_name = dbh.execute("select user_name from users;") %>
@@ -167,6 +163,15 @@
                     <div id="pieLegend" ></div>
                   </p>
 
+                  <hr>
+
+                  <!-- みんなの学習スタイルグラフ -->
+                  <p>
+                    <h4><span class="label label-default">美馬研生の学習スタイル</span></h4><br>
+                    <canvas id="chart3" style=" width: 100% !important; max-width: 800px; height: auto !important;">
+                    </canvas>
+                  </p>
+
               </td>
             </tr>
           </tbody>
@@ -192,6 +197,23 @@
   <script src="http://momentjs.com/downloads/moment.js"></script>
   <script src="Chart.js"></script>
   <script>
+
+      // 現在の日付を取得
+      var m = moment();
+      var date = m.format("YYYY年MM月DD日");
+
+      $(function() {
+
+        // 時間入力のUIを作成
+        $('#timepair .time').timepicker({
+          templare: 'modal'
+        });
+
+        // 現在の日付を表示
+        $("#date").html(date);
+        $("#graph_date").html(date);
+
+      });
 
       // 棒グラフを描画する処理
       var ctx1 = $("#chart1").get(0).getContext("2d");
@@ -292,7 +314,7 @@
       var ctx2 = $("#chart2").get(0).getContext("2d");
 
       // 円グラフのデータ
-      var datasets = [
+      var data2 = [
             {
                 value : 55,
                 color : "#4169E1",
@@ -328,26 +350,90 @@
       };
 
       // 円グラフを描画する
-      var myNewChart2 = new Chart(ctx2).Pie(datasets,option2);
+      var myNewChart2 = new Chart(ctx2).Pie(data2,option2);
       $("#pieLegend").html(myNewChart2.generateLegend());
-     
 
-   　　// 現在の日付を取得
-      var m = moment();
-      var date = m.format("YYYY年MM月DD日");
 
-      $(function() {
+      // レーダーチャート描画する処理
+      var ctx3 = $("#chart3").get(0).getContext("2d");
 
-        // 時間入力のUIを作成
-        $('#timepair .time').timepicker({
-          templare: 'modal'
-        });
+      // レーダーチャートのデータ
+      var data3 = {
+        labels: ["継続性", "勉強のバランス", "夜型", "天気が良いと勉強する", "一人で学習"],
+        datasets: [
+                  {
+                    fillColor : "rgba(255, 0, 51, 0.5)",
+                    strokeColor : "rgba(220, 220, 220, 1)",
+                    pointColor : "rgba(220, 220, 220, 1)",
+                    pointStrokeColor : "#fff",
+                    data : [1, 59, 90, 81, 56]
+                  },
+                  {
+                    fillColor : "rgba(0, 51, 255, 0.5)",
+                    strokeColor : "rgba(151, 187, 205, 1)",
+                    pointColor : "rgba(151, 187, 205, 1)",
+                    pointStrokeColor : "#fff",
+                    data : [28, 48, 40, 19, 96]
+                　},
+                  {
+                    fillColor : "rgba(102, 255, 0, 0.5)",
+                    strokeColor : "rgba(151, 187, 205, 1)",
+                    pointColor : "rgba(151, 187, 205, 1)",
+                    pointStrokeColor : "#fff",
+                    data : [33, 30, 40, 89, 96]
+                　},
+                  {
+                    fillColor : "rgba(255, 255, 102, 0.5)",
+                    strokeColor : "rgba(151, 187, 205, 1)",
+                    pointColor : "rgba(151, 187, 205, 1)",
+                    pointStrokeColor : "#fff",
+                    data : [28, 32, 40, 90, 96]
+                　},
+                  {
+                    fillColor : "rgba(255, 51, 204, 0.5)",
+                    strokeColor : "rgba(151, 187, 205, 1)",
+                    pointColor : "rgba(151, 187, 205, 1)",
+                    pointStrokeColor : "#fff",
+                    data : [20, 48, 40, 32, 70]
+                　},
+                  {
+                    fillColor : "rgba(255, 102, 0, 0.5)",
+                    strokeColor : "rgba(151, 187, 205, 1)",
+                    pointColor : "rgba(151, 187, 205, 1)",
+                    pointStrokeColor : "#fff",
+                    data : [55, 48, 90, 50, 96]
+                　},
+                  {
+                    fillColor : "rgba(0, 153, 0, 0.5)",
+                    strokeColor : "rgba(151, 187, 205, 1)",
+                    pointColor : "rgba(151, 187, 205, 1)",
+                    pointStrokeColor : "#fff",
+                    data : [28, 48, 30, 80, 33]
+                　}
+        ]
+      };
 
-        // 現在の日付を表示
-        $("#date").html(date);
-        $("#graph_date").html(date);
 
-      });
+      
+
+      // レーダーチャートの設定
+      var option3 = {
+
+            // 表示の時のアニメーション
+            animation : true,
+            // アニメーションの速度 ( ステップ数 )
+            animationSteps : 60,
+
+            animationEasing : "easeOutQuad",
+            // アニメーション終了後に実行する処理
+            // animation: false の時にも実行されるようです
+            // e.g. onAnimationComplete : function() {alert('complete');}
+            onAnimationComplete : null
+
+      };
+
+      // レーダーチャートを描画する
+      var myNewChart3 = new Chart(ctx3).Radar(data3,option3);
 
   </script>
 </body>
