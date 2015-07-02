@@ -1,0 +1,346 @@
+<%# -*- coding: utf-8 %>
+<%# 必要なライブラリの読み込み %>
+<% require 'rubygems' %>
+<% require 'dbi' %>
+
+<%# データベース接続 %>
+<% dbh = DBI.connect('DBI:SQLite3:research_log.db') %>
+
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <title>美馬研究室 研究記録</title>
+
+  <!-- BootStrapの読み込み -->
+  <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+
+  <!-- TimePickerの読み込み -->
+  <link href="timepicker-css/bootstrap-timepicker.min.css" rel="stylesheet" type="text/css">
+
+</head>
+<body>
+
+  <!-- ナビゲーション -->
+  <nav class="navbar navbar-inverse" role="navigation">
+    <div class="container">
+
+        <!-- ナビゲーションヘッダー -->
+        <div class="navbar-header">
+
+          <!-- スマホサイズになった時のボタンの設定 -->
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand text-info" href="index.html">美馬研究室　研究記録</a>
+
+        </div>
+
+        <!-- ナビゲーションの内容 -->
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="index.html">ホーム</a></li>
+            <li><a href="log.html">記録する</a></li>
+            <li><a href="graph.html">勉強ログ</a></li>
+          </ul>
+        </div>
+
+    </div>
+  </nav>
+
+    
+  <!-- メインコンテンツ -->
+  <!-- メインコンテンツ 記録フォーム -->
+  <div class="container" style="padding: 20px 0">
+    <form>
+      <div class="panel panel-default">
+        <table class="table table-bordered">
+          <thead>
+            <tr><th><span id="date"></span>の勉強を記録する</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <div class="form-group">
+
+
+
+                  <!-- タスクの選択 -->
+                  <p>
+                    <label for="task_select">タスク名</label>
+                    <select class="form-control" id="task_select">
+
+<%# タスク名をデータベースから取り出す %>
+<% sth_task = dbh.execute("select task_name from tasks;") %>
+
+<% sth_task.each do |row_task| %>
+
+                      <option><%= "#{row_task["task_name"].to_s}".force_encoding("utf-8") %></option>
+                      
+<% end %>
+
+                    </select>
+                  </p>
+                    
+                  <!-- ユーザ名の選択 -->
+                  <p>
+                    <label for="name_select">作業者名</label>
+                    <select class="form-control" id="name_select">
+
+
+<%# ユーザ名をデータベースから取り出す %>
+<% sth_name = dbh.execute("select user_name from users;") %>
+
+<% sth_name.each do |row_name| %>
+
+                      <option><%= "#{row_name["user_name"]}".force_encoding("utf-8") %></option>
+                     
+<% end %>
+
+                    </select>
+                  </p>
+                    
+                  <!-- 時間の入力 -->
+                  <p>  
+                    <label for="time_select">作業した時間を入力</label>
+                    <div id="timepair">
+                      <input id="time_select" class="time start form-control" maxlength="8" type="text" />から
+                      <input class="time form-control" maxlength="8" type="text" />
+                    </div>
+                  </p>
+                    
+                  <!-- コメントの入力 -->
+                  <p>  
+                    <label for="task_comment">学習内容や感想など</label>
+                    <textarea name="task_comment" class="form-control" row="2" placeholder="学習内容や感想" style="resize: none;"></textarea>
+                    <p class="help-block">※できるだけ他の人もわかるように書きましょう。</p>
+                  </p>
+                    
+                  <p>
+                    <button type="button" class="btn btn-success">記録する</button>
+                  </p>
+
+                </div>
+                    
+              </td>
+            </tr>
+          </tbody>
+      </table>
+        </div>
+      </form>
+
+      <!-- 記録のグラフ -->
+      <form>
+        <div class="panel panel-default">
+          <table class="table table-bordered">
+            <thead>
+              <tr><th><span id="graph_date"></span>の勉強状況</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <p>
+                    <canvas id="chart1" style=" width: 100% !important; max-width: 800px; height: auto !important;">
+                    </canvas>
+                  </p>
+                  <hr>
+                  <p>
+                    <canvas id="chart2" style=" width: 100% !important; max-width: 800px; height: auto !important;">
+                    </canvas>
+                    <div id="pieLegend" ></div>
+                  </p>               
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </form>
+  </div>
+
+    
+
+  <!-- footer -->
+  <div id="footer" class="container" style="background: yellow">footer</div>
+
+  <!-- javascriptの読み込み -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="timepicker-js/bootstrap-timepicker.min.js"></script>
+  <script src="http://momentjs.com/downloads/moment.js"></script>
+  <script src="Chart.js"></script>
+  <script>
+
+      // 棒グラフを描画する処理
+      var ctx1 = $("#chart1").get(0).getContext("2d");
+
+      // 棒グラフのデータ
+      var data1 = {
+        // X軸のラベル
+        labels : ["あおぽん","さとあや","まや","いちとも","たくま","こうしょう"],
+        datasets : [
+            {
+              // グラフの描画設定
+              fillColor : "#87CEFA",//面の色・透明度
+              strokeColor : "#87CEFA",//線の色・透明度
+              pointColor : "#00bfff", //点の色・透明度
+              pointStrokeColor : "#fff",//点の周りの色
+              data : [65,59,90,81,56,55]//labelごとのデータ
+            }
+          ]
+      };
+
+      // 棒グラフの設定
+      var option1 = {
+
+        // 値の開始値などを自分で設定するか
+        scaleOverride : true,
+
+        // y軸の値のステップ数
+        scaleSteps : 3,
+
+        // y軸のスッテプする大きさ
+        scaleStepWidth : 60,
+
+        // Y軸の値の始まりの値
+        scaleStartValue : 0,
+
+        // ラベルの表示 ( Y 軸の値 )
+        scaleShowLabels : true,
+        // ラベルの表示フォーマット ( Y 軸の値 )
+        //scaleLabel : "",
+        // X, Y 軸値のフォント
+        scaleFontFamily : "'Arial'",
+        // X, Y 軸値のフォントサイズ
+        scaleFontSize : 12,
+        // X, Y 軸値のフォントスタイル, normal, italic など
+        scaleFontStyle : "italic",
+        // X, Y 軸値の文字色
+        scaleFontColor : "#666",    
+
+
+        // Boolean - Whether the scale should start at zero, or an order of magnitude down from the lowest value
+        scaleBeginAtZero : true,
+
+        // Boolean - Whether grid lines are shown across the chart
+        scaleShowGridLines : true,
+
+        // String - Colour of the grid lines
+        scaleGridLineColor : "#c0c0c0",
+
+        // Number - Width of the grid lines
+        scaleGridLineWidth : 1,
+
+        // Boolean - Whether to show horizontal lines (except X axis)
+        scaleShowHorizontalLines: true,
+
+        // Boolean - Whether to show vertical lines (except Y axis)
+        scaleShowVerticalLines: true,
+
+        // Boolean - If there is a stroke on each bar
+        barShowStroke : true,
+
+        // Number - Pixel width of the bar stroke
+        barStrokeWidth : 2,
+
+        // Number - Spacing between each of the X value sets
+        barValueSpacing : 5,
+
+        // Number - Spacing between data sets within X values
+        barDatasetSpacing : 1,
+
+         // 表示の時のアニメーション
+        animation : true,
+
+        // アニメーションの速度 ( ステップ数 )
+        animationSteps : 60,
+
+        // アニメーションの種類, 以下が用意されている
+        animationEasing : "easeOutBounce",
+
+        // アニメーション終了後に実行する処理
+        onAnimationComplete : null
+        
+      }
+
+      // 棒グラフを描画する
+      var myNewChart1 = new Chart(ctx1).Bar(data1,option1);
+
+      // 円グラフを描画する処理
+      var ctx2 = $("#chart2").get(0).getContext("2d");
+
+      // 円グラフのデータ
+      var datasets = [
+            {
+                value : 55,
+                color : "#4169E1",
+                fillColor : "#4169E1",
+                label : "プログラミング"
+            },
+            {
+                value : 15,
+                color : "#FF3366",
+                fillColor : "#FF3366",
+                label : "英語",
+            },
+            {
+                value : 15,
+                color : "#339999",
+                fillColor : "#339999",
+                label : "授業"
+            },
+            {
+                value : 15,
+                color : "#FF9933",
+                fillColor : "#FF9933",
+                label : "情報技術者試験"
+            }
+        ];
+
+      // 円グラフの設定
+      var option2 = {
+
+          // アニメーション有無
+          animation : true
+
+      };
+
+      // 円グラフを描画する
+      var myNewChart2 = new Chart(ctx2).Pie(datasets,option2);
+      $("#pieLegend").html(myNewChart2.generateLegend());
+     
+
+   　　// 現在の日付を取得
+      var m = moment();
+      var date = m.format("YYYY年MM月DD日");
+
+      $(function() {
+
+        // 時間入力のUIを作成
+        $('#timepair .time').timepicker({
+          templare: 'modal'
+        });
+
+        // 現在の日付を表示
+        $("#date").html(date);
+        $("#graph_date").html(date);
+
+      });
+
+  </script>
+</body>
+</html>
+
+<%# 実行結果を開放する %>
+<% sth_task.finish %>
+<% sth_name.finish %>
+
+
+<%# データベースとの接続を終了する %>
+<% dbh.disconnect %>
