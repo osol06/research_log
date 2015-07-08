@@ -161,9 +161,9 @@
               </td>
             </tr>
           </tbody>
-      </table>
-        </div>
-      </form>
+        </table>
+      </div>
+    </form>
 
       <!-- 記録のグラフ -->
       <form>
@@ -303,9 +303,15 @@
 
   $(function () {
 
-    $('#datetimepicker_start').datetimepicker();
+    $('#datetimepicker_start').datetimepicker({
+        format: 'Y-m-d H:i',
+        lang: 'ja'
+    });
 
-    $('#datetimepicker_finish').datetimepicker();
+    $('#datetimepicker_finish').datetimepicker({
+        format: 'Y-m-d H:i',
+        lang: 'ja'
+    });
 
   });
       
