@@ -267,9 +267,6 @@
   </div>
 
 
-
-    
-
   <!-- footer -->
   <footer class="footer" style="height: 40px; background-color: #000000;">
     <div class="container" >
@@ -281,33 +278,35 @@
   <!-- javascriptの読み込み -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
+
+  <!-- ライブラリ -->
   <script src="timepicker-js/bootstrap-timepicker.min.js"></script>
   <script src="jquery.datetimepicker.js"></script>
   <script src="http://momentjs.com/downloads/moment.js"></script>
   <script src="Chart.js"></script>
+
+  <!-- 自分で書いたスクリプト -->
+  <script src="current_time.js"></script>
   <script>
 
+  // 現在の日付を取得
+  var m = moment();
+  var date = m.format("YYYY年MM月DD日");
+
+  
   // 現在の日付を取得して表示する無名関数
   $(function (){
 
-    // 現在の日付を取得して表示
-    var m = moment();
-    var date = m.format("YYYY年MM月DD日");
+    // 現在の日付を表示するメソッド
+    current_time(date);
 
-    // 現在の日付を表示
-    $("#date").html(date);
-    $("#graph_date").html(date);
-
-  });
-    
-
-  $(function () {
-
+    // 開始時間のUIの設定
     $('#datetimepicker_start').datetimepicker({
         format: 'Y-m-d H:i',
         lang: 'ja'
     });
 
+    // 終了時間のUIの設定
     $('#datetimepicker_finish').datetimepicker({
         format: 'Y-m-d H:i',
         lang: 'ja'
@@ -315,9 +314,6 @@
 
   });
       
-
-     
-
       // 棒グラフを描画する処理
       var ctx1 = $("#chart1").get(0).getContext("2d");
 
@@ -515,9 +511,6 @@
                 　}
         ]
       };
-
-
-      
 
       // レーダーチャートの設定
       var option3 = {
