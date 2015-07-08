@@ -1,4 +1,5 @@
 <%# -*- coding: utf-8 %>
+
 <%# 必要なライブラリの読み込み %>
 <% require 'rubygems' %>
 <% require 'dbi' %>
@@ -293,7 +294,7 @@
   var m = moment();
   var date = m.format("YYYY年MM月DD日");
 
-  
+
   // 現在の日付を取得して表示する無名関数
   $(function (){
 
@@ -312,25 +313,32 @@
         lang: 'ja'
     });
 
-  });
-      
-      // 棒グラフを描画する処理
-      var ctx1 = $("#chart1").get(0).getContext("2d");
+    // 棒グラフを描画する処理
+    var ctx1 = $("#chart1").get(0).getContext("2d");
 
-      // 棒グラフのデータ
-      var data1 = {
-        // X軸のラベル
-        labels : ["あおぽん","さとあや","まや","いちとも","たくま","こうしょう"],
-        datasets : [
-            {
-              // グラフの描画設定
-              fillColor : "#87CEFA",//面の色・透明度
-              strokeColor : "#87CEFA",//線の色・透明度
-              pointColor : "#00bfff", //点の色・透明度
-              pointStrokeColor : "#fff",//点の周りの色
-              data : [65,59,90,81,56,55]//labelごとのデータ
-            }
-          ]
+    // 棒グラフのデータ
+    var data1 = {
+      // X軸のラベル
+      labels : [
+        
+<%# ユーザ名をデータベースから取り出す %>
+<% sth_name_second = dbh.execute("select * from users;") %>
+<% sth_name_second.each do |row_name_second| %>
+
+"<%= "#{row_name_second["user_name"]}".force_encoding("utf-8") %>",
+                     
+<% end %>
+        ],
+      datasets : [
+          {
+            // グラフの描画設定
+            fillColor : "#87CEFA",//面の色・透明度
+            strokeColor : "#87CEFA",//線の色・透明度
+            pointColor : "#00bfff", //点の色・透明度
+            pointStrokeColor : "#fff",//点の周りの色
+            data : [65,59,90,81,56,55]//labelごとのデータ
+          }
+        ]
       };
 
       // 棒グラフの設定
@@ -408,6 +416,10 @@
 
       // 棒グラフを描画する
       var myNewChart1 = new Chart(ctx1).Bar(data1,option1);
+
+  });
+      
+
 
       // 円グラフを描画する処理
       var ctx2 = $("#chart2").get(0).getContext("2d");
@@ -538,6 +550,7 @@
 <%# 実行結果を開放する %>
 <% sth_name.finish %>
 <% sth_category.finish %>
+<% sth_name_second.finish %>
 
 
 <%# データベースとの接続を終了する %>
