@@ -120,6 +120,17 @@
                     </select>
                   </p>
 
+                  <!-- 学習環境の選択 -->
+                  <p style="margin: 15px 10px;">
+                    <label for="group_frag">学習環境</label>
+                    <select style="width:40%; min-width:250px;"class="form-control"  name="group_frag">
+
+                      <option value="0">個人での学習</option>
+                      <option value="1">グループでの学習</option>
+
+                    </select>
+                  </p>
+
                 
                   <!-- 作業時間の入力 -->
                   <p style="margin: 15px 10px;" > 
@@ -136,13 +147,13 @@
                     
                   <!-- コメントの入力 -->
                   <p style="margin: 15px 10px;" >  
-                    <label for="task_comment">学習内容や感想など</label>
-                    <textarea name="task_comment" class="form-control" row="2" placeholder="学習内容や感想" style="resize: none;"></textarea>
+                    <label for="comment">学習内容や感想など</label>
+                    <textarea name="comment" class="form-control" row="2" placeholder="学習内容や感想" style="resize: none;"></textarea>
                     <p class="help-block" style="margin-left: 10px;">※できるだけ他の人もわかるように書きましょう。</p>
                   </p>
                     
                   <p style="margin: 15px 10px;">
-                    <button type="button" class="btn btn-success">記録する</button>
+                    <button type="submit" class="btn btn-success">記録する</button>
                   </p>
 
                 </div>
