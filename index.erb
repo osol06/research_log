@@ -321,11 +321,11 @@
       labels : [
 
 <%# ユーザ名をデータベースから取り出す %>
-<% sth_name_second = dbh.execute("select * from users;") %>
+<% sth_name_second = dbh.execute("select user_name from users;") %>
 <% sth_name_second.each do |row_name_second| %>
 
             "<%= "#{row_name_second["user_name"]}".force_encoding("utf-8") %>",
-                     
+
 <% end %>
 
         ],
@@ -336,7 +336,27 @@
             strokeColor : "#87CEFA",//線の色・透明度
             pointColor : "#00bfff", //点の色・透明度
             pointStrokeColor : "#fff",//点の周りの色
-            data : [65,59,90,81,56,55]//labelごとのデータ
+            data : [
+
+
+<% # 各ユーザの本日の学習時間の合計を表示する処理  %>
+<% sth_name_third = dbh.execute("select user_id from users;") %>
+<% sth_name_third.each do |row_name_third| %>
+
+<%    # 各ユーザの本日の学習時間の合計 %>
+<%    sum = 0 %>
+<%    study_hours = dbh.execute("select (strftime('%s', tasks.finish_time) - strftime('%s', tasks.start_time)) / 60 from tasks where date('now') between date(start_time) and date(finish_time) and user_id = #{row_name_third["user_id"]};") %>
+<%    study_hours.each do |row| %>
+
+<%       sum = sum + row[0].to_i %>
+
+<%    end %>
+<%    puts sum%>
+<%=   sum %>,
+<%    study_hours.finish %>
+<% end %>
+
+            ]
           }
         ]
       };
@@ -348,10 +368,10 @@
         scaleOverride : true,
 
         // y軸の値のステップ数
-        scaleSteps : 3,
+        scaleSteps : 5,
 
         // y軸のスッテプする大きさ
-        scaleStepWidth : 60,
+        scaleStepWidth : 90,
 
         // Y軸の値の始まりの値
         scaleStartValue : 0,
@@ -359,7 +379,7 @@
         // ラベルの表示 ( Y 軸の値 )
         scaleShowLabels : true,
         // ラベルの表示フォーマット ( Y 軸の値 )
-        //scaleLabel : "",
+        scaleLabel : "%",
         // X, Y 軸値のフォント
         scaleFontFamily : "'Arial'",
         // X, Y 軸値のフォントサイズ
@@ -404,7 +424,7 @@
         animation : true,
 
         // アニメーションの速度 ( ステップ数 )
-        animationSteps : 60,
+        animationSteps : 100,
 
         // アニメーションの種類, 以下が用意されている
         animationEasing : "easeOutBounce",
@@ -551,6 +571,8 @@
 <% sth_name.finish %>
 <% sth_category.finish %>
 <% sth_name_second.finish %>
+<% sth_name_third.finish%>
+
 
 
 <%# データベースとの接続を終了する %>
