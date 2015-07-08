@@ -21,6 +21,9 @@
   <!-- TimePickerの読み込み -->
   <link href="timepicker-css/bootstrap-timepicker.min.css" rel="stylesheet" type="text/css">
 
+  <!-- DateTimePickerの読み込み -->
+  <link rel="stylesheet" type="text/css" href="jquery.datetimepicker.css"/ >
+
   <!-- Custom styles for this template -->
   <link href="sticky-footer.css" rel="stylesheet">
 
@@ -61,7 +64,9 @@
   <!-- メインコンテンツ -->
   <!-- メインコンテンツ 記録フォーム -->
   <div class="container" style="padding: 20px 0">
-    <form>
+
+    <!-- アクションはlog -->
+    <form method="post" action="log">
       <div class="panel panel-default">
         <table class="table table-bordered">
           <thead>
@@ -72,58 +77,83 @@
               <td>
                 <div class="form-group">
 
-                  <!-- タスクの選択 -->
-                  <p>
-                    <label for="task_select">タスク名</label>
-                    <select class="form-control" id="task_select">
 
-<%# タスク名をデータベースから取り出す %>
-<% sth_task = dbh.execute("select task_name from tasks;") %>
-
-<% sth_task.each do |row_task| %>
-
-                      <option><%= "#{row_task["task_name"].to_s}".force_encoding("utf-8") %></option>
-                      
-<% end %>
-
-                    </select>
-                  </p>
-                    
                   <!-- ユーザ名の選択 -->
-                  <p>
-                    <label for="name_select">作業者名</label>
-                    <select class="form-control" id="name_select">
+                  <p style="margin: 15px 10px;">
+                    <label for="user_select">作業者名</label>
+                    <select style="width:40%; min-width:250px;"class="form-control" id="name_select" name="user_id">
 
 <%# ユーザ名をデータベースから取り出す %>
-<% sth_name = dbh.execute("select user_name from users;") %>
+<% sth_name = dbh.execute("select * from users;") %>
 
 <% sth_name.each do |row_name| %>
 
-                      <option><%= "#{row_name["user_name"]}".force_encoding("utf-8") %></option>
+                      <option value="<%= row_name["user_id"] %>"><%= "#{row_name["user_name"]}".force_encoding("utf-8") %></option>
                      
 <% end %>
 
                     </select>
                   </p>
-                    
-                  <!-- 時間の入力 -->
-                  <p>  
-                    <label for="time_select">作業した時間を入力</label>
-                    <div id="timepair">
-                      <input id="time_select" class="time start form-control" maxlength="8" type="text" />から
-                      <input class="time form-control" maxlength="8" type="text" />
+
+
+                   <!-- タスク名の入力 -->
+                  <p style="margin: 15px 10px;" >
+                    <label for="task_name">タスク名</label>
+                    <input style="width:40%; min-width:250px;" type="text" class="form-control" name="task_name">
+                  </p>
+
+
+                  <!-- カテゴリーの選択 -->
+                  <p style="margin: 15px 10px;" >
+                    <label for="category_id">カテゴリー名</label>
+                    <select style="width:40%; min-width:250px;" class="form-control" id="task_select" name="category_id">
+
+<%# タスク名をデータベースから取り出す %>
+<% sth_category = dbh.execute("select * from categories;") %>
+
+<% sth_category.each do |row_category| %>
+
+                      <option value="<%= row_category["category_id"] %>"><%= "#{row_category["category_name"].to_s}".force_encoding("utf-8") %></option>
+                      
+<% end %>
+
+                    </select>
+                  </p>
+
+                  <!-- 学習環境の選択 -->
+                  <p style="margin: 15px 10px;">
+                    <label for="group_frag">学習環境</label>
+                    <select style="width:40%; min-width:250px;"class="form-control"  name="group_frag">
+
+                      <option value="0">個人での学習</option>
+                      <option value="1">グループでの学習</option>
+
+                    </select>
+                  </p>
+
+                
+                  <!-- 作業時間の入力 -->
+                  <p style="margin: 15px 10px;" > 
+                    <label for="start_time">作業した時間を入力</label>
+                    <div class="form-inline" style="margin:0px 0px 0px 10px;">
+                      <label>開始時間</label>
+                      <input id="datetimepicker_start" class="form-control" type="text" name="start_time" />
+                      <label>から</label>
+                      <input id="datetimepicker_finish" class="form-control" type="text" name="finish_time" />
+                      <label>まで</label>
                     </div>
                   </p>
+
                     
                   <!-- コメントの入力 -->
-                  <p>  
-                    <label for="task_comment">学習内容や感想など</label>
-                    <textarea name="task_comment" class="form-control" row="2" placeholder="学習内容や感想" style="resize: none;"></textarea>
-                    <p class="help-block">※できるだけ他の人もわかるように書きましょう。</p>
+                  <p style="margin: 15px 10px;" >  
+                    <label for="comment">学習内容や感想など</label>
+                    <textarea name="comment" class="form-control" row="2" placeholder="学習内容や感想" style="resize: none;"></textarea>
+                    <p class="help-block" style="margin-left: 10px;">※できるだけ他の人もわかるように書きましょう。</p>
                   </p>
                     
-                  <p>
-                    <button type="button" class="btn btn-success">記録する</button>
+                  <p style="margin: 15px 10px;">
+                    <button type="submit" class="btn btn-success">記録する</button>
                   </p>
 
                 </div>
@@ -131,9 +161,9 @@
               </td>
             </tr>
           </tbody>
-      </table>
-        </div>
-      </form>
+        </table>
+      </div>
+    </form>
 
       <!-- 記録のグラフ -->
       <form>
@@ -149,7 +179,7 @@
                   <!-- みんなの学習時間グラフ -->
                   <p>
                     <h4><span class="label label-default">美馬研生の学習時間</span></h4><br>
-                    <canvas id="chart1" style=" width: 100% !important; max-width: 800px; height: auto !important;">
+                    <canvas id="chart1" style=" width: 100% !important; max-width: 500px; height: auto !important;">
                     </canvas>
                   </p>
 
@@ -158,7 +188,7 @@
                   <!-- みんなの学習カテゴリグラフ -->
                   <p>
                     <h4><span class="label label-default">美馬研生の学習カテゴリ</span></h4><br>
-                    <canvas id="chart2" style=" width: 100% !important; max-width: 800px; height: auto !important;">
+                    <canvas id="chart2" style=" width: 100% !important; max-width: 500px; height: auto !important;">
                     </canvas>
                     <div id="pieLegend" ></div>
                   </p>
@@ -168,7 +198,7 @@
                   <!-- みんなの学習スタイルグラフ -->
                   <p>
                     <h4><span class="label label-default">美馬研生の学習スタイル</span></h4><br>
-                    <canvas id="chart3" style=" width: 100% !important; max-width: 800px; height: auto !important;">
+                    <canvas id="chart3" style=" width: 100% !important; max-width: 500px; height: auto !important;">
                     </canvas>
                   </p>
 
@@ -252,26 +282,41 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="timepicker-js/bootstrap-timepicker.min.js"></script>
+  <script src="jquery.datetimepicker.js"></script>
   <script src="http://momentjs.com/downloads/moment.js"></script>
   <script src="Chart.js"></script>
   <script>
 
-      // 現在の日付を取得
-      var m = moment();
-      var date = m.format("YYYY年MM月DD日");
+  // 現在の日付を取得して表示する無名関数
+  $(function (){
 
-      $(function() {
+    // 現在の日付を取得して表示
+    var m = moment();
+    var date = m.format("YYYY年MM月DD日");
 
-        // 時間入力のUIを作成
-        $('#timepair .time').timepicker({
-          templare: 'modal'
-        });
+    // 現在の日付を表示
+    $("#date").html(date);
+    $("#graph_date").html(date);
 
-        // 現在の日付を表示
-        $("#date").html(date);
-        $("#graph_date").html(date);
+  });
+    
 
-      });
+  $(function () {
+
+    $('#datetimepicker_start').datetimepicker({
+        format: 'Y-m-d H:i',
+        lang: 'ja'
+    });
+
+    $('#datetimepicker_finish').datetimepicker({
+        format: 'Y-m-d H:i',
+        lang: 'ja'
+    });
+
+  });
+      
+
+     
 
       // 棒グラフを描画する処理
       var ctx1 = $("#chart1").get(0).getContext("2d");
@@ -498,8 +543,8 @@
 </html>
 
 <%# 実行結果を開放する %>
-<% sth_task.finish %>
 <% sth_name.finish %>
+<% sth_category.finish %>
 
 
 <%# データベースとの接続を終了する %>
