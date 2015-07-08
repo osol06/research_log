@@ -21,6 +21,9 @@
   <!-- TimePickerの読み込み -->
   <link href="timepicker-css/bootstrap-timepicker.min.css" rel="stylesheet" type="text/css">
 
+  <!-- DateTimePickerの読み込み -->
+  <link rel="stylesheet" type="text/css" href="jquery.datetimepicker.css"/ >
+
   <!-- Custom styles for this template -->
   <link href="sticky-footer.css" rel="stylesheet">
 
@@ -76,7 +79,7 @@
 
 
                   <!-- ユーザ名の選択 -->
-                  <p>
+                  <p style="margin: 15px 10px;">
                     <label for="user_select">作業者名</label>
                     <select style="width:40%; min-width:250px;"class="form-control" id="name_select" name="user_id">
 
@@ -94,14 +97,14 @@
 
 
                    <!-- タスク名の入力 -->
-                  <p>
+                  <p style="margin: 15px 10px;" >
                     <label for="task_name">タスク名</label>
                     <input style="width:40%; min-width:250px;" type="text" class="form-control" name="task_name">
                   </p>
 
 
                   <!-- カテゴリーの選択 -->
-                  <p>
+                  <p style="margin: 15px 10px;" >
                     <label for="category_id">カテゴリー名</label>
                     <select style="width:40%; min-width:250px;" class="form-control" id="task_select" name="category_id">
 
@@ -118,23 +121,27 @@
                   </p>
 
                 
-                  <!-- 時間の入力 -->
-                  <p>  
-                    <label for="time_select">作業した時間を入力</label>
-                    <div id="timepair">
-                      <input id="time_select" class="time start form-control" maxlength="8" type="text" />から
-                      <input class="time form-control" maxlength="8" type="text" />
+                  <!-- 作業時間の入力 -->
+                  <p style="margin: 15px 10px;" > 
+                    <label for="start_time">作業した時間を入力</label>
+                    <div class="form-inline" style="margin:0px 0px 0px 10px;">
+                      <label>開始時間</label>
+                      <input id="datetimepicker_start" class="form-control" type="text" name="start_time" />
+                      <label>から</label>
+                      <input id="datetimepicker_finish" class="form-control" type="text" name="finish_time" />
+                      <label>まで</label>
                     </div>
                   </p>
+
                     
                   <!-- コメントの入力 -->
-                  <p>  
+                  <p style="margin: 15px 10px;" >  
                     <label for="task_comment">学習内容や感想など</label>
                     <textarea name="task_comment" class="form-control" row="2" placeholder="学習内容や感想" style="resize: none;"></textarea>
-                    <p class="help-block">※できるだけ他の人もわかるように書きましょう。</p>
+                    <p class="help-block" style="margin-left: 10px;">※できるだけ他の人もわかるように書きましょう。</p>
                   </p>
                     
-                  <p>
+                  <p style="margin: 15px 10px;">
                     <button type="button" class="btn btn-success">記録する</button>
                   </p>
 
@@ -264,23 +271,35 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="timepicker-js/bootstrap-timepicker.min.js"></script>
+  <script src="jquery.datetimepicker.js"></script>
   <script src="http://momentjs.com/downloads/moment.js"></script>
   <script src="Chart.js"></script>
   <script>
 
-      // 現在の日付を取得
-      var m = moment();
-      var date = m.format("YYYY年MM月DD日");
+  // 現在の日付を取得して表示する無名関数
+  $(function (){
 
-      // 時間入力のUIを作成
-      $('#timepair .time').timepicker({
-         templare: 'modal'
-      });
+    // 現在の日付を取得して表示
+    var m = moment();
+    var date = m.format("YYYY年MM月DD日");
 
-      // 現在の日付を表示
-      $("#date").html(date);
-      $("#graph_date").html(date);
+    // 現在の日付を表示
+    $("#date").html(date);
+    $("#graph_date").html(date);
 
+  });
+    
+
+  $(function () {
+
+    $('#datetimepicker_start').datetimepicker();
+
+    $('#datetimepicker_finish').datetimepicker();
+
+  });
+      
+
+     
 
       // 棒グラフを描画する処理
       var ctx1 = $("#chart1").get(0).getContext("2d");
