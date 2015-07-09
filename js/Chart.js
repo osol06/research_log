@@ -87,8 +87,9 @@
 			// Boolean - Whether to show labels on the scale
 			scaleShowLabels: true,
 
-			// Interpolated JS string - can access value
-			scaleLabel: "<%=value%>",
+			// Interpolated JS string - can access [value]
+			//Ｙ軸に分をつけるために書き換えた
+			scaleLabel: "<%=value%>分",
 
 			// Boolean - Whether the scale should stick to integers, and not show any floats even if drawing space is there
 			scaleIntegersOnly: true,

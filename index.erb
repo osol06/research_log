@@ -4,6 +4,9 @@
 <% require 'rubygems' %>
 <% require 'dbi' %>
 
+<%# 学習者の本日の合計時間を入れる配列 %>
+<% sumarray = Array.new() %>
+
 <%# データベース接続 %>
 <% dbh = DBI.connect('DBI:SQLite3:research_log.db') %>
 
@@ -351,7 +354,9 @@
 <%       sum = sum + row[0].to_i %>
 
 <%    end %>
-<%    puts sum%>
+<%#   デバック %>
+<%    puts sum %>
+<%    sumarray.push(sum) %>
 <%=   sum %>,
 <%    study_hours.finish %>
 <% end %>
@@ -368,19 +373,17 @@
         scaleOverride : true,
 
         // y軸の値のステップ数
-        scaleSteps : 5,
+        scaleSteps : 3,
 
         // y軸のスッテプする大きさ
-        scaleStepWidth : 90,
+        scaleStepWidth : <%= sumarray.max / 2.5 %>,
 
         // Y軸の値の始まりの値
         scaleStartValue : 0,
 
         // ラベルの表示 ( Y 軸の値 )
         scaleShowLabels : true,
-        // ラベルの表示フォーマット ( Y 軸の値 )
-        scaleLabel : "%",
-        // X, Y 軸値のフォント
+        
         scaleFontFamily : "'Arial'",
         // X, Y 軸値のフォントサイズ
         scaleFontSize : 12,
