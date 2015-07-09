@@ -320,7 +320,7 @@
       // X軸のラベル
       labels : [
 
-<%# ユーザ名をデータベースから取り出す %>
+<% # ユーザ名をデータベースから取り出す %>
 <% sth_name_second = dbh.execute("select user_name from users;") %>
 <% sth_name_second.each do |row_name_second| %>
 
