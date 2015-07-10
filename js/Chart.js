@@ -1156,6 +1156,7 @@
 				ctx.closePath();
 
 				ctx.strokeStyle = this.strokeColor;
+				
 				ctx.lineWidth = this.strokeWidth;
 
 				ctx.fillStyle = this.fillColor;
@@ -1261,8 +1262,12 @@
 
 			ctx.beginPath();
 
-			ctx.fillStyle = this.fillColor;
-			ctx.strokeStyle = this.strokeColor;
+			// 棒グラフ毎に色を変えるために書き換える
+			// ctx.fillStyle = this.fillColor;
+			// ctx.strokeStyle = this.strokeColor;
+			ctx.strokeStyle = this.strokeColor[this.index];
+			ctx.fillStyle = this.fillColor[this.index];
+
 			ctx.lineWidth = this.strokeWidth;
 
 			// It'd be nice to keep this class totally generic to any rectangle
@@ -2140,6 +2145,10 @@
 						datasetLabel: dataset.label,
 						strokeColor : dataset.strokeColor,
 						fillColor : dataset.fillColor,
+
+						//グラフ毎に色を設定できる用にコードを加える
+						index : index,
+
 						highlightFill : dataset.highlightFill || dataset.fillColor,
 						highlightStroke : dataset.highlightStroke || dataset.strokeColor
 					}));
