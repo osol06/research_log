@@ -222,48 +222,26 @@
         <tbody>
           <tr>
             <td>
+              <ul>
 
-              <!-- コメントの表示 -->
-              <ul class="media-list">
-
+<%# コメントとuser_idをデータベースから逆順で取り出す %>
+<% sth_comment = dbh.execute("select comment, user_id from tasks order by task_id desc;") %>
+<% sth_comment.first(10).each do |row_comment| %>
+  <% sth_image = dbh.select_one("select user_name, image_name from users where user_id = #{row_comment["user_id"]};") %>
                 <li class="media">
                   <!-- pull-right にすると、画像が右端に表示される -->
                   <a class="pull-left" href="#">
-                    <img class="media-object" src="images/ichitomo.jpg" alt="写真" width="70" height="70" >
+                    <img class="media-object" src="images/<%= "#{sth_image["image_name"]}" %>" alt="写真" width="100" height="100" >
                   </a>
                   <div class="media-body">
-                    <h4 class="media-heading">いちとも</h4>
-                    今日は英語をたくさん勉強しました。
+                    <h4 class="media-heading"> <%= "#{sth_image["user_name"]}".force_encoding("utf-8") %> </h4>
+                    <%= "#{row_comment["comment"]}".force_encoding("utf-8") %>
                   </div>
                 </li>
 
                 <hr>
 
-                <li class="media">
-                  <!-- pull-right にすると、画像が右端に表示される -->
-                  <a class="pull-left" href="#">
-                    <img class="media-object" src="images/boss.jpg" alt="写真" width="70" height="70" >
-                  </a>
-                  <div class="media-body">
-                    <h4 class="media-heading">ボス</h4>
-                    今日はプロジェクトに付き合わされました。
-                  </div>
-                </li>
-
-                <hr>
-
-                <li class="media">
-                  <!-- pull-right にすると、画像が右端に表示される -->
-                  <a class="pull-left" href="#">
-                    <img class="media-object" src="images/sasaki.jpg" alt="写真" width="70" height="70" >
-                  </a>
-                  <div class="media-body">
-                    <h4 class="media-heading">ささき</h4>
-                    今日はプログラムをたくさん書きました。
-                  </div>
-                </li>
-
-                <hr>
+<% end %>
 
               </ul>
 
@@ -339,8 +317,24 @@
       datasets : [
           {
             // グラフの描画設定
-            fillColor : "#888888",//面の色・透明度
-            strokeColor : "#87CEFA",//線の色・透明度
+            fillColor   : [
+              "rgba(131,170,206,0.5)",
+              "rgba(131,100,100,0.5)",
+              "rgba(110,185,255,0.5)",
+              "rgba(131,185,86,0.5)",
+              "rgba(246,133,124,0.5)",
+              "rgba(246,133,124,0.5)",
+              "rgba(206,195,73,0.5)"
+            ],
+            strokeColor : [
+              "rgba(131,185,206,1)",
+              "rgba(131,185,206,1)",
+              "rgba(131,185,206,1)",
+              "rgba(131,185,206,1)",
+              "rgba(246,133,124,1)",
+              "rgba(246,133,124,1)",
+              "rgba(206,195,73,1)"
+            ],
             pointColor : "#00bfff", //点の色・透明度
             pointStrokeColor : "#fff",//点の周りの色
             data : [
@@ -379,8 +373,8 @@
         // y軸の値のステップ数
         scaleSteps : 3,
 
-        // y軸のスッテプする大きさ
-        scaleStepWidth : <%= sumarray.max / 2.5 %>,
+        // y軸のステップする大きさ
+        scaleStepWidth : <%= sumarray.max / 2 %>,
 
         // Y軸の値の始まりの値
         scaleStartValue : 0,
@@ -578,8 +572,8 @@
 <% sth_name.finish %>
 <% sth_category.finish %>
 <% sth_name_second.finish %>
-<% sth_name_third.finish%>
-
+<% sth_name_third.finish %>
+<% sth_comment.finish %>
 
 
 <%# データベースとの接続を終了する %>
