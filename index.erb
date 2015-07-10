@@ -1,7 +1,11 @@
 <%# -*- coding: utf-8 %>
+
 <%# 必要なライブラリの読み込み %>
 <% require 'rubygems' %>
 <% require 'dbi' %>
+
+<%# 学習者の本日の合計時間を入れる配列 %>
+<% sumarray = Array.new() %>
 
 <%# データベース接続 %>
 <% dbh = DBI.connect('DBI:SQLite3:research_log.db') %>
@@ -22,7 +26,7 @@
   <link href="timepicker-css/bootstrap-timepicker.min.css" rel="stylesheet" type="text/css">
 
   <!-- DateTimePickerの読み込み -->
-  <link rel="stylesheet" type="text/css" href="jquery.datetimepicker.css"/ >
+  <link rel="stylesheet" type="text/css" href="datetimepicker/jquery.datetimepicker.css"/ >
 
   <!-- Custom styles for this template -->
   <link href="sticky-footer.css" rel="stylesheet">
@@ -221,40 +225,44 @@
 
               <!-- コメントの表示 -->
               <ul class="media-list">
+
                 <li class="media">
                   <!-- pull-right にすると、画像が右端に表示される -->
                   <a class="pull-left" href="#">
-                    <img class="media-object" src="ichitomo.jpg" alt="写真" width="70" height="70" >
+                    <img class="media-object" src="images/ichitomo.jpg" alt="写真" width="70" height="70" >
                   </a>
                   <div class="media-body">
                     <h4 class="media-heading">いちとも</h4>
                     今日は英語をたくさん勉強しました。
                   </div>
                 </li>
+
                 <hr>
 
                 <li class="media">
                   <!-- pull-right にすると、画像が右端に表示される -->
                   <a class="pull-left" href="#">
-                    <img class="media-object" src="boss.jpg" alt="写真" width="70" height="70" >
+                    <img class="media-object" src="images/boss.jpg" alt="写真" width="70" height="70" >
                   </a>
                   <div class="media-body">
                     <h4 class="media-heading">ボス</h4>
                     今日はプロジェクトに付き合わされました。
                   </div>
                 </li>
+
                 <hr>
 
                 <li class="media">
                   <!-- pull-right にすると、画像が右端に表示される -->
                   <a class="pull-left" href="#">
-                    <img class="media-object" src="sasaki.jpg" alt="写真" width="70" height="70" >
+                    <img class="media-object" src="images/sasaki.jpg" alt="写真" width="70" height="70" >
                   </a>
                   <div class="media-body">
                     <h4 class="media-heading">ささき</h4>
                     今日はプログラムをたくさん書きました。
                   </div>
                 </li>
+
                 <hr>
 
               </ul>
@@ -267,9 +275,6 @@
   </div>
 
 
-
-    
-
   <!-- footer -->
   <footer class="footer" style="height: 40px; background-color: #000000;">
     <div class="container" >
@@ -281,60 +286,88 @@
   <!-- javascriptの読み込み -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
-  <script src="timepicker-js/bootstrap-timepicker.min.js"></script>
-  <script src="jquery.datetimepicker.js"></script>
+
+  <!-- ライブラリ -->
+  <script src="datetimepicker/jquery.datetimepicker.js"></script>
   <script src="http://momentjs.com/downloads/moment.js"></script>
-  <script src="Chart.js"></script>
+  <script src="js/Chart.js"></script>
+
+  <!-- 自分で書いたスクリプト -->
+  <script src="js/current_time.js"></script>
   <script>
+
+  // 現在の日付を取得
+  var m = moment();
+  var date = m.format("YYYY年MM月DD日");
+
 
   // 現在の日付を取得して表示する無名関数
   $(function (){
 
-    // 現在の日付を取得して表示
-    var m = moment();
-    var date = m.format("YYYY年MM月DD日");
+    // 現在の日付を表示するメソッド
+    current_time(date);
 
-    // 現在の日付を表示
-    $("#date").html(date);
-    $("#graph_date").html(date);
-
-  });
-    
-
-  $(function () {
-
+    // 開始時間のUIの設定
     $('#datetimepicker_start').datetimepicker({
         format: 'Y-m-d H:i',
         lang: 'ja'
     });
 
+    // 終了時間のUIの設定
     $('#datetimepicker_finish').datetimepicker({
         format: 'Y-m-d H:i',
         lang: 'ja'
     });
 
-  });
-      
+    // 棒グラフを描画する処理
+    var ctx1 = $("#chart1").get(0).getContext("2d");
 
-     
+    // 棒グラフのデータ
+    var data1 = {
+      // X軸のラベル
+      labels : [
 
-      // 棒グラフを描画する処理
-      var ctx1 = $("#chart1").get(0).getContext("2d");
+<% # ユーザ名をデータベースから取り出す %>
+<% sth_name_second = dbh.execute("select user_name from users;") %>
+<% sth_name_second.each do |row_name_second| %>
 
-      // 棒グラフのデータ
-      var data1 = {
-        // X軸のラベル
-        labels : ["あおぽん","さとあや","まや","いちとも","たくま","こうしょう"],
-        datasets : [
-            {
-              // グラフの描画設定
-              fillColor : "#87CEFA",//面の色・透明度
-              strokeColor : "#87CEFA",//線の色・透明度
-              pointColor : "#00bfff", //点の色・透明度
-              pointStrokeColor : "#fff",//点の周りの色
-              data : [65,59,90,81,56,55]//labelごとのデータ
-            }
-          ]
+            "<%= "#{row_name_second["user_name"]}".force_encoding("utf-8") %>",
+
+<% end %>
+
+        ],
+      datasets : [
+          {
+            // グラフの描画設定
+            fillColor : "#888888",//面の色・透明度
+            strokeColor : "#87CEFA",//線の色・透明度
+            pointColor : "#00bfff", //点の色・透明度
+            pointStrokeColor : "#fff",//点の周りの色
+            data : [
+
+
+<% # 各ユーザの本日の学習時間の合計を表示する処理  %>
+<% sth_name_third = dbh.execute("select user_id from users;") %>
+<% sth_name_third.each do |row_name_third| %>
+
+<%    # 各ユーザの本日の学習時間の合計 %>
+<%    sum = 0 %>
+<%    study_hours = dbh.execute("select (strftime('%s', tasks.finish_time) - strftime('%s', tasks.start_time)) / 60 from tasks where date('now') between date(start_time) and date(finish_time) and user_id = #{row_name_third["user_id"]};") %>
+<%    study_hours.each do |row| %>
+
+<%       sum = sum + row[0].to_i %>
+
+<%    end %>
+<%#   デバック %>
+<%    puts sum %>
+<%    sumarray.push(sum) %>
+<%=   sum %>,
+<%    study_hours.finish %>
+<% end %>
+
+            ]
+          }
+        ]
       };
 
       // 棒グラフの設定
@@ -347,16 +380,14 @@
         scaleSteps : 3,
 
         // y軸のスッテプする大きさ
-        scaleStepWidth : 60,
+        scaleStepWidth : <%= sumarray.max / 2.5 %>,
 
         // Y軸の値の始まりの値
         scaleStartValue : 0,
 
         // ラベルの表示 ( Y 軸の値 )
         scaleShowLabels : true,
-        // ラベルの表示フォーマット ( Y 軸の値 )
-        //scaleLabel : "",
-        // X, Y 軸値のフォント
+        
         scaleFontFamily : "'Arial'",
         // X, Y 軸値のフォントサイズ
         scaleFontSize : 12,
@@ -400,7 +431,7 @@
         animation : true,
 
         // アニメーションの速度 ( ステップ数 )
-        animationSteps : 60,
+        animationSteps : 100,
 
         // アニメーションの種類, 以下が用意されている
         animationEasing : "easeOutBounce",
@@ -412,6 +443,10 @@
 
       // 棒グラフを描画する
       var myNewChart1 = new Chart(ctx1).Bar(data1,option1);
+
+  });
+      
+
 
       // 円グラフを描画する処理
       var ctx2 = $("#chart2").get(0).getContext("2d");
@@ -516,9 +551,6 @@
         ]
       };
 
-
-      
-
       // レーダーチャートの設定
       var option3 = {
 
@@ -545,6 +577,9 @@
 <%# 実行結果を開放する %>
 <% sth_name.finish %>
 <% sth_category.finish %>
+<% sth_name_second.finish %>
+<% sth_name_third.finish%>
+
 
 
 <%# データベースとの接続を終了する %>
