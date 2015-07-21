@@ -1,0 +1,25 @@
+localhost - - [21/Jul/2015:11:58:12 JST] "GET / HTTP/1.1" 200 1582 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.134 Safari/537.36"
+localhost - - [21/Jul/2015:11:58:14 JST] "GET /index.erb HTTP/1.1" 200 23073 "http://localhost:8099/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.134 Safari/537.36"
+localhost - - [21/Jul/2015:11:58:14 JST] "GET /timepicker-css/bootstrap-timepicker.min.css HTTP/1.1" 404 313 "http://localhost:8099/index.erb" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.134 Safari/537.36"
+localhost - - [21/Jul/2015:11:58:14 JST] "GET /sticky-footer.css HTTP/1.1" 404 287 "http://localhost:8099/index.erb" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.134 Safari/537.36"
+localhost - - [21/Jul/2015:11:59:27 JST] "GET / HTTP/1.1" 200 1582 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.134 Safari/537.36"
+localhost - - [21/Jul/2015:11:59:29 JST] "GET /index.erb HTTP/1.1" 200 23073 "http://localhost:8099/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.134 Safari/537.36"
+localhost - - [21/Jul/2015:11:59:29 JST] "GET /timepicker-css/bootstrap-timepicker.min.css HTTP/1.1" 404 313 "http://localhost:8099/index.erb" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.134 Safari/537.36"
+localhost - - [21/Jul/2015:11:59:29 JST] "GET /sticky-footer.css HTTP/1.1" 404 287 "http://localhost:8099/index.erb" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.134 Safari/537.36"
+localhost - - [21/Jul/2015:12:00:44 JST] "GET / HTTP/1.1" 200 1582
+localhost - - [21/Jul/2015:12:00:46 JST] "GET /index.erb HTTP/1.1" 200 23073
+localhost - - [21/Jul/2015:12:00:46 JST] "GET /sticky-footer.css HTTP/1.1" 404 287
+localhost - - [21/Jul/2015:12:00:46 JST] "GET /timepicker-css/bootstrap-timepicker.min.css HTTP/1.1" 404 313
+localhost - - [21/Jul/2015:12:01:42 JST] "GET / HTTP/1.1" 200 1582
+localhost - - [21/Jul/2015:12:01:43 JST] "GET / HTTP/1.1" 200 1582
+localhost - - [21/Jul/2015:12:01:46 JST] "GET /index.erb HTTP/1.1" 200 23073
+localhost - - [21/Jul/2015:12:01:46 JST] "GET /timepicker-css/bootstrap-timepicker.min.css HTTP/1.1" 404 313
+localhost - - [21/Jul/2015:12:01:46 JST] "GET /sticky-footer.css HTTP/1.1" 404 287
+localhost - - [21/Jul/2015:12:01:58 JST] "GET / HTTP/1.1" 200 1582
+localhost - - [21/Jul/2015:12:02:04 JST] "GET /index.erb HTTP/1.1" 200 23073
+localhost - - [21/Jul/2015:12:02:04 JST] "GET /timepicker-css/bootstrap-timepicker.min.css HTTP/1.1" 404 313
+localhost - - [21/Jul/2015:12:02:04 JST] "GET /sticky-footer.css HTTP/1.1" 404 287
+localhost - - [21/Jul/2015:12:02:26 JST] "GET / HTTP/1.1" 200 1582
+localhost - - [21/Jul/2015:12:02:28 JST] "GET /index.erb HTTP/1.1" 200 23073
+localhost - - [21/Jul/2015:12:02:28 JST] "GET /timepicker-css/bootstrap-timepicker.min.css HTTP/1.1" 404 313
+localhost - - [21/Jul/2015:12:02:28 JST] "GET /sticky-footer.css HTTP/1.1" 404 287
