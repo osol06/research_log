@@ -12,8 +12,8 @@ require 'dbi'
 config = {
 	:Port => 8099,
 	:DocumentRoot => '.',
-	:AccessLog => [[ File.open("./logs/access_log", "a"), WEBrick::AccessLog::COMBINED_LOG_FORMAT ]],
-  	:Logger => WEBrick::Log::new("./logs/log",WEBrick::Log::DEBUG),
+	:AccessLog => [[ File.open("./logs/access_log", "a"), WEBrick::AccessLog::COMBINED_LOG_FORMAT ]],# アクセスログの出力
+  	:Logger => WEBrick::Log::new("./logs/log",WEBrick::Log::DEBUG),# サーバログの出力
 }
 
 # 拡張子erbのファイルをERBを呼び出して処理するERBHandlerと関連付ける
