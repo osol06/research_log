@@ -1,0 +1,312 @@
+[2015-07-21 11:46:38] INFO  WEBrick 1.3.1
+[2015-07-21 11:46:38] INFO  ruby 2.0.0 (2014-05-08) [universal.x86_64-darwin14]
+[2015-07-21 11:46:38] DEBUG TCPServer.new(0.0.0.0, 8099)
+[2015-07-21 11:46:38] DEBUG TCPServer.new(::, 8099)
+[2015-07-21 11:46:38] DEBUG WEBrick::HTTPServlet::FileHandler is mounted on /.
+[2015-07-21 11:46:38] DEBUG #<WEBrick::HTTPServlet::ProcHandler:0x007fd153a4a408 @proc=#<Proc:0x007fd153a4a430@server.rb:30>> is mounted on /log.
+[2015-07-21 11:46:38] INFO  WEBrick::HTTPServer#start: pid=2477 port=8099
+[2015-07-21 11:46:51] DEBUG accept: ::1:52948
+[2015-07-21 11:46:51] DEBUG accept: ::1:52949
+[2015-07-21 11:46:51] DEBUG accept: ::1:52950
+[2015-07-21 11:46:51] DEBUG accept: ::1:52952
+[2015-07-21 11:46:51] DEBUG accept: ::1:52951
+[2015-07-21 11:46:51] DEBUG accept: ::1:52953
+[2015-07-21 11:46:52] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-21 11:47:01] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-21 11:47:05] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-21 11:47:05] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-21 11:47:05] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-21 11:47:05] ERROR `/timepicker-css/bootstrap-timepicker.min.css' not found.
+[2015-07-21 11:47:05] ERROR `/sticky-footer.css' not found.
+[2015-07-21 11:47:05] DEBUG close: ::1:52948
+[2015-07-21 11:47:05] DEBUG close: ::1:52949
+[2015-07-21 11:47:11] DEBUG close: ::1:52950
+[2015-07-21 11:47:11] DEBUG close: ::1:52951
+[2015-07-21 11:47:11] DEBUG close: ::1:52953
+[2015-07-21 11:47:11] DEBUG close: ::1:52952
+[2015-07-21 11:52:43] DEBUG close TCPSocket(0.0.0.0, 8099)
+[2015-07-21 11:52:43] DEBUG close TCPSocket(::, 8099)
+[2015-07-21 11:52:43] INFO  going to shutdown ...
+[2015-07-21 11:52:43] INFO  WEBrick::HTTPServer#start done.
+[2015-07-21 11:52:44] INFO  WEBrick 1.3.1
+[2015-07-21 11:52:44] INFO  ruby 2.0.0 (2014-05-08) [universal.x86_64-darwin14]
+[2015-07-21 11:52:44] DEBUG TCPServer.new(0.0.0.0, 8099)
+[2015-07-21 11:52:44] DEBUG TCPServer.new(::, 8099)
+[2015-07-21 11:52:44] DEBUG WEBrick::HTTPServlet::FileHandler is mounted on /.
+[2015-07-21 11:52:44] DEBUG #<WEBrick::HTTPServlet::ProcHandler:0x007fe8a3842388 @proc=#<Proc:0x007fe8a38423b0@server.rb:30>> is mounted on /log.
+[2015-07-21 11:52:44] INFO  WEBrick::HTTPServer#start: pid=2503 port=8099
+[2015-07-21 11:52:49] DEBUG accept: ::1:53086
+[2015-07-21 11:52:49] DEBUG accept: ::1:53087
+[2015-07-21 11:52:49] DEBUG accept: ::1:53090
+[2015-07-21 11:52:49] DEBUG accept: ::1:53088
+[2015-07-21 11:52:49] DEBUG accept: ::1:53089
+[2015-07-21 11:52:49] DEBUG accept: ::1:53091
+[2015-07-21 11:52:50] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-21 11:52:53] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-21 11:52:53] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-21 11:52:53] ERROR `/timepicker-css/bootstrap-timepicker.min.css' not found.
+[2015-07-21 11:52:53] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-21 11:52:53] ERROR `/sticky-footer.css' not found.
+[2015-07-21 11:52:53] DEBUG close: ::1:53086
+[2015-07-21 11:52:53] DEBUG close: ::1:53087
+[2015-07-21 11:53:02] DEBUG close: ::1:53088
+[2015-07-21 11:53:02] DEBUG close: ::1:53091
+[2015-07-21 11:53:02] DEBUG close: ::1:53089
+[2015-07-21 11:53:02] DEBUG close: ::1:53090
+[2015-07-21 11:53:13] DEBUG close TCPSocket(0.0.0.0, 8099)
+[2015-07-21 11:53:13] DEBUG close TCPSocket(::, 8099)
+[2015-07-21 11:53:13] INFO  going to shutdown ...
+[2015-07-21 11:53:13] INFO  WEBrick::HTTPServer#start done.
+[2015-07-21 11:54:08] INFO  WEBrick 1.3.1
+[2015-07-21 11:54:08] INFO  ruby 2.0.0 (2014-05-08) [universal.x86_64-darwin14]
+[2015-07-21 11:54:08] DEBUG TCPServer.new(0.0.0.0, 8099)
+[2015-07-21 11:54:08] DEBUG TCPServer.new(::, 8099)
+[2015-07-21 11:54:08] DEBUG WEBrick::HTTPServlet::FileHandler is mounted on /.
+[2015-07-21 11:54:08] DEBUG #<WEBrick::HTTPServlet::ProcHandler:0x007fdf2a926358 @proc=#<Proc:0x007fdf2a926380@server.rb:30>> is mounted on /log.
+[2015-07-21 11:54:08] INFO  WEBrick::HTTPServer#start: pid=2711 port=8099
+[2015-07-21 11:54:12] DEBUG accept: ::1:53113
+[2015-07-21 11:54:12] DEBUG accept: ::1:53114
+[2015-07-21 11:54:12] DEBUG accept: ::1:53115
+[2015-07-21 11:54:12] DEBUG accept: ::1:53116
+[2015-07-21 11:54:12] DEBUG accept: ::1:53117
+[2015-07-21 11:54:12] DEBUG accept: ::1:53118
+[2015-07-21 11:54:12] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-21 11:54:14] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-21 11:54:14] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-21 11:54:14] ERROR `/timepicker-css/bootstrap-timepicker.min.css' not found.
+[2015-07-21 11:54:14] DEBUG close: ::1:53113
+[2015-07-21 11:54:14] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-21 11:54:14] ERROR `/sticky-footer.css' not found.
+[2015-07-21 11:54:14] DEBUG close: ::1:53114
+[2015-07-21 11:54:23] DEBUG close: ::1:53118
+[2015-07-21 11:54:23] DEBUG close: ::1:53117
+[2015-07-21 11:54:23] DEBUG close: ::1:53116
+[2015-07-21 11:54:23] DEBUG close: ::1:53115
+[2015-07-21 11:54:44] DEBUG accept: ::1:53121
+[2015-07-21 11:54:44] DEBUG WEBrick::HTTPServlet::ProcHandler is invoked.
+[2015-07-21 11:54:44] DEBUG accept: ::1:53122
+[2015-07-21 11:54:44] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-21 11:54:44] ERROR `/timepicker-css/bootstrap-timepicker.min.css' not found.
+[2015-07-21 11:54:44] DEBUG close: ::1:53121
+[2015-07-21 11:54:44] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-21 11:54:44] ERROR `/sticky-footer.css' not found.
+[2015-07-21 11:54:44] DEBUG close: ::1:53122
+[2015-07-21 11:55:23] DEBUG accept: ::1:53124
+[2015-07-21 11:55:23] DEBUG accept: ::1:53125
+[2015-07-21 11:55:23] DEBUG accept: ::1:53126
+[2015-07-21 11:55:23] DEBUG accept: ::1:53127
+[2015-07-21 11:55:23] DEBUG accept: ::1:53128
+[2015-07-21 11:55:23] DEBUG accept: ::1:53129
+[2015-07-21 11:55:23] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-21 11:55:25] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-21 11:55:25] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-21 11:55:25] ERROR `/sticky-footer.css' not found.
+[2015-07-21 11:55:25] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-21 11:55:25] ERROR `/timepicker-css/bootstrap-timepicker.min.css' not found.
+[2015-07-21 11:55:25] DEBUG close: ::1:53125
+[2015-07-21 11:55:25] DEBUG close: ::1:53124
+[2015-07-21 11:55:43] DEBUG close: ::1:53127
+[2015-07-21 11:55:43] DEBUG close: ::1:53126
+[2015-07-21 11:55:43] DEBUG close: ::1:53128
+[2015-07-21 11:55:43] DEBUG close: ::1:53129
+[2015-07-21 11:57:50] DEBUG close TCPSocket(0.0.0.0, 8099)
+[2015-07-21 11:57:50] DEBUG close TCPSocket(::, 8099)
+[2015-07-21 11:57:50] INFO  going to shutdown ...
+[2015-07-21 11:57:50] INFO  WEBrick::HTTPServer#start done.
+[2015-07-21 11:58:03] INFO  WEBrick 1.3.1
+[2015-07-21 11:58:03] INFO  ruby 2.0.0 (2014-05-08) [universal.x86_64-darwin14]
+[2015-07-21 11:58:03] DEBUG TCPServer.new(0.0.0.0, 8099)
+[2015-07-21 11:58:03] DEBUG TCPServer.new(::, 8099)
+[2015-07-21 11:58:03] DEBUG WEBrick::HTTPServlet::FileHandler is mounted on /.
+[2015-07-21 11:58:03] DEBUG #<WEBrick::HTTPServlet::ProcHandler:0x007fc03a9a2368 @proc=#<Proc:0x007fc03a9a2390@server.rb:30>> is mounted on /log.
+[2015-07-21 11:58:03] INFO  WEBrick::HTTPServer#start: pid=2754 port=8099
+[2015-07-21 11:58:12] DEBUG accept: ::1:53163
+[2015-07-21 11:58:12] DEBUG accept: ::1:53164
+[2015-07-21 11:58:12] DEBUG accept: ::1:53165
+[2015-07-21 11:58:12] DEBUG accept: ::1:53167
+[2015-07-21 11:58:12] DEBUG accept: ::1:53166
+[2015-07-21 11:58:12] DEBUG accept: ::1:53168
+[2015-07-21 11:58:12] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-21 11:58:14] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-21 11:58:14] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-21 11:58:14] ERROR `/timepicker-css/bootstrap-timepicker.min.css' not found.
+[2015-07-21 11:58:14] DEBUG close: ::1:53163
+[2015-07-21 11:58:14] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-21 11:58:14] ERROR `/sticky-footer.css' not found.
+[2015-07-21 11:58:14] DEBUG close: ::1:53164
+[2015-07-21 11:58:22] DEBUG close: ::1:53167
+[2015-07-21 11:58:22] DEBUG close: ::1:53168
+[2015-07-21 11:58:22] DEBUG close: ::1:53166
+[2015-07-21 11:58:22] DEBUG close: ::1:53165
+[2015-07-21 11:59:22] DEBUG close TCPSocket(0.0.0.0, 8099)
+[2015-07-21 11:59:22] DEBUG close TCPSocket(::, 8099)
+[2015-07-21 11:59:22] INFO  going to shutdown ...
+[2015-07-21 11:59:22] INFO  WEBrick::HTTPServer#start done.
+[2015-07-21 11:59:23] INFO  WEBrick 1.3.1
+[2015-07-21 11:59:23] INFO  ruby 2.0.0 (2014-05-08) [universal.x86_64-darwin14]
+[2015-07-21 11:59:23] DEBUG TCPServer.new(0.0.0.0, 8099)
+[2015-07-21 11:59:23] DEBUG TCPServer.new(::, 8099)
+[2015-07-21 11:59:23] DEBUG WEBrick::HTTPServlet::FileHandler is mounted on /.
+[2015-07-21 11:59:23] DEBUG #<WEBrick::HTTPServlet::ProcHandler:0x007f9513a76340 @proc=#<Proc:0x007f9513a76368@server.rb:30>> is mounted on /log.
+[2015-07-21 11:59:23] INFO  WEBrick::HTTPServer#start: pid=2771 port=8099
+[2015-07-21 11:59:27] DEBUG accept: ::1:53175
+[2015-07-21 11:59:27] DEBUG accept: ::1:53176
+[2015-07-21 11:59:27] DEBUG accept: ::1:53178
+[2015-07-21 11:59:27] DEBUG accept: ::1:53177
+[2015-07-21 11:59:27] DEBUG accept: ::1:53179
+[2015-07-21 11:59:27] DEBUG accept: ::1:53180
+[2015-07-21 11:59:27] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-21 11:59:29] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-21 11:59:29] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-21 11:59:29] ERROR `/timepicker-css/bootstrap-timepicker.min.css' not found.
+[2015-07-21 11:59:29] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-21 11:59:29] ERROR `/sticky-footer.css' not found.
+[2015-07-21 11:59:29] DEBUG close: ::1:53175
+[2015-07-21 11:59:29] DEBUG close: ::1:53176
+[2015-07-21 11:59:37] DEBUG close: ::1:53177
+[2015-07-21 11:59:37] DEBUG close: ::1:53179
+[2015-07-21 11:59:37] DEBUG close: ::1:53180
+[2015-07-21 11:59:37] DEBUG close: ::1:53178
+[2015-07-21 12:00:38] DEBUG close TCPSocket(0.0.0.0, 8099)
+[2015-07-21 12:00:38] DEBUG close TCPSocket(::, 8099)
+[2015-07-21 12:00:38] INFO  going to shutdown ...
+[2015-07-21 12:00:38] INFO  WEBrick::HTTPServer#start done.
+[2015-07-21 12:00:41] INFO  WEBrick 1.3.1
+[2015-07-21 12:00:41] INFO  ruby 2.0.0 (2014-05-08) [universal.x86_64-darwin14]
+[2015-07-21 12:00:41] DEBUG TCPServer.new(0.0.0.0, 8099)
+[2015-07-21 12:00:41] DEBUG TCPServer.new(::, 8099)
+[2015-07-21 12:00:41] DEBUG WEBrick::HTTPServlet::FileHandler is mounted on /.
+[2015-07-21 12:00:41] DEBUG #<WEBrick::HTTPServlet::ProcHandler:0x007ff24332a310 @proc=#<Proc:0x007ff24332a338@server.rb:30>> is mounted on /log.
+[2015-07-21 12:00:41] INFO  WEBrick::HTTPServer#start: pid=2792 port=8099
+[2015-07-21 12:00:43] DEBUG accept: ::1:53189
+[2015-07-21 12:00:43] DEBUG accept: ::1:53190
+[2015-07-21 12:00:43] DEBUG accept: ::1:53191
+[2015-07-21 12:00:43] DEBUG accept: ::1:53192
+[2015-07-21 12:00:43] DEBUG accept: ::1:53193
+[2015-07-21 12:00:43] DEBUG accept: ::1:53194
+[2015-07-21 12:00:44] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-21 12:00:46] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-21 12:00:46] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-21 12:00:46] ERROR `/sticky-footer.css' not found.
+[2015-07-21 12:00:46] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-21 12:00:46] ERROR `/timepicker-css/bootstrap-timepicker.min.css' not found.
+[2015-07-21 12:00:46] DEBUG close: ::1:53190
+[2015-07-21 12:00:46] DEBUG close: ::1:53189
+[2015-07-21 12:00:53] DEBUG close: ::1:53194
+[2015-07-21 12:00:53] DEBUG close: ::1:53192
+[2015-07-21 12:00:53] DEBUG close: ::1:53193
+[2015-07-21 12:00:53] DEBUG close: ::1:53191
+[2015-07-21 12:01:09] DEBUG close TCPSocket(0.0.0.0, 8099)
+[2015-07-21 12:01:09] DEBUG close TCPSocket(::, 8099)
+[2015-07-21 12:01:09] INFO  going to shutdown ...
+[2015-07-21 12:01:09] INFO  WEBrick::HTTPServer#start done.
+[2015-07-21 12:01:41] INFO  WEBrick 1.3.1
+[2015-07-21 12:01:41] INFO  ruby 2.0.0 (2014-05-08) [universal.x86_64-darwin14]
+[2015-07-21 12:01:41] DEBUG TCPServer.new(0.0.0.0, 8099)
+[2015-07-21 12:01:41] DEBUG TCPServer.new(::, 8099)
+[2015-07-21 12:01:41] DEBUG WEBrick::HTTPServlet::FileHandler is mounted on /.
+[2015-07-21 12:01:41] DEBUG #<WEBrick::HTTPServlet::ProcHandler:0x007fe9e89e6310 @proc=#<Proc:0x007fe9e89e6338@server.rb:30>> is mounted on /log.
+[2015-07-21 12:01:41] INFO  WEBrick::HTTPServer#start: pid=2812 port=8099
+[2015-07-21 12:01:42] DEBUG accept: ::1:53230
+[2015-07-21 12:01:42] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-21 12:01:43] DEBUG accept: ::1:53232
+[2015-07-21 12:01:43] DEBUG accept: ::1:53231
+[2015-07-21 12:01:43] DEBUG accept: ::1:53233
+[2015-07-21 12:01:43] DEBUG accept: ::1:53234
+[2015-07-21 12:01:43] DEBUG accept: ::1:53235
+[2015-07-21 12:01:43] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-21 12:01:46] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-21 12:01:46] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-21 12:01:46] ERROR `/timepicker-css/bootstrap-timepicker.min.css' not found.
+[2015-07-21 12:01:46] DEBUG close: ::1:53230
+[2015-07-21 12:01:46] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-21 12:01:46] ERROR `/sticky-footer.css' not found.
+[2015-07-21 12:01:46] DEBUG close: ::1:53231
+[2015-07-21 12:01:56] DEBUG close: ::1:53232
+[2015-07-21 12:01:56] DEBUG close: ::1:53235
+[2015-07-21 12:01:56] DEBUG close: ::1:53233
+[2015-07-21 12:01:56] DEBUG close: ::1:53234
+[2015-07-21 12:01:58] DEBUG accept: ::1:53236
+[2015-07-21 12:01:58] DEBUG accept: ::1:53237
+[2015-07-21 12:01:58] DEBUG accept: ::1:53238
+[2015-07-21 12:01:58] DEBUG accept: ::1:53239
+[2015-07-21 12:01:58] DEBUG accept: ::1:53240
+[2015-07-21 12:01:58] DEBUG accept: ::1:53241
+[2015-07-21 12:01:58] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-21 12:02:04] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-21 12:02:04] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-21 12:02:04] ERROR `/timepicker-css/bootstrap-timepicker.min.css' not found.
+[2015-07-21 12:02:04] DEBUG close: ::1:53236
+[2015-07-21 12:02:04] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-21 12:02:04] ERROR `/sticky-footer.css' not found.
+[2015-07-21 12:02:04] DEBUG close: ::1:53237
+[2015-07-21 12:02:08] DEBUG close: ::1:53240
+[2015-07-21 12:02:08] DEBUG close: ::1:53239
+[2015-07-21 12:02:08] DEBUG close: ::1:53238
+[2015-07-21 12:02:08] DEBUG close: ::1:53241
+[2015-07-21 12:02:25] DEBUG accept: ::1:53242
+[2015-07-21 12:02:25] DEBUG accept: ::1:53243
+[2015-07-21 12:02:25] DEBUG accept: ::1:53244
+[2015-07-21 12:02:25] DEBUG accept: ::1:53245
+[2015-07-21 12:02:25] DEBUG accept: ::1:53246
+[2015-07-21 12:02:25] DEBUG accept: ::1:53247
+[2015-07-21 12:02:26] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-21 12:02:28] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-21 12:02:28] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-21 12:02:28] ERROR `/timepicker-css/bootstrap-timepicker.min.css' not found.
+[2015-07-21 12:02:28] DEBUG close: ::1:53242
+[2015-07-21 12:02:28] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-21 12:02:28] ERROR `/sticky-footer.css' not found.
+[2015-07-21 12:02:28] DEBUG close: ::1:53243
+[2015-07-21 12:02:35] DEBUG close: ::1:53245
+[2015-07-21 12:02:35] DEBUG close: ::1:53247
+[2015-07-21 12:02:35] DEBUG close: ::1:53246
+[2015-07-21 12:02:35] DEBUG close: ::1:53244
+[2015-07-21 12:02:45] DEBUG close TCPSocket(0.0.0.0, 8099)
+[2015-07-21 12:02:45] DEBUG close TCPSocket(::, 8099)
+[2015-07-21 12:02:45] INFO  going to shutdown ...
+[2015-07-21 12:02:45] INFO  WEBrick::HTTPServer#start done.
+[2015-07-21 12:02:46] INFO  WEBrick 1.3.1
+[2015-07-21 12:02:46] INFO  ruby 2.0.0 (2014-05-08) [universal.x86_64-darwin14]
+[2015-07-21 12:02:46] DEBUG TCPServer.new(0.0.0.0, 8099)
+[2015-07-21 12:02:46] DEBUG TCPServer.new(::, 8099)
+[2015-07-21 12:02:46] DEBUG WEBrick::HTTPServlet::FileHandler is mounted on /.
+[2015-07-21 12:02:46] DEBUG #<WEBrick::HTTPServlet::ProcHandler:0x007f940aa6e320 @proc=#<Proc:0x007f940aa6e348@server.rb:30>> is mounted on /log.
+[2015-07-21 12:02:46] INFO  WEBrick::HTTPServer#start: pid=2830 port=8099
+[2015-07-21 12:50:17] FATAL SignalException: SIGHUP
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:170:in `select'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:170:in `block in start'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:32:in `start'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:160:in `start'
+	server.rb:59:in `<main>'
+[2015-07-21 12:50:17] INFO  going to shutdown ...
+[2015-07-21 12:50:17] INFO  WEBrick::HTTPServer#start done.
+[2015-07-21 13:41:56] INFO  WEBrick 1.3.1
+[2015-07-21 13:41:56] INFO  ruby 2.0.0 (2014-05-08) [universal.x86_64-darwin14]
+[2015-07-21 13:41:56] DEBUG TCPServer.new(0.0.0.0, 8099)
+[2015-07-21 13:41:56] DEBUG TCPServer.new(::, 8099)
+[2015-07-21 13:41:56] DEBUG WEBrick::HTTPServlet::FileHandler is mounted on /.
+[2015-07-21 13:41:56] DEBUG #<WEBrick::HTTPServlet::ProcHandler:0x007ff4dd1be368 @proc=#<Proc:0x007ff4dd1be390@server.rb:30>> is mounted on /log.
+[2015-07-21 13:41:56] INFO  WEBrick::HTTPServer#start: pid=3239 port=8099
+[2015-07-21 13:41:59] DEBUG accept: ::1:54112
+[2015-07-21 13:41:59] DEBUG accept: ::1:54113
+[2015-07-21 13:41:59] DEBUG accept: ::1:54114
+[2015-07-21 13:41:59] DEBUG accept: ::1:54116
+[2015-07-21 13:41:59] DEBUG accept: ::1:54115
+[2015-07-21 13:41:59] DEBUG accept: ::1:54117
+[2015-07-21 13:41:59] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-21 13:42:01] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-21 13:42:01] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-21 13:42:01] ERROR `/timepicker-css/bootstrap-timepicker.min.css' not found.
+[2015-07-21 13:42:01] DEBUG close: ::1:54112
+[2015-07-21 13:42:01] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-21 13:42:01] ERROR `/sticky-footer.css' not found.
+[2015-07-21 13:42:01] DEBUG close: ::1:54113
+[2015-07-21 13:42:14] DEBUG close TCPSocket(0.0.0.0, 8099)
+[2015-07-21 13:42:14] DEBUG close TCPSocket(::, 8099)
+[2015-07-21 13:42:14] INFO  going to shutdown ...
+[2015-07-21 13:42:14] DEBUG close: ::1:54116
+[2015-07-21 13:42:14] DEBUG close: ::1:54114
+[2015-07-21 13:42:14] DEBUG close: ::1:54117
+[2015-07-21 13:42:14] DEBUG close: ::1:54115
+[2015-07-21 13:42:14] INFO  WEBrick::HTTPServer#start done.

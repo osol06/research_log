@@ -11,7 +11,9 @@ require 'dbi'
 # DocumentRootは、現在のディレクトリを表す「.」を指定
 config = {
 	:Port => 8099,
-	:DocumentRoot => '.'
+	:DocumentRoot => '.',
+	:AccessLog => [[ File.open("./logs/access_log", "a"), WEBrick::AccessLog::COMBINED_LOG_FORMAT ]],# アクセスログの出力
+  	:Logger => WEBrick::Log::new("./logs/log",WEBrick::Log::DEBUG),# サーバログの出力
 }
 
 # 拡張子erbのファイルをERBを呼び出して処理するERBHandlerと関連付ける
