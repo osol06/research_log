@@ -3,10 +3,6 @@
 <%# 必要なライブラリの読み込み %>
 <% require 'rubygems' %>
 <% require 'dbi' %>
-<% require './weather.rb' %>
-
-<% # 天気情報を取得して、ハッシュとして受け取る処理 %>
-<% weather = weather() %>
 
 <%# 学習者の本日の合計時間を入れる配列 %>
 <% sumarray = Array.new() %>
@@ -23,20 +19,19 @@
   <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
   <title>美馬研究室 研究記録</title>
 
-  <!-- BootStrapの読み込み -->
-  <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+  <script src="https://code.jquery.com/jquery-1.10.2.min.js" type="text/javascript" language="javascript"></script>
+  <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.min.js" type="text/javascript" language="javascript"></script>
+  <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />
 
-  <!-- TimePickerの読み込み -->
-  <link href="timepicker-css/bootstrap-timepicker.min.css" rel="stylesheet" type="text/css">
+  <script type="text/javascript" src="jq.schedule.js"></script> 
+  <link rel="stylesheet" type="text/css" href="style.css" />
 
-  <!-- DateTimePickerの読み込み -->
-  <link rel="stylesheet" type="text/css" href="datetimepicker/jquery.datetimepicker.css"/ >
-
-  <!-- Custom styles for this template -->
-  <link href="sticky-footer.css" rel="stylesheet">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" >
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/2.3.2/js/bootstrap.min.js"></script>
 
 </head>
 <body>
+  
 
   <!-- ナビゲーション -->
   <nav class="navbar navbar-inverse" role="navigation">
@@ -68,32 +63,24 @@
     </div>
   </nav>
 
+
+
   <!-- メインコンテンツ  -->
   <div class="container" style="padding: 20px 0">
 
-    <!-- 天気と管理人情報 -->
+    <!-- ユーザ情報 -->
     <!-- グリッドシステムを使用する -->
     <div class="row">
 
-      <div class="col-sm-6">
-        <!-- 天気予報の -->
-        <div class="panel panel-default" style="padding-left: 20px">
-          <h4><%= "#{weather['city']}" %>の天気<h4>
-          <h5><%= "#{weather['telop']}" %></h5>
-          <img src="<%= "#{weather['icon']}" %>" class="img-responsive" >
-          <span><%= "#{weather['max_celsius']}" %></span> / <span><%= "#{weather['min_celsius']}" %></span>℃
-        </div>
-      </div>
-
-      <div class="col-sm-6">
+      <div class="col-sm-8">
         <div class="panel panel-default" style="padding-left: 20px">
           <div class="media">
             <!-- pull-right にすると、画像が右端に表示される -->
-            <img class="media-object pull-left" src="images/kanri.jpg" style="margin: 10px" width="100" height="100" class="img-responsive" >
+            <img class="media-object pull-left" src="images/takuma.jpg" style="margin: 10px" width="100" height="100" class="img-responsive" >
             <div class="media-body" >
-              <h4 class="media-heading" style="margin-top: 10px"> 管理人 </h4>
-              現在作成中<br>
-              すまん
+              <h4 class="media-heading" style="margin-top: 10px"> 佐々木 拓真 </h4>
+              佐々木です。サイトの作成者でもあります。<br>
+              勉強がんばります。
             </div>
           </div>
         </div>
@@ -102,105 +89,23 @@
     </div>
 
 
-    <!-- 学習の記録フォーム　アクションはlog -->
-    <form method="post" action="log">
-      <div class="panel panel-default">
-        <table class="table table-bordered">
-          <thead>
-            <tr><th><span id="date"></span>の勉強を記録する</th></tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>
-                <div class="form-group">
-
-
-                  <!-- ユーザ名の選択 -->
-                  <p style="margin: 15px 10px;">
-                    <label for="user_select">作業者名</label>
-                    <select style="width:40%; min-width:250px;"class="form-control" id="name_select" name="user_id">
-
-<%# ユーザ名をデータベースから取り出す %>
-<% sth_name = dbh.execute("select * from users;") %>
-
-<% sth_name.each do |row_name| %>
-
-                      <option value="<%= row_name["user_id"] %>"><%= "#{row_name["user_name"]}".force_encoding("utf-8") %></option>
-                     
-<% end %>
-
-                    </select>
-                  </p>
-
-
-                   <!-- タスク名の入力 -->
-                  <p style="margin: 15px 10px;" >
-                    <label for="task_name">タスク名</label>
-                    <input style="width:40%; min-width:250px;" type="text" class="form-control" name="task_name">
-                  </p>
-
-
-                  <!-- カテゴリーの選択 -->
-                  <p style="margin: 15px 10px;" >
-                    <label for="category_id">カテゴリー名</label>
-                    <select style="width:40%; min-width:250px;" class="form-control" id="task_select" name="category_id">
-
-<%# タスク名をデータベースから取り出す %>
-<% sth_category = dbh.execute("select * from categories;") %>
-
-<% sth_category.each do |row_category| %>
-
-                      <option value="<%= row_category["category_id"] %>"><%= "#{row_category["category_name"].to_s}".force_encoding("utf-8") %></option>
-                      
-<% end %>
-
-                    </select>
-                  </p>
-
-                  <!-- 学習環境の選択 -->
-                  <p style="margin: 15px 10px;">
-                    <label for="group_frag">学習環境</label>
-                    <select style="width:40%; min-width:250px;"class="form-control"  name="group_frag">
-
-                      <option value="0">個人での学習</option>
-                      <option value="1">グループでの学習</option>
-
-                    </select>
-                  </p>
-
-                
-                  <!-- 作業時間の入力 -->
-                  <p style="margin: 15px 10px;" > 
-                    <label for="start_time">作業した時間を入力</label>
-                    <div class="form-inline" style="margin:0px 0px 0px 10px;">
-                      <label>開始時間</label>
-                      <input id="datetimepicker_start" class="form-control" type="text" name="start_time" />
-                      <label>から</label>
-                      <input id="datetimepicker_finish" class="form-control" type="text" name="finish_time" />
-                      <label>まで</label>
-                    </div>
-                  </p>
-
-                    
-                  <!-- コメントの入力 -->
-                  <p style="margin: 15px 10px;" >  
-                    <label for="comment">学習内容や感想など</label>
-                    <textarea name="comment" class="form-control" row="2" placeholder="学習内容や感想" style="resize: none;"></textarea>
-                    <p class="help-block" style="margin-left: 10px;">※できるだけ他の人もわかるように書きましょう。</p>
-                  </p>
-                    
-                  <p style="margin: 15px 10px;">
-                    <button type="submit" class="btn btn-success">記録する</button>
-                  </p>
-
-                </div>
-                    
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </form>
+    <div class="panel panel-default">
+      <table class="table table-bordered">
+        <thead>
+          <tr><th>学習のタイムライン</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <div style="padding: 10px">
+                <!-- 学習時間のタイムライン -->
+                <div id="schedule"></div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
       <!-- 記録のグラフ -->
       <form>
@@ -295,13 +200,17 @@
 
 
   <!-- javascriptの読み込み -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="https://code.jquery.com/jquery-1.10.2.min.js" type="text/javascript" language="javascript"></script>
+  <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.min.js" type="text/javascript" language="javascript"></script>
   <script src="js/bootstrap.min.js"></script>
 
+  
   <!-- ライブラリ -->
   <script src="datetimepicker/jquery.datetimepicker.js"></script>
   <script src="http://momentjs.com/downloads/moment.js"></script>
   <script src="js/Chart.js"></script>
+  <script type="text/javascript" src="jq.schedule.js"></script>
+
 
   <!-- 自分で書いたスクリプト -->
   <script src="js/current_time.js"></script>
@@ -312,23 +221,69 @@
   var date = m.format("YYYY年MM月DD日");
 
 
-  // 現在の日付を取得して表示する無名関数
+  // 様々な処理をまとめた
   $(function (){
 
     // 現在の日付を表示するメソッド
     current_time(date);
 
-    // 開始時間のUIの設定
-    $('#datetimepicker_start').datetimepicker({
-        format: 'Y-m-d H:i',
-        lang: 'ja'
+    // 勉強のタイムライン
+    $("#schedule").timeSchedule({
+        startTime: "07:00", // schedule start time(HH:ii)
+        endTime: "21:00",   // schedule end time(HH:ii)
+        widthTime:600,      // cell timestamp
+        timeLineY:60,       // height(px)
+        verticalScrollbar:20,   // scrollbar (px)
+        timeLineBorder:2,   // border(top and bottom)
+        debug:"#debug",     // debug string output elements
+        rows : {
+            '1' : {
+                title : '2015/07/23',
+                schedule:[
+                    {
+                        start:'09:00',
+                        end:'12:00',
+                        text:'英単語の学習',
+                        data:{
+                        }
+                    },
+                    {
+                        start:'11:00',
+                        end:'14:00',
+                        text:'ウェブアプリケーションの開発',
+                        data:{
+                        }
+                    }
+                ]
+            },
+            '2' : {
+                title : '2015/07/22',
+                schedule:[
+                    {
+                        start:'16:00',
+                        end:'17:00',
+                        text:'ポスターの作成',
+                        data:{
+                        }
+                    }
+                ]
+            }
+        },
+        change: function(node,data){
+            alert("change event");
+        },
+        init_data: function(node,data){
+        },
+        click: function(node,data){
+            alert("click event");
+        },
+        append: function(node,data){
+        },
+        time_click: function(time,data){
+            alert("time click event");
+        },
     });
 
-    // 終了時間のUIの設定
-    $('#datetimepicker_finish').datetimepicker({
-        format: 'Y-m-d H:i',
-        lang: 'ja'
-    });
 
     // 棒グラフを描画する処理
     var ctx1 = $("#chart1").get(0).getContext("2d");
@@ -602,8 +557,6 @@
 </html>
 
 <%# 実行結果を開放する %>
-<% sth_name.finish %>
-<% sth_category.finish %>
 <% sth_name_second.finish %>
 <% sth_name_third.finish %>
 <% sth_comment.finish %>
