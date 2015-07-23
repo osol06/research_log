@@ -3,6 +3,10 @@
 <%# 必要なライブラリの読み込み %>
 <% require 'rubygems' %>
 <% require 'dbi' %>
+<% require './weather.rb' %>
+
+<% # 天気情報を取得して、ハッシュとして受け取る処理 %>
+<% weather = weather() %>
 
 <%# 学習者の本日の合計時間を入れる配列 %>
 <% sumarray = Array.new() %>
@@ -64,12 +68,41 @@
     </div>
   </nav>
 
-    
-  <!-- メインコンテンツ -->
-  <!-- メインコンテンツ 記録フォーム -->
+  <!-- メインコンテンツ  -->
   <div class="container" style="padding: 20px 0">
 
-    <!-- アクションはlog -->
+    <!-- 天気と管理人情報 -->
+    <!-- グリッドシステムを使用する -->
+    <div class="row">
+
+      <div class="col-sm-6">
+        <!-- 天気予報の -->
+        <div class="panel panel-default" style="padding-left: 20px">
+          <h4><%= "#{weather['city']}" %>の天気<h4>
+          <h5><%= "#{weather['telop']}" %></h5>
+          <img src="<%= "#{weather['icon']}" %>" class="img-responsive" >
+          <span><%= "#{weather['max_celsius']}" %></span> / <span><%= "#{weather['min_celsius']}" %></span>℃
+        </div>
+      </div>
+
+      <div class="col-sm-6">
+        <div class="panel panel-default" style="padding-left: 20px">
+          <div class="media">
+            <!-- pull-right にすると、画像が右端に表示される -->
+            <img class="media-object pull-left" src="images/kanri.jpg" style="margin: 10px" width="100" height="100" class="img-responsive" >
+            <div class="media-body" >
+              <h4 class="media-heading" style="margin-top: 10px"> 管理人 </h4>
+              現在作成中<br>
+              すまん
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+    <!-- 学習の記録フォーム　アクションはlog -->
     <form method="post" action="log">
       <div class="panel panel-default">
         <table class="table table-bordered">
@@ -231,7 +264,7 @@
                 <li class="media">
                   <!-- pull-right にすると、画像が右端に表示される -->
                   <a class="pull-left" href="#">
-                    <img class="media-object" src="images/<%= "#{sth_image["image_name"]}" %>" alt="写真" width="100" height="100" >
+                    <img class="media-object" src="images/<%= "#{sth_image["image_name"]}" %>" alt="写真" width="150" height="150" class="img-responsive" >
                   </a>
                   <div class="media-body">
                     <h4 class="media-heading"> <%= "#{sth_image["user_name"]}".force_encoding("utf-8") %> </h4>
@@ -346,7 +379,7 @@
 
 <%    # 各ユーザの本日の学習時間の合計 %>
 <%    sum = 0 %>
-<%    study_hours = dbh.execute("select (strftime('%s', tasks.finish_time) - strftime('%s', tasks.start_time)) / 60 from tasks where date('now') between date(start_time) and date(finish_time) and user_id = #{row_name_third["user_id"]};") %>
+<%    study_hours = dbh.execute("select (strftime('%s', tasks.finish_time) - strftime('%s', tasks.start_time)) / 60 from tasks where date('now', 'localtime') between date(start_time) and date(finish_time) and user_id = #{row_name_third["user_id"]};") %>
 <%    study_hours.each do |row| %>
 
 <%       sum = sum + row[0].to_i %>
@@ -574,7 +607,6 @@
 <% sth_name_second.finish %>
 <% sth_name_third.finish %>
 <% sth_comment.finish %>
-
 
 <%# データベースとの接続を終了する %>
 <% dbh.disconnect %>
