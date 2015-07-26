@@ -3,6 +3,7 @@
 <%# 必要なライブラリの読み込み %>
 <% require 'rubygems' %>
 <% require 'dbi' %>
+<% require 'time' %>
 
 <%# 学習者の本日の合計時間を入れる配列 %>
 <% sumarray = Array.new() %>
@@ -220,7 +221,6 @@
   var m = moment();
   var date = m.format("YYYY年MM月DD日");
 
-
   // 様々な処理をまとめた
   $(function (){
 
@@ -241,56 +241,19 @@
                 title : m.format("YYYY年MM月DD日"),
                 schedule:[
 <%  sth_timeline = dbh.execute("select * from tasks where date('now', 'localtime') between date(start_time) and date(finish_time) and user_id = 2;") %>
-<% sth_timeline.finish%>
+<%    sth_timeline.each do |row_timeline| %>
+
                     {
-                        start:'09:00',
-                        end:'12:00',
-                        text:'英単語の学習',
+                        <% start_time = Time.parse(row_timeline['start_time']) %>
+                        <% finish_time = Time.parse(row_timeline['finish_time']) %>
+                        start:'<%= "#{start_time.strftime("%H:%M")}".force_encoding("utf-8") %>',
+                        end:'<%= "#{finish_time.strftime("%H:%M")}".force_encoding("utf-8") %>',
+                        text:'<%= "#{row_timeline['task_name']}".force_encoding("utf-8") %>',
                         data:{
                         }
                     },
-                    {
-                        start:'11:00',
-                        end:'14:00',
-                        text:'ウェブアプリケーションの開発',
-                        data:{
-                        }
-                    },
-                    {
-                        start:'15:00',
-                        end:'19:00',
-                        text:'ウェブアプリケーションの開発',
-                        data:{
-                        }
-                    },
-                    {
-                        start:'18:30',
-                        end:'20:00',
-                        text:'ウェブアプリケーションの開発',
-                        data:{
-                        }
-                    },
-                    {
-                        start:'16:20',
-                        end:'17:00',
-                        text:'ウェブアプリケーションの開発',
-                        data:{
-                        }
-                    },
-                    {
-                        start:'09:00',
-                        end:'10:00',
-                        text:'ウェブアプリケーションの開発',
-                        data:{
-                        }
-                    },
-                    {
-                        start:'07:00',
-                        end:'14:00',
-                        text:'ウェブアプリケーションの開発',
-                        data:{
-                        }
-                    }
+<%    end %>
+                    
                 ]
             },
         },
@@ -579,6 +542,7 @@
 <% sth_name_second.finish %>
 <% sth_name_third.finish %>
 <% sth_comment.finish %>
+<% sth_timeline.finish %>
 
 <%# データベースとの接続を終了する %>
 <% dbh.disconnect %>
