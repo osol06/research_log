@@ -238,8 +238,10 @@
         debug:"#debug",     // debug string output elements
         rows : {
             '1' : {
-                title : '2015/07/23',
+                title : m.format("YYYY年MM月DD日"),
                 schedule:[
+<%  sth_timeline = dbh.execute("select * from tasks where date('now', 'localtime') between date(start_time) and date(finish_time) and user_id = 2;") %>
+<% sth_timeline.finish%>
                     {
                         start:'09:00',
                         end:'12:00',
@@ -291,20 +293,7 @@
                     }
                 ]
             },
-            '2' : {
-                title : '2015/07/22',
-                schedule:[
-                    {
-                        start:'16:00',
-                        end:'17:00',
-                        text:'ポスターの作成',
-                        data:{
-                        }
-                    }
-                ]
-            }
         },
-       
         
         click: function(node,data){
             alert("click event");

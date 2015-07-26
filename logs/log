@@ -7141,3 +7141,224 @@
 [2015-07-26 11:58:09] DEBUG close: ::1:55008
 [2015-07-26 11:58:09] DEBUG close: ::1:54997
 [2015-07-26 11:58:09] INFO  WEBrick::HTTPServer#start done.
+[2015-07-26 13:04:34] INFO  WEBrick 1.3.1
+[2015-07-26 13:04:34] INFO  ruby 2.0.0 (2014-05-08) [universal.x86_64-darwin14]
+[2015-07-26 13:04:34] DEBUG TCPServer.new(::, 8099)
+[2015-07-26 13:04:34] DEBUG TCPServer.new(0.0.0.0, 8099)
+[2015-07-26 13:04:34] WARN  TCPServer Error: Address already in use - bind(2)
+[2015-07-26 13:04:34] DEBUG WEBrick::HTTPServlet::FileHandler is mounted on /.
+[2015-07-26 13:04:34] DEBUG #<WEBrick::HTTPServlet::ProcHandler:0x007f90fb199810 @proc=#<Proc:0x007f90fb199838@server.rb:30>> is mounted on /log.
+[2015-07-26 13:04:34] INFO  WEBrick::HTTPServer#start: pid=5864 port=8099
+[2015-07-26 13:04:38] DEBUG accept: ::1:55011
+[2015-07-26 13:04:38] DEBUG accept: ::1:55012
+[2015-07-26 13:04:38] DEBUG accept: ::1:55013
+[2015-07-26 13:04:38] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 13:04:43] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 13:04:48] DEBUG close: ::1:55012
+[2015-07-26 13:04:48] DEBUG close: ::1:55013
+[2015-07-26 13:04:50] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 13:04:50] ERROR SocketError: getaddrinfo: nodename nor servname provided, or not known
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/net/http.rb:878:in `initialize'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/net/http.rb:878:in `open'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/net/http.rb:878:in `block in connect'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/timeout.rb:52:in `timeout'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/net/http.rb:877:in `connect'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/net/http.rb:862:in `do_start'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/net/http.rb:851:in `start'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/net/http.rb:582:in `start'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/net/http.rb:477:in `get_response'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/net/http.rb:454:in `get'
+	/Users/sasakitakuma/Documents/research_log/research_log/weather.rb:9:in `weather'
+	(erb):9:in `block in evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/erb.rb:849:in `eval'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/erb.rb:849:in `result'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:82:in `block in evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:79:in `module_eval'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:79:in `evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:56:in `do_GET'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/abstract.rb:106:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:286:in `exec_handler'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:217:in `do_GET'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/abstract.rb:106:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:213:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+[2015-07-26 13:04:50] DEBUG close: ::1:55011
+[2015-07-26 13:05:25] DEBUG accept: ::1:55014
+[2015-07-26 13:05:25] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 13:05:27] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 13:05:27] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 13:05:40] DEBUG accept: ::1:55015
+[2015-07-26 13:05:40] DEBUG accept: ::1:55017
+[2015-07-26 13:05:40] DEBUG accept: ::1:55016
+[2015-07-26 13:05:40] DEBUG accept: ::1:55018
+[2015-07-26 13:05:40] DEBUG accept: ::1:55019
+[2015-07-26 13:05:40] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 13:05:42] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 13:05:42] ERROR SocketError: getaddrinfo: nodename nor servname provided, or not known
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/net/http.rb:878:in `initialize'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/net/http.rb:878:in `open'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/net/http.rb:878:in `block in connect'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/timeout.rb:52:in `timeout'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/net/http.rb:877:in `connect'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/net/http.rb:862:in `do_start'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/net/http.rb:851:in `start'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/net/http.rb:582:in `start'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/net/http.rb:477:in `get_response'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/net/http.rb:454:in `get'
+	/Users/sasakitakuma/Documents/research_log/research_log/weather.rb:9:in `weather'
+	(erb):9:in `block in evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/erb.rb:849:in `eval'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/erb.rb:849:in `result'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:82:in `block in evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:79:in `module_eval'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:79:in `evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:56:in `do_GET'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/abstract.rb:106:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:286:in `exec_handler'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:217:in `do_GET'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/abstract.rb:106:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:213:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+[2015-07-26 13:05:42] DEBUG close: ::1:55014
+[2015-07-26 13:05:51] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 13:05:57] DEBUG close: ::1:55017
+[2015-07-26 13:05:57] DEBUG close: ::1:55018
+[2015-07-26 13:05:57] DEBUG close: ::1:55019
+[2015-07-26 13:05:57] DEBUG close: ::1:55016
+[2015-07-26 13:06:21] DEBUG close: ::1:55015
+[2015-07-26 13:09:25] DEBUG accept: ::1:55058
+[2015-07-26 13:09:25] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 13:09:25] DEBUG accept: ::1:55062
+[2015-07-26 13:09:25] DEBUG accept: ::1:55060
+[2015-07-26 13:09:25] DEBUG accept: ::1:55061
+[2015-07-26 13:09:25] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 13:09:25] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 13:09:25] ERROR `/timepicker-css/bootstrap-timepicker.min.css' not found.
+[2015-07-26 13:09:25] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 13:09:25] DEBUG close: ::1:55060
+[2015-07-26 13:09:25] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 13:09:25] ERROR `/sticky-footer.css' not found.
+[2015-07-26 13:09:25] DEBUG close: ::1:55062
+[2015-07-26 13:09:25] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 13:09:32] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 13:09:56] DEBUG close: ::1:55058
+[2015-07-26 13:10:02] DEBUG close: ::1:55061
+[2015-07-26 13:11:57] DEBUG accept: ::1:55073
+[2015-07-26 13:11:57] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 13:11:58] DEBUG accept: ::1:55075
+[2015-07-26 13:11:58] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 13:11:58] ERROR `/timepicker-css/bootstrap-timepicker.min.css' not found.
+[2015-07-26 13:11:58] DEBUG close: ::1:55073
+[2015-07-26 13:11:58] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 13:11:58] ERROR `/sticky-footer.css' not found.
+[2015-07-26 13:11:58] DEBUG close: ::1:55075
+[2015-07-26 13:12:51] DEBUG accept: ::1:55076
+[2015-07-26 13:12:51] DEBUG WEBrick::HTTPServlet::ProcHandler is invoked.
+[2015-07-26 13:12:51] DEBUG accept: ::1:55078
+[2015-07-26 13:12:51] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 13:12:51] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 13:12:51] ERROR `/sticky-footer.css' not found.
+[2015-07-26 13:12:51] ERROR `/timepicker-css/bootstrap-timepicker.min.css' not found.
+[2015-07-26 13:12:51] DEBUG close: ::1:55076
+[2015-07-26 13:12:51] DEBUG close: ::1:55078
+[2015-07-26 13:15:59] DEBUG accept: ::1:55085
+[2015-07-26 13:15:59] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 13:16:00] DEBUG accept: ::1:55087
+[2015-07-26 13:16:00] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 13:16:00] ERROR `/timepicker-css/bootstrap-timepicker.min.css' not found.
+[2015-07-26 13:16:00] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 13:16:00] ERROR `/sticky-footer.css' not found.
+[2015-07-26 13:16:00] DEBUG close: ::1:55085
+[2015-07-26 13:16:00] DEBUG close: ::1:55087
+[2015-07-26 13:16:02] DEBUG accept: ::1:55088
+[2015-07-26 13:16:02] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 13:16:02] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 13:16:32] DEBUG close: ::1:55088
+[2015-07-26 13:22:18] DEBUG accept: ::1:55094
+[2015-07-26 13:22:18] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 13:22:19] DEBUG accept: ::1:55096
+[2015-07-26 13:22:19] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 13:22:19] ERROR `/timepicker-css/bootstrap-timepicker.min.css' not found.
+[2015-07-26 13:22:19] DEBUG close: ::1:55094
+[2015-07-26 13:22:19] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 13:22:19] ERROR `/sticky-footer.css' not found.
+[2015-07-26 13:22:19] DEBUG close: ::1:55096
+[2015-07-26 13:31:38] DEBUG accept: ::1:55126
+[2015-07-26 13:31:38] DEBUG accept: ::1:55128
+[2015-07-26 13:31:38] DEBUG accept: ::1:55127
+[2015-07-26 13:31:38] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 13:31:39] DEBUG accept: ::1:55130
+[2015-07-26 13:31:39] DEBUG accept: ::1:55132
+[2015-07-26 13:31:39] DEBUG accept: ::1:55131
+[2015-07-26 13:31:39] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 13:31:39] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 13:31:39] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 13:31:39] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 13:31:39] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 13:31:39] ERROR `/sticky-footer.css' not found.
+[2015-07-26 13:31:39] ERROR `/timepicker-css/bootstrap-timepicker.min.css' not found.
+[2015-07-26 13:31:39] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 13:31:39] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 13:31:39] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 13:31:39] DEBUG accept: ::1:55134
+[2015-07-26 13:31:39] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 13:31:39] DEBUG accept: ::1:55135
+[2015-07-26 13:31:39] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 13:31:39] DEBUG close: ::1:55130
+[2015-07-26 13:31:39] DEBUG close: ::1:55127
+[2015-07-26 13:31:39] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 13:31:39] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 13:31:39] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 13:31:39] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 13:31:39] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 13:31:43] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 13:31:43] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 13:31:43] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 13:31:54] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 13:31:54] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 13:31:54] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 13:31:54] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 13:31:54] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 13:31:54] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 13:31:54] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 13:31:54] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 13:31:54] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 13:31:54] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 13:31:54] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 13:31:54] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 13:31:54] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 13:32:24] DEBUG close: ::1:55131
+[2015-07-26 13:32:24] DEBUG close: ::1:55135
+[2015-07-26 13:32:24] DEBUG close: ::1:55128
+[2015-07-26 13:32:24] DEBUG close: ::1:55132
+[2015-07-26 13:32:24] DEBUG close: ::1:55126
+[2015-07-26 13:32:24] DEBUG close: ::1:55134
+[2015-07-26 13:35:06] DEBUG accept: ::1:55151
+[2015-07-26 13:35:06] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 13:35:06] DEBUG accept: ::1:55152
+[2015-07-26 13:35:06] DEBUG accept: ::1:55154
+[2015-07-26 13:35:06] DEBUG accept: ::1:55155
+[2015-07-26 13:35:06] DEBUG accept: ::1:55153
+[2015-07-26 13:35:06] DEBUG accept: ::1:55156
+[2015-07-26 13:35:06] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 13:35:06] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 13:35:06] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 13:35:06] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 13:35:06] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 13:35:06] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 13:35:06] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 13:35:06] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 13:35:06] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 13:35:06] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 13:35:06] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 13:35:06] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 13:35:36] DEBUG close: ::1:55155
+[2015-07-26 13:35:36] DEBUG close: ::1:55152
+[2015-07-26 13:35:36] DEBUG close: ::1:55153
+[2015-07-26 13:35:36] DEBUG close: ::1:55154
+[2015-07-26 13:35:36] DEBUG close: ::1:55156
+[2015-07-26 13:35:36] DEBUG close: ::1:55151
