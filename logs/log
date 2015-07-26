@@ -5431,3 +5431,1713 @@
 [2015-07-24 15:55:26] DEBUG close TCPSocket(::, 8099)
 [2015-07-24 15:55:26] INFO  going to shutdown ...
 [2015-07-24 15:55:26] INFO  WEBrick::HTTPServer#start done.
+[2015-07-26 09:37:47] INFO  WEBrick 1.3.1
+[2015-07-26 09:37:47] INFO  ruby 2.0.0 (2014-05-08) [universal.x86_64-darwin14]
+[2015-07-26 09:37:47] DEBUG TCPServer.new(0.0.0.0, 8099)
+[2015-07-26 09:37:47] DEBUG TCPServer.new(::, 8099)
+[2015-07-26 09:37:47] DEBUG WEBrick::HTTPServlet::FileHandler is mounted on /.
+[2015-07-26 09:37:47] DEBUG #<WEBrick::HTTPServlet::ProcHandler:0x007fcab41c9b30 @proc=#<Proc:0x007fcab41c9b58@server.rb:30>> is mounted on /log.
+[2015-07-26 09:37:47] INFO  WEBrick::HTTPServer#start: pid=5296 port=8099
+[2015-07-26 09:37:50] DEBUG accept: ::1:53833
+[2015-07-26 09:37:50] DEBUG accept: ::1:53834
+[2015-07-26 09:37:50] DEBUG accept: ::1:53835
+[2015-07-26 09:37:50] DEBUG accept: ::1:53836
+[2015-07-26 09:37:50] DEBUG accept: ::1:53837
+[2015-07-26 09:37:50] DEBUG accept: ::1:53838
+[2015-07-26 09:37:50] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:37:52] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:37:52] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:37:52] ERROR `/timepicker-css/bootstrap-timepicker.min.css' not found.
+[2015-07-26 09:37:52] DEBUG close: ::1:53833
+[2015-07-26 09:37:52] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:37:52] ERROR `/sticky-footer.css' not found.
+[2015-07-26 09:37:52] DEBUG close: ::1:53834
+[2015-07-26 09:37:58] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:37:58] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:38:00] DEBUG close: ::1:53838
+[2015-07-26 09:38:00] DEBUG close: ::1:53836
+[2015-07-26 09:38:00] DEBUG close: ::1:53837
+[2015-07-26 09:38:05] DEBUG accept: ::1:53860
+[2015-07-26 09:38:05] DEBUG accept: ::1:53859
+[2015-07-26 09:38:05] DEBUG accept: ::1:53861
+[2015-07-26 09:38:05] DEBUG accept: ::1:53863
+[2015-07-26 09:38:05] DEBUG accept: ::1:53862
+[2015-07-26 09:38:05] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:38:05] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:38:05] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:38:05] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:38:05] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:38:05] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:38:05] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:38:05] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:38:05] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:38:05] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:38:05] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:38:05] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:38:05] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:38:33] DEBUG accept: ::1:53900
+[2015-07-26 09:38:33] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:38:35] DEBUG close: ::1:53859
+[2015-07-26 09:38:35] DEBUG close: ::1:53863
+[2015-07-26 09:38:35] DEBUG close: ::1:53860
+[2015-07-26 09:38:35] DEBUG close: ::1:53861
+[2015-07-26 09:38:35] DEBUG close: ::1:53835
+[2015-07-26 09:38:35] DEBUG close: ::1:53862
+[2015-07-26 09:38:36] DEBUG accept: ::1:53913
+[2015-07-26 09:38:36] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:38:37] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:38:37] DEBUG accept: ::1:53917
+[2015-07-26 09:38:37] DEBUG accept: ::1:53918
+[2015-07-26 09:38:37] DEBUG accept: ::1:53919
+[2015-07-26 09:38:37] DEBUG accept: ::1:53921
+[2015-07-26 09:38:37] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:38:37] DEBUG accept: ::1:53920
+[2015-07-26 09:38:37] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:38:37] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:38:37] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:38:37] ERROR `/timepicker-css/bootstrap-timepicker.min.css' not found.
+[2015-07-26 09:38:37] DEBUG close: ::1:53918
+[2015-07-26 09:38:37] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:38:37] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:38:37] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:38:37] ERROR `/sticky-footer.css' not found.
+[2015-07-26 09:38:37] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:38:37] DEBUG close: ::1:53920
+[2015-07-26 09:38:37] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:38:37] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:38:37] DEBUG accept: ::1:53922
+[2015-07-26 09:38:37] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:38:37] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:38:37] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:38:37] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:38:39] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:38:54] DEBUG accept: ::1:53974
+[2015-07-26 09:38:54] DEBUG accept: ::1:53976
+[2015-07-26 09:38:54] DEBUG accept: ::1:53975
+[2015-07-26 09:38:54] DEBUG accept: ::1:53977
+[2015-07-26 09:38:54] DEBUG accept: ::1:53978
+[2015-07-26 09:38:54] DEBUG accept: ::1:53979
+[2015-07-26 09:38:54] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:38:54] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:38:54] ERROR `/favicon.ico' not found.
+[2015-07-26 09:38:54] DEBUG close: ::1:53974
+[2015-07-26 09:38:57] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:38:57] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:38:57] ERROR `/timepicker-css/bootstrap-timepicker.min.css' not found.
+[2015-07-26 09:38:57] DEBUG close: ::1:53975
+[2015-07-26 09:38:57] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:38:57] ERROR `/sticky-footer.css' not found.
+[2015-07-26 09:38:57] DEBUG close: ::1:53976
+[2015-07-26 09:38:59] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:39:03] DEBUG close: ::1:53900
+[2015-07-26 09:39:07] DEBUG close: ::1:53917
+[2015-07-26 09:39:07] DEBUG close: ::1:53921
+[2015-07-26 09:39:07] DEBUG close: ::1:53919
+[2015-07-26 09:39:07] DEBUG close: ::1:53922
+[2015-07-26 09:39:09] DEBUG close: ::1:53913
+[2015-07-26 09:39:12] DEBUG close: ::1:53978
+[2015-07-26 09:39:12] DEBUG close: ::1:53979
+[2015-07-26 09:39:29] DEBUG close: ::1:53977
+[2015-07-26 09:39:48] DEBUG accept: ::1:54034
+[2015-07-26 09:39:48] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:39:56] DEBUG accept: ::1:54039
+[2015-07-26 09:39:56] DEBUG accept: ::1:54040
+[2015-07-26 09:39:56] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:39:59] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:39:59] DEBUG accept: ::1:54044
+[2015-07-26 09:39:59] DEBUG accept: ::1:54046
+[2015-07-26 09:39:59] DEBUG accept: ::1:54045
+[2015-07-26 09:39:59] DEBUG accept: ::1:54047
+[2015-07-26 09:39:59] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:39:59] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:39:59] ERROR `/timepicker-css/bootstrap-timepicker.min.css' not found.
+[2015-07-26 09:39:59] DEBUG close: ::1:54040
+[2015-07-26 09:39:59] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:39:59] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:39:59] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:39:59] ERROR `/sticky-footer.css' not found.
+[2015-07-26 09:39:59] DEBUG close: ::1:54045
+[2015-07-26 09:39:59] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:39:59] DEBUG accept: ::1:54048
+[2015-07-26 09:39:59] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:39:59] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:39:59] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:39:59] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:39:59] DEBUG accept: ::1:54049
+[2015-07-26 09:39:59] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:39:59] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:39:59] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:39:59] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:39:59] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:40:00] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:40:00] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:40:00] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:40:13] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:40:13] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:40:13] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:40:13] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:40:13] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:40:13] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:40:13] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:40:13] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:40:13] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:40:13] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:40:13] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:40:13] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:40:13] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:40:19] DEBUG close: ::1:54034
+[2015-07-26 09:40:43] DEBUG close: ::1:54039
+[2015-07-26 09:40:43] DEBUG close: ::1:54049
+[2015-07-26 09:40:43] DEBUG close: ::1:54048
+[2015-07-26 09:40:43] DEBUG close: ::1:54046
+[2015-07-26 09:40:43] DEBUG close: ::1:54047
+[2015-07-26 09:40:43] DEBUG close: ::1:54044
+[2015-07-26 09:41:07] DEBUG accept: ::1:54077
+[2015-07-26 09:41:07] DEBUG accept: ::1:54080
+[2015-07-26 09:41:07] DEBUG accept: ::1:54081
+[2015-07-26 09:41:07] DEBUG accept: ::1:54083
+[2015-07-26 09:41:07] DEBUG accept: ::1:54082
+[2015-07-26 09:41:07] DEBUG accept: ::1:54084
+[2015-07-26 09:41:07] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:41:07] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:41:07] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:41:07] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:41:07] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:41:07] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:41:07] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:41:07] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:41:07] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:41:07] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:41:07] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:41:07] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:41:07] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:41:37] DEBUG close: ::1:54081
+[2015-07-26 09:41:37] DEBUG close: ::1:54080
+[2015-07-26 09:41:37] DEBUG close: ::1:54077
+[2015-07-26 09:41:37] DEBUG close: ::1:54082
+[2015-07-26 09:41:37] DEBUG close: ::1:54084
+[2015-07-26 09:41:37] DEBUG close: ::1:54083
+[2015-07-26 09:42:33] DEBUG accept: ::1:54101
+[2015-07-26 09:42:33] DEBUG accept: ::1:54103
+[2015-07-26 09:42:33] DEBUG accept: ::1:54102
+[2015-07-26 09:42:33] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:42:33] DEBUG accept: ::1:54105
+[2015-07-26 09:42:33] DEBUG accept: ::1:54104
+[2015-07-26 09:42:33] DEBUG accept: ::1:54106
+[2015-07-26 09:42:33] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:42:33] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:42:33] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:42:33] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:42:33] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:42:33] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:42:33] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:42:33] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:42:33] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:42:33] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:42:33] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:42:33] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:42:35] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:42:35] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:42:35] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:42:35] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:42:35] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:42:35] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:42:35] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:42:35] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:42:35] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:42:35] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:42:35] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:42:35] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:42:35] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:43:05] DEBUG close: ::1:54103
+[2015-07-26 09:43:05] DEBUG close: ::1:54101
+[2015-07-26 09:43:05] DEBUG close: ::1:54105
+[2015-07-26 09:43:05] DEBUG close: ::1:54104
+[2015-07-26 09:43:05] DEBUG close: ::1:54102
+[2015-07-26 09:43:05] DEBUG close: ::1:54106
+[2015-07-26 09:43:23] DEBUG accept: ::1:54114
+[2015-07-26 09:43:23] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:43:24] DEBUG accept: ::1:54115
+[2015-07-26 09:43:24] DEBUG accept: ::1:54116
+[2015-07-26 09:43:24] DEBUG accept: ::1:54117
+[2015-07-26 09:43:24] DEBUG accept: ::1:54118
+[2015-07-26 09:43:24] DEBUG accept: ::1:54119
+[2015-07-26 09:43:24] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:43:24] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:43:24] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:43:24] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:43:24] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:43:24] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:43:24] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:43:24] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:43:24] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:43:24] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:43:24] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:43:24] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:43:54] DEBUG close: ::1:54115
+[2015-07-26 09:43:54] DEBUG close: ::1:54117
+[2015-07-26 09:43:54] DEBUG close: ::1:54119
+[2015-07-26 09:43:54] DEBUG close: ::1:54118
+[2015-07-26 09:43:54] DEBUG close: ::1:54114
+[2015-07-26 09:43:54] DEBUG close: ::1:54116
+[2015-07-26 09:44:10] DEBUG accept: ::1:54125
+[2015-07-26 09:44:12] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:44:12] DEBUG accept: ::1:54126
+[2015-07-26 09:44:12] DEBUG accept: ::1:54127
+[2015-07-26 09:44:12] DEBUG accept: ::1:54128
+[2015-07-26 09:44:12] DEBUG accept: ::1:54129
+[2015-07-26 09:44:12] DEBUG accept: ::1:54130
+[2015-07-26 09:44:12] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:44:12] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:44:12] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:44:12] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:44:12] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:44:12] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:44:12] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:44:12] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:44:12] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:44:12] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:44:12] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:44:12] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:44:36] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:44:36] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:44:36] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:44:36] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:44:36] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:44:36] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:44:36] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:44:36] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:44:36] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:44:36] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:44:36] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:44:36] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:44:36] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:45:06] DEBUG close: ::1:54128
+[2015-07-26 09:45:06] DEBUG close: ::1:54130
+[2015-07-26 09:45:06] DEBUG close: ::1:54129
+[2015-07-26 09:45:06] DEBUG close: ::1:54125
+[2015-07-26 09:45:06] DEBUG close: ::1:54126
+[2015-07-26 09:45:06] DEBUG close: ::1:54127
+[2015-07-26 09:45:07] DEBUG accept: ::1:54150
+[2015-07-26 09:45:07] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:45:09] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:45:09] DEBUG accept: ::1:54155
+[2015-07-26 09:45:09] DEBUG accept: ::1:54156
+[2015-07-26 09:45:09] DEBUG accept: ::1:54157
+[2015-07-26 09:45:09] DEBUG accept: ::1:54158
+[2015-07-26 09:45:09] DEBUG accept: ::1:54159
+[2015-07-26 09:45:09] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:45:09] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:45:09] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:45:09] ERROR `/timepicker-css/bootstrap-timepicker.min.css' not found.
+[2015-07-26 09:45:09] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:45:09] DEBUG close: ::1:54155
+[2015-07-26 09:45:09] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:45:09] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:45:09] ERROR `/sticky-footer.css' not found.
+[2015-07-26 09:45:09] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:45:09] DEBUG accept: ::1:54160
+[2015-07-26 09:45:09] DEBUG close: ::1:54157
+[2015-07-26 09:45:09] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:45:09] DEBUG accept: ::1:54161
+[2015-07-26 09:45:09] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:45:09] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:45:09] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:45:09] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:45:09] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:45:09] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:45:09] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:45:11] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:45:11] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:45:11] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:45:40] DEBUG close: ::1:54160
+[2015-07-26 09:45:40] DEBUG close: ::1:54158
+[2015-07-26 09:45:40] DEBUG close: ::1:54159
+[2015-07-26 09:45:40] DEBUG close: ::1:54150
+[2015-07-26 09:45:41] DEBUG close: ::1:54156
+[2015-07-26 09:45:41] DEBUG close: ::1:54161
+[2015-07-26 09:45:51] DEBUG accept: ::1:54173
+[2015-07-26 09:45:51] DEBUG accept: ::1:54178
+[2015-07-26 09:45:51] DEBUG accept: ::1:54177
+[2015-07-26 09:45:51] DEBUG accept: ::1:54179
+[2015-07-26 09:45:51] DEBUG accept: ::1:54180
+[2015-07-26 09:45:51] DEBUG accept: ::1:54181
+[2015-07-26 09:45:51] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:45:51] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:45:51] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:45:51] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:45:51] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:45:51] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:45:51] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:45:51] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:45:51] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:45:51] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:45:51] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:45:51] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:45:51] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:46:21] DEBUG close: ::1:54173
+[2015-07-26 09:46:21] DEBUG close: ::1:54178
+[2015-07-26 09:46:21] DEBUG close: ::1:54177
+[2015-07-26 09:46:21] DEBUG close: ::1:54179
+[2015-07-26 09:46:21] DEBUG close: ::1:54181
+[2015-07-26 09:46:21] DEBUG close: ::1:54180
+[2015-07-26 09:47:01] DEBUG accept: ::1:54194
+[2015-07-26 09:47:01] DEBUG accept: ::1:54197
+[2015-07-26 09:47:01] DEBUG accept: ::1:54199
+[2015-07-26 09:47:01] DEBUG accept: ::1:54198
+[2015-07-26 09:47:01] DEBUG accept: ::1:54200
+[2015-07-26 09:47:01] DEBUG accept: ::1:54201
+[2015-07-26 09:47:01] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:47:02] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:47:02] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:47:02] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:47:02] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:47:02] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:47:02] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:47:02] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:47:02] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:47:02] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:47:02] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:47:02] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:47:02] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:47:32] DEBUG close: ::1:54194
+[2015-07-26 09:47:32] DEBUG close: ::1:54199
+[2015-07-26 09:47:32] DEBUG close: ::1:54198
+[2015-07-26 09:47:32] DEBUG close: ::1:54197
+[2015-07-26 09:47:32] DEBUG close: ::1:54200
+[2015-07-26 09:47:32] DEBUG close: ::1:54201
+[2015-07-26 09:47:33] DEBUG accept: ::1:54218
+[2015-07-26 09:47:33] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:47:33] DEBUG accept: ::1:54219
+[2015-07-26 09:47:33] DEBUG accept: ::1:54221
+[2015-07-26 09:47:33] DEBUG accept: ::1:54220
+[2015-07-26 09:47:33] DEBUG accept: ::1:54223
+[2015-07-26 09:47:33] DEBUG accept: ::1:54222
+[2015-07-26 09:47:33] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:47:33] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:47:33] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:47:33] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:47:33] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:47:33] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:47:33] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:47:33] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:47:33] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:47:33] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:47:34] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:47:34] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:48:04] DEBUG close: ::1:54218
+[2015-07-26 09:48:04] DEBUG close: ::1:54223
+[2015-07-26 09:48:04] DEBUG close: ::1:54222
+[2015-07-26 09:48:04] DEBUG close: ::1:54221
+[2015-07-26 09:48:04] DEBUG close: ::1:54220
+[2015-07-26 09:48:04] DEBUG close: ::1:54219
+[2015-07-26 09:48:26] DEBUG accept: ::1:54224
+[2015-07-26 09:48:26] DEBUG accept: ::1:54225
+[2015-07-26 09:48:26] DEBUG accept: ::1:54227
+[2015-07-26 09:48:26] DEBUG accept: ::1:54226
+[2015-07-26 09:48:26] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:48:26] DEBUG accept: ::1:54229
+[2015-07-26 09:48:26] DEBUG accept: ::1:54228
+[2015-07-26 09:48:26] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:48:26] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:48:26] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:48:26] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:48:26] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:48:26] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:48:26] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:48:26] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:48:26] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:48:26] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:48:26] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:48:26] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:48:56] DEBUG close: ::1:54228
+[2015-07-26 09:48:56] DEBUG close: ::1:54225
+[2015-07-26 09:48:56] DEBUG close: ::1:54224
+[2015-07-26 09:48:56] DEBUG close: ::1:54229
+[2015-07-26 09:48:56] DEBUG close: ::1:54227
+[2015-07-26 09:48:56] DEBUG close: ::1:54226
+[2015-07-26 09:49:34] DEBUG accept: ::1:54235
+[2015-07-26 09:49:34] DEBUG accept: ::1:54233
+[2015-07-26 09:49:34] DEBUG accept: ::1:54234
+[2015-07-26 09:49:34] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:49:34] DEBUG accept: ::1:54237
+[2015-07-26 09:49:34] DEBUG accept: ::1:54236
+[2015-07-26 09:49:34] DEBUG accept: ::1:54238
+[2015-07-26 09:49:34] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:49:34] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:49:34] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:49:34] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:49:34] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:49:34] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:49:34] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:49:34] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:49:34] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:49:34] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:49:34] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:49:34] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:49:56] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:49:56] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:49:56] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:49:56] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:49:56] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:49:56] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:49:56] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:49:56] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:49:56] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:49:56] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:49:56] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:49:56] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:49:56] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:50:26] DEBUG close: ::1:54238
+[2015-07-26 09:50:26] DEBUG close: ::1:54235
+[2015-07-26 09:50:26] DEBUG close: ::1:54237
+[2015-07-26 09:50:26] DEBUG close: ::1:54236
+[2015-07-26 09:50:26] DEBUG close: ::1:54233
+[2015-07-26 09:50:26] DEBUG close: ::1:54234
+[2015-07-26 09:50:30] DEBUG accept: ::1:54247
+[2015-07-26 09:50:30] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:50:30] DEBUG accept: ::1:54248
+[2015-07-26 09:50:30] DEBUG accept: ::1:54249
+[2015-07-26 09:50:30] DEBUG accept: ::1:54251
+[2015-07-26 09:50:30] DEBUG accept: ::1:54250
+[2015-07-26 09:50:30] DEBUG accept: ::1:54252
+[2015-07-26 09:50:30] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:50:30] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:50:30] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:50:30] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:50:30] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:50:30] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:50:30] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:50:30] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:50:30] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:50:30] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:50:30] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:50:30] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:50:40] DEBUG accept: ::1:54264
+[2015-07-26 09:50:40] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:50:42] DEBUG accept: ::1:54266
+[2015-07-26 09:50:42] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:50:42] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:50:42] DEBUG accept: ::1:54268
+[2015-07-26 09:50:42] DEBUG accept: ::1:54270
+[2015-07-26 09:50:42] DEBUG accept: ::1:54269
+[2015-07-26 09:50:42] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:50:42] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:50:42] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:50:42] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:50:42] DEBUG accept: ::1:54272
+[2015-07-26 09:50:42] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:50:42] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:50:42] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:50:42] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:51:00] DEBUG close: ::1:54252
+[2015-07-26 09:51:00] DEBUG close: ::1:54249
+[2015-07-26 09:51:00] DEBUG close: ::1:54247
+[2015-07-26 09:51:00] DEBUG close: ::1:54250
+[2015-07-26 09:51:00] DEBUG close: ::1:54248
+[2015-07-26 09:51:00] DEBUG close: ::1:54251
+[2015-07-26 09:51:10] DEBUG close: ::1:54264
+[2015-07-26 09:51:13] DEBUG close: ::1:54266
+[2015-07-26 09:51:13] DEBUG close: ::1:54269
+[2015-07-26 09:51:13] DEBUG close: ::1:54272
+[2015-07-26 09:51:13] DEBUG close: ::1:54270
+[2015-07-26 09:51:13] DEBUG close: ::1:54268
+[2015-07-26 09:51:44] DEBUG accept: ::1:54284
+[2015-07-26 09:51:44] DEBUG accept: ::1:54285
+[2015-07-26 09:51:44] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:51:48] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:51:48] DEBUG accept: ::1:54289
+[2015-07-26 09:51:48] DEBUG accept: ::1:54290
+[2015-07-26 09:51:48] DEBUG accept: ::1:54291
+[2015-07-26 09:51:48] DEBUG accept: ::1:54292
+[2015-07-26 09:51:48] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:51:48] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:51:48] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:51:48] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:51:48] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:51:48] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:51:48] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:51:48] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:51:48] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:51:48] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:51:48] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:51:48] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:52:15] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:52:15] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:52:15] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:52:15] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:52:15] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:52:15] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:52:15] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:52:15] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:52:15] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:52:15] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:52:15] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:52:15] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:52:15] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:52:28] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:52:28] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:52:28] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:52:28] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:52:28] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:52:28] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:52:28] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:52:28] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:52:28] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:52:28] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:52:28] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:52:28] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:52:28] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:52:50] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:52:50] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:52:50] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:52:50] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:52:50] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:52:50] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:52:50] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:52:50] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:52:50] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:52:50] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:52:50] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:52:50] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:52:50] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:52:55] DEBUG accept: ::1:54333
+[2015-07-26 09:52:55] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:52:59] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:52:59] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:52:59] DEBUG accept: ::1:54335
+[2015-07-26 09:52:59] DEBUG accept: ::1:54336
+[2015-07-26 09:52:59] DEBUG accept: ::1:54337
+[2015-07-26 09:52:59] DEBUG accept: ::1:54338
+[2015-07-26 09:52:59] DEBUG accept: ::1:54339
+[2015-07-26 09:52:59] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:52:59] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:52:59] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:52:59] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:52:59] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:53:00] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:53:00] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:53:00] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:53:00] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:53:00] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:53:00] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:53:07] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:53:07] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:53:07] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:53:07] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:53:07] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:53:07] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:53:07] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:53:08] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:53:08] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:53:08] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:53:08] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:53:08] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:53:08] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:53:17] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:53:17] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:53:17] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:53:17] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:53:17] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:53:17] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:53:17] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:53:17] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:53:17] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:53:17] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:53:17] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:53:17] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:53:17] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:53:20] DEBUG close: ::1:54292
+[2015-07-26 09:53:20] DEBUG close: ::1:54290
+[2015-07-26 09:53:20] DEBUG close: ::1:54284
+[2015-07-26 09:53:20] DEBUG close: ::1:54289
+[2015-07-26 09:53:20] DEBUG close: ::1:54285
+[2015-07-26 09:53:20] DEBUG close: ::1:54291
+[2015-07-26 09:53:27] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:53:27] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:53:27] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:53:27] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:53:27] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:53:27] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:53:27] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:53:27] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:53:27] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:53:27] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:53:27] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:53:27] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:53:27] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:53:30] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:53:30] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:53:30] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:53:30] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:53:30] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:53:30] ERROR `/sticky-footer.css' not found.
+[2015-07-26 09:53:30] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:53:30] ERROR `/timepicker-css/bootstrap-timepicker.min.css' not found.
+[2015-07-26 09:53:30] DEBUG close: ::1:54339
+[2015-07-26 09:53:30] DEBUG close: ::1:54336
+[2015-07-26 09:53:32] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:53:32] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:53:49] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:53:49] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:53:49] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:53:49] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:53:49] DEBUG accept: ::1:54366
+[2015-07-26 09:53:49] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:53:49] DEBUG accept: ::1:54367
+[2015-07-26 09:53:49] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:53:49] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:53:50] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:53:50] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:53:50] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:53:50] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:53:50] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:53:50] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:54:17] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:54:17] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:54:17] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:54:17] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:54:17] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:54:17] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:54:17] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:54:18] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:54:18] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:54:18] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:54:18] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:54:18] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:54:18] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:54:48] DEBUG close: ::1:54333
+[2015-07-26 09:54:48] DEBUG close: ::1:54367
+[2015-07-26 09:54:48] DEBUG close: ::1:54338
+[2015-07-26 09:54:48] DEBUG close: ::1:54337
+[2015-07-26 09:54:48] DEBUG close: ::1:54366
+[2015-07-26 09:54:48] DEBUG close: ::1:54335
+[2015-07-26 09:55:08] DEBUG accept: ::1:54372
+[2015-07-26 09:55:08] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:55:08] DEBUG accept: ::1:54373
+[2015-07-26 09:55:08] DEBUG accept: ::1:54375
+[2015-07-26 09:55:08] DEBUG accept: ::1:54374
+[2015-07-26 09:55:08] DEBUG accept: ::1:54376
+[2015-07-26 09:55:08] DEBUG accept: ::1:54377
+[2015-07-26 09:55:08] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:55:08] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:55:08] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:55:08] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:55:08] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:55:08] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:55:08] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:55:08] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:55:08] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:55:08] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:55:08] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:55:08] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:55:38] DEBUG accept: ::1:54382
+[2015-07-26 09:55:38] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:55:38] DEBUG close: ::1:54374
+[2015-07-26 09:55:38] DEBUG close: ::1:54377
+[2015-07-26 09:55:38] DEBUG close: ::1:54373
+[2015-07-26 09:55:38] DEBUG close: ::1:54372
+[2015-07-26 09:55:38] DEBUG close: ::1:54376
+[2015-07-26 09:55:38] DEBUG close: ::1:54375
+[2015-07-26 09:55:38] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:55:38] DEBUG accept: ::1:54385
+[2015-07-26 09:55:38] DEBUG accept: ::1:54387
+[2015-07-26 09:55:38] DEBUG accept: ::1:54386
+[2015-07-26 09:55:38] DEBUG accept: ::1:54389
+[2015-07-26 09:55:38] DEBUG accept: ::1:54388
+[2015-07-26 09:55:38] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:55:38] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:55:38] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:55:38] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:55:38] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:55:39] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:55:39] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:55:39] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:55:39] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:55:39] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:55:39] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:56:09] DEBUG close: ::1:54385
+[2015-07-26 09:56:09] DEBUG close: ::1:54386
+[2015-07-26 09:56:09] DEBUG close: ::1:54389
+[2015-07-26 09:56:09] DEBUG close: ::1:54387
+[2015-07-26 09:56:09] DEBUG close: ::1:54388
+[2015-07-26 09:56:09] DEBUG close: ::1:54382
+[2015-07-26 09:56:46] DEBUG accept: ::1:54393
+[2015-07-26 09:56:46] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:56:46] DEBUG accept: ::1:54394
+[2015-07-26 09:56:46] DEBUG accept: ::1:54395
+[2015-07-26 09:56:46] DEBUG accept: ::1:54397
+[2015-07-26 09:56:46] DEBUG accept: ::1:54396
+[2015-07-26 09:56:46] DEBUG accept: ::1:54398
+[2015-07-26 09:56:46] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:56:46] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:56:46] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:56:46] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:56:46] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:56:46] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:56:46] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:56:46] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:56:46] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:56:46] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:56:46] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:56:46] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:57:16] DEBUG close: ::1:54396
+[2015-07-26 09:57:16] DEBUG close: ::1:54398
+[2015-07-26 09:57:16] DEBUG close: ::1:54395
+[2015-07-26 09:57:16] DEBUG close: ::1:54397
+[2015-07-26 09:57:16] DEBUG close: ::1:54394
+[2015-07-26 09:57:16] DEBUG close: ::1:54393
+[2015-07-26 09:57:17] DEBUG accept: ::1:54402
+[2015-07-26 09:57:17] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:57:17] DEBUG accept: ::1:54403
+[2015-07-26 09:57:17] DEBUG accept: ::1:54405
+[2015-07-26 09:57:17] DEBUG accept: ::1:54404
+[2015-07-26 09:57:17] DEBUG accept: ::1:54406
+[2015-07-26 09:57:17] DEBUG accept: ::1:54407
+[2015-07-26 09:57:17] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:57:17] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:57:17] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:57:17] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:57:17] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:57:17] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:57:17] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:57:17] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:57:17] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:57:17] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:57:17] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:57:17] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:57:47] DEBUG close: ::1:54406
+[2015-07-26 09:57:47] DEBUG close: ::1:54405
+[2015-07-26 09:57:47] DEBUG close: ::1:54407
+[2015-07-26 09:57:47] DEBUG close: ::1:54402
+[2015-07-26 09:57:47] DEBUG close: ::1:54403
+[2015-07-26 09:57:47] DEBUG close: ::1:54404
+[2015-07-26 09:58:14] DEBUG accept: ::1:54411
+[2015-07-26 09:58:14] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:58:14] DEBUG accept: ::1:54412
+[2015-07-26 09:58:14] DEBUG accept: ::1:54413
+[2015-07-26 09:58:14] DEBUG accept: ::1:54414
+[2015-07-26 09:58:14] DEBUG accept: ::1:54415
+[2015-07-26 09:58:14] DEBUG accept: ::1:54416
+[2015-07-26 09:58:14] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:58:14] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:58:14] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:58:14] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:58:14] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:58:14] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:58:14] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:58:14] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:58:14] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:58:14] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:58:14] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:58:14] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:58:44] DEBUG close: ::1:54414
+[2015-07-26 09:58:44] DEBUG close: ::1:54412
+[2015-07-26 09:58:44] DEBUG close: ::1:54416
+[2015-07-26 09:58:44] DEBUG close: ::1:54415
+[2015-07-26 09:58:44] DEBUG close: ::1:54413
+[2015-07-26 09:58:44] DEBUG close: ::1:54411
+[2015-07-26 09:59:25] DEBUG accept: ::1:54422
+[2015-07-26 09:59:25] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:59:25] DEBUG accept: ::1:54423
+[2015-07-26 09:59:25] DEBUG accept: ::1:54424
+[2015-07-26 09:59:25] DEBUG accept: ::1:54425
+[2015-07-26 09:59:25] DEBUG accept: ::1:54426
+[2015-07-26 09:59:25] DEBUG accept: ::1:54427
+[2015-07-26 09:59:25] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:59:25] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:59:25] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:59:25] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:59:25] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:59:25] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:59:25] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:59:25] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:59:25] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:59:25] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:59:25] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:59:25] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:59:37] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:59:37] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:59:37] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:59:37] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:59:37] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:59:37] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:59:37] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:59:37] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:59:37] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:59:37] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:59:37] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:59:37] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 09:59:37] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:00:04] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:00:04] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:00:04] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:00:04] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:00:04] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:00:04] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:00:04] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:00:04] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:00:04] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:00:04] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:00:04] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:00:04] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:00:04] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:00:29] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:00:29] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:00:29] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:00:29] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:00:29] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:00:29] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:00:29] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:00:29] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:00:29] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:00:29] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:00:29] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:00:29] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:00:29] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:00:59] DEBUG close: ::1:54427
+[2015-07-26 10:00:59] DEBUG close: ::1:54422
+[2015-07-26 10:00:59] DEBUG close: ::1:54423
+[2015-07-26 10:00:59] DEBUG close: ::1:54425
+[2015-07-26 10:00:59] DEBUG close: ::1:54426
+[2015-07-26 10:00:59] DEBUG close: ::1:54424
+[2015-07-26 10:29:41] DEBUG accept: ::1:54483
+[2015-07-26 10:29:41] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:29:42] DEBUG accept: ::1:54484
+[2015-07-26 10:29:42] DEBUG accept: ::1:54487
+[2015-07-26 10:29:42] DEBUG accept: ::1:54485
+[2015-07-26 10:29:42] DEBUG accept: ::1:54486
+[2015-07-26 10:29:42] DEBUG accept: ::1:54488
+[2015-07-26 10:29:42] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:29:42] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:29:42] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:29:42] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:29:42] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:29:42] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:29:42] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:29:42] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:29:42] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:29:42] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:29:42] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:29:42] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:30:12] DEBUG close: ::1:54484
+[2015-07-26 10:30:12] DEBUG close: ::1:54486
+[2015-07-26 10:30:12] DEBUG close: ::1:54488
+[2015-07-26 10:30:12] DEBUG close: ::1:54483
+[2015-07-26 10:30:12] DEBUG close: ::1:54485
+[2015-07-26 10:30:12] DEBUG close: ::1:54487
+[2015-07-26 10:30:31] DEBUG accept: ::1:54498
+[2015-07-26 10:30:41] DEBUG close: ::1:54498
+[2015-07-26 10:32:05] DEBUG accept: ::1:54499
+[2015-07-26 10:32:05] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:32:14] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:32:14] DEBUG accept: ::1:54500
+[2015-07-26 10:32:14] DEBUG accept: ::1:54501
+[2015-07-26 10:32:14] DEBUG accept: ::1:54502
+[2015-07-26 10:32:14] DEBUG accept: ::1:54503
+[2015-07-26 10:32:14] DEBUG accept: ::1:54504
+[2015-07-26 10:32:14] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:32:14] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:32:14] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:32:14] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:32:14] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:32:14] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:32:14] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:32:14] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:32:14] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:32:14] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:32:14] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:32:14] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:32:45] DEBUG close: ::1:54504
+[2015-07-26 10:32:45] DEBUG close: ::1:54499
+[2015-07-26 10:32:45] DEBUG close: ::1:54502
+[2015-07-26 10:32:45] DEBUG close: ::1:54500
+[2015-07-26 10:32:45] DEBUG close: ::1:54503
+[2015-07-26 10:32:45] DEBUG close: ::1:54501
+[2015-07-26 10:34:27] DEBUG accept: ::1:54509
+[2015-07-26 10:34:27] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:34:27] DEBUG accept: ::1:54510
+[2015-07-26 10:34:27] DEBUG accept: ::1:54512
+[2015-07-26 10:34:27] DEBUG accept: ::1:54511
+[2015-07-26 10:34:27] DEBUG accept: ::1:54513
+[2015-07-26 10:34:27] DEBUG accept: ::1:54514
+[2015-07-26 10:34:27] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:34:27] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:34:27] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:34:27] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:34:27] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:34:27] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:34:27] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:34:27] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:34:27] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:34:27] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:34:27] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:34:27] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:34:57] DEBUG close: ::1:54511
+[2015-07-26 10:34:57] DEBUG close: ::1:54512
+[2015-07-26 10:34:57] DEBUG close: ::1:54510
+[2015-07-26 10:34:57] DEBUG close: ::1:54513
+[2015-07-26 10:34:57] DEBUG close: ::1:54514
+[2015-07-26 10:34:57] DEBUG close: ::1:54509
+[2015-07-26 10:35:30] DEBUG accept: ::1:54520
+[2015-07-26 10:35:30] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:35:30] DEBUG accept: ::1:54521
+[2015-07-26 10:35:30] DEBUG accept: ::1:54522
+[2015-07-26 10:35:30] DEBUG accept: ::1:54523
+[2015-07-26 10:35:30] DEBUG accept: ::1:54524
+[2015-07-26 10:35:30] DEBUG accept: ::1:54525
+[2015-07-26 10:35:30] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:35:30] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:35:30] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:35:30] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:35:30] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:35:30] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:35:30] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:35:30] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:35:30] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:35:30] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:35:30] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:35:30] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:35:33] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:35:33] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:35:33] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:35:33] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:35:33] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:35:33] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:35:33] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:35:33] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:35:33] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:35:33] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:35:33] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:35:33] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:35:33] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:35:43] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:35:43] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:35:43] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:35:43] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:35:43] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:35:43] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:35:43] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:35:43] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:35:43] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:35:43] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:35:43] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:35:43] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:35:43] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:36:13] DEBUG close: ::1:54523
+[2015-07-26 10:36:13] DEBUG close: ::1:54525
+[2015-07-26 10:36:13] DEBUG close: ::1:54521
+[2015-07-26 10:36:13] DEBUG close: ::1:54524
+[2015-07-26 10:36:13] DEBUG close: ::1:54520
+[2015-07-26 10:36:13] DEBUG close: ::1:54522
+[2015-07-26 10:39:32] DEBUG accept: ::1:54564
+[2015-07-26 10:39:32] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:39:32] DEBUG accept: ::1:54565
+[2015-07-26 10:39:32] DEBUG accept: ::1:54567
+[2015-07-26 10:39:32] DEBUG accept: ::1:54566
+[2015-07-26 10:39:32] DEBUG accept: ::1:54568
+[2015-07-26 10:39:32] DEBUG accept: ::1:54569
+[2015-07-26 10:39:32] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:39:32] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:39:32] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:39:32] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:39:32] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:39:32] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:39:32] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:39:32] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:39:32] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:39:32] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:39:32] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:39:32] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:40:02] DEBUG close: ::1:54569
+[2015-07-26 10:40:02] DEBUG close: ::1:54567
+[2015-07-26 10:40:02] DEBUG close: ::1:54566
+[2015-07-26 10:40:02] DEBUG close: ::1:54564
+[2015-07-26 10:40:02] DEBUG close: ::1:54565
+[2015-07-26 10:40:02] DEBUG close: ::1:54568
+[2015-07-26 10:40:04] DEBUG accept: ::1:54588
+[2015-07-26 10:40:04] DEBUG accept: ::1:54589
+[2015-07-26 10:40:05] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:40:07] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:40:07] DEBUG accept: ::1:54594
+[2015-07-26 10:40:07] DEBUG accept: ::1:54596
+[2015-07-26 10:40:07] DEBUG accept: ::1:54593
+[2015-07-26 10:40:07] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:40:07] DEBUG accept: ::1:54595
+[2015-07-26 10:40:07] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:40:07] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:40:07] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:40:07] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:40:07] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:40:07] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:40:07] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:40:07] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:40:07] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:40:07] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:40:07] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 10:40:37] DEBUG close: ::1:54588
+[2015-07-26 10:40:37] DEBUG close: ::1:54589
+[2015-07-26 10:40:37] DEBUG close: ::1:54594
+[2015-07-26 10:40:37] DEBUG close: ::1:54593
+[2015-07-26 10:40:37] DEBUG close: ::1:54595
+[2015-07-26 10:40:37] DEBUG close: ::1:54596
+[2015-07-26 11:39:46] DEBUG accept: ::1:54650
+[2015-07-26 11:39:46] DEBUG accept: ::1:54649
+[2015-07-26 11:39:46] DEBUG accept: ::1:54651
+[2015-07-26 11:39:46] DEBUG accept: ::1:54652
+[2015-07-26 11:39:46] DEBUG accept: ::1:54653
+[2015-07-26 11:39:46] DEBUG accept: ::1:54654
+[2015-07-26 11:39:46] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:39:46] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:39:46] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:39:46] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:39:46] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:39:46] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:39:46] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:39:46] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:39:46] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:39:46] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:39:46] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:39:46] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:39:46] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:40:16] DEBUG close: ::1:54653
+[2015-07-26 11:40:16] DEBUG close: ::1:54649
+[2015-07-26 11:40:16] DEBUG close: ::1:54651
+[2015-07-26 11:40:16] DEBUG close: ::1:54652
+[2015-07-26 11:40:16] DEBUG close: ::1:54650
+[2015-07-26 11:40:16] DEBUG close: ::1:54654
+[2015-07-26 11:40:26] DEBUG accept: ::1:54675
+[2015-07-26 11:40:26] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:40:26] DEBUG accept: ::1:54676
+[2015-07-26 11:40:26] DEBUG accept: ::1:54677
+[2015-07-26 11:40:26] DEBUG accept: ::1:54679
+[2015-07-26 11:40:26] DEBUG accept: ::1:54678
+[2015-07-26 11:40:26] DEBUG accept: ::1:54680
+[2015-07-26 11:40:26] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:40:26] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:40:26] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:40:26] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:40:26] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:40:26] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:40:26] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:40:26] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:40:26] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:40:27] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:40:27] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:40:27] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:40:41] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:40:41] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:40:41] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:40:41] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:40:41] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:40:41] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:40:41] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:40:41] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:40:41] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:40:41] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:40:41] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:40:41] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:40:41] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:41:07] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:41:07] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:41:07] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:41:07] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:41:07] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:41:07] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:41:08] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:41:08] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:41:08] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:41:08] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:41:08] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:41:08] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:41:08] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:41:21] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:41:21] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:41:21] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:41:21] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:41:21] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:41:21] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:41:21] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:41:21] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:41:21] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:41:21] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:41:21] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:41:21] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:41:21] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:41:51] DEBUG close: ::1:54675
+[2015-07-26 11:41:51] DEBUG close: ::1:54680
+[2015-07-26 11:41:51] DEBUG close: ::1:54676
+[2015-07-26 11:41:51] DEBUG close: ::1:54678
+[2015-07-26 11:41:51] DEBUG close: ::1:54677
+[2015-07-26 11:41:51] DEBUG close: ::1:54679
+[2015-07-26 11:42:20] DEBUG accept: ::1:54692
+[2015-07-26 11:42:20] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:42:20] DEBUG accept: ::1:54693
+[2015-07-26 11:42:20] DEBUG accept: ::1:54694
+[2015-07-26 11:42:20] DEBUG accept: ::1:54695
+[2015-07-26 11:42:20] DEBUG accept: ::1:54696
+[2015-07-26 11:42:20] DEBUG accept: ::1:54697
+[2015-07-26 11:42:20] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:42:20] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:42:20] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:42:20] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:42:20] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:42:20] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:42:20] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:42:20] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:42:20] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:42:20] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:42:20] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:42:20] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:42:33] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:42:33] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:42:33] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:42:33] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:42:33] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:42:33] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:42:33] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:42:33] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:42:33] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:42:33] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:42:33] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:42:33] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:42:33] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:42:42] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:42:42] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:42:42] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:42:42] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:42:42] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:42:42] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:42:42] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:42:42] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:42:42] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:42:42] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:42:42] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:42:42] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:42:42] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:42:57] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:42:57] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:42:57] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:42:57] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:42:57] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:42:57] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:42:57] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:42:57] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:42:57] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:42:57] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:42:57] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:42:57] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:42:57] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:43:16] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:43:16] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:43:16] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:43:16] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:43:17] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:43:17] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:43:17] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:43:17] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:43:17] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:43:17] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:43:17] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:43:17] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:43:17] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:43:27] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:43:27] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:43:27] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:43:27] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:43:27] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:43:27] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:43:27] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:43:27] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:43:27] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:43:27] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:43:27] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:43:27] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:43:27] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:43:36] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:43:36] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:43:36] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:43:36] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:43:36] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:43:36] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:43:36] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:43:36] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:43:36] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:43:36] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:43:36] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:43:36] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:43:36] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:43:45] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:43:45] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:43:45] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:43:46] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:43:46] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:43:46] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:43:46] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:43:46] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:43:46] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:43:46] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:43:46] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:43:46] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:43:46] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:44:16] DEBUG close: ::1:54693
+[2015-07-26 11:44:16] DEBUG close: ::1:54694
+[2015-07-26 11:44:16] DEBUG close: ::1:54696
+[2015-07-26 11:44:16] DEBUG close: ::1:54697
+[2015-07-26 11:44:16] DEBUG close: ::1:54692
+[2015-07-26 11:44:16] DEBUG close: ::1:54695
+[2015-07-26 11:44:44] DEBUG accept: ::1:54725
+[2015-07-26 11:44:44] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:44:44] DEBUG accept: ::1:54726
+[2015-07-26 11:44:44] DEBUG accept: ::1:54727
+[2015-07-26 11:44:44] DEBUG accept: ::1:54728
+[2015-07-26 11:44:44] DEBUG accept: ::1:54729
+[2015-07-26 11:44:44] DEBUG accept: ::1:54730
+[2015-07-26 11:44:44] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:44:44] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:44:44] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:44:44] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:44:44] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:44:44] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:44:44] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:44:44] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:44:44] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:44:44] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:44:44] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:44:44] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:44:58] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:44:58] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:45:14] DEBUG close: ::1:54730
+[2015-07-26 11:45:14] DEBUG close: ::1:54726
+[2015-07-26 11:45:14] DEBUG close: ::1:54728
+[2015-07-26 11:45:14] DEBUG close: ::1:54729
+[2015-07-26 11:45:14] DEBUG close: ::1:54725
+[2015-07-26 11:45:17] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:45:17] DEBUG accept: ::1:54735
+[2015-07-26 11:45:17] DEBUG accept: ::1:54736
+[2015-07-26 11:45:17] DEBUG accept: ::1:54737
+[2015-07-26 11:45:17] DEBUG accept: ::1:54738
+[2015-07-26 11:45:17] DEBUG accept: ::1:54739
+[2015-07-26 11:45:17] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:45:17] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:45:17] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:45:17] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:45:17] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:45:17] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:45:17] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:45:17] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:45:17] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:45:17] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:45:17] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:45:17] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:45:47] DEBUG close: ::1:54737
+[2015-07-26 11:45:47] DEBUG close: ::1:54739
+[2015-07-26 11:45:47] DEBUG close: ::1:54738
+[2015-07-26 11:45:47] DEBUG close: ::1:54735
+[2015-07-26 11:45:47] DEBUG close: ::1:54727
+[2015-07-26 11:45:47] DEBUG close: ::1:54736
+[2015-07-26 11:47:16] DEBUG accept: ::1:54760
+[2015-07-26 11:47:16] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:47:16] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:47:44] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:47:44] DEBUG accept: ::1:54761
+[2015-07-26 11:47:44] DEBUG accept: ::1:54762
+[2015-07-26 11:47:44] DEBUG accept: ::1:54764
+[2015-07-26 11:47:44] DEBUG accept: ::1:54763
+[2015-07-26 11:47:44] DEBUG accept: ::1:54765
+[2015-07-26 11:47:44] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:47:44] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:47:44] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:47:44] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:47:44] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:47:44] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:47:44] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:47:44] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:47:44] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:47:44] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:47:44] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:47:44] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:47:59] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:47:59] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:47:59] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:47:59] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:47:59] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:47:59] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:47:59] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:47:59] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:47:59] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:47:59] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:47:59] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:47:59] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:48:00] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:48:21] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:48:21] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:48:21] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:48:21] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:48:21] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:48:21] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:48:21] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:48:21] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:48:21] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:48:21] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:48:21] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:48:21] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:48:21] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:48:51] DEBUG close: ::1:54765
+[2015-07-26 11:48:51] DEBUG close: ::1:54763
+[2015-07-26 11:48:51] DEBUG close: ::1:54760
+[2015-07-26 11:48:51] DEBUG close: ::1:54762
+[2015-07-26 11:48:51] DEBUG close: ::1:54764
+[2015-07-26 11:48:51] DEBUG close: ::1:54761
+[2015-07-26 11:48:56] DEBUG accept: ::1:54778
+[2015-07-26 11:48:56] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:48:56] DEBUG accept: ::1:54779
+[2015-07-26 11:48:56] DEBUG accept: ::1:54780
+[2015-07-26 11:48:56] DEBUG accept: ::1:54781
+[2015-07-26 11:48:56] DEBUG accept: ::1:54782
+[2015-07-26 11:48:56] DEBUG accept: ::1:54783
+[2015-07-26 11:48:56] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:48:56] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:48:56] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:48:56] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:48:56] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:48:56] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:48:56] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:48:56] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:48:56] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:48:56] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:48:56] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:48:56] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:49:12] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:49:12] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:49:12] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:49:12] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:49:12] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:49:12] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:49:12] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:49:12] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:49:12] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:49:12] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:49:12] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:49:12] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:49:12] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:49:42] DEBUG close: ::1:54778
+[2015-07-26 11:49:42] DEBUG close: ::1:54779
+[2015-07-26 11:49:42] DEBUG close: ::1:54783
+[2015-07-26 11:49:42] DEBUG close: ::1:54781
+[2015-07-26 11:49:42] DEBUG close: ::1:54780
+[2015-07-26 11:49:42] DEBUG close: ::1:54782
+[2015-07-26 11:49:56] DEBUG accept: ::1:54790
+[2015-07-26 11:49:56] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:49:56] DEBUG accept: ::1:54791
+[2015-07-26 11:49:56] DEBUG accept: ::1:54792
+[2015-07-26 11:49:56] DEBUG accept: ::1:54794
+[2015-07-26 11:49:56] DEBUG accept: ::1:54793
+[2015-07-26 11:49:56] DEBUG accept: ::1:54795
+[2015-07-26 11:49:56] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:49:56] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:49:56] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:49:56] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:49:56] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:49:56] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:49:56] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:49:56] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:49:56] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:49:56] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:49:56] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:49:56] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:50:08] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:50:08] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:50:08] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:50:08] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:50:08] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:50:08] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:50:08] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:50:08] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:50:08] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:50:08] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:50:08] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:50:08] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:50:08] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:50:38] DEBUG close: ::1:54792
+[2015-07-26 11:50:38] DEBUG close: ::1:54794
+[2015-07-26 11:50:38] DEBUG close: ::1:54795
+[2015-07-26 11:50:38] DEBUG close: ::1:54791
+[2015-07-26 11:50:38] DEBUG close: ::1:54793
+[2015-07-26 11:50:38] DEBUG close: ::1:54790
+[2015-07-26 11:50:43] DEBUG accept: ::1:54802
+[2015-07-26 11:50:43] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:50:43] DEBUG accept: ::1:54803
+[2015-07-26 11:50:43] DEBUG accept: ::1:54804
+[2015-07-26 11:50:43] DEBUG accept: ::1:54805
+[2015-07-26 11:50:43] DEBUG accept: ::1:54806
+[2015-07-26 11:50:43] DEBUG accept: ::1:54807
+[2015-07-26 11:50:43] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:50:43] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:50:43] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:50:43] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:50:43] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:50:43] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:50:43] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:50:43] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:50:43] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:50:43] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:50:43] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:50:43] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:50:55] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:50:55] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:50:55] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:50:55] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:50:55] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:50:55] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:50:55] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:50:55] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:50:55] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:50:55] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:50:55] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:50:55] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:50:55] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:51:24] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:51:24] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:51:24] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:51:24] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:51:24] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:51:24] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:51:24] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:51:24] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:51:24] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:51:24] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:51:24] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:51:24] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:51:24] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:51:37] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:51:37] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:51:37] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:51:37] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:51:37] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:51:37] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:51:37] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:51:37] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:51:37] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:51:37] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:51:37] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:51:37] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:51:37] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:51:50] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:51:50] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:51:50] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:51:50] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:51:50] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:51:50] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:51:50] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:51:50] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:51:50] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:51:50] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:51:50] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:51:50] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:51:50] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:51:57] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:51:57] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:51:57] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:51:57] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:51:57] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:51:57] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:51:57] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:51:57] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:51:57] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:51:57] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:51:57] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:51:57] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:51:57] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:52:21] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:52:21] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:52:21] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:52:21] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:52:21] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:52:21] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:52:21] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:52:21] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:52:21] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:52:21] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:52:21] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:52:21] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:52:21] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:52:37] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:52:37] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:52:37] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:52:37] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:52:37] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:52:37] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:52:37] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:52:37] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:52:37] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:52:37] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:52:37] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:52:37] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:52:37] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:52:46] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:52:46] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:52:46] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:52:46] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:52:46] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:52:46] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:52:46] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:52:46] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:52:46] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:52:46] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:52:46] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:52:46] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:52:46] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:53:03] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:53:03] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:53:03] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:53:03] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:53:03] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:53:03] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:53:03] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:53:03] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:53:03] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:53:03] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:53:03] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:53:03] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:53:03] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:53:33] DEBUG close: ::1:54805
+[2015-07-26 11:53:33] DEBUG close: ::1:54804
+[2015-07-26 11:53:33] DEBUG close: ::1:54802
+[2015-07-26 11:53:33] DEBUG close: ::1:54807
+[2015-07-26 11:53:33] DEBUG close: ::1:54803
+[2015-07-26 11:53:33] DEBUG close: ::1:54806
+[2015-07-26 11:53:49] DEBUG accept: ::1:54837
+[2015-07-26 11:53:49] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:53:49] DEBUG accept: ::1:54838
+[2015-07-26 11:53:49] DEBUG accept: ::1:54840
+[2015-07-26 11:53:49] DEBUG accept: ::1:54839
+[2015-07-26 11:53:49] DEBUG accept: ::1:54841
+[2015-07-26 11:53:49] DEBUG accept: ::1:54842
+[2015-07-26 11:53:49] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:53:49] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:53:49] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:53:49] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:53:49] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:53:49] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:53:49] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:53:49] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:53:49] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:53:49] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:53:49] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:53:49] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:53:55] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:53:55] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:53:55] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:53:55] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:53:55] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:53:55] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:53:55] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:53:55] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:53:55] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:53:55] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:53:55] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:53:55] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:53:55] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:54:25] DEBUG close: ::1:54842
+[2015-07-26 11:54:25] DEBUG close: ::1:54840
+[2015-07-26 11:54:25] DEBUG close: ::1:54841
+[2015-07-26 11:54:25] DEBUG close: ::1:54838
+[2015-07-26 11:54:25] DEBUG close: ::1:54837
+[2015-07-26 11:54:25] DEBUG close: ::1:54839
+[2015-07-26 11:54:56] DEBUG accept: ::1:54848
+[2015-07-26 11:54:56] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:54:59] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:54:59] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:55:05] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:55:05] DEBUG accept: ::1:54854
+[2015-07-26 11:55:05] DEBUG accept: ::1:54855
+[2015-07-26 11:55:05] DEBUG accept: ::1:54856
+[2015-07-26 11:55:05] DEBUG accept: ::1:54857
+[2015-07-26 11:55:05] DEBUG accept: ::1:54858
+[2015-07-26 11:55:05] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:55:05] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:55:05] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:55:05] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:55:05] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:55:05] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:55:05] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:55:05] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:55:05] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:55:05] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:55:05] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:55:05] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:55:25] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:55:25] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:55:25] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:55:25] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:55:25] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:55:25] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:55:25] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:55:25] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:55:25] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:55:25] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:55:25] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:55:25] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:55:25] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:55:36] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:55:36] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:55:40] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:55:40] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:55:40] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:55:40] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:55:40] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:55:40] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:55:40] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:55:40] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:55:40] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:55:40] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:55:40] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:55:40] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:55:40] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:56:05] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:56:05] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:56:05] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:56:05] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:56:05] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:56:05] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:56:05] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:56:05] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:56:05] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:56:05] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:56:05] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:56:05] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:56:05] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:56:20] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:56:20] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:56:35] DEBUG close: ::1:54857
+[2015-07-26 11:56:35] DEBUG close: ::1:54854
+[2015-07-26 11:56:35] DEBUG close: ::1:54856
+[2015-07-26 11:56:35] DEBUG close: ::1:54855
+[2015-07-26 11:56:35] DEBUG close: ::1:54858
+[2015-07-26 11:56:50] DEBUG close: ::1:54848
+[2015-07-26 11:57:28] DEBUG accept: ::1:54997
+[2015-07-26 11:57:28] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:57:29] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:57:32] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:57:40] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:57:40] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-26 11:57:47] DEBUG accept: ::1:55004
+[2015-07-26 11:57:47] DEBUG accept: ::1:55005
+[2015-07-26 11:57:47] DEBUG accept: ::1:55002
+[2015-07-26 11:57:47] DEBUG accept: ::1:55006
+[2015-07-26 11:57:47] DEBUG accept: ::1:55003
+[2015-07-26 11:57:59] DEBUG close: ::1:55006
+[2015-07-26 11:57:59] DEBUG close: ::1:55005
+[2015-07-26 11:57:59] DEBUG close: ::1:55004
+[2015-07-26 11:57:59] DEBUG close: ::1:55002
+[2015-07-26 11:57:59] DEBUG close: ::1:55003
+[2015-07-26 11:58:01] DEBUG accept: ::1:55008
+[2015-07-26 11:58:01] DEBUG accept: ::1:55007
+[2015-07-26 11:58:08] DEBUG close TCPSocket(0.0.0.0, 8099)
+[2015-07-26 11:58:08] DEBUG close TCPSocket(::, 8099)
+[2015-07-26 11:58:08] INFO  going to shutdown ...
+[2015-07-26 11:58:09] DEBUG close: ::1:55007
+[2015-07-26 11:58:09] DEBUG close: ::1:55008
+[2015-07-26 11:58:09] DEBUG close: ::1:54997
+[2015-07-26 11:58:09] INFO  WEBrick::HTTPServer#start done.

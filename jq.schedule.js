@@ -142,6 +142,8 @@
 
             var $node = $element.find(".sc_Bar");
             // move node.
+
+    /*
             $node.draggable({
                 grid: [ setting.widthTimeX, 1 ],
                 containment: ".sc_main",
@@ -212,6 +214,7 @@
                     }
                 }
             });
+*/
             $node.resizable({
                 handles:'e',
                 grid: [ setting.widthTimeX, setting.timeLineY ],
