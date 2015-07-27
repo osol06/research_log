@@ -8039,3 +8039,2108 @@
 [2015-07-27 13:00:00] ERROR `/timepicker-css/bootstrap-timepicker.min.css' not found.
 [2015-07-27 13:00:00] DEBUG close: ::1:59723
 [2015-07-27 13:00:00] DEBUG close: ::1:59724
+[2015-07-27 13:41:01] INFO  WEBrick 1.3.1
+[2015-07-27 13:41:01] INFO  ruby 2.0.0 (2014-05-08) [universal.x86_64-darwin14]
+[2015-07-27 13:41:01] DEBUG TCPServer.new(0.0.0.0, 8099)
+[2015-07-27 13:41:01] DEBUG TCPServer.new(::, 8099)
+[2015-07-27 13:41:01] DEBUG WEBrick::HTTPServlet::FileHandler is mounted on /.
+[2015-07-27 13:41:01] DEBUG #<WEBrick::HTTPServlet::ProcHandler:0x007fa984105b78 @proc=#<Proc:0x007fa984105ba0@server.rb:30>> is mounted on /log.
+[2015-07-27 13:41:01] INFO  WEBrick::HTTPServer#start: pid=9314 port=8099
+[2015-07-27 13:41:04] DEBUG accept: ::1:60192
+[2015-07-27 13:41:04] DEBUG accept: ::1:60193
+[2015-07-27 13:41:04] DEBUG accept: ::1:60194
+[2015-07-27 13:41:04] DEBUG accept: ::1:60195
+[2015-07-27 13:41:04] DEBUG accept: ::1:60196
+[2015-07-27 13:41:04] DEBUG accept: ::1:60197
+[2015-07-27 13:41:04] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 13:41:08] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 13:41:09] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 13:41:09] ERROR `/sticky-footer.css' not found.
+[2015-07-27 13:41:09] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 13:41:09] ERROR `/timepicker-css/bootstrap-timepicker.min.css' not found.
+[2015-07-27 13:41:09] DEBUG close: ::1:60193
+[2015-07-27 13:41:09] DEBUG close: ::1:60192
+[2015-07-27 13:41:11] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 13:41:14] DEBUG close: ::1:60195
+[2015-07-27 13:41:14] DEBUG close: ::1:60197
+[2015-07-27 13:41:14] DEBUG close: ::1:60196
+[2015-07-27 13:41:41] DEBUG close: ::1:60194
+[2015-07-27 13:42:03] DEBUG accept: ::1:60210
+[2015-07-27 13:42:03] DEBUG accept: ::1:60214
+[2015-07-27 13:42:03] DEBUG accept: ::1:60215
+[2015-07-27 13:42:03] DEBUG accept: ::1:60213
+[2015-07-27 13:42:03] DEBUG accept: ::1:60216
+[2015-07-27 13:42:03] DEBUG accept: ::1:60217
+[2015-07-27 13:42:03] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 13:42:03] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 13:42:03] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 13:42:03] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 13:42:03] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 13:42:03] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 13:42:03] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 13:42:03] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 13:42:03] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 13:42:03] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 13:42:03] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 13:42:03] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 13:42:10] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 13:42:10] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 13:42:10] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 13:42:10] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 13:42:10] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 13:42:10] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 13:42:10] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 13:42:10] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 13:42:10] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 13:42:11] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 13:42:11] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 13:42:11] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 13:42:11] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 13:42:33] DEBUG close: ::1:60217
+[2015-07-27 13:42:33] DEBUG close: ::1:60215
+[2015-07-27 13:42:40] DEBUG close: ::1:60214
+[2015-07-27 13:42:40] DEBUG close: ::1:60213
+[2015-07-27 13:42:40] DEBUG close: ::1:60210
+[2015-07-27 13:42:41] DEBUG close: ::1:60216
+[2015-07-27 13:45:41] DEBUG accept: ::1:60235
+[2015-07-27 13:45:41] DEBUG accept: ::1:60237
+[2015-07-27 13:45:41] DEBUG accept: ::1:60236
+[2015-07-27 13:45:41] DEBUG accept: ::1:60238
+[2015-07-27 13:45:41] DEBUG accept: ::1:60239
+[2015-07-27 13:45:41] DEBUG accept: ::1:60240
+[2015-07-27 13:45:41] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 13:45:41] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 13:45:41] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 13:45:41] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 13:45:41] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 13:45:41] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 13:45:41] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 13:45:41] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 13:45:41] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 13:45:41] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 13:45:41] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 13:45:41] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 13:45:42] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 13:45:42] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 13:46:11] DEBUG close: ::1:60236
+[2015-07-27 13:46:11] DEBUG close: ::1:60235
+[2015-07-27 13:46:11] DEBUG close: ::1:60237
+[2015-07-27 13:46:11] DEBUG close: ::1:60238
+[2015-07-27 13:46:11] DEBUG close: ::1:60239
+[2015-07-27 13:46:12] DEBUG close: ::1:60240
+[2015-07-27 14:24:15] DEBUG close TCPSocket(0.0.0.0, 8099)
+[2015-07-27 14:24:15] DEBUG close TCPSocket(::, 8099)
+[2015-07-27 14:24:15] INFO  going to shutdown ...
+[2015-07-27 14:24:15] INFO  WEBrick::HTTPServer#start done.
+[2015-07-27 14:24:18] INFO  WEBrick 1.3.1
+[2015-07-27 14:24:18] INFO  ruby 2.0.0 (2014-05-08) [universal.x86_64-darwin14]
+[2015-07-27 14:24:18] DEBUG TCPServer.new(0.0.0.0, 8099)
+[2015-07-27 14:24:18] DEBUG TCPServer.new(::, 8099)
+[2015-07-27 14:24:18] DEBUG WEBrick::HTTPServlet::FileHandler is mounted on /.
+[2015-07-27 14:24:18] DEBUG #<WEBrick::HTTPServlet::ProcHandler:0x007fa4b30a1bd0 @proc=#<Proc:0x007fa4b30a1bf8@server.rb:30>> is mounted on /log.
+[2015-07-27 14:24:18] INFO  WEBrick::HTTPServer#start: pid=9495 port=8099
+[2015-07-27 14:24:22] DEBUG accept: ::1:60822
+[2015-07-27 14:24:22] DEBUG accept: ::1:60823
+[2015-07-27 14:24:22] DEBUG accept: ::1:60824
+[2015-07-27 14:24:22] DEBUG accept: ::1:60825
+[2015-07-27 14:24:22] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:24:24] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:24:25] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:24:25] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:24:25] ERROR `/timepicker-css/bootstrap-timepicker.min.css' not found.
+[2015-07-27 14:24:25] ERROR `/sticky-footer.css' not found.
+[2015-07-27 14:24:25] DEBUG close: ::1:60822
+[2015-07-27 14:24:25] DEBUG close: ::1:60823
+[2015-07-27 14:24:27] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:24:27] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:24:27] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:24:57] DEBUG close: ::1:60824
+[2015-07-27 14:24:57] DEBUG close: ::1:60825
+[2015-07-27 14:27:12] DEBUG accept: ::1:60843
+[2015-07-27 14:27:12] DEBUG accept: ::1:60847
+[2015-07-27 14:27:12] DEBUG accept: ::1:60846
+[2015-07-27 14:27:12] DEBUG accept: ::1:60848
+[2015-07-27 14:27:12] DEBUG accept: ::1:60849
+[2015-07-27 14:27:12] DEBUG accept: ::1:60850
+[2015-07-27 14:27:12] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:27:12] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:27:12] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:27:12] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:27:12] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:27:12] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:27:12] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:27:12] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:27:12] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:27:12] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:27:12] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:27:13] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:27:21] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:27:21] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:27:21] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:27:21] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:27:21] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:27:21] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:27:21] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:27:21] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:27:21] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:27:21] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:27:21] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:27:21] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:27:40] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:27:40] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:27:40] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:27:40] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:27:40] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:27:40] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:27:40] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:27:40] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:27:40] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:27:40] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:27:40] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:27:40] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:27:55] DEBUG close TCPSocket(0.0.0.0, 8099)
+[2015-07-27 14:27:55] DEBUG close TCPSocket(::, 8099)
+[2015-07-27 14:27:55] INFO  going to shutdown ...
+[2015-07-27 14:27:55] DEBUG close: ::1:60846
+[2015-07-27 14:27:55] DEBUG close: ::1:60849
+[2015-07-27 14:27:55] DEBUG close: ::1:60847
+[2015-07-27 14:27:55] DEBUG close: ::1:60848
+[2015-07-27 14:27:55] DEBUG close: ::1:60850
+[2015-07-27 14:27:55] DEBUG close: ::1:60843
+[2015-07-27 14:27:55] INFO  WEBrick::HTTPServer#start done.
+[2015-07-27 14:27:56] INFO  WEBrick 1.3.1
+[2015-07-27 14:27:56] INFO  ruby 2.0.0 (2014-05-08) [universal.x86_64-darwin14]
+[2015-07-27 14:27:56] DEBUG TCPServer.new(0.0.0.0, 8099)
+[2015-07-27 14:27:56] DEBUG TCPServer.new(::, 8099)
+[2015-07-27 14:27:56] DEBUG WEBrick::HTTPServlet::FileHandler is mounted on /.
+[2015-07-27 14:27:56] DEBUG #<WEBrick::HTTPServlet::ProcHandler:0x007f9203961c38 @proc=#<Proc:0x007f9203961c60@server.rb:30>> is mounted on /log.
+[2015-07-27 14:27:56] INFO  WEBrick::HTTPServer#start: pid=9514 port=8099
+[2015-07-27 14:29:05] DEBUG accept: ::1:60868
+[2015-07-27 14:29:05] DEBUG accept: ::1:60869
+[2015-07-27 14:29:05] DEBUG accept: ::1:60871
+[2015-07-27 14:29:05] DEBUG accept: ::1:60870
+[2015-07-27 14:29:05] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:29:05] DEBUG accept: ::1:60872
+[2015-07-27 14:29:05] DEBUG accept: ::1:60873
+[2015-07-27 14:29:05] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:29:05] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:29:05] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:29:05] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:29:05] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:29:05] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:29:05] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:29:05] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:29:05] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:29:05] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:29:05] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:29:35] DEBUG close: ::1:60868
+[2015-07-27 14:29:35] DEBUG close: ::1:60869
+[2015-07-27 14:29:35] DEBUG close: ::1:60872
+[2015-07-27 14:29:35] DEBUG close: ::1:60873
+[2015-07-27 14:29:35] DEBUG close: ::1:60870
+[2015-07-27 14:29:35] DEBUG close: ::1:60871
+[2015-07-27 14:32:29] DEBUG accept: ::1:60898
+[2015-07-27 14:32:29] DEBUG accept: ::1:60899
+[2015-07-27 14:32:29] DEBUG accept: ::1:60900
+[2015-07-27 14:32:29] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:32:29] DEBUG accept: ::1:60904
+[2015-07-27 14:32:29] DEBUG accept: ::1:60906
+[2015-07-27 14:32:29] DEBUG accept: ::1:60905
+[2015-07-27 14:32:29] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:32:29] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:32:29] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:32:29] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:32:29] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:32:29] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:32:29] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:32:29] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:32:29] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:32:29] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:32:29] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:32:59] DEBUG close: ::1:60906
+[2015-07-27 14:32:59] DEBUG close: ::1:60898
+[2015-07-27 14:32:59] DEBUG close: ::1:60905
+[2015-07-27 14:32:59] DEBUG close: ::1:60899
+[2015-07-27 14:32:59] DEBUG close: ::1:60904
+[2015-07-27 14:32:59] DEBUG close: ::1:60900
+[2015-07-27 14:33:12] DEBUG accept: ::1:60912
+[2015-07-27 14:33:12] DEBUG accept: ::1:60913
+[2015-07-27 14:33:12] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:33:12] DEBUG accept: ::1:60916
+[2015-07-27 14:33:12] DEBUG accept: ::1:60914
+[2015-07-27 14:33:12] DEBUG accept: ::1:60915
+[2015-07-27 14:33:12] DEBUG accept: ::1:60917
+[2015-07-27 14:33:12] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:33:12] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:33:12] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:33:12] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:33:12] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:33:12] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:33:12] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:33:12] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:33:12] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:33:12] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:33:12] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:33:42] DEBUG close: ::1:60912
+[2015-07-27 14:33:42] DEBUG close: ::1:60916
+[2015-07-27 14:33:42] DEBUG close: ::1:60913
+[2015-07-27 14:33:42] DEBUG close: ::1:60915
+[2015-07-27 14:33:42] DEBUG close: ::1:60917
+[2015-07-27 14:33:42] DEBUG close: ::1:60914
+[2015-07-27 14:33:50] DEBUG accept: ::1:60922
+[2015-07-27 14:33:50] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:33:50] ERROR SyntaxError: (erb):509: syntax error, unexpected end-of-input, expecting ')'
+; _erbout.force_encoding(__ENCODING__)
+                                      ^
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/erb.rb:849:in `eval'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/erb.rb:849:in `result'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:82:in `block in evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:79:in `module_eval'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:79:in `evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:56:in `do_GET'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/abstract.rb:106:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:286:in `exec_handler'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:217:in `do_GET'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/abstract.rb:106:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:213:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+[2015-07-27 14:33:50] ERROR (erb):509: syntax error, unexpected end-of-input, expecting ')'
+; _erbout.force_encoding(__ENCODING__)
+                                      ^
+[2015-07-27 14:33:50] DEBUG close: ::1:60922
+[2015-07-27 14:34:05] DEBUG accept: ::1:60923
+[2015-07-27 14:34:05] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:34:05] ERROR SyntaxError: (erb):509: syntax error, unexpected end-of-input, expecting ')'
+; _erbout.force_encoding(__ENCODING__)
+                                      ^
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/erb.rb:849:in `eval'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/erb.rb:849:in `result'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:82:in `block in evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:79:in `module_eval'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:79:in `evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:56:in `do_GET'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/abstract.rb:106:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:286:in `exec_handler'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:217:in `do_GET'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/abstract.rb:106:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:213:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+[2015-07-27 14:34:05] ERROR (erb):509: syntax error, unexpected end-of-input, expecting ')'
+; _erbout.force_encoding(__ENCODING__)
+                                      ^
+[2015-07-27 14:34:05] DEBUG close: ::1:60923
+[2015-07-27 14:34:08] DEBUG accept: ::1:60924
+[2015-07-27 14:34:08] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:34:08] ERROR SyntaxError: (erb):509: syntax error, unexpected end-of-input, expecting ')'
+; _erbout.force_encoding(__ENCODING__)
+                                      ^
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/erb.rb:849:in `eval'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/erb.rb:849:in `result'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:82:in `block in evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:79:in `module_eval'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:79:in `evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:56:in `do_GET'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/abstract.rb:106:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:286:in `exec_handler'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:217:in `do_GET'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/abstract.rb:106:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:213:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+[2015-07-27 14:34:08] ERROR (erb):509: syntax error, unexpected end-of-input, expecting ')'
+; _erbout.force_encoding(__ENCODING__)
+                                      ^
+[2015-07-27 14:34:08] DEBUG close: ::1:60924
+[2015-07-27 14:34:22] DEBUG accept: ::1:60925
+[2015-07-27 14:34:22] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:34:22] ERROR ArgumentError: wrong number of arguments (0 for 1)
+	/Users/sasakitakuma/Documents/research_log/research_log/solo_percent.rb:10:in `solo_percent'
+	(erb):473:in `block in evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/erb.rb:849:in `eval'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/erb.rb:849:in `result'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:82:in `block in evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:79:in `module_eval'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:79:in `evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:56:in `do_GET'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/abstract.rb:106:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:286:in `exec_handler'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:217:in `do_GET'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/abstract.rb:106:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:213:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+[2015-07-27 14:34:22] DEBUG close: ::1:60925
+[2015-07-27 14:34:28] DEBUG accept: ::1:60926
+[2015-07-27 14:34:28] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:34:28] ERROR ArgumentError: wrong number of arguments (0 for 1)
+	/Users/sasakitakuma/Documents/research_log/research_log/solo_percent.rb:10:in `solo_percent'
+	(erb):473:in `block in evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/erb.rb:849:in `eval'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/erb.rb:849:in `result'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:82:in `block in evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:79:in `module_eval'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:79:in `evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:56:in `do_GET'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/abstract.rb:106:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:286:in `exec_handler'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:217:in `do_GET'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/abstract.rb:106:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:213:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+[2015-07-27 14:34:28] DEBUG close: ::1:60926
+[2015-07-27 14:34:30] DEBUG accept: ::1:60927
+[2015-07-27 14:34:30] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:34:30] ERROR ArgumentError: wrong number of arguments (0 for 1)
+	/Users/sasakitakuma/Documents/research_log/research_log/solo_percent.rb:10:in `solo_percent'
+	(erb):473:in `block in evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/erb.rb:849:in `eval'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/erb.rb:849:in `result'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:82:in `block in evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:79:in `module_eval'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:79:in `evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:56:in `do_GET'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/abstract.rb:106:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:286:in `exec_handler'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:217:in `do_GET'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/abstract.rb:106:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:213:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+[2015-07-27 14:34:30] DEBUG close: ::1:60927
+[2015-07-27 14:37:53] DEBUG accept: ::1:60934
+[2015-07-27 14:37:53] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:37:53] ERROR SyntaxError: (erb):515: syntax error, unexpected end-of-input, expecting ')'
+; _erbout.force_encoding(__ENCODING__)
+                                      ^
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/erb.rb:849:in `eval'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/erb.rb:849:in `result'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:82:in `block in evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:79:in `module_eval'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:79:in `evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:56:in `do_GET'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/abstract.rb:106:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:286:in `exec_handler'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:217:in `do_GET'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/abstract.rb:106:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:213:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+[2015-07-27 14:37:53] ERROR (erb):515: syntax error, unexpected end-of-input, expecting ')'
+; _erbout.force_encoding(__ENCODING__)
+                                      ^
+[2015-07-27 14:37:53] DEBUG close: ::1:60934
+[2015-07-27 14:38:35] DEBUG accept: ::1:60937
+[2015-07-27 14:38:35] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:38:35] ERROR ArgumentError: wrong number of arguments (0 for 1)
+	/Users/sasakitakuma/Documents/research_log/research_log/solo_percent.rb:10:in `solo_percent'
+	(erb):476:in `block in evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/erb.rb:849:in `eval'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/erb.rb:849:in `result'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:82:in `block in evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:79:in `module_eval'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:79:in `evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:56:in `do_GET'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/abstract.rb:106:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:286:in `exec_handler'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:217:in `do_GET'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/abstract.rb:106:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:213:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+[2015-07-27 14:38:35] DEBUG close: ::1:60937
+[2015-07-27 14:38:37] DEBUG accept: ::1:60938
+[2015-07-27 14:38:37] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:38:37] ERROR ArgumentError: wrong number of arguments (0 for 1)
+	/Users/sasakitakuma/Documents/research_log/research_log/solo_percent.rb:10:in `solo_percent'
+	(erb):476:in `block in evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/erb.rb:849:in `eval'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/erb.rb:849:in `result'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:82:in `block in evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:79:in `module_eval'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:79:in `evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:56:in `do_GET'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/abstract.rb:106:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:286:in `exec_handler'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:217:in `do_GET'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/abstract.rb:106:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:213:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+[2015-07-27 14:38:37] DEBUG close: ::1:60938
+[2015-07-27 14:39:29] DEBUG close TCPSocket(0.0.0.0, 8099)
+[2015-07-27 14:39:29] DEBUG close TCPSocket(::, 8099)
+[2015-07-27 14:39:29] INFO  going to shutdown ...
+[2015-07-27 14:39:29] INFO  WEBrick::HTTPServer#start done.
+[2015-07-27 14:39:31] INFO  WEBrick 1.3.1
+[2015-07-27 14:39:31] INFO  ruby 2.0.0 (2014-05-08) [universal.x86_64-darwin14]
+[2015-07-27 14:39:31] DEBUG TCPServer.new(0.0.0.0, 8099)
+[2015-07-27 14:39:31] DEBUG TCPServer.new(::, 8099)
+[2015-07-27 14:39:31] DEBUG WEBrick::HTTPServlet::FileHandler is mounted on /.
+[2015-07-27 14:39:31] DEBUG #<WEBrick::HTTPServlet::ProcHandler:0x007fbba30c5bf0 @proc=#<Proc:0x007fbba30c5c18@server.rb:30>> is mounted on /log.
+[2015-07-27 14:39:31] INFO  WEBrick::HTTPServer#start: pid=9554 port=8099
+[2015-07-27 14:39:35] DEBUG accept: ::1:60975
+[2015-07-27 14:39:35] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:39:37] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:39:37] DEBUG accept: ::1:60977
+[2015-07-27 14:39:37] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:39:37] ERROR `/timepicker-css/bootstrap-timepicker.min.css' not found.
+[2015-07-27 14:39:37] DEBUG close: ::1:60975
+[2015-07-27 14:39:37] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:39:37] ERROR `/sticky-footer.css' not found.
+[2015-07-27 14:39:37] DEBUG close: ::1:60977
+[2015-07-27 14:39:38] DEBUG accept: ::1:60984
+[2015-07-27 14:39:38] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:39:38] ERROR NameError: undefined local variable or method `solo_sum' for #<Module:0x007fbba2824bb8>
+	/Users/sasakitakuma/Documents/research_log/research_log/solo_percent.rb:12:in `solo_percent'
+	(erb):476:in `block in evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/erb.rb:849:in `eval'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/erb.rb:849:in `result'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:82:in `block in evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:79:in `module_eval'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:79:in `evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:56:in `do_GET'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/abstract.rb:106:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:286:in `exec_handler'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:217:in `do_GET'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/abstract.rb:106:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:213:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+[2015-07-27 14:39:38] DEBUG close: ::1:60984
+[2015-07-27 14:41:00] DEBUG accept: ::1:60985
+[2015-07-27 14:41:00] DEBUG accept: ::1:60986
+[2015-07-27 14:41:00] DEBUG accept: ::1:60988
+[2015-07-27 14:41:00] DEBUG accept: ::1:60987
+[2015-07-27 14:41:00] DEBUG accept: ::1:60989
+[2015-07-27 14:41:00] DEBUG accept: ::1:60990
+[2015-07-27 14:41:00] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:41:00] ERROR NameError: undefined local variable or method `solo_sum' for #<Module:0x007fbba48a8538>
+	/Users/sasakitakuma/Documents/research_log/research_log/solo_percent.rb:12:in `solo_percent'
+	(erb):476:in `block in evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/erb.rb:849:in `eval'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/erb.rb:849:in `result'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:82:in `block in evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:79:in `module_eval'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:79:in `evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:56:in `do_GET'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/abstract.rb:106:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:286:in `exec_handler'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:217:in `do_GET'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/abstract.rb:106:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:213:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+[2015-07-27 14:41:00] DEBUG close: ::1:60985
+[2015-07-27 14:41:02] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:41:02] ERROR NameError: undefined local variable or method `solo_sum' for #<Module:0x007fbba30ac470>
+	/Users/sasakitakuma/Documents/research_log/research_log/solo_percent.rb:12:in `solo_percent'
+	(erb):476:in `block in evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/erb.rb:849:in `eval'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/erb.rb:849:in `result'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:82:in `block in evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:79:in `module_eval'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:79:in `evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:56:in `do_GET'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/abstract.rb:106:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:286:in `exec_handler'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:217:in `do_GET'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/abstract.rb:106:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:213:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+[2015-07-27 14:41:02] DEBUG close: ::1:60986
+[2015-07-27 14:41:16] DEBUG close: ::1:60989
+[2015-07-27 14:41:16] DEBUG close: ::1:60988
+[2015-07-27 14:41:16] DEBUG close: ::1:60990
+[2015-07-27 14:41:16] DEBUG close: ::1:60987
+[2015-07-27 14:41:25] DEBUG accept: ::1:60993
+[2015-07-27 14:41:25] DEBUG accept: ::1:60994
+[2015-07-27 14:41:25] DEBUG accept: ::1:60995
+[2015-07-27 14:41:25] DEBUG accept: ::1:60996
+[2015-07-27 14:41:25] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:41:25] ERROR NameError: undefined local variable or method `solo_sum' for #<Module:0x007fbba1823a48>
+	/Users/sasakitakuma/Documents/research_log/research_log/solo_percent.rb:12:in `solo_percent'
+	(erb):476:in `block in evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/erb.rb:849:in `eval'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/erb.rb:849:in `result'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:82:in `block in evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:79:in `module_eval'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:79:in `evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:56:in `do_GET'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/abstract.rb:106:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:286:in `exec_handler'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:217:in `do_GET'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/abstract.rb:106:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:213:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+[2015-07-27 14:41:25] DEBUG close: ::1:60993
+[2015-07-27 14:41:35] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:41:35] ERROR NameError: undefined local variable or method `solo_sum' for #<Module:0x007fbba3076a28>
+	/Users/sasakitakuma/Documents/research_log/research_log/solo_percent.rb:12:in `solo_percent'
+	(erb):476:in `block in evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/erb.rb:849:in `eval'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/erb.rb:849:in `result'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:82:in `block in evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:79:in `module_eval'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:79:in `evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:56:in `do_GET'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/abstract.rb:106:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:286:in `exec_handler'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:217:in `do_GET'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/abstract.rb:106:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:213:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+[2015-07-27 14:41:35] DEBUG close: ::1:60994
+[2015-07-27 14:41:36] DEBUG close: ::1:60995
+[2015-07-27 14:41:36] DEBUG close: ::1:60996
+[2015-07-27 14:41:37] DEBUG accept: ::1:60998
+[2015-07-27 14:41:37] DEBUG accept: ::1:60997
+[2015-07-27 14:41:37] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:41:37] ERROR NameError: undefined local variable or method `solo_sum' for #<Module:0x007fbba3072798>
+	/Users/sasakitakuma/Documents/research_log/research_log/solo_percent.rb:12:in `solo_percent'
+	(erb):476:in `block in evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/erb.rb:849:in `eval'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/erb.rb:849:in `result'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:82:in `block in evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:79:in `module_eval'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:79:in `evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:56:in `do_GET'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/abstract.rb:106:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:286:in `exec_handler'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:217:in `do_GET'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/abstract.rb:106:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:213:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+[2015-07-27 14:41:37] DEBUG close: ::1:60997
+[2015-07-27 14:41:45] DEBUG close TCPSocket(0.0.0.0, 8099)
+[2015-07-27 14:41:45] DEBUG close TCPSocket(::, 8099)
+[2015-07-27 14:41:45] INFO  going to shutdown ...
+[2015-07-27 14:41:45] DEBUG close: ::1:60998
+[2015-07-27 14:41:45] INFO  WEBrick::HTTPServer#start done.
+[2015-07-27 14:41:47] INFO  WEBrick 1.3.1
+[2015-07-27 14:41:47] INFO  ruby 2.0.0 (2014-05-08) [universal.x86_64-darwin14]
+[2015-07-27 14:41:47] DEBUG TCPServer.new(0.0.0.0, 8099)
+[2015-07-27 14:41:47] DEBUG TCPServer.new(::, 8099)
+[2015-07-27 14:41:47] DEBUG WEBrick::HTTPServlet::FileHandler is mounted on /.
+[2015-07-27 14:41:47] DEBUG #<WEBrick::HTTPServlet::ProcHandler:0x007fa00897db78 @proc=#<Proc:0x007fa00897dba0@server.rb:30>> is mounted on /log.
+[2015-07-27 14:41:47] INFO  WEBrick::HTTPServer#start: pid=9577 port=8099
+[2015-07-27 14:41:49] DEBUG accept: ::1:60999
+[2015-07-27 14:41:50] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:41:51] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:41:52] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:41:52] ERROR `/timepicker-css/bootstrap-timepicker.min.css' not found.
+[2015-07-27 14:41:52] DEBUG accept: ::1:61001
+[2015-07-27 14:41:52] DEBUG close: ::1:60999
+[2015-07-27 14:41:52] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:41:52] ERROR `/sticky-footer.css' not found.
+[2015-07-27 14:41:52] DEBUG close: ::1:61001
+[2015-07-27 14:41:53] DEBUG accept: ::1:61002
+[2015-07-27 14:41:53] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:41:53] ERROR NameError: undefined local variable or method `dbh' for #<Module:0x007fa00a001d18>
+	/Users/sasakitakuma/Documents/research_log/research_log/solo_percent.rb:16:in `solo_percent'
+	(erb):476:in `block in evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/erb.rb:849:in `eval'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/erb.rb:849:in `result'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:82:in `block in evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:79:in `module_eval'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:79:in `evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:56:in `do_GET'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/abstract.rb:106:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:286:in `exec_handler'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:217:in `do_GET'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/abstract.rb:106:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:213:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+[2015-07-27 14:41:53] DEBUG close: ::1:61002
+[2015-07-27 14:42:13] DEBUG accept: ::1:61003
+[2015-07-27 14:42:13] DEBUG accept: ::1:61005
+[2015-07-27 14:42:13] DEBUG accept: ::1:61004
+[2015-07-27 14:42:13] DEBUG accept: ::1:61006
+[2015-07-27 14:42:13] DEBUG accept: ::1:61007
+[2015-07-27 14:42:13] DEBUG accept: ::1:61008
+[2015-07-27 14:42:13] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:42:13] ERROR NameError: undefined local variable or method `dbh' for #<Module:0x007fa00a8e2590>
+	/Users/sasakitakuma/Documents/research_log/research_log/solo_percent.rb:16:in `solo_percent'
+	(erb):476:in `block in evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/erb.rb:849:in `eval'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/erb.rb:849:in `result'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:82:in `block in evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:79:in `module_eval'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:79:in `evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:56:in `do_GET'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/abstract.rb:106:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:286:in `exec_handler'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:217:in `do_GET'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/abstract.rb:106:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:213:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+[2015-07-27 14:42:13] DEBUG close: ::1:61003
+[2015-07-27 14:42:26] DEBUG close: ::1:61005
+[2015-07-27 14:42:26] DEBUG close: ::1:61008
+[2015-07-27 14:42:26] DEBUG close: ::1:61007
+[2015-07-27 14:42:26] DEBUG close: ::1:61006
+[2015-07-27 14:42:26] DEBUG close: ::1:61004
+[2015-07-27 14:42:52] DEBUG close TCPSocket(0.0.0.0, 8099)
+[2015-07-27 14:42:52] DEBUG close TCPSocket(::, 8099)
+[2015-07-27 14:42:52] INFO  going to shutdown ...
+[2015-07-27 14:42:52] INFO  WEBrick::HTTPServer#start done.
+[2015-07-27 14:42:53] INFO  WEBrick 1.3.1
+[2015-07-27 14:42:53] INFO  ruby 2.0.0 (2014-05-08) [universal.x86_64-darwin14]
+[2015-07-27 14:42:53] DEBUG TCPServer.new(0.0.0.0, 8099)
+[2015-07-27 14:42:53] DEBUG TCPServer.new(::, 8099)
+[2015-07-27 14:42:53] DEBUG WEBrick::HTTPServlet::FileHandler is mounted on /.
+[2015-07-27 14:42:53] DEBUG #<WEBrick::HTTPServlet::ProcHandler:0x007f998b935bd0 @proc=#<Proc:0x007f998b935bf8@server.rb:30>> is mounted on /log.
+[2015-07-27 14:42:53] INFO  WEBrick::HTTPServer#start: pid=9595 port=8099
+[2015-07-27 14:42:55] DEBUG accept: ::1:61009
+[2015-07-27 14:42:55] DEBUG accept: ::1:61010
+[2015-07-27 14:42:55] DEBUG accept: ::1:61011
+[2015-07-27 14:42:55] DEBUG accept: ::1:61013
+[2015-07-27 14:42:55] DEBUG accept: ::1:61012
+[2015-07-27 14:42:55] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:42:57] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:42:57] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:42:57] ERROR `/timepicker-css/bootstrap-timepicker.min.css' not found.
+[2015-07-27 14:42:57] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:42:57] ERROR `/sticky-footer.css' not found.
+[2015-07-27 14:42:57] DEBUG close: ::1:61009
+[2015-07-27 14:42:57] DEBUG close: ::1:61010
+[2015-07-27 14:43:00] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:43:00] ERROR NameError: undefined local variable or method `dbh' for #<Module:0x007f998b82ef70>
+	/Users/sasakitakuma/Documents/research_log/research_log/solo_percent.rb:14:in `solo_percent'
+	(erb):476:in `block in evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/erb.rb:849:in `eval'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/erb.rb:849:in `result'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:82:in `block in evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:79:in `module_eval'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:79:in `evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:56:in `do_GET'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/abstract.rb:106:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:286:in `exec_handler'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:217:in `do_GET'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/abstract.rb:106:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:213:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+[2015-07-27 14:43:00] DEBUG close: ::1:61011
+[2015-07-27 14:43:06] DEBUG close: ::1:61013
+[2015-07-27 14:43:06] DEBUG close: ::1:61012
+[2015-07-27 14:43:28] DEBUG accept: ::1:61019
+[2015-07-27 14:43:28] DEBUG accept: ::1:61018
+[2015-07-27 14:43:28] DEBUG accept: ::1:61017
+[2015-07-27 14:43:28] DEBUG accept: ::1:61022
+[2015-07-27 14:43:28] DEBUG accept: ::1:61021
+[2015-07-27 14:43:28] DEBUG accept: ::1:61020
+[2015-07-27 14:43:28] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:43:28] ERROR NameError: undefined local variable or method `dbh' for #<Module:0x007f998a0363c8>
+	/Users/sasakitakuma/Documents/research_log/research_log/solo_percent.rb:14:in `solo_percent'
+	(erb):476:in `block in evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/erb.rb:849:in `eval'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/erb.rb:849:in `result'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:82:in `block in evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:79:in `module_eval'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:79:in `evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:56:in `do_GET'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/abstract.rb:106:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:286:in `exec_handler'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:217:in `do_GET'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/abstract.rb:106:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:213:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+[2015-07-27 14:43:28] DEBUG close: ::1:61017
+[2015-07-27 14:43:30] DEBUG accept: ::1:61023
+[2015-07-27 14:43:30] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:43:30] ERROR NameError: undefined local variable or method `dbh' for #<Module:0x007f998b97a7d0>
+	/Users/sasakitakuma/Documents/research_log/research_log/solo_percent.rb:14:in `solo_percent'
+	(erb):476:in `block in evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/erb.rb:849:in `eval'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/erb.rb:849:in `result'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:82:in `block in evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:79:in `module_eval'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:79:in `evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:56:in `do_GET'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/abstract.rb:106:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:286:in `exec_handler'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:217:in `do_GET'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/abstract.rb:106:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:213:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+[2015-07-27 14:43:30] DEBUG close: ::1:61018
+[2015-07-27 14:43:37] DEBUG close TCPSocket(0.0.0.0, 8099)
+[2015-07-27 14:43:37] DEBUG close TCPSocket(::, 8099)
+[2015-07-27 14:43:37] INFO  going to shutdown ...
+[2015-07-27 14:43:37] DEBUG close: ::1:61022
+[2015-07-27 14:43:37] DEBUG close: ::1:61020
+[2015-07-27 14:43:37] DEBUG close: ::1:61019
+[2015-07-27 14:43:37] DEBUG close: ::1:61021
+[2015-07-27 14:43:37] DEBUG close: ::1:61023
+[2015-07-27 14:43:37] INFO  WEBrick::HTTPServer#start done.
+[2015-07-27 14:43:38] INFO  WEBrick 1.3.1
+[2015-07-27 14:43:38] INFO  ruby 2.0.0 (2014-05-08) [universal.x86_64-darwin14]
+[2015-07-27 14:43:38] DEBUG TCPServer.new(0.0.0.0, 8099)
+[2015-07-27 14:43:38] DEBUG TCPServer.new(::, 8099)
+[2015-07-27 14:43:38] DEBUG WEBrick::HTTPServlet::FileHandler is mounted on /.
+[2015-07-27 14:43:38] DEBUG #<WEBrick::HTTPServlet::ProcHandler:0x007f92dc8e5c30 @proc=#<Proc:0x007f92dc8e5c58@server.rb:30>> is mounted on /log.
+[2015-07-27 14:43:38] INFO  WEBrick::HTTPServer#start: pid=9613 port=8099
+[2015-07-27 14:43:43] DEBUG accept: ::1:61024
+[2015-07-27 14:43:43] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:43:45] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:43:45] ERROR NameError: undefined local variable or method `dbh' for #<Module:0x007f92db8d7f50>
+	/Users/sasakitakuma/Documents/research_log/research_log/solo_percent.rb:14:in `solo_percent'
+	(erb):476:in `block in evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/erb.rb:849:in `eval'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/erb.rb:849:in `result'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:82:in `block in evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:79:in `module_eval'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:79:in `evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:56:in `do_GET'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/abstract.rb:106:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:286:in `exec_handler'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:217:in `do_GET'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/abstract.rb:106:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:213:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+[2015-07-27 14:43:45] DEBUG close: ::1:61024
+[2015-07-27 14:43:58] DEBUG accept: ::1:61025
+[2015-07-27 14:43:58] DEBUG accept: ::1:61026
+[2015-07-27 14:43:58] DEBUG accept: ::1:61028
+[2015-07-27 14:43:58] DEBUG accept: ::1:61027
+[2015-07-27 14:43:58] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:43:58] ERROR NameError: undefined local variable or method `dbh' for #<Module:0x007f92db173d40>
+	/Users/sasakitakuma/Documents/research_log/research_log/solo_percent.rb:14:in `solo_percent'
+	(erb):476:in `block in evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/erb.rb:849:in `eval'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/erb.rb:849:in `result'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:82:in `block in evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:79:in `module_eval'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:79:in `evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:56:in `do_GET'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/abstract.rb:106:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:286:in `exec_handler'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:217:in `do_GET'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/abstract.rb:106:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:213:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+[2015-07-27 14:43:58] DEBUG close: ::1:61025
+[2015-07-27 14:44:01] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:44:01] ERROR NameError: undefined local variable or method `dbh' for #<Module:0x007f92db2452a0>
+	/Users/sasakitakuma/Documents/research_log/research_log/solo_percent.rb:14:in `solo_percent'
+	(erb):476:in `block in evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/erb.rb:849:in `eval'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/erb.rb:849:in `result'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:82:in `block in evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:79:in `module_eval'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:79:in `evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:56:in `do_GET'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/abstract.rb:106:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:286:in `exec_handler'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:217:in `do_GET'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/abstract.rb:106:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:213:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+[2015-07-27 14:44:01] DEBUG close: ::1:61026
+[2015-07-27 14:44:07] DEBUG close TCPSocket(0.0.0.0, 8099)
+[2015-07-27 14:44:07] DEBUG close TCPSocket(::, 8099)
+[2015-07-27 14:44:07] INFO  going to shutdown ...
+[2015-07-27 14:44:07] DEBUG close: ::1:61028
+[2015-07-27 14:44:07] DEBUG close: ::1:61027
+[2015-07-27 14:44:07] INFO  WEBrick::HTTPServer#start done.
+[2015-07-27 14:44:09] INFO  WEBrick 1.3.1
+[2015-07-27 14:44:09] INFO  ruby 2.0.0 (2014-05-08) [universal.x86_64-darwin14]
+[2015-07-27 14:44:09] DEBUG TCPServer.new(0.0.0.0, 8099)
+[2015-07-27 14:44:09] DEBUG TCPServer.new(::, 8099)
+[2015-07-27 14:44:09] DEBUG WEBrick::HTTPServlet::FileHandler is mounted on /.
+[2015-07-27 14:44:09] DEBUG #<WEBrick::HTTPServlet::ProcHandler:0x007f96d2119bd8 @proc=#<Proc:0x007f96d2119c00@server.rb:30>> is mounted on /log.
+[2015-07-27 14:44:09] INFO  WEBrick::HTTPServer#start: pid=9632 port=8099
+[2015-07-27 14:44:12] DEBUG accept: ::1:61029
+[2015-07-27 14:44:12] DEBUG accept: ::1:61030
+[2015-07-27 14:44:12] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:44:14] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:44:14] ERROR NameError: undefined local variable or method `dbh_2' for #<Module:0x007f96d109e538>
+	/Users/sasakitakuma/Documents/research_log/research_log/solo_percent.rb:14:in `solo_percent'
+	(erb):476:in `block in evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/erb.rb:849:in `eval'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/erb.rb:849:in `result'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:82:in `block in evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:79:in `module_eval'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:79:in `evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:56:in `do_GET'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/abstract.rb:106:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:286:in `exec_handler'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:217:in `do_GET'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/abstract.rb:106:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:213:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+[2015-07-27 14:44:14] DEBUG close: ::1:61029
+[2015-07-27 14:44:22] DEBUG close: ::1:61030
+[2015-07-27 14:44:49] DEBUG accept: ::1:61031
+[2015-07-27 14:44:49] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:44:49] ERROR NameError: undefined local variable or method `dbh_2' for #<Module:0x007f96d21832e0>
+	/Users/sasakitakuma/Documents/research_log/research_log/solo_percent.rb:14:in `solo_percent'
+	(erb):476:in `block in evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/erb.rb:849:in `eval'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/erb.rb:849:in `result'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:82:in `block in evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:79:in `module_eval'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:79:in `evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:56:in `do_GET'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/abstract.rb:106:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:286:in `exec_handler'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:217:in `do_GET'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/abstract.rb:106:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:213:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+[2015-07-27 14:44:49] DEBUG close: ::1:61031
+[2015-07-27 14:44:54] DEBUG close TCPSocket(0.0.0.0, 8099)
+[2015-07-27 14:44:54] DEBUG close TCPSocket(::, 8099)
+[2015-07-27 14:44:54] INFO  going to shutdown ...
+[2015-07-27 14:44:54] INFO  WEBrick::HTTPServer#start done.
+[2015-07-27 14:44:54] INFO  WEBrick 1.3.1
+[2015-07-27 14:44:54] INFO  ruby 2.0.0 (2014-05-08) [universal.x86_64-darwin14]
+[2015-07-27 14:44:54] DEBUG TCPServer.new(0.0.0.0, 8099)
+[2015-07-27 14:44:54] DEBUG TCPServer.new(::, 8099)
+[2015-07-27 14:44:54] DEBUG WEBrick::HTTPServlet::FileHandler is mounted on /.
+[2015-07-27 14:44:54] DEBUG #<WEBrick::HTTPServlet::ProcHandler:0x007ffd491c1cd8 @proc=#<Proc:0x007ffd491c1d00@server.rb:30>> is mounted on /log.
+[2015-07-27 14:44:54] INFO  WEBrick::HTTPServer#start: pid=9650 port=8099
+[2015-07-27 14:44:56] DEBUG accept: ::1:61033
+[2015-07-27 14:44:57] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:44:58] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:44:58] ERROR NameError: undefined local variable or method `dbh' for #<Module:0x007ffd49150560>
+	/Users/sasakitakuma/Documents/research_log/research_log/solo_percent.rb:12:in `solo_percent'
+	(erb):476:in `block in evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/erb.rb:849:in `eval'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/erb.rb:849:in `result'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:82:in `block in evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:79:in `module_eval'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:79:in `evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:56:in `do_GET'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/abstract.rb:106:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:286:in `exec_handler'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:217:in `do_GET'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/abstract.rb:106:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:213:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+[2015-07-27 14:44:58] DEBUG close: ::1:61033
+[2015-07-27 14:46:00] DEBUG accept: ::1:61034
+[2015-07-27 14:46:00] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:46:00] ERROR ArgumentError: wrong number of arguments (1 for 0)
+	/Users/sasakitakuma/Documents/research_log/research_log/solo_percent.rb:8:in `solo_percent'
+	(erb):476:in `block in evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/erb.rb:849:in `eval'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/erb.rb:849:in `result'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:82:in `block in evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:79:in `module_eval'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:79:in `evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:56:in `do_GET'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/abstract.rb:106:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:286:in `exec_handler'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:217:in `do_GET'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/abstract.rb:106:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:213:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+[2015-07-27 14:46:00] DEBUG close: ::1:61034
+[2015-07-27 14:56:11] DEBUG close TCPSocket(0.0.0.0, 8099)
+[2015-07-27 14:56:11] DEBUG close TCPSocket(::, 8099)
+[2015-07-27 14:56:11] INFO  going to shutdown ...
+[2015-07-27 14:56:11] INFO  WEBrick::HTTPServer#start done.
+[2015-07-27 14:56:36] INFO  WEBrick 1.3.1
+[2015-07-27 14:56:36] INFO  ruby 2.0.0 (2014-05-08) [universal.x86_64-darwin14]
+[2015-07-27 14:56:36] DEBUG TCPServer.new(0.0.0.0, 8099)
+[2015-07-27 14:56:36] DEBUG TCPServer.new(::, 8099)
+[2015-07-27 14:56:36] DEBUG WEBrick::HTTPServlet::FileHandler is mounted on /.
+[2015-07-27 14:56:36] DEBUG #<WEBrick::HTTPServlet::ProcHandler:0x007ff7f9a09be8 @proc=#<Proc:0x007ff7f9a09c10@server.rb:30>> is mounted on /log.
+[2015-07-27 14:56:36] INFO  WEBrick::HTTPServer#start: pid=9703 port=8099
+[2015-07-27 14:56:56] DEBUG accept: ::1:61130
+[2015-07-27 14:56:56] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:56:58] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:57:00] DEBUG accept: ::1:61132
+[2015-07-27 14:57:00] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:57:00] ERROR `/timepicker-css/bootstrap-timepicker.min.css' not found.
+[2015-07-27 14:57:00] DEBUG close: ::1:61130
+[2015-07-27 14:57:00] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:57:00] ERROR `/sticky-footer.css' not found.
+[2015-07-27 14:57:00] DEBUG close: ::1:61132
+[2015-07-27 14:57:02] DEBUG accept: ::1:61137
+[2015-07-27 14:57:02] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:57:02] ERROR NameError: undefined local variable or method `dbh' for #<Module:0x007ff7f88ec928>
+	(erb):168:in `block in evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/erb.rb:849:in `eval'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/erb.rb:849:in `result'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:82:in `block in evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:79:in `module_eval'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:79:in `evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:56:in `do_GET'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/abstract.rb:106:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:286:in `exec_handler'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:217:in `do_GET'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/abstract.rb:106:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:213:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+[2015-07-27 14:57:02] DEBUG close: ::1:61137
+[2015-07-27 14:57:47] DEBUG accept: ::1:61152
+[2015-07-27 14:57:47] DEBUG accept: ::1:61156
+[2015-07-27 14:57:47] DEBUG accept: ::1:61157
+[2015-07-27 14:57:47] DEBUG accept: ::1:61159
+[2015-07-27 14:57:47] DEBUG accept: ::1:61158
+[2015-07-27 14:57:47] DEBUG accept: ::1:61160
+[2015-07-27 14:57:47] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:57:47] ERROR NoMethodError: undefined method `+' for nil:NilClass
+	/Users/sasakitakuma/Documents/research_log/research_log/solo_percent.rb:14:in `block in solo_percent'
+	/Library/Ruby/Gems/2.0.0/gems/dbi-0.4.5/lib/dbi/handles/statement.rb:214:in `fetch'
+	/Library/Ruby/Gems/2.0.0/gems/dbi-0.4.5/lib/dbi/handles/statement.rb:240:in `each'
+	/Users/sasakitakuma/Documents/research_log/research_log/solo_percent.rb:12:in `solo_percent'
+	(erb):476:in `block in evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/erb.rb:849:in `eval'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/erb.rb:849:in `result'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:82:in `block in evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:79:in `module_eval'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:79:in `evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:56:in `do_GET'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/abstract.rb:106:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:286:in `exec_handler'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:217:in `do_GET'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/abstract.rb:106:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:213:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+[2015-07-27 14:57:47] DEBUG close: ::1:61152
+[2015-07-27 14:57:57] DEBUG close: ::1:61157
+[2015-07-27 14:57:57] DEBUG close: ::1:61156
+[2015-07-27 14:57:57] DEBUG close: ::1:61159
+[2015-07-27 14:57:57] DEBUG close: ::1:61158
+[2015-07-27 14:57:57] DEBUG close: ::1:61160
+[2015-07-27 14:58:46] DEBUG close TCPSocket(0.0.0.0, 8099)
+[2015-07-27 14:58:46] DEBUG close TCPSocket(::, 8099)
+[2015-07-27 14:58:46] INFO  going to shutdown ...
+[2015-07-27 14:58:46] INFO  WEBrick::HTTPServer#start done.
+[2015-07-27 14:58:47] INFO  WEBrick 1.3.1
+[2015-07-27 14:58:47] INFO  ruby 2.0.0 (2014-05-08) [universal.x86_64-darwin14]
+[2015-07-27 14:58:47] DEBUG TCPServer.new(0.0.0.0, 8099)
+[2015-07-27 14:58:47] DEBUG TCPServer.new(::, 8099)
+[2015-07-27 14:58:47] DEBUG WEBrick::HTTPServlet::FileHandler is mounted on /.
+[2015-07-27 14:58:47] DEBUG #<WEBrick::HTTPServlet::ProcHandler:0x007fe4dc0fdbd8 @proc=#<Proc:0x007fe4dc0fdc00@server.rb:30>> is mounted on /log.
+[2015-07-27 14:58:47] INFO  WEBrick::HTTPServer#start: pid=9729 port=8099
+[2015-07-27 14:58:49] DEBUG accept: ::1:61191
+[2015-07-27 14:58:49] DEBUG accept: ::1:61194
+[2015-07-27 14:58:49] DEBUG accept: ::1:61196
+[2015-07-27 14:58:49] DEBUG accept: ::1:61195
+[2015-07-27 14:58:49] DEBUG accept: ::1:61197
+[2015-07-27 14:58:49] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:58:50] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 14:58:51] ERROR ArgumentError: wrong number of arguments (1 for 0)
+	/Users/sasakitakuma/Documents/research_log/research_log/solo_percent.rb:10:in `solo_percent'
+	(erb):476:in `block in evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/erb.rb:849:in `eval'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/erb.rb:849:in `result'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:82:in `block in evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:79:in `module_eval'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:79:in `evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:56:in `do_GET'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/abstract.rb:106:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:286:in `exec_handler'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:217:in `do_GET'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/abstract.rb:106:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:213:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+[2015-07-27 14:58:51] DEBUG close: ::1:61191
+[2015-07-27 14:58:59] DEBUG close: ::1:61194
+[2015-07-27 14:58:59] DEBUG close: ::1:61197
+[2015-07-27 14:58:59] DEBUG close: ::1:61196
+[2015-07-27 14:58:59] DEBUG close: ::1:61195
+[2015-07-27 15:01:07] DEBUG accept: ::1:61296
+[2015-07-27 15:01:07] DEBUG accept: ::1:61297
+[2015-07-27 15:01:07] DEBUG accept: ::1:61298
+[2015-07-27 15:01:07] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:01:09] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:01:09] ERROR NameError: undefined local variable or method `dbh' for #<Module:0x007fe4da8743a0>
+	/Users/sasakitakuma/Documents/research_log/research_log/solo_percent.rb:13:in `solo_percent'
+	(erb):476:in `block in evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/erb.rb:849:in `eval'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/erb.rb:849:in `result'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:82:in `block in evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:79:in `module_eval'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:79:in `evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:56:in `do_GET'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/abstract.rb:106:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:286:in `exec_handler'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:217:in `do_GET'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/abstract.rb:106:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:213:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+[2015-07-27 15:01:09] DEBUG close: ::1:61296
+[2015-07-27 15:01:20] DEBUG close: ::1:61297
+[2015-07-27 15:01:20] DEBUG close: ::1:61298
+[2015-07-27 15:01:32] DEBUG close TCPSocket(0.0.0.0, 8099)
+[2015-07-27 15:01:32] DEBUG close TCPSocket(::, 8099)
+[2015-07-27 15:01:32] INFO  going to shutdown ...
+[2015-07-27 15:01:32] INFO  WEBrick::HTTPServer#start done.
+[2015-07-27 15:01:33] INFO  WEBrick 1.3.1
+[2015-07-27 15:01:33] INFO  ruby 2.0.0 (2014-05-08) [universal.x86_64-darwin14]
+[2015-07-27 15:01:33] DEBUG TCPServer.new(0.0.0.0, 8099)
+[2015-07-27 15:01:33] DEBUG TCPServer.new(::, 8099)
+[2015-07-27 15:01:33] DEBUG WEBrick::HTTPServlet::FileHandler is mounted on /.
+[2015-07-27 15:01:33] DEBUG #<WEBrick::HTTPServlet::ProcHandler:0x007fe4ba989be8 @proc=#<Proc:0x007fe4ba989c10@server.rb:30>> is mounted on /log.
+[2015-07-27 15:01:33] INFO  WEBrick::HTTPServer#start: pid=9776 port=8099
+[2015-07-27 15:01:38] DEBUG accept: ::1:61301
+[2015-07-27 15:01:38] DEBUG accept: ::1:61302
+[2015-07-27 15:01:39] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:01:41] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:01:41] ERROR NameError: undefined local variable or method `dbh_2' for #<Module:0x007fe4b989e4c8>
+	/Users/sasakitakuma/Documents/research_log/research_log/solo_percent.rb:13:in `solo_percent'
+	(erb):476:in `block in evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/erb.rb:849:in `eval'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/erb.rb:849:in `result'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:82:in `block in evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:79:in `module_eval'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:79:in `evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:56:in `do_GET'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/abstract.rb:106:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:286:in `exec_handler'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:217:in `do_GET'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/abstract.rb:106:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:213:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+[2015-07-27 15:01:41] DEBUG close: ::1:61301
+[2015-07-27 15:01:50] DEBUG close: ::1:61302
+[2015-07-27 15:15:40] DEBUG close TCPSocket(0.0.0.0, 8099)
+[2015-07-27 15:15:40] DEBUG close TCPSocket(::, 8099)
+[2015-07-27 15:15:40] INFO  going to shutdown ...
+[2015-07-27 15:15:40] INFO  WEBrick::HTTPServer#start done.
+[2015-07-27 15:15:41] INFO  WEBrick 1.3.1
+[2015-07-27 15:15:41] INFO  ruby 2.0.0 (2014-05-08) [universal.x86_64-darwin14]
+[2015-07-27 15:15:41] DEBUG TCPServer.new(0.0.0.0, 8099)
+[2015-07-27 15:15:41] DEBUG TCPServer.new(::, 8099)
+[2015-07-27 15:15:41] DEBUG WEBrick::HTTPServlet::FileHandler is mounted on /.
+[2015-07-27 15:15:41] DEBUG #<WEBrick::HTTPServlet::ProcHandler:0x007fdb52149c10 @proc=#<Proc:0x007fdb52149c38@server.rb:30>> is mounted on /log.
+[2015-07-27 15:15:41] INFO  WEBrick::HTTPServer#start: pid=9800 port=8099
+[2015-07-27 15:15:44] DEBUG accept: ::1:61458
+[2015-07-27 15:15:44] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:15:46] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:15:46] ERROR NoMethodError: undefined method `+' for nil:NilClass
+	(erb):478:in `block (2 levels) in evaluate'
+	/Library/Ruby/Gems/2.0.0/gems/dbi-0.4.5/lib/dbi/handles/statement.rb:214:in `fetch'
+	/Library/Ruby/Gems/2.0.0/gems/dbi-0.4.5/lib/dbi/handles/statement.rb:240:in `each'
+	(erb):476:in `block in evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/erb.rb:849:in `eval'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/erb.rb:849:in `result'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:82:in `block in evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:79:in `module_eval'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:79:in `evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:56:in `do_GET'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/abstract.rb:106:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:286:in `exec_handler'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:217:in `do_GET'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/abstract.rb:106:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:213:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+[2015-07-27 15:15:46] DEBUG close: ::1:61458
+[2015-07-27 15:16:34] DEBUG accept: ::1:61480
+[2015-07-27 15:16:34] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:16:34] ERROR NoMethodError: undefined method `+' for nil:NilClass
+	(erb):478:in `block (2 levels) in evaluate'
+	/Library/Ruby/Gems/2.0.0/gems/dbi-0.4.5/lib/dbi/handles/statement.rb:214:in `fetch'
+	/Library/Ruby/Gems/2.0.0/gems/dbi-0.4.5/lib/dbi/handles/statement.rb:240:in `each'
+	(erb):476:in `block in evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/erb.rb:849:in `eval'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/erb.rb:849:in `result'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:82:in `block in evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:79:in `module_eval'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:79:in `evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:56:in `do_GET'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/abstract.rb:106:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:286:in `exec_handler'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:217:in `do_GET'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/abstract.rb:106:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:213:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+[2015-07-27 15:16:34] DEBUG close: ::1:61480
+[2015-07-27 15:16:36] DEBUG close TCPSocket(0.0.0.0, 8099)
+[2015-07-27 15:16:36] DEBUG close TCPSocket(::, 8099)
+[2015-07-27 15:16:36] INFO  going to shutdown ...
+[2015-07-27 15:16:36] INFO  WEBrick::HTTPServer#start done.
+[2015-07-27 15:16:37] INFO  WEBrick 1.3.1
+[2015-07-27 15:16:37] INFO  ruby 2.0.0 (2014-05-08) [universal.x86_64-darwin14]
+[2015-07-27 15:16:37] DEBUG TCPServer.new(0.0.0.0, 8099)
+[2015-07-27 15:16:37] DEBUG TCPServer.new(::, 8099)
+[2015-07-27 15:16:37] DEBUG WEBrick::HTTPServlet::FileHandler is mounted on /.
+[2015-07-27 15:16:37] DEBUG #<WEBrick::HTTPServlet::ProcHandler:0x007fdc728f9bd8 @proc=#<Proc:0x007fdc728f9c00@server.rb:30>> is mounted on /log.
+[2015-07-27 15:16:37] INFO  WEBrick::HTTPServer#start: pid=9821 port=8099
+[2015-07-27 15:16:40] DEBUG accept: ::1:61482
+[2015-07-27 15:16:41] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:16:43] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:16:43] ERROR NoMethodError: undefined method `+' for nil:NilClass
+	(erb):478:in `block (2 levels) in evaluate'
+	/Library/Ruby/Gems/2.0.0/gems/dbi-0.4.5/lib/dbi/handles/statement.rb:214:in `fetch'
+	/Library/Ruby/Gems/2.0.0/gems/dbi-0.4.5/lib/dbi/handles/statement.rb:240:in `each'
+	(erb):476:in `block in evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/erb.rb:849:in `eval'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/erb.rb:849:in `result'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:82:in `block in evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:79:in `module_eval'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:79:in `evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:56:in `do_GET'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/abstract.rb:106:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:286:in `exec_handler'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:217:in `do_GET'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/abstract.rb:106:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:213:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+[2015-07-27 15:16:43] DEBUG close: ::1:61482
+[2015-07-27 15:18:08] DEBUG accept: ::1:61614
+[2015-07-27 15:18:08] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:18:08] ERROR NoMethodError: undefined method `+' for nil:NilClass
+	(erb):478:in `block (2 levels) in evaluate'
+	/Library/Ruby/Gems/2.0.0/gems/dbi-0.4.5/lib/dbi/handles/statement.rb:214:in `fetch'
+	/Library/Ruby/Gems/2.0.0/gems/dbi-0.4.5/lib/dbi/handles/statement.rb:240:in `each'
+	(erb):476:in `block in evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/erb.rb:849:in `eval'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/erb.rb:849:in `result'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:82:in `block in evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:79:in `module_eval'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:79:in `evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:56:in `do_GET'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/abstract.rb:106:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:286:in `exec_handler'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:217:in `do_GET'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/abstract.rb:106:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:213:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+[2015-07-27 15:18:08] DEBUG close: ::1:61614
+[2015-07-27 15:18:11] DEBUG close TCPSocket(0.0.0.0, 8099)
+[2015-07-27 15:18:11] DEBUG close TCPSocket(::, 8099)
+[2015-07-27 15:18:11] INFO  going to shutdown ...
+[2015-07-27 15:18:11] INFO  WEBrick::HTTPServer#start done.
+[2015-07-27 15:18:15] INFO  WEBrick 1.3.1
+[2015-07-27 15:18:15] INFO  ruby 2.0.0 (2014-05-08) [universal.x86_64-darwin14]
+[2015-07-27 15:18:15] DEBUG TCPServer.new(0.0.0.0, 8099)
+[2015-07-27 15:18:15] DEBUG TCPServer.new(::, 8099)
+[2015-07-27 15:18:15] DEBUG WEBrick::HTTPServlet::FileHandler is mounted on /.
+[2015-07-27 15:18:15] DEBUG #<WEBrick::HTTPServlet::ProcHandler:0x007fd1f5949bd8 @proc=#<Proc:0x007fd1f5949c00@server.rb:30>> is mounted on /log.
+[2015-07-27 15:18:15] INFO  WEBrick::HTTPServer#start: pid=9847 port=8099
+[2015-07-27 15:18:20] DEBUG accept: ::1:61616
+[2015-07-27 15:18:21] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:18:22] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:18:22] ERROR NoMethodError: undefined method `+' for nil:NilClass
+	(erb):478:in `block (2 levels) in evaluate'
+	/Library/Ruby/Gems/2.0.0/gems/dbi-0.4.5/lib/dbi/handles/statement.rb:214:in `fetch'
+	/Library/Ruby/Gems/2.0.0/gems/dbi-0.4.5/lib/dbi/handles/statement.rb:240:in `each'
+	(erb):476:in `block in evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/erb.rb:849:in `eval'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/erb.rb:849:in `result'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:82:in `block in evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:79:in `module_eval'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:79:in `evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:56:in `do_GET'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/abstract.rb:106:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:286:in `exec_handler'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:217:in `do_GET'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/abstract.rb:106:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:213:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+[2015-07-27 15:18:22] DEBUG close: ::1:61616
+[2015-07-27 15:21:22] DEBUG accept: ::1:61628
+[2015-07-27 15:21:22] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:21:22] DEBUG accept: ::1:61629
+[2015-07-27 15:21:22] DEBUG accept: ::1:61630
+[2015-07-27 15:21:22] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:21:22] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:21:22] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:21:22] DEBUG accept: ::1:61636
+[2015-07-27 15:21:22] DEBUG accept: ::1:61637
+[2015-07-27 15:21:22] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:21:22] DEBUG accept: ::1:61638
+[2015-07-27 15:21:22] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:21:22] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:21:22] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:21:22] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:21:22] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:21:22] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:21:22] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:21:39] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:21:39] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:21:39] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:21:39] ERROR `/sticky-footer.css' not found.
+[2015-07-27 15:21:39] ERROR `/timepicker-css/bootstrap-timepicker.min.css' not found.
+[2015-07-27 15:21:39] DEBUG close: ::1:61638
+[2015-07-27 15:21:39] DEBUG close: ::1:61630
+[2015-07-27 15:21:53] DEBUG close: ::1:61628
+[2015-07-27 15:21:53] DEBUG close: ::1:61629
+[2015-07-27 15:21:53] DEBUG close: ::1:61636
+[2015-07-27 15:21:53] DEBUG close: ::1:61637
+[2015-07-27 15:22:45] DEBUG accept: ::1:61647
+[2015-07-27 15:22:45] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:22:45] DEBUG accept: ::1:61650
+[2015-07-27 15:22:45] DEBUG accept: ::1:61649
+[2015-07-27 15:22:45] DEBUG accept: ::1:61651
+[2015-07-27 15:22:45] DEBUG accept: ::1:61653
+[2015-07-27 15:22:45] DEBUG accept: ::1:61652
+[2015-07-27 15:22:45] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:22:45] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:22:45] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:22:45] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:22:45] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:22:45] ERROR `/timepicker-css/bootstrap-timepicker.min.css' not found.
+[2015-07-27 15:22:45] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:22:45] DEBUG close: ::1:61649
+[2015-07-27 15:22:45] ERROR `/sticky-footer.css' not found.
+[2015-07-27 15:22:45] DEBUG close: ::1:61651
+[2015-07-27 15:22:45] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:22:45] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:22:45] DEBUG accept: ::1:61658
+[2015-07-27 15:22:45] DEBUG accept: ::1:61659
+[2015-07-27 15:22:45] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:22:45] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:22:45] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:22:45] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:22:45] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:22:45] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:22:46] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:23:15] DEBUG close: ::1:61658
+[2015-07-27 15:23:15] DEBUG close: ::1:61650
+[2015-07-27 15:23:15] DEBUG close: ::1:61652
+[2015-07-27 15:23:15] DEBUG close: ::1:61647
+[2015-07-27 15:23:15] DEBUG close: ::1:61653
+[2015-07-27 15:23:17] DEBUG close: ::1:61659
+[2015-07-27 15:23:55] DEBUG accept: ::1:61672
+[2015-07-27 15:23:55] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:23:55] DEBUG accept: ::1:61673
+[2015-07-27 15:23:55] DEBUG accept: ::1:61675
+[2015-07-27 15:23:55] DEBUG accept: ::1:61674
+[2015-07-27 15:23:55] DEBUG accept: ::1:61676
+[2015-07-27 15:23:55] DEBUG accept: ::1:61677
+[2015-07-27 15:23:55] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:23:55] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:23:55] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:23:55] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:23:55] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:23:55] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:23:55] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:23:55] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:23:55] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:23:55] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:23:55] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:24:25] DEBUG close: ::1:61676
+[2015-07-27 15:24:25] DEBUG close: ::1:61677
+[2015-07-27 15:24:25] DEBUG close: ::1:61675
+[2015-07-27 15:24:25] DEBUG close: ::1:61674
+[2015-07-27 15:24:25] DEBUG close: ::1:61673
+[2015-07-27 15:24:25] DEBUG close: ::1:61672
+[2015-07-27 15:24:35] DEBUG accept: ::1:61682
+[2015-07-27 15:24:35] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:24:35] DEBUG accept: ::1:61683
+[2015-07-27 15:24:35] DEBUG accept: ::1:61687
+[2015-07-27 15:24:35] DEBUG accept: ::1:61688
+[2015-07-27 15:24:35] DEBUG accept: ::1:61689
+[2015-07-27 15:24:35] DEBUG accept: ::1:61690
+[2015-07-27 15:24:35] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:24:35] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:24:35] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:24:35] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:24:35] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:24:35] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:24:35] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:24:35] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:24:35] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:24:35] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:24:35] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:25:05] DEBUG close: ::1:61683
+[2015-07-27 15:25:05] DEBUG close: ::1:61682
+[2015-07-27 15:25:05] DEBUG close: ::1:61688
+[2015-07-27 15:25:05] DEBUG close: ::1:61690
+[2015-07-27 15:25:05] DEBUG close: ::1:61689
+[2015-07-27 15:25:05] DEBUG close: ::1:61687
+[2015-07-27 15:25:09] DEBUG accept: ::1:61700
+[2015-07-27 15:25:09] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:25:09] DEBUG accept: ::1:61701
+[2015-07-27 15:25:09] DEBUG accept: ::1:61703
+[2015-07-27 15:25:09] DEBUG accept: ::1:61704
+[2015-07-27 15:25:09] DEBUG accept: ::1:61702
+[2015-07-27 15:25:09] DEBUG accept: ::1:61705
+[2015-07-27 15:25:09] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:25:09] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:25:09] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:25:09] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:25:09] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:25:09] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:25:09] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:25:09] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:25:09] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:25:09] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:25:09] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:25:39] DEBUG close: ::1:61705
+[2015-07-27 15:25:39] DEBUG close: ::1:61701
+[2015-07-27 15:25:39] DEBUG close: ::1:61702
+[2015-07-27 15:25:39] DEBUG close: ::1:61704
+[2015-07-27 15:25:39] DEBUG close: ::1:61700
+[2015-07-27 15:25:39] DEBUG close: ::1:61703
+[2015-07-27 15:25:54] DEBUG accept: ::1:61709
+[2015-07-27 15:25:54] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:25:54] DEBUG accept: ::1:61710
+[2015-07-27 15:25:54] DEBUG accept: ::1:61711
+[2015-07-27 15:25:54] DEBUG accept: ::1:61712
+[2015-07-27 15:25:54] DEBUG accept: ::1:61713
+[2015-07-27 15:25:54] DEBUG accept: ::1:61714
+[2015-07-27 15:25:54] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:25:54] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:25:54] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:25:54] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:25:54] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:25:54] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:25:54] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:25:54] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:25:54] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:25:54] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:25:54] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:26:24] DEBUG close: ::1:61711
+[2015-07-27 15:26:24] DEBUG close: ::1:61713
+[2015-07-27 15:26:24] DEBUG close: ::1:61709
+[2015-07-27 15:26:24] DEBUG close: ::1:61710
+[2015-07-27 15:26:24] DEBUG close: ::1:61714
+[2015-07-27 15:26:24] DEBUG close: ::1:61712
+[2015-07-27 15:27:02] DEBUG accept: ::1:61727
+[2015-07-27 15:27:02] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:27:03] DEBUG accept: ::1:61729
+[2015-07-27 15:27:03] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:27:03] ERROR `/timepicker-css/bootstrap-timepicker.min.css' not found.
+[2015-07-27 15:27:03] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:27:03] ERROR `/sticky-footer.css' not found.
+[2015-07-27 15:27:03] DEBUG close: ::1:61727
+[2015-07-27 15:27:03] DEBUG close: ::1:61729
+[2015-07-27 15:28:18] DEBUG close TCPSocket(0.0.0.0, 8099)
+[2015-07-27 15:28:18] DEBUG close TCPSocket(::, 8099)
+[2015-07-27 15:28:18] INFO  going to shutdown ...
+[2015-07-27 15:28:18] INFO  WEBrick::HTTPServer#start done.
+[2015-07-27 15:28:19] INFO  WEBrick 1.3.1
+[2015-07-27 15:28:19] INFO  ruby 2.0.0 (2014-05-08) [universal.x86_64-darwin14]
+[2015-07-27 15:28:19] DEBUG TCPServer.new(0.0.0.0, 8099)
+[2015-07-27 15:28:19] DEBUG TCPServer.new(::, 8099)
+[2015-07-27 15:28:19] DEBUG WEBrick::HTTPServlet::FileHandler is mounted on /.
+[2015-07-27 15:28:19] DEBUG #<WEBrick::HTTPServlet::ProcHandler:0x007fb94b995be0 @proc=#<Proc:0x007fb94b995c08@server.rb:30>> is mounted on /log.
+[2015-07-27 15:28:19] INFO  WEBrick::HTTPServer#start: pid=9885 port=8099
+[2015-07-27 15:28:24] DEBUG accept: ::1:61787
+[2015-07-27 15:28:25] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:28:40] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:29:10] DEBUG close: ::1:61787
+[2015-07-27 15:51:39] DEBUG accept: ::1:62043
+[2015-07-27 15:51:39] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:51:39] DEBUG accept: ::1:62044
+[2015-07-27 15:51:39] DEBUG accept: ::1:62045
+[2015-07-27 15:51:39] DEBUG accept: ::1:62046
+[2015-07-27 15:51:39] DEBUG accept: ::1:62047
+[2015-07-27 15:51:39] DEBUG accept: ::1:62048
+[2015-07-27 15:51:39] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:51:39] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:51:39] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:51:39] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:51:39] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:51:39] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:51:39] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:51:39] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:51:39] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:51:39] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:51:39] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:52:09] DEBUG close: ::1:62047
+[2015-07-27 15:52:09] DEBUG close: ::1:62044
+[2015-07-27 15:52:09] DEBUG close: ::1:62048
+[2015-07-27 15:52:09] DEBUG close: ::1:62046
+[2015-07-27 15:52:09] DEBUG close: ::1:62043
+[2015-07-27 15:52:09] DEBUG close: ::1:62045
+[2015-07-27 15:52:56] DEBUG accept: ::1:62067
+[2015-07-27 15:52:56] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:52:56] DEBUG accept: ::1:62068
+[2015-07-27 15:52:56] DEBUG accept: ::1:62069
+[2015-07-27 15:52:56] DEBUG accept: ::1:62070
+[2015-07-27 15:52:56] DEBUG accept: ::1:62071
+[2015-07-27 15:52:56] DEBUG accept: ::1:62072
+[2015-07-27 15:52:56] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:52:56] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:52:56] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:52:56] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:52:56] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:52:56] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:52:56] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:52:56] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:52:56] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:52:56] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:52:56] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:53:26] DEBUG close: ::1:62068
+[2015-07-27 15:53:26] DEBUG close: ::1:62069
+[2015-07-27 15:53:26] DEBUG close: ::1:62070
+[2015-07-27 15:53:26] DEBUG close: ::1:62067
+[2015-07-27 15:53:26] DEBUG close: ::1:62072
+[2015-07-27 15:53:26] DEBUG close: ::1:62071
+[2015-07-27 15:53:29] DEBUG accept: ::1:62096
+[2015-07-27 15:53:29] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:53:29] DEBUG accept: ::1:62097
+[2015-07-27 15:53:29] DEBUG accept: ::1:62098
+[2015-07-27 15:53:29] DEBUG accept: ::1:62100
+[2015-07-27 15:53:29] DEBUG accept: ::1:62099
+[2015-07-27 15:53:29] DEBUG accept: ::1:62101
+[2015-07-27 15:53:29] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:53:29] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:53:29] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:53:29] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:53:29] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:53:29] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:53:29] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:53:29] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:53:29] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:53:29] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:53:29] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:53:59] DEBUG close: ::1:62096
+[2015-07-27 15:53:59] DEBUG close: ::1:62101
+[2015-07-27 15:53:59] DEBUG close: ::1:62100
+[2015-07-27 15:53:59] DEBUG close: ::1:62099
+[2015-07-27 15:53:59] DEBUG close: ::1:62097
+[2015-07-27 15:53:59] DEBUG close: ::1:62098
+[2015-07-27 15:55:47] DEBUG accept: ::1:62155
+[2015-07-27 15:55:47] DEBUG accept: ::1:62156
+[2015-07-27 15:55:47] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:55:47] ERROR SyntaxError: (erb):504: syntax error, unexpected =>, expecting ')'
+(erb):514: syntax error, unexpected tIDENTIFIER, expecting =>
+(erb):515: syntax error, unexpected ':', expecting ')'
+            animation : true,
+                       ^
+(erb):515: Can't assign to true
+(erb):516: syntax error, unexpected tIDENTIFIER, expecting :: or '[' or '.'
+            // アニメーションの速度 ( ステップ数 )
+                                             ^
+(erb):517: syntax error, unexpected ':', expecting ')'
+            animationSteps : 60,
+                            ^
+(erb):519: syntax error, unexpected ',', expecting ')'
+(erb):521: syntax error, unexpected tIDENTIFIER, expecting ')'
+            // animation: false の時にも実行さ...
+                        ^
+(erb):522: syntax error, unexpected tIDENTIFIER, expecting ')'
+            // e.g. onAnimationComplete : fun...
+                ^
+(erb):522: syntax error, unexpected ':'
+...  // e.g. onAnimationComplete : function() {alert('complete'...
+...                               ^
+(erb):522: syntax error, unexpected tSTRING_DEND, expecting '}'
+(erb):527: syntax error, unexpected tIDENTIFIER, expecting ')'
+(erb):528: syntax error, unexpected tCONSTANT, expecting keyword_do or '{' or '('
+      var myNewChart3 = new Chart(ctx3).Radar(data3,option3);
+                                 ^
+(erb):530: syntax error, unexpected '<', expecting ')'
+  </script>
+   ^
+(erb):531: unknown regexp options - bdy
+(erb):532: syntax error, unexpected '<'
+</html>
+ ^
+(erb):532: unterminated regexp meets end of file
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/erb.rb:849:in `eval'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/erb.rb:849:in `result'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:82:in `block in evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:79:in `module_eval'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:79:in `evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:56:in `do_GET'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/abstract.rb:106:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:286:in `exec_handler'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:217:in `do_GET'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/abstract.rb:106:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:213:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+[2015-07-27 15:55:47] ERROR (erb):504: syntax error, unexpected =>, expecting ')'
+(erb):514: syntax error, unexpected tIDENTIFIER, expecting =>
+(erb):515: syntax error, unexpected ':', expecting ')'
+            animation : true,
+                       ^
+(erb):515: Can't assign to true
+(erb):516: syntax error, unexpected tIDENTIFIER, expecting :: or '[' or '.'
+            // アニメーションの速度 ( ステップ数 )
+                                             ^
+(erb):517: syntax error, unexpected ':', expecting ')'
+            animationSteps : 60,
+                            ^
+(erb):519: syntax error, unexpected ',', expecting ')'
+(erb):521: syntax error, unexpected tIDENTIFIER, expecting ')'
+            // animation: false の時にも実行さ...
+                        ^
+(erb):522: syntax error, unexpected tIDENTIFIER, expecting ')'
+            // e.g. onAnimationComplete : fun...
+                ^
+(erb):522: syntax error, unexpected ':'
+...  // e.g. onAnimationComplete : function() {alert('complete'...
+...                               ^
+(erb):522: syntax error, unexpected tSTRING_DEND, expecting '}'
+(erb):527: syntax error, unexpected tIDENTIFIER, expecting ')'
+(erb):528: syntax error, unexpected tCONSTANT, expecting keyword_do or '{' or '('
+      var myNewChart3 = new Chart(ctx3).Radar(data3,option3);
+                                 ^
+(erb):530: syntax error, unexpected '<', expecting ')'
+  </script>
+   ^
+(erb):531: unknown regexp options - bdy
+(erb):532: syntax error, unexpected '<'
+</html>
+ ^
+(erb):532: unterminated regexp meets end of file
+[2015-07-27 15:55:47] DEBUG close: ::1:62155
+[2015-07-27 15:56:06] DEBUG close: ::1:62156
+[2015-07-27 15:56:12] DEBUG accept: ::1:62157
+[2015-07-27 15:56:12] DEBUG accept: ::1:62158
+[2015-07-27 15:56:12] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:56:12] ERROR SyntaxError: (erb):504: syntax error, unexpected =>, expecting ')'
+(erb):514: syntax error, unexpected tIDENTIFIER, expecting =>
+(erb):515: syntax error, unexpected ':', expecting ')'
+            animation : true,
+                       ^
+(erb):515: Can't assign to true
+(erb):516: syntax error, unexpected tIDENTIFIER, expecting :: or '[' or '.'
+            // アニメーションの速度 ( ステップ数 )
+                                             ^
+(erb):517: syntax error, unexpected ':', expecting ')'
+            animationSteps : 60,
+                            ^
+(erb):519: syntax error, unexpected ',', expecting ')'
+(erb):521: syntax error, unexpected tIDENTIFIER, expecting ')'
+            // animation: false の時にも実行さ...
+                        ^
+(erb):522: syntax error, unexpected tIDENTIFIER, expecting ')'
+            // e.g. onAnimationComplete : fun...
+                ^
+(erb):522: syntax error, unexpected ':'
+...  // e.g. onAnimationComplete : function() {alert('complete'...
+...                               ^
+(erb):522: syntax error, unexpected tSTRING_DEND, expecting '}'
+(erb):527: syntax error, unexpected tIDENTIFIER, expecting ')'
+(erb):528: syntax error, unexpected tCONSTANT, expecting keyword_do or '{' or '('
+      var myNewChart3 = new Chart(ctx3).Radar(data3,option3);
+                                 ^
+(erb):530: syntax error, unexpected '<', expecting ')'
+  </script>
+   ^
+(erb):531: unknown regexp options - bdy
+(erb):532: syntax error, unexpected '<'
+</html>
+ ^
+(erb):532: unterminated regexp meets end of file
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/erb.rb:849:in `eval'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/erb.rb:849:in `result'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:82:in `block in evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:79:in `module_eval'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:79:in `evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:56:in `do_GET'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/abstract.rb:106:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:286:in `exec_handler'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:217:in `do_GET'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/abstract.rb:106:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:213:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+[2015-07-27 15:56:12] ERROR (erb):504: syntax error, unexpected =>, expecting ')'
+(erb):514: syntax error, unexpected tIDENTIFIER, expecting =>
+(erb):515: syntax error, unexpected ':', expecting ')'
+            animation : true,
+                       ^
+(erb):515: Can't assign to true
+(erb):516: syntax error, unexpected tIDENTIFIER, expecting :: or '[' or '.'
+            // アニメーションの速度 ( ステップ数 )
+                                             ^
+(erb):517: syntax error, unexpected ':', expecting ')'
+            animationSteps : 60,
+                            ^
+(erb):519: syntax error, unexpected ',', expecting ')'
+(erb):521: syntax error, unexpected tIDENTIFIER, expecting ')'
+            // animation: false の時にも実行さ...
+                        ^
+(erb):522: syntax error, unexpected tIDENTIFIER, expecting ')'
+            // e.g. onAnimationComplete : fun...
+                ^
+(erb):522: syntax error, unexpected ':'
+...  // e.g. onAnimationComplete : function() {alert('complete'...
+...                               ^
+(erb):522: syntax error, unexpected tSTRING_DEND, expecting '}'
+(erb):527: syntax error, unexpected tIDENTIFIER, expecting ')'
+(erb):528: syntax error, unexpected tCONSTANT, expecting keyword_do or '{' or '('
+      var myNewChart3 = new Chart(ctx3).Radar(data3,option3);
+                                 ^
+(erb):530: syntax error, unexpected '<', expecting ')'
+  </script>
+   ^
+(erb):531: unknown regexp options - bdy
+(erb):532: syntax error, unexpected '<'
+</html>
+ ^
+(erb):532: unterminated regexp meets end of file
+[2015-07-27 15:56:12] DEBUG close: ::1:62157
+[2015-07-27 15:56:14] DEBUG accept: ::1:62159
+[2015-07-27 15:56:14] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:56:14] ERROR SyntaxError: (erb):504: syntax error, unexpected =>, expecting ')'
+(erb):514: syntax error, unexpected tIDENTIFIER, expecting =>
+(erb):515: syntax error, unexpected ':', expecting ')'
+            animation : true,
+                       ^
+(erb):515: Can't assign to true
+(erb):516: syntax error, unexpected tIDENTIFIER, expecting :: or '[' or '.'
+            // アニメーションの速度 ( ステップ数 )
+                                             ^
+(erb):517: syntax error, unexpected ':', expecting ')'
+            animationSteps : 60,
+                            ^
+(erb):519: syntax error, unexpected ',', expecting ')'
+(erb):521: syntax error, unexpected tIDENTIFIER, expecting ')'
+            // animation: false の時にも実行さ...
+                        ^
+(erb):522: syntax error, unexpected tIDENTIFIER, expecting ')'
+            // e.g. onAnimationComplete : fun...
+                ^
+(erb):522: syntax error, unexpected ':'
+...  // e.g. onAnimationComplete : function() {alert('complete'...
+...                               ^
+(erb):522: syntax error, unexpected tSTRING_DEND, expecting '}'
+(erb):527: syntax error, unexpected tIDENTIFIER, expecting ')'
+(erb):528: syntax error, unexpected tCONSTANT, expecting keyword_do or '{' or '('
+      var myNewChart3 = new Chart(ctx3).Radar(data3,option3);
+                                 ^
+(erb):530: syntax error, unexpected '<', expecting ')'
+  </script>
+   ^
+(erb):531: unknown regexp options - bdy
+(erb):532: syntax error, unexpected '<'
+</html>
+ ^
+(erb):532: unterminated regexp meets end of file
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/erb.rb:849:in `eval'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/erb.rb:849:in `result'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:82:in `block in evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:79:in `module_eval'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:79:in `evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:56:in `do_GET'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/abstract.rb:106:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:286:in `exec_handler'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:217:in `do_GET'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/abstract.rb:106:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:213:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+[2015-07-27 15:56:14] ERROR (erb):504: syntax error, unexpected =>, expecting ')'
+(erb):514: syntax error, unexpected tIDENTIFIER, expecting =>
+(erb):515: syntax error, unexpected ':', expecting ')'
+            animation : true,
+                       ^
+(erb):515: Can't assign to true
+(erb):516: syntax error, unexpected tIDENTIFIER, expecting :: or '[' or '.'
+            // アニメーションの速度 ( ステップ数 )
+                                             ^
+(erb):517: syntax error, unexpected ':', expecting ')'
+            animationSteps : 60,
+                            ^
+(erb):519: syntax error, unexpected ',', expecting ')'
+(erb):521: syntax error, unexpected tIDENTIFIER, expecting ')'
+            // animation: false の時にも実行さ...
+                        ^
+(erb):522: syntax error, unexpected tIDENTIFIER, expecting ')'
+            // e.g. onAnimationComplete : fun...
+                ^
+(erb):522: syntax error, unexpected ':'
+...  // e.g. onAnimationComplete : function() {alert('complete'...
+...                               ^
+(erb):522: syntax error, unexpected tSTRING_DEND, expecting '}'
+(erb):527: syntax error, unexpected tIDENTIFIER, expecting ')'
+(erb):528: syntax error, unexpected tCONSTANT, expecting keyword_do or '{' or '('
+      var myNewChart3 = new Chart(ctx3).Radar(data3,option3);
+                                 ^
+(erb):530: syntax error, unexpected '<', expecting ')'
+  </script>
+   ^
+(erb):531: unknown regexp options - bdy
+(erb):532: syntax error, unexpected '<'
+</html>
+ ^
+(erb):532: unterminated regexp meets end of file
+[2015-07-27 15:56:14] DEBUG close: ::1:62158
+[2015-07-27 15:56:23] DEBUG accept: ::1:62160
+[2015-07-27 15:56:23] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:56:23] DEBUG accept: ::1:62162
+[2015-07-27 15:56:23] DEBUG accept: ::1:62161
+[2015-07-27 15:56:23] DEBUG accept: ::1:62163
+[2015-07-27 15:56:23] DEBUG accept: ::1:62164
+[2015-07-27 15:56:23] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:56:23] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:56:23] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:56:23] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:56:23] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:56:23] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:56:23] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:56:23] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:56:23] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:56:23] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:56:23] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:56:33] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:56:34] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:56:34] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:56:34] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:56:34] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:56:34] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:56:34] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:56:34] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:56:34] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:56:34] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:56:34] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:56:34] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:56:47] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:56:47] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:56:47] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:56:47] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:56:47] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:56:47] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:56:47] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:56:47] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:56:47] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:56:47] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:56:47] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:56:47] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:57:18] DEBUG close: ::1:62162
+[2015-07-27 15:57:18] DEBUG close: ::1:62163
+[2015-07-27 15:57:18] DEBUG close: ::1:62160
+[2015-07-27 15:57:18] DEBUG close: ::1:62159
+[2015-07-27 15:57:18] DEBUG close: ::1:62164
+[2015-07-27 15:57:18] DEBUG close: ::1:62161
+[2015-07-27 15:58:06] DEBUG accept: ::1:62295
+[2015-07-27 15:58:06] DEBUG accept: ::1:62296
+[2015-07-27 15:58:06] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:58:06] DEBUG accept: ::1:62298
+[2015-07-27 15:58:06] DEBUG accept: ::1:62299
+[2015-07-27 15:58:06] DEBUG accept: ::1:62297
+[2015-07-27 15:58:06] DEBUG accept: ::1:62300
+[2015-07-27 15:58:06] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:58:06] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:58:06] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:58:06] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:58:06] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:58:06] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:58:06] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:58:06] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:58:06] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:58:06] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:58:06] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:58:32] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:58:32] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:58:32] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:58:32] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:58:32] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:58:32] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:58:32] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:58:32] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:58:32] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:58:32] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:58:32] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:58:32] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:58:38] DEBUG close TCPSocket(0.0.0.0, 8099)
+[2015-07-27 15:58:38] DEBUG close TCPSocket(::, 8099)
+[2015-07-27 15:58:38] INFO  going to shutdown ...
+[2015-07-27 15:58:39] DEBUG close: ::1:62298
+[2015-07-27 15:58:39] DEBUG close: ::1:62295
+[2015-07-27 15:58:39] DEBUG close: ::1:62300
+[2015-07-27 15:58:39] DEBUG close: ::1:62296
+[2015-07-27 15:58:39] DEBUG close: ::1:62297
+[2015-07-27 15:58:39] DEBUG close: ::1:62299
+[2015-07-27 15:58:39] INFO  WEBrick::HTTPServer#start done.
+[2015-07-27 15:58:41] INFO  WEBrick 1.3.1
+[2015-07-27 15:58:41] INFO  ruby 2.0.0 (2014-05-08) [universal.x86_64-darwin14]
+[2015-07-27 15:58:41] DEBUG TCPServer.new(0.0.0.0, 8099)
+[2015-07-27 15:58:41] DEBUG TCPServer.new(::, 8099)
+[2015-07-27 15:58:41] DEBUG WEBrick::HTTPServlet::FileHandler is mounted on /.
+[2015-07-27 15:58:41] DEBUG #<WEBrick::HTTPServlet::ProcHandler:0x007fd4db1f9bd8 @proc=#<Proc:0x007fd4db1f9c00@server.rb:30>> is mounted on /log.
+[2015-07-27 15:58:41] INFO  WEBrick::HTTPServer#start: pid=9956 port=8099
+[2015-07-27 15:58:45] DEBUG accept: ::1:62310
+[2015-07-27 15:58:45] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:58:46] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 15:59:16] DEBUG close: ::1:62310
+[2015-07-27 16:01:20] DEBUG accept: ::1:62360
+[2015-07-27 16:01:20] DEBUG accept: ::1:62361
+[2015-07-27 16:01:20] DEBUG accept: ::1:62362
+[2015-07-27 16:01:20] DEBUG accept: ::1:62363
+[2015-07-27 16:01:20] DEBUG accept: ::1:62364
+[2015-07-27 16:01:20] DEBUG accept: ::1:62365
+[2015-07-27 16:01:20] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 16:01:20] ERROR SyntaxError: (erb):539: syntax error, unexpected end-of-input, expecting ')'
+; _erbout.force_encoding(__ENCODING__)
+                                      ^
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/erb.rb:849:in `eval'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/erb.rb:849:in `result'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:82:in `block in evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:79:in `module_eval'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:79:in `evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:56:in `do_GET'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/abstract.rb:106:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:286:in `exec_handler'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:217:in `do_GET'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/abstract.rb:106:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:213:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+[2015-07-27 16:01:20] ERROR (erb):539: syntax error, unexpected end-of-input, expecting ')'
+; _erbout.force_encoding(__ENCODING__)
+                                      ^
+[2015-07-27 16:01:20] DEBUG close: ::1:62360
+[2015-07-27 16:01:39] DEBUG close: ::1:62362
+[2015-07-27 16:01:39] DEBUG close: ::1:62364
+[2015-07-27 16:01:39] DEBUG close: ::1:62363
+[2015-07-27 16:01:39] DEBUG close: ::1:62361
+[2015-07-27 16:01:39] DEBUG close: ::1:62365
+[2015-07-27 16:03:00] DEBUG accept: ::1:62382
+[2015-07-27 16:03:00] DEBUG accept: ::1:62379
+[2015-07-27 16:03:00] DEBUG accept: ::1:62380
+[2015-07-27 16:03:00] DEBUG accept: ::1:62378
+[2015-07-27 16:03:00] DEBUG accept: ::1:62381
+[2015-07-27 16:03:00] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 16:03:00] ERROR SyntaxError: (erb):500: syntax error, unexpected ';'
+;  puts sumsum ; _erbout.conca...
+ ^
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/erb.rb:849:in `eval'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/erb.rb:849:in `result'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:82:in `block in evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:79:in `module_eval'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:79:in `evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:56:in `do_GET'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/abstract.rb:106:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:286:in `exec_handler'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:217:in `do_GET'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/abstract.rb:106:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:213:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+[2015-07-27 16:03:00] ERROR (erb):500: syntax error, unexpected ';'
+;  puts sumsum ; _erbout.conca...
+ ^
+[2015-07-27 16:03:00] DEBUG close: ::1:62378
+[2015-07-27 16:03:06] DEBUG close TCPSocket(0.0.0.0, 8099)
+[2015-07-27 16:03:06] DEBUG close TCPSocket(::, 8099)
+[2015-07-27 16:03:06] INFO  going to shutdown ...
+[2015-07-27 16:03:06] DEBUG close: ::1:62382
+[2015-07-27 16:03:06] DEBUG close: ::1:62380
+[2015-07-27 16:03:06] DEBUG close: ::1:62381
+[2015-07-27 16:03:06] DEBUG close: ::1:62379
+[2015-07-27 16:03:06] INFO  WEBrick::HTTPServer#start done.
+[2015-07-27 16:03:07] INFO  WEBrick 1.3.1
+[2015-07-27 16:03:07] INFO  ruby 2.0.0 (2014-05-08) [universal.x86_64-darwin14]
+[2015-07-27 16:03:07] DEBUG TCPServer.new(0.0.0.0, 8099)
+[2015-07-27 16:03:07] DEBUG TCPServer.new(::, 8099)
+[2015-07-27 16:03:07] DEBUG WEBrick::HTTPServlet::FileHandler is mounted on /.
+[2015-07-27 16:03:07] DEBUG #<WEBrick::HTTPServlet::ProcHandler:0x007f906a2c5bd0 @proc=#<Proc:0x007f906a2c5bf8@server.rb:30>> is mounted on /log.
+[2015-07-27 16:03:07] INFO  WEBrick::HTTPServer#start: pid=9980 port=8099
+[2015-07-27 16:03:09] DEBUG accept: ::1:62388
+[2015-07-27 16:03:09] DEBUG accept: ::1:62389
+[2015-07-27 16:03:09] DEBUG accept: ::1:62390
+[2015-07-27 16:03:09] DEBUG accept: ::1:62391
+[2015-07-27 16:03:10] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 16:03:10] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 16:03:13] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 16:03:13] ERROR SyntaxError: (erb):500: syntax error, unexpected ';'
+;  puts sumsum ; _erbout.conca...
+ ^
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/erb.rb:849:in `eval'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/erb.rb:849:in `result'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:82:in `block in evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:79:in `module_eval'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:79:in `evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:56:in `do_GET'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/abstract.rb:106:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:286:in `exec_handler'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:217:in `do_GET'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/abstract.rb:106:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:213:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+[2015-07-27 16:03:13] ERROR (erb):500: syntax error, unexpected ';'
+;  puts sumsum ; _erbout.conca...
+ ^
+[2015-07-27 16:03:13] DEBUG close: ::1:62388
+[2015-07-27 16:03:29] DEBUG close: ::1:62391
+[2015-07-27 16:03:29] DEBUG close: ::1:62390
+[2015-07-27 16:03:29] DEBUG close: ::1:62389
+[2015-07-27 16:03:37] DEBUG accept: ::1:62394
+[2015-07-27 16:03:37] DEBUG accept: ::1:62393
+[2015-07-27 16:03:37] DEBUG accept: ::1:62392
+[2015-07-27 16:03:37] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 16:03:37] ERROR SyntaxError: (erb):499: syntax error, unexpected tSTRING_DEND, expecting end-of-input
+;  sumsum =  solo_sum} / hours_sum ; _erbout.concat "\n"
+                      ^
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/erb.rb:849:in `eval'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/erb.rb:849:in `result'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:82:in `block in evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:79:in `module_eval'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:79:in `evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:56:in `do_GET'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/abstract.rb:106:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:286:in `exec_handler'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:217:in `do_GET'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/abstract.rb:106:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:213:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+[2015-07-27 16:03:37] ERROR (erb):499: syntax error, unexpected tSTRING_DEND, expecting end-of-input
+;  sumsum =  solo_sum} / hours_sum ; _erbout.concat "\n"
+                      ^
+[2015-07-27 16:03:37] DEBUG close: ::1:62392
+[2015-07-27 16:03:45] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 16:03:45] DEBUG accept: ::1:62401
+[2015-07-27 16:03:45] DEBUG accept: ::1:62400
+[2015-07-27 16:03:45] DEBUG accept: ::1:62404
+[2015-07-27 16:03:45] DEBUG accept: ::1:62402
+[2015-07-27 16:03:45] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 16:03:45] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 16:03:45] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 16:03:45] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 16:03:45] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 16:03:45] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 16:03:45] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 16:03:45] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 16:03:45] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 16:03:45] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 16:03:45] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 16:04:15] DEBUG close: ::1:62394
+[2015-07-27 16:04:15] DEBUG close: ::1:62402
+[2015-07-27 16:04:15] DEBUG close: ::1:62400
+[2015-07-27 16:04:15] DEBUG close: ::1:62393
+[2015-07-27 16:04:15] DEBUG close: ::1:62404
+[2015-07-27 16:04:15] DEBUG close: ::1:62401
+[2015-07-27 16:04:30] DEBUG accept: ::1:62530
+[2015-07-27 16:04:30] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 16:04:30] DEBUG accept: ::1:62531
+[2015-07-27 16:04:30] DEBUG accept: ::1:62533
+[2015-07-27 16:04:30] DEBUG accept: ::1:62532
+[2015-07-27 16:04:30] DEBUG accept: ::1:62534
+[2015-07-27 16:04:30] DEBUG accept: ::1:62535
+[2015-07-27 16:04:30] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 16:04:30] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 16:04:30] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 16:04:30] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 16:04:30] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 16:04:30] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 16:04:30] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 16:04:30] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 16:04:30] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 16:04:30] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 16:04:30] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 16:05:00] DEBUG close: ::1:62531
+[2015-07-27 16:05:00] DEBUG close: ::1:62533
+[2015-07-27 16:05:00] DEBUG close: ::1:62534
+[2015-07-27 16:05:00] DEBUG close: ::1:62532
+[2015-07-27 16:05:00] DEBUG close: ::1:62530
+[2015-07-27 16:05:00] DEBUG close: ::1:62535
+[2015-07-27 16:06:05] DEBUG accept: ::1:62549
+[2015-07-27 16:06:05] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 16:06:05] DEBUG accept: ::1:62550
+[2015-07-27 16:06:05] DEBUG accept: ::1:62551
+[2015-07-27 16:06:05] DEBUG accept: ::1:62553
+[2015-07-27 16:06:05] DEBUG accept: ::1:62552
+[2015-07-27 16:06:05] DEBUG accept: ::1:62554
+[2015-07-27 16:06:05] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 16:06:05] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 16:06:05] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 16:06:05] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 16:06:05] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 16:06:05] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 16:06:05] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 16:06:05] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 16:06:05] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 16:06:05] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 16:06:05] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 16:06:18] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 16:06:18] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 16:06:18] ERROR `/sticky-footer.css' not found.
+[2015-07-27 16:06:18] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 16:06:18] ERROR `/timepicker-css/bootstrap-timepicker.min.css' not found.
+[2015-07-27 16:06:18] DEBUG close: ::1:62549
+[2015-07-27 16:06:18] DEBUG close: ::1:62554
+[2015-07-27 16:06:30] DEBUG WEBrick::HTTPServlet::ProcHandler is invoked.
+[2015-07-27 16:06:30] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 16:06:30] ERROR `/sticky-footer.css' not found.
+[2015-07-27 16:06:30] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 16:06:30] ERROR `/timepicker-css/bootstrap-timepicker.min.css' not found.
+[2015-07-27 16:06:30] DEBUG close: ::1:62550
+[2015-07-27 16:06:30] DEBUG close: ::1:62552
+[2015-07-27 16:06:32] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-27 16:06:35] DEBUG close: ::1:62553
+[2015-07-27 16:07:03] DEBUG close: ::1:62551
+[2015-07-27 16:08:53] DEBUG close TCPSocket(0.0.0.0, 8099)
+[2015-07-27 16:08:53] DEBUG close TCPSocket(::, 8099)
+[2015-07-27 16:08:53] INFO  going to shutdown ...
+[2015-07-27 16:08:53] INFO  WEBrick::HTTPServer#start done.
+[2015-07-27 16:08:54] INFO  WEBrick 1.3.1
+[2015-07-27 16:08:54] INFO  ruby 2.0.0 (2014-05-08) [universal.x86_64-darwin14]
+[2015-07-27 16:08:54] DEBUG TCPServer.new(0.0.0.0, 8099)
+[2015-07-27 16:08:54] DEBUG TCPServer.new(::, 8099)
+[2015-07-27 16:08:54] DEBUG WEBrick::HTTPServlet::FileHandler is mounted on /.
+[2015-07-27 16:08:54] DEBUG #<WEBrick::HTTPServlet::ProcHandler:0x007ff39c0fdbf0 @proc=#<Proc:0x007ff39c0fdc18@server.rb:30>> is mounted on /log.
+[2015-07-27 16:08:54] INFO  WEBrick::HTTPServer#start: pid=10013 port=8099
+[2015-07-27 16:08:55] DEBUG close TCPSocket(0.0.0.0, 8099)
+[2015-07-27 16:08:55] DEBUG close TCPSocket(::, 8099)
+[2015-07-27 16:08:55] INFO  going to shutdown ...
+[2015-07-27 16:08:55] INFO  WEBrick::HTTPServer#start done.

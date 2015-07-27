@@ -469,50 +469,38 @@
                     strokeColor : "rgba(220, 220, 220, 1)",
                     pointColor : "rgba(220, 220, 220, 1)",
                     pointStrokeColor : "#fff",
-                    data : [1, 59, 90, 81, 56]
+                    data : [100, 59, 100, 81,
+
+<%# あるユーザの一人で学習した時間の合計を計算 %>
+
+<%# 一人で学習した時間の合計 %>
+<% solo_sum = 0 %>
+
+<%# 学習した時間の合計 %>
+<% hours_sum = 0 %>
+
+<% solo_hours = dbh.execute("select (strftime('%s', tasks.finish_time) - strftime('%s', tasks.start_time)) / 60 from tasks where user_id = 2 and group_frag = 0;") %>
+<% solo_hours.each do |row| %>
+
+<%   solo_sum = solo_sum + row[0].to_i %>
+
+<% end %>
+
+<%# あるユーザの今までの学習時間の合計を計算 %>
+<% all_hours = dbh.execute("select (strftime('%s', tasks.finish_time) - strftime('%s', tasks.start_time)) / 60 from tasks where user_id = 2;") %>
+<% all_hours.each do |row| %>
+
+<%   hours_sum = hours_sum + row[0].to_i %>
+
+<% end %> 
+
+<%# 一人で学習した時間の割合を返す %>
+<% puts "一人で学習した割合のデバッグ"%>
+<% puts solo_sum.to_f / hours_sum.to_f * 100 %>
+<%= solo_sum.to_f / hours_sum.to_f * 100 %>
+              
+                   ] 
                   },
-                  {
-                    fillColor : "rgba(0, 51, 255, 0.5)",
-                    strokeColor : "rgba(151, 187, 205, 1)",
-                    pointColor : "rgba(151, 187, 205, 1)",
-                    pointStrokeColor : "#fff",
-                    data : [28, 48, 40, 19, 96]
-                　},
-                  {
-                    fillColor : "rgba(102, 255, 0, 0.5)",
-                    strokeColor : "rgba(151, 187, 205, 1)",
-                    pointColor : "rgba(151, 187, 205, 1)",
-                    pointStrokeColor : "#fff",
-                    data : [33, 30, 40, 89, 96]
-                　},
-                  {
-                    fillColor : "rgba(255, 255, 102, 0.5)",
-                    strokeColor : "rgba(151, 187, 205, 1)",
-                    pointColor : "rgba(151, 187, 205, 1)",
-                    pointStrokeColor : "#fff",
-                    data : [28, 32, 40, 90, 96]
-                　},
-                  {
-                    fillColor : "rgba(255, 51, 204, 0.5)",
-                    strokeColor : "rgba(151, 187, 205, 1)",
-                    pointColor : "rgba(151, 187, 205, 1)",
-                    pointStrokeColor : "#fff",
-                    data : [20, 48, 40, 32, 70]
-                　},
-                  {
-                    fillColor : "rgba(255, 102, 0, 0.5)",
-                    strokeColor : "rgba(151, 187, 205, 1)",
-                    pointColor : "rgba(151, 187, 205, 1)",
-                    pointStrokeColor : "#fff",
-                    data : [55, 48, 90, 50, 96]
-                　},
-                  {
-                    fillColor : "rgba(0, 153, 0, 0.5)",
-                    strokeColor : "rgba(151, 187, 205, 1)",
-                    pointColor : "rgba(151, 187, 205, 1)",
-                    pointStrokeColor : "#fff",
-                    data : [28, 48, 30, 80, 33]
-                　}
         ]
       };
 
@@ -544,6 +532,8 @@
 <% sth_name_third.finish %>
 <% sth_comment.finish %>
 <% sth_timeline.finish %>
+<% solo_hours.finish %>
+<% all_hours.finish %>
 
 <%# データベースとの接続を終了する %>
 <% dbh.disconnect %>
