@@ -241,7 +241,7 @@
                 title : m.format("YYYY年MM月DD日"),
                 schedule:[
 <%  sth_timeline = dbh.execute("select * from tasks where date('now', 'localtime') between date(start_time) and date(finish_time) and user_id = 2;") %>
-<%    sth_timeline.each do |row_timeline| %>
+<%  sth_timeline.each do |row_timeline| %>
 
                     {
                         <% start_time = Time.parse(row_timeline['start_time']) %>
@@ -252,7 +252,8 @@
                         data:{
                         }
                     },
-<%    end %>
+                    
+<%  end %>
                     
                 ]
             },
