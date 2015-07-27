@@ -13,17 +13,17 @@
 }
 #schedule .sc_menu .sc_header{
 	float:left;
-	height:35px;
+	height:26px;
 	position:relative;
 	overflow:hidden;
 }
 #schedule .sc_menu .sc_header .sc_time{
-	display: table-cell;
-
 	text-align:center;
 	border-left:solid 1px #FFF;
 	background:#333;
 }
+
+/* 左のブロック */
 #schedule .sc_menu .sc_header_cell,
 #schedule .sc_data{
 	float:left;
@@ -32,19 +32,23 @@
 	background:#333;
 	position:relative;
 }
+
+
 #schedule .sc_menu .sc_header_scroll,
 #schedule .sc_data .sc_data_scroll{
 	position:absolute;
 	left:0;
 	top:0;
 }
+
+/* 時間帯を表示する */
 #schedule .sc_menu .sc_header_cell,
 #schedule .sc_header .sc_time,
 #schedule .sc_main_scroll .sc_time{
 	color:#FFFFFF;
 	padding:4px 0;
 	line-height:18px;
-	height:35px;
+	height:24px;
 	display:block;
 }
 #schedule .sc_header .sc_time,
@@ -84,25 +88,23 @@
 	z-index:20;
 }
 
-/*　タスクのテキストの設定(時間)　*/
+/* 時間帯の文字 */
 #schedule .sc_Bar .head{
 	display:block;
 	padding:6px 8px 0;
 	font-size:12px;
-	height:25px;
+	height:20px;
 	overflow:hidden;
 }
 
-/*　タスクのテキストの設定(タスク名)　*/
+/* タスク名 */
 #schedule .sc_Bar .text{
 	display:block;
 	padding:5px 15px 0;
 	font-weight:bold;
-	height:25px;
+	height:20px;
 	overflow:hidden;
 }
-
-
 
 #schedule .timeline,
 #schedule .sc_main .tb{
@@ -118,7 +120,7 @@
 #schedule .sc_data .timeline span.photo{
 	float:left;
 	width:36px;
-	height:50px;
+	height:36px;
 	padding:10px 0 10px 10px;
 }
 #schedule .sc_data .timeline span.title{
