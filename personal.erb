@@ -229,8 +229,8 @@
 
     // 勉強のタイムライン
     $("#schedule").timeSchedule({
-        startTime: "07:00", // schedule start time(HH:ii)
-        endTime: "21:00",   // schedule end time(HH:ii)
+        startTime: "03:00", // schedule start time(HH:ii)
+        endTime: "23:00",   // schedule end time(HH:ii)
         widthTime:600,      // cell timestamp
         timeLineY:60,       // height(px)
         verticalScrollbar:20,   // scrollbar (px)
@@ -462,14 +462,45 @@
 
       // レーダーチャートのデータ
       var data3 = {
-        labels: ["継続性", "勉強のバランス", "夜型", "天気が良いと勉強する", "一人で学習"],
+        labels: ["継続性", "勉強のバランス", "夜型", "音楽がある", "一人で学習"],
         datasets: [
                   {
                     fillColor : "rgba(255, 0, 51, 0.5)",
                     strokeColor : "rgba(220, 220, 220, 1)",
                     pointColor : "rgba(220, 220, 220, 1)",
                     pointStrokeColor : "#fff",
-                    data : [100, 59, 100, 81,
+                    data : [100, 59, 100, 
+
+
+<%# あるユーザの音楽ありで学習した時間の合計を計算 %>
+
+<%# 音楽あり学習した時間の合計 %>
+<% music_sum = 0 %>
+
+<%# 学習した時間の合計 %>
+<% music_all_sum = 0 %>
+
+<% music_hours = dbh.execute("select (strftime('%s', tasks.finish_time) - strftime('%s', tasks.start_time)) / 60 from tasks where user_id = 2 and music_frag = 1;") %>
+<% music_hours.each do |row| %>
+
+<%   music_sum = music_sum + row[0].to_i %>
+
+<% end %>
+
+<%# あるユーザの今までの学習時間の合計を計算 %>
+<% music_all_hours = dbh.execute("select (strftime('%s', tasks.finish_time) - strftime('%s', tasks.start_time)) / 60 from tasks where user_id = 2;") %>
+<% music_all_hours.each do |row| %>
+
+<%   music_all_sum = music_all_sum + row[0].to_i %>
+
+<% end %> 
+
+<%# 音楽ありで学習した時間の割合を返す %>
+<% puts "音楽あり学習した割合のデバッグ"%>
+<% puts music_sum.to_f / music_all_sum.to_f * 100 %>
+<%= music_sum.to_f / music_all_sum.to_f * 100 %>,
+
+
 
 <%# あるユーザの一人で学習した時間の合計を計算 %>
 
@@ -534,6 +565,8 @@
 <% sth_timeline.finish %>
 <% solo_hours.finish %>
 <% all_hours.finish %>
+<% music_hours.finish %>
+<% music_all_hours.finish %>
 
 <%# データベースとの接続を終了する %>
 <% dbh.disconnect %>
