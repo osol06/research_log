@@ -10144,3 +10144,346 @@
 [2015-07-27 16:08:55] DEBUG close TCPSocket(::, 8099)
 [2015-07-27 16:08:55] INFO  going to shutdown ...
 [2015-07-27 16:08:55] INFO  WEBrick::HTTPServer#start done.
+[2015-07-28 09:55:45] INFO  WEBrick 1.3.1
+[2015-07-28 09:55:45] INFO  ruby 2.0.0 (2014-05-08) [universal.x86_64-darwin14]
+[2015-07-28 09:55:45] DEBUG TCPServer.new(0.0.0.0, 8099)
+[2015-07-28 09:55:45] DEBUG TCPServer.new(::, 8099)
+[2015-07-28 09:55:45] DEBUG WEBrick::HTTPServlet::FileHandler is mounted on /.
+[2015-07-28 09:55:45] DEBUG #<WEBrick::HTTPServlet::ProcHandler:0x007fe06b135c10 @proc=#<Proc:0x007fe06b135c38@server.rb:30>> is mounted on /log.
+[2015-07-28 09:55:45] INFO  WEBrick::HTTPServer#start: pid=11596 port=8099
+[2015-07-28 09:55:48] DEBUG accept: ::1:49701
+[2015-07-28 09:55:48] DEBUG accept: ::1:49702
+[2015-07-28 09:55:48] DEBUG accept: ::1:49703
+[2015-07-28 09:55:48] DEBUG accept: ::1:49704
+[2015-07-28 09:55:48] DEBUG accept: ::1:49705
+[2015-07-28 09:55:48] DEBUG accept: ::1:49706
+[2015-07-28 09:55:48] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-28 09:55:50] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-28 09:55:50] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-28 09:55:50] ERROR `/timepicker-css/bootstrap-timepicker.min.css' not found.
+[2015-07-28 09:55:50] DEBUG close: ::1:49701
+[2015-07-28 09:55:50] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-28 09:55:50] ERROR `/sticky-footer.css' not found.
+[2015-07-28 09:55:50] DEBUG close: ::1:49702
+[2015-07-28 09:55:50] DEBUG accept: ::1:49718
+[2015-07-28 09:55:50] DEBUG accept: ::1:49717
+[2015-07-28 09:55:50] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-28 09:55:50] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-28 09:55:50] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-28 09:55:50] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-28 09:55:50] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-28 09:55:50] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-28 09:56:21] DEBUG close: ::1:49704
+[2015-07-28 09:56:21] DEBUG close: ::1:49706
+[2015-07-28 09:56:21] DEBUG close: ::1:49703
+[2015-07-28 09:56:21] DEBUG close: ::1:49718
+[2015-07-28 09:56:21] DEBUG close: ::1:49705
+[2015-07-28 09:56:21] DEBUG close: ::1:49717
+[2015-07-28 09:57:49] DEBUG close TCPSocket(0.0.0.0, 8099)
+[2015-07-28 09:57:49] DEBUG close TCPSocket(::, 8099)
+[2015-07-28 09:57:49] INFO  going to shutdown ...
+[2015-07-28 09:57:49] INFO  WEBrick::HTTPServer#start done.
+[2015-07-28 09:57:50] INFO  WEBrick 1.3.1
+[2015-07-28 09:57:50] INFO  ruby 2.0.0 (2014-05-08) [universal.x86_64-darwin14]
+[2015-07-28 09:57:50] DEBUG TCPServer.new(0.0.0.0, 8099)
+[2015-07-28 09:57:50] DEBUG TCPServer.new(::, 8099)
+[2015-07-28 09:57:50] DEBUG WEBrick::HTTPServlet::FileHandler is mounted on /.
+[2015-07-28 09:57:50] DEBUG #<WEBrick::HTTPServlet::ProcHandler:0x007f821c149b78 @proc=#<Proc:0x007f821c149ba0@server.rb:30>> is mounted on /log.
+[2015-07-28 09:57:50] INFO  WEBrick::HTTPServer#start: pid=11616 port=8099
+[2015-07-28 09:58:01] DEBUG accept: ::1:49748
+[2015-07-28 09:58:01] DEBUG accept: ::1:49752
+[2015-07-28 09:58:01] DEBUG accept: ::1:49753
+[2015-07-28 09:58:01] DEBUG accept: ::1:49754
+[2015-07-28 09:58:01] DEBUG accept: ::1:49755
+[2015-07-28 09:58:01] DEBUG accept: ::1:49756
+[2015-07-28 09:58:02] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-28 09:58:05] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-28 09:58:05] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-28 09:58:05] ERROR `/timepicker-css/bootstrap-timepicker.min.css' not found.
+[2015-07-28 09:58:05] DEBUG close: ::1:49748
+[2015-07-28 09:58:05] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-28 09:58:05] ERROR `/sticky-footer.css' not found.
+[2015-07-28 09:58:05] DEBUG close: ::1:49752
+[2015-07-28 09:58:11] DEBUG close: ::1:49755
+[2015-07-28 09:58:11] DEBUG close: ::1:49754
+[2015-07-28 09:58:11] DEBUG close: ::1:49753
+[2015-07-28 09:58:11] DEBUG close: ::1:49756
+[2015-07-28 09:58:47] DEBUG accept: ::1:49766
+[2015-07-28 09:58:47] DEBUG WEBrick::HTTPServlet::ProcHandler is invoked.
+[2015-07-28 09:58:47] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-28 09:58:47] ERROR `/timepicker-css/bootstrap-timepicker.min.css' not found.
+[2015-07-28 09:58:47] DEBUG close: ::1:49766
+[2015-07-28 09:58:47] DEBUG accept: ::1:49768
+[2015-07-28 09:58:47] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-28 09:58:47] ERROR `/sticky-footer.css' not found.
+[2015-07-28 09:58:47] DEBUG close: ::1:49768
+[2015-07-28 09:58:57] DEBUG accept: ::1:49769
+[2015-07-28 09:58:57] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-28 09:58:57] DEBUG accept: ::1:49770
+[2015-07-28 09:58:57] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-28 09:58:57] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-28 09:59:27] DEBUG close: ::1:49770
+[2015-07-28 09:59:27] DEBUG close: ::1:49769
+[2015-07-28 10:10:40] DEBUG close TCPSocket(0.0.0.0, 8099)
+[2015-07-28 10:10:40] DEBUG close TCPSocket(::, 8099)
+[2015-07-28 10:10:40] INFO  going to shutdown ...
+[2015-07-28 10:10:40] INFO  WEBrick::HTTPServer#start done.
+[2015-07-28 10:10:40] INFO  WEBrick 1.3.1
+[2015-07-28 10:10:40] INFO  ruby 2.0.0 (2014-05-08) [universal.x86_64-darwin14]
+[2015-07-28 10:10:40] DEBUG TCPServer.new(0.0.0.0, 8099)
+[2015-07-28 10:10:40] DEBUG TCPServer.new(::, 8099)
+[2015-07-28 10:10:40] DEBUG WEBrick::HTTPServlet::FileHandler is mounted on /.
+[2015-07-28 10:10:40] DEBUG #<WEBrick::HTTPServlet::ProcHandler:0x007f84c19d1b40 @proc=#<Proc:0x007f84c19d1b68@server.rb:30>> is mounted on /log.
+[2015-07-28 10:10:40] INFO  WEBrick::HTTPServer#start: pid=11937 port=8099
+[2015-07-28 10:10:45] DEBUG accept: ::1:49844
+[2015-07-28 10:10:45] DEBUG accept: ::1:49847
+[2015-07-28 10:10:45] DEBUG accept: ::1:49848
+[2015-07-28 10:10:45] DEBUG accept: ::1:49849
+[2015-07-28 10:10:45] DEBUG accept: ::1:49850
+[2015-07-28 10:10:45] DEBUG accept: ::1:49851
+[2015-07-28 10:10:45] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-28 10:10:48] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-28 10:10:48] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-28 10:10:48] ERROR `/timepicker-css/bootstrap-timepicker.min.css' not found.
+[2015-07-28 10:10:48] DEBUG close: ::1:49844
+[2015-07-28 10:10:48] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-28 10:10:48] ERROR `/sticky-footer.css' not found.
+[2015-07-28 10:10:48] DEBUG close: ::1:49847
+[2015-07-28 10:10:50] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-28 10:10:50] ERROR NameError: undefined local variable or method `solo_sum' for #<Module:0x007f84c296a110>
+	(erb):503:in `block in evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/erb.rb:849:in `eval'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/erb.rb:849:in `result'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:82:in `block in evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:79:in `module_eval'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:79:in `evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:56:in `do_GET'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/abstract.rb:106:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:286:in `exec_handler'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:217:in `do_GET'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/abstract.rb:106:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:213:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+[2015-07-28 10:10:50] DEBUG close: ::1:49848
+[2015-07-28 10:10:55] DEBUG close: ::1:49849
+[2015-07-28 10:10:55] DEBUG close: ::1:49850
+[2015-07-28 10:10:55] DEBUG close: ::1:49851
+[2015-07-28 10:11:19] DEBUG accept: ::1:49860
+[2015-07-28 10:11:19] DEBUG accept: ::1:49863
+[2015-07-28 10:11:19] DEBUG accept: ::1:49864
+[2015-07-28 10:11:19] DEBUG accept: ::1:49865
+[2015-07-28 10:11:19] DEBUG accept: ::1:49866
+[2015-07-28 10:11:19] DEBUG accept: ::1:49867
+[2015-07-28 10:11:19] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-28 10:11:19] ERROR SQLite3::BusyException: unable to close due to unfinalized statements or unfinished backups
+	/Library/Ruby/Gems/2.0.0/gems/sqlite3-ruby-1.2.5/lib/sqlite3/errors.rb:62:in `check'
+	/Library/Ruby/Gems/2.0.0/gems/sqlite3-ruby-1.2.5/lib/sqlite3/database.rb:127:in `close'
+	/Library/Ruby/Gems/2.0.0/gems/dbd-sqlite3-1.2.5/lib/dbd/sqlite3/database.rb:42:in `disconnect'
+	/Library/Ruby/Gems/2.0.0/gems/dbi-0.4.5/lib/dbi/handles/database.rb:42:in `disconnect'
+	(erb):571:in `block in evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/erb.rb:849:in `eval'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/erb.rb:849:in `result'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:82:in `block in evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:79:in `module_eval'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:79:in `evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:56:in `do_GET'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/abstract.rb:106:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:286:in `exec_handler'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:217:in `do_GET'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/abstract.rb:106:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:213:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+[2015-07-28 10:11:19] DEBUG close: ::1:49860
+[2015-07-28 10:11:29] DEBUG close: ::1:49865
+[2015-07-28 10:11:29] DEBUG close: ::1:49863
+[2015-07-28 10:11:29] DEBUG close: ::1:49867
+[2015-07-28 10:11:29] DEBUG close: ::1:49866
+[2015-07-28 10:11:29] DEBUG close: ::1:49864
+[2015-07-28 10:12:44] DEBUG accept: ::1:49872
+[2015-07-28 10:12:44] DEBUG accept: ::1:49875
+[2015-07-28 10:12:44] DEBUG accept: ::1:49876
+[2015-07-28 10:12:44] DEBUG accept: ::1:49877
+[2015-07-28 10:12:44] DEBUG accept: ::1:49878
+[2015-07-28 10:12:44] DEBUG accept: ::1:49879
+[2015-07-28 10:12:44] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-28 10:12:44] ERROR SQLite3::BusyException: unable to close due to unfinalized statements or unfinished backups
+	/Library/Ruby/Gems/2.0.0/gems/sqlite3-ruby-1.2.5/lib/sqlite3/errors.rb:62:in `check'
+	/Library/Ruby/Gems/2.0.0/gems/sqlite3-ruby-1.2.5/lib/sqlite3/database.rb:127:in `close'
+	/Library/Ruby/Gems/2.0.0/gems/dbd-sqlite3-1.2.5/lib/dbd/sqlite3/database.rb:42:in `disconnect'
+	/Library/Ruby/Gems/2.0.0/gems/dbi-0.4.5/lib/dbi/handles/database.rb:42:in `disconnect'
+	(erb):572:in `block in evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/erb.rb:849:in `eval'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/erb.rb:849:in `result'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:82:in `block in evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:79:in `module_eval'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:79:in `evaluate'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/erbhandler.rb:56:in `do_GET'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/abstract.rb:106:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:286:in `exec_handler'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:217:in `do_GET'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/abstract.rb:106:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpservlet/filehandler.rb:213:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+	/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+[2015-07-28 10:12:44] DEBUG close: ::1:49872
+[2015-07-28 10:12:53] DEBUG close TCPSocket(0.0.0.0, 8099)
+[2015-07-28 10:12:53] DEBUG close TCPSocket(::, 8099)
+[2015-07-28 10:12:53] INFO  going to shutdown ...
+[2015-07-28 10:12:53] DEBUG close: ::1:49875
+[2015-07-28 10:12:53] DEBUG close: ::1:49878
+[2015-07-28 10:12:53] DEBUG close: ::1:49877
+[2015-07-28 10:12:53] DEBUG close: ::1:49876
+[2015-07-28 10:12:53] DEBUG close: ::1:49879
+[2015-07-28 10:12:53] INFO  WEBrick::HTTPServer#start done.
+[2015-07-28 10:12:54] INFO  WEBrick 1.3.1
+[2015-07-28 10:12:54] INFO  ruby 2.0.0 (2014-05-08) [universal.x86_64-darwin14]
+[2015-07-28 10:12:54] DEBUG TCPServer.new(0.0.0.0, 8099)
+[2015-07-28 10:12:54] DEBUG TCPServer.new(::, 8099)
+[2015-07-28 10:12:54] DEBUG WEBrick::HTTPServlet::FileHandler is mounted on /.
+[2015-07-28 10:12:54] DEBUG #<WEBrick::HTTPServlet::ProcHandler:0x007ff3350fdb30 @proc=#<Proc:0x007ff3350fdb58@server.rb:30>> is mounted on /log.
+[2015-07-28 10:12:54] INFO  WEBrick::HTTPServer#start: pid=11960 port=8099
+[2015-07-28 10:13:18] DEBUG accept: ::1:49885
+[2015-07-28 10:13:18] DEBUG accept: ::1:49886
+[2015-07-28 10:13:18] DEBUG accept: ::1:49888
+[2015-07-28 10:13:18] DEBUG accept: ::1:49887
+[2015-07-28 10:13:18] DEBUG accept: ::1:49889
+[2015-07-28 10:13:18] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-28 10:13:22] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-28 10:13:22] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-28 10:13:22] ERROR `/timepicker-css/bootstrap-timepicker.min.css' not found.
+[2015-07-28 10:13:22] DEBUG close: ::1:49885
+[2015-07-28 10:13:22] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-28 10:13:22] ERROR `/sticky-footer.css' not found.
+[2015-07-28 10:13:22] DEBUG close: ::1:49886
+[2015-07-28 10:13:25] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-28 10:13:28] DEBUG close: ::1:49889
+[2015-07-28 10:13:28] DEBUG close: ::1:49888
+[2015-07-28 10:13:54] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-28 10:13:55] DEBUG accept: ::1:49895
+[2015-07-28 10:13:55] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-28 10:13:55] ERROR `/timepicker-css/bootstrap-timepicker.min.css' not found.
+[2015-07-28 10:13:55] DEBUG close: ::1:49887
+[2015-07-28 10:13:55] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-28 10:13:55] ERROR `/sticky-footer.css' not found.
+[2015-07-28 10:13:55] DEBUG close: ::1:49895
+[2015-07-28 10:14:38] DEBUG accept: ::1:49902
+[2015-07-28 10:14:38] DEBUG WEBrick::HTTPServlet::ProcHandler is invoked.
+[2015-07-28 10:14:38] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-28 10:14:38] ERROR `/timepicker-css/bootstrap-timepicker.min.css' not found.
+[2015-07-28 10:14:38] DEBUG accept: ::1:49904
+[2015-07-28 10:14:38] DEBUG close: ::1:49902
+[2015-07-28 10:14:38] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-28 10:14:38] ERROR `/sticky-footer.css' not found.
+[2015-07-28 10:14:38] DEBUG close: ::1:49904
+[2015-07-28 10:14:53] DEBUG accept: ::1:49905
+[2015-07-28 10:14:53] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-28 10:15:23] DEBUG close: ::1:49905
+[2015-07-28 10:15:35] DEBUG accept: ::1:49909
+[2015-07-28 10:15:35] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-28 10:15:36] DEBUG accept: ::1:49911
+[2015-07-28 10:15:36] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-28 10:15:36] ERROR `/sticky-footer.css' not found.
+[2015-07-28 10:15:36] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-28 10:15:36] ERROR `/timepicker-css/bootstrap-timepicker.min.css' not found.
+[2015-07-28 10:15:36] DEBUG close: ::1:49911
+[2015-07-28 10:15:36] DEBUG close: ::1:49909
+[2015-07-28 10:16:16] DEBUG accept: ::1:49913
+[2015-07-28 10:16:16] DEBUG WEBrick::HTTPServlet::ProcHandler is invoked.
+[2015-07-28 10:16:17] DEBUG accept: ::1:49915
+[2015-07-28 10:16:17] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-28 10:16:17] ERROR `/timepicker-css/bootstrap-timepicker.min.css' not found.
+[2015-07-28 10:16:17] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-28 10:16:17] ERROR `/sticky-footer.css' not found.
+[2015-07-28 10:16:17] DEBUG close: ::1:49913
+[2015-07-28 10:16:17] DEBUG close: ::1:49915
+[2015-07-28 10:16:22] DEBUG accept: ::1:49916
+[2015-07-28 10:16:22] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-28 10:16:52] DEBUG close: ::1:49916
+[2015-07-28 10:16:54] DEBUG accept: ::1:49923
+[2015-07-28 10:16:54] DEBUG accept: ::1:49922
+[2015-07-28 10:16:54] DEBUG accept: ::1:49925
+[2015-07-28 10:16:54] DEBUG accept: ::1:49924
+[2015-07-28 10:16:54] DEBUG accept: ::1:49926
+[2015-07-28 10:17:12] DEBUG close: ::1:49922
+[2015-07-28 10:17:12] DEBUG close: ::1:49925
+[2015-07-28 10:17:12] DEBUG close: ::1:49923
+[2015-07-28 10:17:12] DEBUG close: ::1:49924
+[2015-07-28 10:17:12] DEBUG close: ::1:49926
+[2015-07-28 10:17:35] DEBUG accept: ::1:49939
+[2015-07-28 10:17:35] DEBUG accept: ::1:49938
+[2015-07-28 10:17:35] DEBUG accept: ::1:49941
+[2015-07-28 10:17:35] DEBUG accept: ::1:49940
+[2015-07-28 10:17:35] DEBUG accept: ::1:49942
+[2015-07-28 10:17:35] DEBUG accept: ::1:49937
+[2015-07-28 10:17:35] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-28 10:17:35] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-28 10:17:35] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-28 10:17:35] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-28 10:17:35] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-28 10:17:35] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-28 10:17:35] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-28 10:17:35] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-28 10:17:35] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-28 10:17:59] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-28 10:17:59] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-28 10:17:59] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-28 10:17:59] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-28 10:17:59] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-28 10:17:59] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-28 10:17:59] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-28 10:17:59] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-28 10:17:59] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-28 10:18:06] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-28 10:18:06] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-28 10:18:06] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-28 10:18:06] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-28 10:18:06] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-28 10:18:06] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-28 10:18:06] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-28 10:18:06] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-28 10:18:06] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-28 10:18:25] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-28 10:18:25] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-28 10:18:25] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-28 10:18:25] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-28 10:18:25] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-28 10:18:25] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-28 10:18:25] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-28 10:18:25] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-28 10:18:25] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-28 10:18:55] DEBUG close: ::1:49941
+[2015-07-28 10:18:55] DEBUG close: ::1:49942
+[2015-07-28 10:18:55] DEBUG close: ::1:49937
+[2015-07-28 10:18:55] DEBUG close: ::1:49938
+[2015-07-28 10:18:55] DEBUG close: ::1:49939
+[2015-07-28 10:18:55] DEBUG close: ::1:49940
+[2015-07-28 10:19:54] DEBUG accept: ::1:49964
+[2015-07-28 10:19:54] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-28 10:19:54] DEBUG accept: ::1:49965
+[2015-07-28 10:19:54] DEBUG accept: ::1:49967
+[2015-07-28 10:19:54] DEBUG accept: ::1:49966
+[2015-07-28 10:19:54] DEBUG accept: ::1:49968
+[2015-07-28 10:19:54] DEBUG accept: ::1:49969
+[2015-07-28 10:19:54] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-28 10:19:54] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-28 10:19:54] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-28 10:19:54] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-28 10:19:54] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-28 10:19:54] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-28 10:19:54] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-28 10:19:54] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-07-28 10:20:19] DEBUG close TCPSocket(0.0.0.0, 8099)
+[2015-07-28 10:20:19] DEBUG close TCPSocket(::, 8099)
+[2015-07-28 10:20:19] INFO  going to shutdown ...
+[2015-07-28 10:20:20] DEBUG close: ::1:49969
+[2015-07-28 10:20:20] DEBUG close: ::1:49965
+[2015-07-28 10:20:20] DEBUG close: ::1:49967
+[2015-07-28 10:20:20] DEBUG close: ::1:49964
+[2015-07-28 10:20:20] DEBUG close: ::1:49966
+[2015-07-28 10:20:20] DEBUG close: ::1:49968
+[2015-07-28 10:20:20] INFO  WEBrick::HTTPServer#start done.
