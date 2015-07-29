@@ -4,6 +4,7 @@ require 'webrick'
 require 'erb'
 require 'rubygems'
 require 'dbi'
+require './ruby_my_library.rb'
 
 # サーバーの設定を書いたハッシュを用意する
 # ポート番号は通常使う80番ではなく、使ってなさそうなポート番号を使う
@@ -37,6 +38,60 @@ s.mount_proc("/log") { |req, res|
 
 	# テーブルにデータを追加する
 	dbh.do("insert into tasks values(null, #{req.query['user_id']}, #{req.query['category_id']}, '#{req.query['task_name']}', '#{req.query['start_time']}', '#{req.query['finish_time']}', #{req.query['group_frag']}, '#{req.query['comment']}', '#{req.query['music_frag']}');")
+
+	# データベースからユーザの
+	sth_continuity = dbh.execute("select continuity from users where user_id = #{req.query['user_id']}")
+
+	sth_continuity.first(1).each do |row_continuity|
+
+		# ユーザの継続性の値を持ってくる
+		continuity = row_continuity["continuity"]
+
+	end
+
+	# 記録したユーザの本日までの連続記録日数を取り出す処理
+	sth_continuity_log = dbh.execute("select user_id
+										,d1
+										,d2
+										,max(diff)
+								from(
+ 										select t1.user_id
+  												,date(t1.start_time) as d1
+  												,date(t2.start_time) as d2
+  												,julianday(date(t2.start_time)) - julianday(date(t1.start_time)) + 1 as diff
+  								from ( select * from tasks group by user_id, date(start_time)) as t1
+  								left join ( select * from tasks group by user_id, date(start_time)) as t2
+  								on t1.user_id = t2.user_id
+  								and date(t1.start_time) <= (t2.start_time)
+  								inner join ( select * from tasks group by user_id, date(start_time)) as t3
+  								on date(t3.start_time) between date(t1.start_time) and (t2.start_time)
+  								and t1.user_id = t3.user_id
+  								where date('now', 'localtime') = date(t2.start_time)
+  								group by t1.user_id,d1,d2
+  								having count(*)=diff
+								) where user_id =  #{req.query['user_id']}
+								group by user_id;")
+
+	sth_continuity_log.first(1).each do |row_continuity_log|
+
+		puts row_continuity_log["max(diff)"]
+		# 本日を含めて連続で何日記録しているかを持ってくる
+		diff = row_continuity_log["max(diff)"]
+		puts diff
+
+	end
+
+	# 継続性を計算して持ってくる
+	continuity = continuity_cal( continuity, diff )
+
+	puts "継続性の値"
+	puts continuity
+
+	dbh.do("update users set continuity = #{continuity} where user_id = #{req.query['user_id']};")
+
+	# ステートメントハンドラの開放
+	sth_continuity.finish
+	sth_continuity_log.finish
 
 	# データベースとの接続を終了する
 	dbh.disconnect
