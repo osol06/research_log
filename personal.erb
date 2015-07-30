@@ -462,14 +462,42 @@
 
       // レーダーチャートのデータ
       var data3 = {
-        labels: ["継続性", "勉強のバランス", "夜型", "音楽がある", "一人で学習"],
+        labels: ["継続性", "勉強のバランス", "天気が良い", "音楽がある", "一人で学習"],
         datasets: [
                   {
                     fillColor : "rgba(255, 0, 51, 0.5)",
                     strokeColor : "rgba(220, 220, 220, 1)",
                     pointColor : "rgba(220, 220, 220, 1)",
                     pointStrokeColor : "#fff",
-                    data : [100, 59, 100, 
+                    data : [100, 59, 
+
+<%# あるユーザの音楽ありで学習した時間の合計を計算 %>
+
+<%# 天気良い時に学習した時間の合計 %>
+<% nice_weather_sum = 0 %>
+
+<%# 天気が悪い時に学習した時間の合計 %>
+<% bad_weather_sum = 0 %>
+
+<% nice_weather_hours = dbh.execute("select (strftime('%s', tasks.finish_time) - strftime('%s', tasks.start_time)) / 60 from tasks where user_id = 2 and weather_frag = 1;") %>
+<% nice_weather_hours.each do |row| %>
+
+<%   nice_weather_sum = nice_weather_sum + row[0].to_i %>
+
+<% end %>
+
+<% bad_weather_hours = dbh.execute("select (strftime('%s', tasks.finish_time) - strftime('%s', tasks.start_time)) / 60 from tasks where user_id = 2 and weather_frag = 2;") %>
+<% bad_weather_hours.each do |row| %>
+
+<%   bad_weather_sum = bad_weather_sum + row[0].to_i %>
+
+<% end %> 
+
+<%# 良い天気の時に勉強した割合を出す %>
+<% puts "良い天気の時に勉強した割合を出す"%>
+<% puts (nice_weather_sum.to_f / (nice_weather_sum.to_f + bad_weather_sum.to_f)) * 100 %>
+<%= (nice_weather_sum.to_f / (nice_weather_sum.to_f + bad_weather_sum.to_f)) * 100 %>,
+
 
 
 <%# あるユーザの音楽ありで学習した時間の合計を計算 %>
@@ -567,6 +595,8 @@
 <% all_hours.finish %>
 <% music_hours.finish %>
 <% music_all_hours.finish %>
+<% nice_weather_hours.finish %>
+<% bad_weather_hours.finish %>
 
 <%# データベースとの接続を終了する %>
 <% dbh.disconnect %>

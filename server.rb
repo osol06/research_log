@@ -4,6 +4,7 @@ require 'webrick'
 require 'erb'
 require 'rubygems'
 require 'dbi'
+require './weather.rb'
 
 # サーバーの設定を書いたハッシュを用意する
 # ポート番号は通常使う80番ではなく、使ってなさそうなポート番号を使う
@@ -32,11 +33,15 @@ s.mount_proc("/log") { |req, res|
 	# (注意)本来ならここで入力データに危険や不正がないかチェックするがとりあえず割愛
 	p req.query
 
-	#dbhを作成し、データベース'research_log.db'に接続
+	# dbhを作成し、データベース'research_log.db'に接続
 	dbh = DBI.connect( 'DBI:SQLite3:research_log.db' )
 
+	# 天気情報を持ってくる
+	weather = weather()
+	w_frag = weather_frag("#{weather['telop']}")
+
 	# テーブルにデータを追加する
-	dbh.do("insert into tasks values(null, #{req.query['user_id']}, #{req.query['category_id']}, '#{req.query['task_name']}', '#{req.query['start_time']}', '#{req.query['finish_time']}', #{req.query['group_frag']}, '#{req.query['comment']}', '#{req.query['music_frag']}');")
+	dbh.do("insert into tasks values(null, #{req.query['user_id']}, #{req.query['category_id']}, '#{req.query['task_name']}', '#{req.query['start_time']}', '#{req.query['finish_time']}', #{req.query['group_frag']}, '#{req.query['comment']}', '#{req.query['music_frag']}', #{w_frag});")
 
 	# データベースとの接続を終了する
 	dbh.disconnect
