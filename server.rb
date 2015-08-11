@@ -4,7 +4,7 @@ require 'webrick'
 require 'erb'
 require 'rubygems'
 require 'dbi'
-require './weather.rb'
+require './my_ruby_library/weather.rb'
 
 # サーバーの設定を書いたハッシュを用意する
 # ポート番号は通常使う80番ではなく、使ってなさそうなポート番号を使う
