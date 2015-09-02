@@ -11871,3 +11871,30 @@
 [2015-08-11 14:38:19] DEBUG close TCPSocket(::, 8099)
 [2015-08-11 14:38:19] INFO  going to shutdown ...
 [2015-08-11 14:38:19] INFO  WEBrick::HTTPServer#start done.
+[2015-09-02 15:41:49] INFO  WEBrick 1.3.1
+[2015-09-02 15:41:49] INFO  ruby 2.0.0 (2014-05-08) [universal.x86_64-darwin14]
+[2015-09-02 15:41:49] DEBUG TCPServer.new(0.0.0.0, 8099)
+[2015-09-02 15:41:49] DEBUG TCPServer.new(::, 8099)
+[2015-09-02 15:41:49] DEBUG WEBrick::HTTPServlet::FileHandler is mounted on /.
+[2015-09-02 15:41:49] DEBUG #<WEBrick::HTTPServlet::ProcHandler:0x007f97321b8e80 @proc=#<Proc:0x007f97321b8ea8@server.rb:31>> is mounted on /log.
+[2015-09-02 15:41:49] INFO  WEBrick::HTTPServer#start: pid=1464 port=8099
+[2015-09-02 15:41:53] DEBUG accept: ::1:56344
+[2015-09-02 15:41:53] DEBUG accept: ::1:56345
+[2015-09-02 15:41:53] DEBUG accept: ::1:56346
+[2015-09-02 15:41:53] DEBUG accept: ::1:56347
+[2015-09-02 15:41:53] DEBUG accept: ::1:56348
+[2015-09-02 15:41:53] DEBUG accept: ::1:56349
+[2015-09-02 15:41:54] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-09-02 15:41:56] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-09-02 15:41:56] DEBUG WEBrick::HTTPServlet::FileHandler is invoked.
+[2015-09-02 15:41:56] ERROR `/sticky-footer.css' not found.
+[2015-09-02 15:41:56] DEBUG close: ::1:56344
+[2015-09-02 15:42:03] DEBUG close: ::1:56345
+[2015-09-02 15:42:03] DEBUG close: ::1:56346
+[2015-09-02 15:42:03] DEBUG close: ::1:56349
+[2015-09-02 15:42:03] DEBUG close: ::1:56347
+[2015-09-02 15:42:03] DEBUG close: ::1:56348
+[2015-09-02 15:42:06] DEBUG close TCPSocket(0.0.0.0, 8099)
+[2015-09-02 15:42:06] DEBUG close TCPSocket(::, 8099)
+[2015-09-02 15:42:06] INFO  going to shutdown ...
+[2015-09-02 15:42:06] INFO  WEBrick::HTTPServer#start done.
