@@ -3,7 +3,7 @@
 <%# 必要なライブラリの読み込み %>
 <% require 'rubygems' %>
 <% require 'dbi' %>
-<% require './weather.rb' %>
+<% require './my_ruby_library/weather.rb' %>
 
 <% # 天気情報を取得して、ハッシュとして受け取る処理 %>
 <% weather = weather() %>
@@ -25,16 +25,10 @@
   <title>美馬研究室 研究記録</title>
 
   <!-- BootStrapの読み込み -->
-  <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
-
-  <!-- TimePickerの読み込み -->
-  <link href="timepicker-css/bootstrap-timepicker.min.css" rel="stylesheet" type="text/css">
+  <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css">
 
   <!-- DateTimePickerの読み込み -->
-  <link rel="stylesheet" type="text/css" href="datetimepicker/jquery.datetimepicker.css"/ >
-
-  <!-- Custom styles for this template -->
-  <link href="sticky-footer.css" rel="stylesheet">
+  <link href="css/datetimepicker/jquery.datetimepicker.css" rel="stylesheet" type="text/css" >
 
 </head>
 <body>
@@ -313,16 +307,17 @@
 
   <!-- javascriptの読み込み -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
+  <script src="js/bootstrap/bootstrap.min.js"></script>
 
   <!-- ライブラリ -->
-  <script src="datetimepicker/jquery.datetimepicker.js"></script>
+  <script src="js/datetimepicker/jquery.datetimepicker.js"></script>
+  <script src="js/Chart/Chart.js"></script>
   <script src="http://momentjs.com/downloads/moment.js"></script>
-  <script src="js/Chart.js"></script>
   <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 
   <!-- 自分で書いたスクリプト -->
-  <script src="js/current_time.js"></script>
+  <script src="js/my_library/current_time.js"></script>
+
   <script>
 
   // みんなの学習時間をバブルチャートとして表示する処理
