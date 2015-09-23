@@ -4,6 +4,7 @@ require 'webrick'
 require 'erb'
 require 'rubygems'
 require 'dbi'
+require 'digest/md5'
 require './my_ruby_library/weather.rb'
 
 # サーバーの設定を書いたハッシュを用意する
@@ -35,8 +36,12 @@ s.mount_proc("/signup") { |req, res|
 	# dbhを作成し、データベース'research_log.db'に接続
 	dbh = DBI.connect( 'DBI:SQLite3:research_log.db' )
 
+	# パスワードをハッシュ値にする処理
+	pass = Digest::MD5.new.update(req.query['password']).to_s
+	puts pass
+
 	# テーブルにデータを追加する
-	dbh.do("insert into users values(null, '#{req.query['username']}', 'takuma.jpg', 25, '#{req.query['firstname']}', '#{req.query['lastname']}', '#{req.query['password']}', '#{req.query['email']}');")
+	dbh.do("insert into users values(null, '#{req.query['username']}', 'takuma.jpg', 25, '#{req.query['firstname']}', '#{req.query['lastname']}', '#{pass.to_s}', '#{req.query['email']}');")
 
 	# データベースとの接続を終了する
 	dbh.disconnect
