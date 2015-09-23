@@ -69,7 +69,7 @@ s.mount_proc("/log") { |req, res|
 	w_frag = weather_frag("#{weather['telop']}")
 
 	# テーブルにデータを追加する
-	dbh.do("insert into tasks values(null, #{req.query['user_id']}, #{req.query['category_id']}, '#{req.query['task_name']}', '#{req.query['start_time']}', '#{req.query['finish_time']}', #{req.query['group_frag']}, '#{req.query['comment']}', '#{req.query['music_frag']}', #{w_frag});")
+	dbh.do("insert into tasks values(null, #{req.query['user_id']}, #{req.query['category_id']}, '#{req.query['task_name']}', '#{req.query['start_time']}', '#{req.query['finish_time']}', #{req.query['group_frag']}, '#{req.query['comment']}', #{req.query['music_frag']}, #{w_frag});")
 
 	# データベースとの接続を終了する
 	dbh.disconnect

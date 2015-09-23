@@ -11,6 +11,9 @@
   <!-- BootStrapの読み込み -->
   <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css">
 
+  <!-- bootstrapvalidator -->
+  <link rel="stylesheet" href="css/Validator/bootstrapValidator.css">
+
   <!-- Custom styles for this template -->
   <link href="sticky-footer.css" rel="stylesheet">
 
@@ -150,6 +153,59 @@
     <!-- javascriptの読み込み -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="js/bootstrap/bootstrap.min.js"></script>
+
+    <!-- bootstrapvalidator -->
+    <script src="js/Validator/bootstrapValidator.min.js"></script>
+
+    <script type="text/javascript">
+      $(function() {
+         $('form').bootstrapValidator({
+             live: 'enabled',
+             feedbackIcons: {
+                 valid: 'glyphicon glyphicon-ok',
+                 invalid: 'glyphicon glyphicon-remove',
+                 validating: 'glyphicon glyphicon-refresh'
+             },
+             fields: {
+                 // ここに入力項目単位でバリデーションを定義する
+                 email: {
+                  validators: {
+                    notEmpty: { message: '必須項目です' },
+                    regexp: { message: '正しいメールアドレスを入力してください', regexp: /^([a-zA-Z0-9])+([a-zA-Z0-9\._-])*@([a-zA-Z0-9_-])+([a-zA-Z0-9\._-]+)+$/}
+                  }
+                },
+
+                lastname: {
+                 validators: {
+                   notEmpty: { message: '必須項目です' },
+                   regexp: { message: '全角カナで入力してください', regexp: /^[ァ-ー]+$/}
+                 }
+               },
+
+               firstname: {
+                validators: {
+                  notEmpty: { message: '必須項目です' },
+                  regexp: { message: '全角カナで入力してください', regexp: /^[ァ-ー]+$/}
+                }
+              },
+
+              username: {
+               validators: {
+                 notEmpty: { message: '必須項目です' },
+               }
+             },
+
+             password: {
+              validators: {
+                notEmpty: { message: '必須項目です' },
+              }
+            },
+
+             }
+         });
+     });
+    </script>
+
 
 </body>
 </html>
