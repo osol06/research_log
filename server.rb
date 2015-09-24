@@ -28,6 +28,47 @@ s = WEBrick::HTTPServer.new( config )
 s.config[:MimeTypes]["erb"] = "text/html"
 
 # 処理の登録
+
+# /signupは新規登録のアクション
+s.mount_proc("/login") { |req, res|
+
+	p req.query
+
+	# dbhを作成し、データベース'research_log.db'に接続
+	dbh = DBI.connect( 'DBI:SQLite3:research_log.db' )
+
+	# パスワードをハッシュ値にする処理
+	pass = Digest::MD5.new.update(req.query['password_login']).to_s
+	puts pass
+
+	# usernameかemailとpasswordを入力の値と照合する処理
+	sth_pass_username = dbh.execute("select user_name, email, password from users;")
+	sth_pass_username.each do |row|
+		p row['password']
+		if(pass == row["password"])
+			puts 'パスワードok'
+
+			if((req.query['username_login']==row['user_name'])||((req.query['username_login']==row['email'])))
+				puts 'ユーザネームとemail OK'
+
+				# 実行結果を開放する
+				sth_pass_username.finish
+				# データベースとの接続を終了する
+				dbh.disconnect
+
+				# 処理の結果を表示する
+				# ERBを、ERBHandlerを経由せずに直接呼び出して利用している
+				template = ERB.new( File.read('index.erb') )
+				res.body << template.result( binding )
+
+				# イテレータの終了
+				break
+			end
+		end
+	end
+
+}
+
 # /signupは新規登録のアクション
 s.mount_proc("/signup") { |req, res|
 
