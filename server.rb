@@ -34,6 +34,12 @@ s.mount_proc("/login") { |req, res|
 
 	p req.query
 
+	# ログインが成功したかどうかのフラグ
+	# ステートメントハンドラが一回だけ実行されるよう
+	# 条件分岐させるために利用する
+	# 0:ログイン失敗 1:ログイン成功
+	login_frag = 0
+
 	# dbhを作成し、データベース'research_log.db'に接続
 	dbh = DBI.connect( 'DBI:SQLite3:research_log.db' )
 
@@ -51,6 +57,9 @@ s.mount_proc("/login") { |req, res|
 			if((req.query['username_login']==row['user_name'])||((req.query['username_login']==row['email'])))
 				puts 'ユーザネームとemail OK'
 
+				# ログイン成功したのでフラグを1にする
+				login_frag = 1
+
 				# 実行結果を開放する
 				sth_pass_username.finish
 				# データベースとの接続を終了する
@@ -61,10 +70,22 @@ s.mount_proc("/login") { |req, res|
 				template = ERB.new( File.read('index.erb') )
 				res.body << template.result( binding )
 
-				# イテレータの終了
+				# イテレータを終了してメソッドから抜ける
 				break
 			end
 		end
+	end
+
+	if(login_frag == 0)
+		# 実行結果を開放する
+		sth_pass_username.finish
+		# データベースとの接続を終了する
+		dbh.disconnect
+
+		# 処理の結果を表示する
+		# ERBを、ERBHandlerを経由せずに直接呼び出して利用している
+		template = ERB.new( File.read('failed_login.erb') )
+		res.body << template.result( binding )
 	end
 
 }
