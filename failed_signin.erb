@@ -1,0 +1,210 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <title>美馬研究室 研究記録</title>
+
+  <!-- BootStrapの読み込み -->
+  <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css">
+
+  <!-- bootstrapvalidator -->
+  <link rel="stylesheet" href="css/Validator/bootstrapValidator.css">
+
+  <!-- Custom styles for this template -->
+  <link href="sticky-footer.css" rel="stylesheet">
+
+</head>
+<body>
+
+ <div class="container">
+
+       <!-- signupボックス -->
+       <div id="signupbox" style="margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+                   <div class="panel panel-info">
+                       <div class="panel-heading">
+                           <div class="panel-title">新規会員登録</div>
+                           <div style="float:right; font-size: 85%; position: relative; top:-10px"><a id="signinlink" href="#" onclick="$('#signupbox').hide(); $('#loginbox').show()">ログイン</a></div>
+                       </div>
+                       <div class="panel-body" >
+                           <form method="post" action="signup" id="signupform" class="form-horizontal" role="form">
+
+                               <div id="signupalert" style="display:none" class="alert alert-danger">
+                                   <p>Error:</p>
+                                   <span></span>
+                               </div>
+
+                               <!-- e-mailの入力フォーム -->
+                               <div class="form-group">
+                                   <label for="email" class="col-md-3 control-label">Email</label>
+                                   <div class="col-md-9">
+                                       <input type="text" class="form-control" name="email" id="email" placeholder="(例) sasaki@fun.ac.jp">
+                                   </div>
+                               </div>
+
+                               <!-- 名前の入力フォーム -->
+                               <div class="form-group">
+                                   <label for="lastname" class="col-md-3 control-label">姓(全角カナ)</label>
+                                   <div class="col-md-9">
+                                       <input type="text" class="form-control" name="lastname" id="lastname" placeholder="(例) ササキ">
+                                   </div>
+                               </div>
+                               <div class="form-group">
+                                   <label for="firstname" class="col-md-3 control-label">名(全角カナ)</label>
+                                   <div class="col-md-9">
+                                       <input type="text" class="form-control" name="firstname" id="firstname" placeholder="(例) タクマ">
+                                   </div>
+                               </div>
+
+                               <div class="form-group">
+                                   <label for="username" class="col-md-3 control-label">ユーザ名</label>
+                                   <div class="col-md-9">
+                                       <input type="text" class="form-control" name="username" id="username" placeholder="(例) takuma">
+                                   </div>
+                               </div>
+
+                               <div class="form-group">
+                                   <label for="password" class="col-md-3 control-label">Password</label>
+                                   <div class="col-md-9">
+                                       <input type="password" class="form-control" name="password" id="password" placeholder="Password">
+                                   </div>
+                               </div>
+
+                               <p class="help-block text-center" style="color:red;">※ユーザ名、emailまたはpasswordが既に使用されています。</p>
+
+
+                               <div class="form-group">
+                                   <!-- Button -->
+                                   <div class="col-md-offset-3 col-md-9" style="margin-top:10pt;">
+                                       <button id="btn-signup" type="submit" class="btn btn-info"><i class="icon-hand-right"></i>登録する</button>
+                                   </div>
+                               </div>
+
+                           </form>
+                        </div>
+                   </div>
+
+        </div>
+
+        <!-- loginボックス -->
+        <div id="loginbox" style="display:none; margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+            <div class="panel panel-info" >
+                    <div class="panel-heading">
+                        <div class="panel-title">美馬研究室 学習記録にログイン</div>
+                    </div>
+
+                    <div style="padding-top:30px" class="panel-body" >
+
+                        <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
+
+                        <!-- ログイン情報の送信フォーム -->
+                        <form method="post" action="login" id="loginform" class="form-horizontal" role="form">
+
+                                <!-- ユーザーネームの入力 -->
+                                <div style="margin-bottom: 25px" class="input-group">
+                                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                            <input type="text" class="form-control" name="username_login" id="username_login" placeholder="ユーザ名 or email">
+                                </div>
+
+                                <!-- パスワードの入力 -->
+                                <div style="margin-bottom: 25px" class="input-group">
+                                            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                            <input type="password" class="form-control" name="password_login" id="password_login" placeholder="password">
+                                </div>
+
+                                <!-- クッキーにログイン情報を覚えさせるかの入力 -->
+                                <div class="input-group">
+                                          <div class="checkbox">
+                                            <label>
+                                              <input id="login-remember" type="checkbox" name="remember" value="1"> ログイン情報を記憶する
+                                            </label>
+                                          </div>
+                                </div>
+
+                                <div style="margin-top:10px;margin-left:2px;" class="form-group">
+                                  <!-- Button -->
+                                  <button id="btn-login" type="submit" class="btn btn-success"><i class="icon-hand-right"></i>ログインする</button>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <div class="col-md-12 control">
+                                        <div style="border-top: 1px solid#888; padding-top:15px; font-size:85%" >
+                                            まだ登録されていない方は
+                                        <a href="#" onClick="$('#loginbox').hide(); $('#signupbox').show()">
+                                            新規会員登録
+                                        </a>
+                                        </div>
+                                    </div>
+                                </div>
+                        </form>
+
+                    </div>
+                </div>
+        </div>
+
+
+    </div>
+
+    <!-- javascriptの読み込み -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="js/bootstrap/bootstrap.min.js"></script>
+
+    <!-- bootstrapvalidator -->
+    <script src="js/Validator/bootstrapValidator.min.js"></script>
+
+    <script type="text/javascript">
+      $(function() {
+         $('form').bootstrapValidator({
+             live: 'enabled',
+             feedbackIcons: {
+                 valid: 'glyphicon glyphicon-ok',
+                 invalid: 'glyphicon glyphicon-remove',
+                 validating: 'glyphicon glyphicon-refresh'
+             },
+             fields: {
+                 // ここに入力項目単位でバリデーションを定義する
+                 email: {
+                  validators: {
+                    notEmpty: { message: '必須項目です' },
+                    regexp: { message: '正しいメールアドレスを入力してください', regexp: /^([a-zA-Z0-9])+([a-zA-Z0-9\._-])*@([a-zA-Z0-9_-])+([a-zA-Z0-9\._-]+)+$/}
+                  }
+                },
+
+                lastname: {
+                 validators: {
+                   notEmpty: { message: '必須項目です' },
+                   regexp: { message: '全角カナで入力してください', regexp: /^[ァ-ー]+$/}
+                 }
+               },
+
+               firstname: {
+                validators: {
+                  notEmpty: { message: '必須項目です' },
+                  regexp: { message: '全角カナで入力してください', regexp: /^[ァ-ー]+$/}
+                }
+              },
+
+              username: {
+               validators: {
+                 notEmpty: { message: '必須項目です' },
+               }
+             },
+
+             password: {
+              validators: {
+                notEmpty: { message: '必須項目です' },
+              }
+            },
+
+             }
+         });
+     });
+    </script>
+
+
+</body>
+</html>

@@ -95,6 +95,12 @@ s.mount_proc("/signup") { |req, res|
 
 	p req.query
 
+	# サインインが成功したかどうかのフラグ
+	# ステートメントハンドラが一回だけ実行されるよう
+	# 条件分岐させるために利用する
+	# 0:サインイン失敗 1:ログイン成功
+	signin_frag = 1
+
 	# dbhを作成し、データベース'research_log.db'に接続
 	dbh = DBI.connect( 'DBI:SQLite3:research_log.db' )
 
@@ -102,16 +108,50 @@ s.mount_proc("/signup") { |req, res|
 	pass = Digest::MD5.new.update(req.query['password']).to_s
 	puts pass
 
-	# テーブルにデータを追加する
-	dbh.do("insert into users values(null, '#{req.query['username']}', 'takuma.jpg', 25, '#{req.query['firstname']}', '#{req.query['lastname']}', '#{pass.to_s}', '#{req.query['email']}');")
+	# usernameかemailとpasswordを入力の値と照合する処理
+	sth_pass_username = dbh.execute("select user_name, email, password from users;")
+	sth_pass_username.each do |row|
 
-	# データベースとの接続を終了する
-	dbh.disconnect
+		# ユーザネーム、email,passwordが既に使われているかどうかの判定
+		if req.query['username']==row['user_name']
+			signin_frag = 0
+		elsif req.query['email']==row['email']
+			singin_frag = 0
+		elsif req.query['password']==row['password']
+			singin_frag = 0
+		end
+	end
 
-	# 処理の結果を表示する
-	# ERBを、ERBHandlerを経由せずに直接呼び出して利用している
-	template = ERB.new( File.read('index.erb') )
-	res.body << template.result( binding )
+	if(signin_frag==1)
+		# テーブルにデータを追加する
+		dbh.do("insert into users values(null, '#{req.query['username']}', 'takuma.jpg', 25, '#{req.query['firstname']}', '#{req.query['lastname']}', '#{pass.to_s}', '#{req.query['email']}');")
+
+		# 実行結果を開放する
+		sth_pass_username.finish
+
+		# データベースとの接続を終了する
+		dbh.disconnect
+
+		# 処理の結果を表示する
+		# ERBを、ERBHandlerを経由せずに直接呼び出して利用している
+		template = ERB.new( File.read('index.erb') )
+		res.body << template.result( binding )
+
+	else
+
+		# 実行結果を開放する
+		sth_pass_username.finish
+
+		# データベースとの接続を終了する
+		dbh.disconnect
+
+		# 処理の結果を表示する
+		# ERBを、ERBHandlerを経由せずに直接呼び出して利用している
+		template = ERB.new( File.read('failed_signin.erb') )
+		res.body << template.result( binding )
+
+	end
+
 
 }
 
