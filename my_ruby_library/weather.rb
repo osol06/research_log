@@ -68,6 +68,7 @@ def weather_frag( telop )
 	weather_num = {
 						# 天気が良い => 1
 						"晴"          => 1,
+						"晴れ"          => 1,
 						"晴時々曇"     => 1,
 						"晴のち曇"     => 1,
 						"曇時々晴"     => 1,
@@ -113,5 +114,3 @@ end
 # デバック
 puts "weather_fragのデバッグ"
 puts (weather_frag("曇り"))
-
-
