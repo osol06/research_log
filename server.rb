@@ -15,7 +15,7 @@ config = {
 	:Port => 8099,
 	:DocumentRoot => '.',
 	:AccessLog => [[ File.open("./logs/access_log", "a"), WEBrick::AccessLog::COMBINED_LOG_FORMAT ]],# アクセスログの出力
-  	:Logger => WEBrick::Log::new("./logs/log",WEBrick::Log::DEBUG),# サーバログの出力
+  :Logger => WEBrick::Log::new("./logs/log",WEBrick::Log::DEBUG),# サーバログの出力
 }
 
 # 拡張子erbのファイルをERBを呼び出して処理するERBHandlerと関連付ける
@@ -48,7 +48,7 @@ s.mount_proc("/login") { |req, res|
 	puts pass
 
 	# usernameかemailとpasswordを入力の値と照合する処理
-	sth_pass_username = dbh.execute("select user_name, email, password from users;")
+	sth_pass_username = dbh.execute("select user_id ,user_name, email, password from users;")
 	sth_pass_username.each do |row|
 		p row['password']
 		if(pass == row["password"])
@@ -64,6 +64,8 @@ s.mount_proc("/login") { |req, res|
 				sth_pass_username.finish
 				# データベースとの接続を終了する
 				dbh.disconnect
+
+				res["Set-Cookie"] = "userid=#{row['user_id']};Max-Age=3600;"
 
 				# 処理の結果を表示する
 				# ERBを、ERBHandlerを経由せずに直接呼び出して利用している

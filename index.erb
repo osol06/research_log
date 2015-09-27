@@ -32,7 +32,7 @@
 
 </head>
 <body>
-  
+
 
   <!-- ナビゲーション -->
   <nav class="navbar navbar-inverse" role="navigation">
@@ -122,7 +122,7 @@
 <% sth_name.each do |row_name| %>
 
                       <option value="<%= row_name["user_id"] %>"><%= "#{row_name["user_name"]}".force_encoding("utf-8") %></option>
-                     
+
 <% end %>
 
                     </select>
@@ -147,7 +147,7 @@
 <% sth_category.each do |row_category| %>
 
                       <option value="<%= row_category["category_id"] %>"><%= "#{row_category["category_name"].to_s}".force_encoding("utf-8") %></option>
-                      
+
 <% end %>
 
                     </select>
@@ -176,7 +176,7 @@
                   </p>
 
                   <!-- 作業時間の入力 -->
-                  <p style="margin: 15px 10px;" > 
+                  <p style="margin: 15px 10px;" >
                     <label for="start_time">作業した時間を入力</label>
                     <div class="form-inline" style="margin:0px 0px 0px 10px;">
                       <label>開始時間</label>
@@ -187,20 +187,20 @@
                     </div>
                   </p>
 
-                    
+
                   <!-- コメントの入力 -->
-                  <p style="margin: 15px 10px;" >  
+                  <p style="margin: 15px 10px;" >
                     <label for="comment">学習内容や感想など</label>
                     <textarea name="comment" class="form-control" row="2" placeholder="学習内容や感想" style="resize: none;"></textarea>
                     <p class="help-block" style="margin-left: 10px;">※できるだけ他の人もわかるように書きましょう。</p>
                   </p>
-                    
+
                   <p style="margin: 15px 10px;">
                     <button type="submit" class="btn btn-success">記録する</button>
                   </p>
 
                 </div>
-                    
+
               </td>
             </tr>
           </tbody>
@@ -496,14 +496,14 @@
 
         // ラベルの表示 ( Y 軸の値 )
         scaleShowLabels : true,
-        
+
         scaleFontFamily : "'Arial'",
         // X, Y 軸値のフォントサイズ
         scaleFontSize : 12,
         // X, Y 軸値のフォントスタイル, normal, italic など
         scaleFontStyle : "italic",
         // X, Y 軸値の文字色
-        scaleFontColor : "#666",    
+        scaleFontColor : "#666",
 
 
         // Boolean - Whether the scale should start at zero, or an order of magnitude down from the lowest value
@@ -547,14 +547,14 @@
 
         // アニメーション終了後に実行する処理
         onAnimationComplete : null
-        
+
       }
 
       // 棒グラフを描画する
       var myNewChart1 = new Chart(ctx1).Bar(data1,option1);
 
   });
-      
+
 
 
       // 円グラフを描画する処理
