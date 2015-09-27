@@ -26,13 +26,16 @@
   <link href="css/schedule/style.css" rel="stylesheet" type="text/css"  />
 
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" >
-  
+
+  <!-- my_cssの読み込み -->
+  <link href="css/my_css.css" rel="stylesheet" type="text/css" >
+
 </head>
 <body>
-  
+
 
   <!-- ナビゲーション -->
-  <nav class="navbar navbar-inverse" role="navigation">
+  <nav class="navbar navbar-default" role="navigation">
     <div class="container">
 
         <!-- ナビゲーションヘッダー -->
@@ -45,7 +48,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand text-info" href="index.erb">美馬研究室　研究記録</a>
+          <a class="navbar-brand text-info" href="index.erb"></a>
 
         </div>
 
@@ -203,12 +206,12 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/2.3.2/js/bootstrap.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
 
-  
+
   <!-- ライブラリ -->
   <script src="js/datetimepicker/jquery.datetimepicker.js"></script>
   <script src="http://momentjs.com/downloads/moment.js"></script>
   <script src="js/Chart/Chart.js"></script>
-  <script type="text/javascript" src="js/schedule/jq.schedule.js"></script> 
+  <script type="text/javascript" src="js/schedule/jq.schedule.js"></script>
 
 
   <!-- 自分で書いたスクリプト -->
@@ -250,13 +253,13 @@
                         data:{
                         }
                     },
-                    
+
 <%  end %>
-                    
+
                 ]
             },
         },
-        
+
         click: function(node,data){
             alert("click event");
         },
@@ -350,14 +353,14 @@
 
         // ラベルの表示 ( Y 軸の値 )
         scaleShowLabels : true,
-        
+
         scaleFontFamily : "'Arial'",
         // X, Y 軸値のフォントサイズ
         scaleFontSize : 12,
         // X, Y 軸値のフォントスタイル, normal, italic など
         scaleFontStyle : "italic",
         // X, Y 軸値の文字色
-        scaleFontColor : "#666",    
+        scaleFontColor : "#666",
 
 
         // Boolean - Whether the scale should start at zero, or an order of magnitude down from the lowest value
@@ -401,14 +404,14 @@
 
         // アニメーション終了後に実行する処理
         onAnimationComplete : null
-        
+
       }
 
       // 棒グラフを描画する
       var myNewChart1 = new Chart(ctx1).Bar(data1,option1);
 
   });
-      
+
 
 
       // 円グラフを描画する処理
@@ -467,7 +470,7 @@
                     strokeColor : "rgba(220, 220, 220, 1)",
                     pointColor : "rgba(220, 220, 220, 1)",
                     pointStrokeColor : "#fff",
-                    data : [100, 59, 
+                    data : [100, 59,
 
 <%# あるユーザの音楽ありで学習した時間の合計を計算 %>
 
@@ -489,7 +492,7 @@
 
 <%   bad_weather_sum = bad_weather_sum + row[0].to_i %>
 
-<% end %> 
+<% end %>
 
 <%# 良い天気の時に勉強した割合を出す %>
 <% puts "良い天気の時に勉強した割合を出す"%>
@@ -519,7 +522,7 @@
 
 <%   music_all_sum = music_all_sum + row[0].to_i %>
 
-<% end %> 
+<% end %>
 
 <%# 音楽ありで学習した時間の割合を返す %>
 <% puts "音楽あり学習した割合のデバッグ"%>
@@ -549,14 +552,14 @@
 
 <%   hours_sum = hours_sum + row[0].to_i %>
 
-<% end %> 
+<% end %>
 
 <%# 一人で学習した時間の割合を返す %>
 <% puts "一人で学習した割合のデバッグ"%>
 <% puts solo_sum.to_f / hours_sum.to_f * 100 %>
 <%= solo_sum.to_f / hours_sum.to_f * 100 %>
-              
-                   ] 
+
+                   ]
                   },
         ]
       };
