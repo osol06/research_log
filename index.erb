@@ -5,13 +5,6 @@
 <% require 'dbi' %>
 <% require './my_ruby_library/weather.rb' %>
 
-<% require "cgi" %>
-
-<% cgi = CGI.new %>
-
-<% count = cgi.cookies['userid'].first %>
-<% p count %>
-
 <% # 天気情報を取得して、ハッシュとして受け取る処理 %>
 <% weather = weather() %>
 
