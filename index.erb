@@ -30,12 +30,15 @@
   <!-- DateTimePickerの読み込み -->
   <link href="css/datetimepicker/jquery.datetimepicker.css" rel="stylesheet" type="text/css" >
 
+  <!-- my_cssの読み込み -->
+  <link href="css/my_css.css" rel="stylesheet" type="text/css" >
+
 </head>
 <body>
 
 
   <!-- ナビゲーション -->
-  <nav class="navbar navbar-inverse" role="navigation">
+  <nav class="navbar navbar-default" role="navigation">
     <div class="container">
 
         <!-- ナビゲーションヘッダー -->
@@ -48,7 +51,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand text-info" href="index.erb">美馬研究室　研究記録</a>
+          <a class="navbar-brand text-info" href="index.erb"></a>
 
         </div>
 
@@ -67,11 +70,133 @@
   <!-- メインコンテンツ  -->
   <div class="container" style="padding: 20px 0">
 
-    <!-- 天気と管理人情報 -->
+
     <!-- グリッドシステムを使用する -->
     <div class="row">
 
+      <!-- ログイン情報 -->
+      <div class="col-sm-2">
+        <div class="panel panel-default">
+          <img src="images/takuma.jpg" alt="ユーザ画像" width="130" height="130" class="img-thumbnail img-responsive center-block" style="margin-top:8pt;">
+          <h4 class="text-center">takuma</h4>
+        </div>
+      </div>
+
       <div class="col-sm-6">
+        <!-- 学習の記録フォーム　アクションはlog -->
+        <form method="post" action="log">
+          <div class="panel panel-default">
+            <table class="table table-bordered">
+              <thead>
+                <tr><th><span id="date"></span>の勉強を記録する</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <div class="form-group">
+
+
+                      <!-- ユーザ名の選択 -->
+                      <p style="margin: 15px 10px;">
+                        <label for="user_select">作業者名</label>
+                        <select style="width:40%; min-width:250px;"class="form-control" id="name_select" name="user_id">
+
+    <%# ユーザ名をデータベースから取り出す %>
+    <% sth_name = dbh.execute("select * from users;") %>
+
+    <% sth_name.each do |row_name| %>
+
+                          <option value="<%= row_name["user_id"] %>"><%= "#{row_name["user_name"]}".force_encoding("utf-8") %></option>
+
+    <% end %>
+
+                        </select>
+                      </p>
+
+
+                       <!-- タスク名の入力 -->
+                      <p style="margin: 15px 10px;" >
+                        <label for="task_name">タスク名</label>
+                        <input style="width:40%; min-width:250px;" type="text" class="form-control" name="task_name">
+                      </p>
+
+
+                      <!-- カテゴリーの選択 -->
+                      <p style="margin: 15px 10px;" >
+                        <label for="category_id">カテゴリー名</label>
+                        <select style="width:40%; min-width:250px;" class="form-control" id="task_select" name="category_id">
+
+    <%# タスク名をデータベースから取り出す %>
+    <% sth_category = dbh.execute("select * from categories;") %>
+
+    <% sth_category.each do |row_category| %>
+
+                          <option value="<%= row_category["category_id"] %>"><%= "#{row_category["category_name"].to_s}".force_encoding("utf-8") %></option>
+
+    <% end %>
+
+                        </select>
+                      </p>
+
+                      <!-- 一人かグループかの選択 -->
+                      <p style="margin: 15px 10px;">
+                        <label for="group_frag">一人 or グループでの学習</label>
+                        <select style="width:40%; min-width:250px;"class="form-control"  name="group_frag">
+
+                          <option value="0">個人での学習</option>
+                          <option value="1">グループでの学習</option>
+
+                        </select>
+                      </p>
+
+                      <!-- 音楽ありなしかの選択 -->
+                      <p style="margin: 15px 10px;">
+                        <label for="group_frag">音楽の有無</label>
+                        <select style="width:40%; min-width:250px;"class="form-control"  name="music_frag">
+
+                          <option value="0">音楽なし</option>
+                          <option value="1">音楽あり</option>
+
+                        </select>
+                      </p>
+
+                      <!-- 作業時間の入力 -->
+                      <p style="margin: 15px 10px;" >
+                        <label for="start_time">作業した時間を入力</label>
+                        <div class="form-inline" style="margin:0px 0px 0px 10px;">
+                          <label>開始時間</label>
+                          <input id="datetimepicker_start" class="form-control" type="text" name="start_time" />
+                          <label>から</label>
+                          <input id="datetimepicker_finish" class="form-control" type="text" name="finish_time" />
+                          <label>まで</label>
+                        </div>
+                      </p>
+
+
+                      <!-- コメントの入力 -->
+                      <p style="margin: 15px 10px;" >
+                        <label for="comment">学習内容や感想など</label>
+                        <textarea name="comment" class="form-control" row="2" placeholder="学習内容や感想" style="resize: none;"></textarea>
+                        <p class="help-block" style="margin-left: 10px;">※できるだけ他の人もわかるように書きましょう。</p>
+                      </p>
+
+                      <p style="margin: 15px 10px;">
+                        <button type="submit" class="btn btn-success">記録する</button>
+                      </p>
+
+                    </div>
+
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </form>
+
+      </div>
+
+      <!-- 天気と管理人情報 -->
+      <div class="col-sm-4">
         <!-- 天気予報の -->
         <div class="panel panel-default" style="padding-left: 20px">
           <h4><%= "#{weather['city']}" %>の天気<h4>
@@ -81,132 +206,9 @@
         </div>
       </div>
 
-      <div class="col-sm-6">
-        <div class="panel panel-default" style="padding-left: 20px">
-          <div class="media">
-            <!-- pull-right にすると、画像が右端に表示される -->
-            <img class="media-object pull-left" src="images/kanri.jpg" style="margin: 10px" width="100" height="100" class="img-responsive" >
-            <div class="media-body" >
-              <h4 class="media-heading" style="margin-top: 10px"> 管理人 </h4>
-              現在作成中<br>
-              すまん
-            </div>
-          </div>
-        </div>
-      </div>
+
 
     </div>
-
-
-    <!-- 学習の記録フォーム　アクションはlog -->
-    <form method="post" action="log">
-      <div class="panel panel-default">
-        <table class="table table-bordered">
-          <thead>
-            <tr><th><span id="date"></span>の勉強を記録する</th></tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>
-                <div class="form-group">
-
-
-                  <!-- ユーザ名の選択 -->
-                  <p style="margin: 15px 10px;">
-                    <label for="user_select">作業者名</label>
-                    <select style="width:40%; min-width:250px;"class="form-control" id="name_select" name="user_id">
-
-<%# ユーザ名をデータベースから取り出す %>
-<% sth_name = dbh.execute("select * from users;") %>
-
-<% sth_name.each do |row_name| %>
-
-                      <option value="<%= row_name["user_id"] %>"><%= "#{row_name["user_name"]}".force_encoding("utf-8") %></option>
-
-<% end %>
-
-                    </select>
-                  </p>
-
-
-                   <!-- タスク名の入力 -->
-                  <p style="margin: 15px 10px;" >
-                    <label for="task_name">タスク名</label>
-                    <input style="width:40%; min-width:250px;" type="text" class="form-control" name="task_name">
-                  </p>
-
-
-                  <!-- カテゴリーの選択 -->
-                  <p style="margin: 15px 10px;" >
-                    <label for="category_id">カテゴリー名</label>
-                    <select style="width:40%; min-width:250px;" class="form-control" id="task_select" name="category_id">
-
-<%# タスク名をデータベースから取り出す %>
-<% sth_category = dbh.execute("select * from categories;") %>
-
-<% sth_category.each do |row_category| %>
-
-                      <option value="<%= row_category["category_id"] %>"><%= "#{row_category["category_name"].to_s}".force_encoding("utf-8") %></option>
-
-<% end %>
-
-                    </select>
-                  </p>
-
-                  <!-- 一人かグループかの選択 -->
-                  <p style="margin: 15px 10px;">
-                    <label for="group_frag">一人 or グループでの学習</label>
-                    <select style="width:40%; min-width:250px;"class="form-control"  name="group_frag">
-
-                      <option value="0">個人での学習</option>
-                      <option value="1">グループでの学習</option>
-
-                    </select>
-                  </p>
-
-                  <!-- 音楽ありなしかの選択 -->
-                  <p style="margin: 15px 10px;">
-                    <label for="group_frag">音楽の有無</label>
-                    <select style="width:40%; min-width:250px;"class="form-control"  name="music_frag">
-
-                      <option value="0">音楽なし</option>
-                      <option value="1">音楽あり</option>
-
-                    </select>
-                  </p>
-
-                  <!-- 作業時間の入力 -->
-                  <p style="margin: 15px 10px;" >
-                    <label for="start_time">作業した時間を入力</label>
-                    <div class="form-inline" style="margin:0px 0px 0px 10px;">
-                      <label>開始時間</label>
-                      <input id="datetimepicker_start" class="form-control" type="text" name="start_time" />
-                      <label>から</label>
-                      <input id="datetimepicker_finish" class="form-control" type="text" name="finish_time" />
-                      <label>まで</label>
-                    </div>
-                  </p>
-
-
-                  <!-- コメントの入力 -->
-                  <p style="margin: 15px 10px;" >
-                    <label for="comment">学習内容や感想など</label>
-                    <textarea name="comment" class="form-control" row="2" placeholder="学習内容や感想" style="resize: none;"></textarea>
-                    <p class="help-block" style="margin-left: 10px;">※できるだけ他の人もわかるように書きましょう。</p>
-                  </p>
-
-                  <p style="margin: 15px 10px;">
-                    <button type="submit" class="btn btn-success">記録する</button>
-                  </p>
-
-                </div>
-
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </form>
 
       <!-- 記録のグラフ -->
       <form>
@@ -298,7 +300,7 @@
 
 
   <!-- footer -->
-  <footer class="footer" style="height: 40px; background-color: #000000;">
+  <footer class="footer" style="height: 40px; background-color: #f5f5f5;">
     <div class="container" >
       <p class="text-muted" style="padding: 5px;">Copyright (C) 2015 Takuma Sasaki ALL Right Reserved.</p>
     </div>

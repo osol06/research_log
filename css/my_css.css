@@ -1,0 +1,17 @@
+/*
+  ナビゲーションの中央に画像を入れる処理
+*/
+.navbar-brand {
+  background: url("../images/logo.png") no-repeat left center;
+  background-size: contain;
+  margin: 4px;
+  height: 45px;
+  width: 150px;
+}
+
+/*
+  画像をレスポンシブにしても中央にいれるための処理
+*/
+.img-responsive-overwrite {
+    margin: 0 auto !important;
+}
