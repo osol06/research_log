@@ -115,7 +115,7 @@ s.mount_proc("/signup") { |req, res|
 	puts pass
 
 	# usernameかemailとpasswordを入力の値と照合する処理
-	sth_pass_username = dbh.execute("select user_name, email, password from users;")
+	sth_pass_username = dbh.execute("select user_id, user_name, email, password from users;")
 	sth_pass_username.each do |row|
 
 		# ユーザネーム、email,passwordが既に使われているかどうかの判定
@@ -129,11 +129,18 @@ s.mount_proc("/signup") { |req, res|
 	end
 
 	if(signin_frag==1)
+
 		# テーブルにデータを追加する
 		dbh.do("insert into users values(null, '#{req.query['username']}', 'takuma.jpg', 25, '#{req.query['firstname']}', '#{req.query['lastname']}', '#{pass.to_s}', '#{req.query['email']}');")
 
 		# 実行結果を開放する
 		sth_pass_username.finish
+
+		# user_idをグローバル変数にする
+		row = dbh.select_one("select * from users order by user_id desc limit 1;")
+
+		# とりあえず動かすために
+		$user_id = row['user_id']
 
 		# データベースとの接続を終了する
 		dbh.disconnect
