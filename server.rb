@@ -65,7 +65,11 @@ s.mount_proc("/login") { |req, res|
 				# データベースとの接続を終了する
 				dbh.disconnect
 
-				res["Set-Cookie"] = "userid=#{row['user_id']};Max-Age=3600;"
+				# クッキーにログインIDを覚えさせる処理だが、いまは保留
+				# res["Set-Cookie"] = "userid=#{row['user_id']};Max-Age=3600;"
+
+				# とりあえず動かすために
+				$user_id = row['user_id']
 
 				# 処理の結果を表示する
 				# ERBを、ERBHandlerを経由せずに直接呼び出して利用している
