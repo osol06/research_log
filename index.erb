@@ -18,7 +18,6 @@
 <% dbh = DBI.connect('DBI:SQLite3:research_log.db') %>
 
 
-
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -81,22 +80,71 @@
       <!-- ログイン情報 -->
       <div class="col-sm-2">
         <div class="panel panel-default">
-
+          <table class="table table-bordered">
+            <thead>
+              <tr><th class="text-center">ログイン情報</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
 <%# ログインされているユーザの情報を取り出す %>
 <% row = dbh.select_one("select * from users where user_id=#{$user_id};") %>
 <% p row['user_id'] %>
 
-          <img src="images/<%= "#{row['image_name']}" %>" alt="ユーザ画像" width="130" height="130" class="img-thumbnail img-responsive center-block" style="margin-top:8pt;">
-          <h4 class="text-center"><a><%= "#{row['user_name'].to_s}".force_encoding("utf-8") %></a></h4>
+                  <img src="images/<%= "#{row['image_name']}" %>" alt="ユーザ画像" width="130" height="130" class="img-thumbnail img-responsive center-block" style="margin-top:8pt;">
+                  <h4 class="text-center"><a><%= "#{row['user_name'].to_s}".force_encoding("utf-8") %></a></h4>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
 
+        <!-- ユーザ情報 -->
         <div class="row">
           <div class="col-sm-12">
             <div class="panel panel-default">
-              <p>faea</p>
+              <table class="table table-bordered">
+                <thead>
+                  <tr><th class="text-center">ユーザの情報</th></tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <h5>連続ログイン　<strong>4日目</strong></h5>
+                      <h5>ランキング　　<strong>第2位</strong></h5>
+                      <h5>合計学習時間　<strong>380時間</strong></h5>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
+
+          <!-- お天気情報 -->
+          <div class="col-sm-12">
+            <div class="panel panel-default">
+              <table class="table table-bordered">
+                <thead>
+                  <tr><th class="text-center"><%= "#{weather['city']}" %>の天気</th></tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <div class="text-center">
+                        <h4 class="tec"><%= "#{weather['telop']}" %></h4>
+                        <img src="<%= "#{weather['icon']}" %>" class="img-responsive center-block" >
+                        <span><%= "#{weather['max_celsius']}" %></span> / <span><%= "#{weather['min_celsius']}" %></span>℃
+                      </div>
+                    </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
         </div>
+
       </div>
 
       <div class="col-sm-6">
