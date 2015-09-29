@@ -274,7 +274,7 @@
 
     <%# コメントとuser_idをデータベースから逆順で取り出す %>
     <% sth_comment = dbh.execute("select comment, user_id from tasks order by task_id desc;") %>
-    <% sth_comment.first(10).each do |row_comment| %>
+    <% sth_comment.first(5).each do |row_comment| %>
       <% sth_image = dbh.select_one("select user_name, image_name from users where user_id = #{row_comment["user_id"]};") %>
                     <li class="media">
                       <!-- pull-right にすると、画像が右端に表示される -->
