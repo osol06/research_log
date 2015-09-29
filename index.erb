@@ -260,18 +260,44 @@
 
       </div>
 
-      <!-- 天気と管理人情報 -->
+      <!-- タイムライン表示 -->
       <div class="col-sm-4">
-        <!-- 天気予報の -->
-        <div class="panel panel-default" style="padding-left: 20px">
-          <h4><%= "#{weather['city']}" %>の天気<h4>
-          <h5><%= "#{weather['telop']}" %></h5>
-          <img src="<%= "#{weather['icon']}" %>" class="img-responsive" >
-          <span><%= "#{weather['max_celsius']}" %></span> / <span><%= "#{weather['min_celsius']}" %></span>℃
+        <div class="panel panel-default">
+          <table class="table table-bordered">
+            <thead>
+              <tr><th>タイムライン</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <ul class="media-list">
+
+    <%# コメントとuser_idをデータベースから逆順で取り出す %>
+    <% sth_comment = dbh.execute("select comment, user_id from tasks order by task_id desc;") %>
+    <% sth_comment.first(10).each do |row_comment| %>
+      <% sth_image = dbh.select_one("select user_name, image_name from users where user_id = #{row_comment["user_id"]};") %>
+                    <li class="media">
+                      <!-- pull-right にすると、画像が右端に表示される -->
+                      <a class="media-left" href="#">
+                        <img class="media-object" src="images/<%= "#{sth_image["image_name"]}" %>" alt="写真" width="70" height="70" class="img-responsive" >
+                      </a>
+                      <div class="media-body">
+                        <h4 class="media-heading"> <%= "#{sth_image["user_name"]}".force_encoding("utf-8") %> </h4>
+                        <%= "#{row_comment["comment"]}".force_encoding("utf-8") %>
+                      </div>
+                    </li>
+
+                    <hr>
+
+    <% end %>
+
+                  </ul>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
-
-
 
     </div>
 
@@ -324,43 +350,6 @@
       </div>
     </form>
 
-    <!-- タイムライン表示機能 -->
-    <div class="panel panel-default">
-      <table class="table table-bordered">
-        <thead>
-          <tr><th>タイムライン</th></tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>
-              <ul>
-
-<%# コメントとuser_idをデータベースから逆順で取り出す %>
-<% sth_comment = dbh.execute("select comment, user_id from tasks order by task_id desc;") %>
-<% sth_comment.first(10).each do |row_comment| %>
-  <% sth_image = dbh.select_one("select user_name, image_name from users where user_id = #{row_comment["user_id"]};") %>
-                <li class="media">
-                  <!-- pull-right にすると、画像が右端に表示される -->
-                  <a class="pull-left" href="#">
-                    <img class="media-object" src="images/<%= "#{sth_image["image_name"]}" %>" alt="写真" width="150" height="150" class="img-responsive" >
-                  </a>
-                  <div class="media-body">
-                    <h4 class="media-heading"> <%= "#{sth_image["user_name"]}".force_encoding("utf-8") %> </h4>
-                    <%= "#{row_comment["comment"]}".force_encoding("utf-8") %>
-                  </div>
-                </li>
-
-                <hr>
-
-<% end %>
-
-              </ul>
-
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
   </div>
 
 
