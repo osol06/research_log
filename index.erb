@@ -8,12 +8,16 @@
 <% # 天気情報を取得して、ハッシュとして受け取る処理 %>
 <% weather = weather() %>
 
+
+<% p $user_id %>
 <%# 学習者の本日の合計時間を入れる配列 %>
 <% sumarray = Array.new() %>
 <% sumarray2 = Array.new() %>
 
 <%# データベース接続 %>
 <% dbh = DBI.connect('DBI:SQLite3:research_log.db') %>
+
+
 
 <!DOCTYPE html>
 <html lang="ja">
@@ -77,8 +81,21 @@
       <!-- ログイン情報 -->
       <div class="col-sm-2">
         <div class="panel panel-default">
-          <img src="images/takuma.jpg" alt="ユーザ画像" width="130" height="130" class="img-thumbnail img-responsive center-block" style="margin-top:8pt;">
-          <h4 class="text-center">takuma</h4>
+
+<%# ログインされているユーザの情報を取り出す %>
+<% row = dbh.select_one("select * from users where user_id=#{$user_id};") %>
+<% p row['user_id'] %>
+
+          <img src="images/<%= "#{row['image_name']}" %>" alt="ユーザ画像" width="130" height="130" class="img-thumbnail img-responsive center-block" style="margin-top:8pt;">
+          <h4 class="text-center"><a><%= "#{row['user_name'].to_s}".force_encoding("utf-8") %></a></h4>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="panel panel-default">
+              <p>faea</p>
+            </div>
+          </div>
         </div>
       </div>
 
