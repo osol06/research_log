@@ -1,0 +1,14 @@
+db:
+  production:
+    adapter:  mysql2
+    host:     localhost
+    username: root
+    password: root
+    database: research_log
+
+  development:
+    adapter:  mysql2
+    host:     localhost
+    username: root
+    password: root
+    database: research_log
