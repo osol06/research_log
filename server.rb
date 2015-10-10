@@ -6,6 +6,7 @@ require 'rubygems'
 require 'dbi'
 require 'digest/md5'
 require './my_ruby_library/weather.rb'
+require './my_ruby_library/login_data.rb'
 
 # サーバーの設定を書いたハッシュを用意する
 # ポート番号は通常使う80番ではなく、使ってなさそうなポート番号を使う
@@ -69,7 +70,11 @@ s.mount_proc("/login") { |req, res|
 				# res["Set-Cookie"] = "userid=#{row['user_id']};Max-Age=3600;"
 
 				# とりあえず動かすために
-				$user_id = row['user_id']
+				login_user = LoginUser.new
+				login_user.set_userid(row['user_id'])
+
+				p 'faejfaeoioaif'
+				# $user_id = row['user_id']
 
 				# 処理の結果を表示する
 				# ERBを、ERBHandlerを経由せずに直接呼び出して利用している
