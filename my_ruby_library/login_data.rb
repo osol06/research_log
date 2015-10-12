@@ -4,7 +4,7 @@
 # ログインユーザの情報を格納するクラス
 class LoginUser
 
-  @@user_id
+  @@user_id = nil
 
   def set_userid( user_id )
       @@user_id = user_id

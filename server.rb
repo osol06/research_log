@@ -145,7 +145,8 @@ s.mount_proc("/signup") { |req, res|
 		row = dbh.select_one("select * from users order by user_id desc limit 1;")
 
 		# とりあえず動かすために
-		$user_id = row['user_id']
+		login_user = LoginUser.new
+		login_user.set_userid(row['user_id'])
 
 		# データベースとの接続を終了する
 		dbh.disconnect
