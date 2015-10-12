@@ -3,7 +3,6 @@
 require 'webrick'
 require 'erb'
 require 'rubygems'
-require 'dbi'
 require './data_model.rb'
 require 'digest/md5'
 require './my_ruby_library/weather.rb'
@@ -131,30 +130,24 @@ s.mount_proc("/signup") { |req, res|
 		res.body << template.result( binding )
 
 	end
-
-
 }
 
 # 処理の登録
-# "http://localhost:8099/log"で呼び出される
 # /logは学習を記録するアクション
 s.mount_proc("/log") { |req, res|
 
 	# (注意)本来ならここで入力データに危険や不正がないかチェックするがとりあえず割愛
-	p req.query
-
-	# dbhを作成し、データベース'research_log.db'に接続
-	dbh = DBI.connect( 'DBI:SQLite3:research_log.db' )
+	# p req.query
 
 	# 天気情報を持ってくる
 	weather = weather()
 	w_frag = weather_frag("#{weather['telop']}")
 
-	# テーブルにデータを追加する
-	dbh.do("insert into tasks values(null, #{req.query['user_id']}, #{req.query['category_id']}, '#{req.query['task_name']}', '#{req.query['start_time']}', '#{req.query['finish_time']}', #{req.query['group_frag']}, '#{req.query['comment']}', #{req.query['music_frag']}, #{w_frag});")
+	login_user = LoginUser.new
 
-	# データベースとの接続を終了する
-	dbh.disconnect
+	# テーブルにデータを追加する
+	Task.create(task_id: nil, user_id: "#{login_user.get_userid()}", category_id: "#{req.query['category_id']}", task_name: "#{req.query['task_name']}", start_time: "#{req.query['start_time']}", finish_time: "#{req.query['finish_time']}", group_frag: req.query['group_frag'], comment: "#{req.query['comment']}", music_frag: req.query['music_frag'], weather_frag: w_frag )
+	# p Task.all
 
 	# 処理の結果を表示する
 	# ERBを、ERBHandlerを経由せずに直接呼び出して利用している
@@ -162,7 +155,6 @@ s.mount_proc("/log") { |req, res|
 	res.body << template.result( binding )
 
 }
-
 
 #Ctrl-C割り込みがあった場合にサーバーを停止する処理を登録しておく
 trap(:INT) do
