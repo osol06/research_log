@@ -4,6 +4,7 @@ require 'webrick'
 require 'erb'
 require 'rubygems'
 require 'dbi'
+require './data_model.rb'
 require 'digest/md5'
 require './my_ruby_library/weather.rb'
 require './my_ruby_library/login_data.rb'
@@ -29,52 +30,33 @@ s = WEBrick::HTTPServer.new( config )
 s.config[:MimeTypes]["erb"] = "text/html"
 
 # 処理の登録
-
 # /signupは新規登録のアクション
 s.mount_proc("/login") { |req, res|
 
-	p req.query
+	# p req.query
 
-	# ログインが成功したかどうかのフラグ
-	# ステートメントハンドラが一回だけ実行されるよう
-	# 条件分岐させるために利用する
+	# ログインが成功しているかどうかのフラグ
 	# 0:ログイン失敗 1:ログイン成功
 	login_frag = 0
 
-	# dbhを作成し、データベース'research_log.db'に接続
-	dbh = DBI.connect( 'DBI:SQLite3:research_log.db' )
-
 	# パスワードをハッシュ値にする処理
 	pass = Digest::MD5.new.update(req.query['password_login']).to_s
-	puts pass
+	# puts pass
 
-	# usernameかemailとpasswordを入力の値と照合する処理
-	sth_pass_username = dbh.execute("select user_id ,user_name, email, password from users;")
-	sth_pass_username.each do |row|
-		p row['password']
-		if(pass == row["password"])
-			puts 'パスワードok'
+	user = User.all
+	user.each do |row|
+		if(pass = row.password)
+			puts 'パスワード OK'
 
-			if((req.query['username_login']==row['user_name'])||((req.query['username_login']==row['email'])))
-				puts 'ユーザネームとemail OK'
+			if((req.query['username_login']==row.user_name)||((req.query['username_login']==row.email)))
+				puts 'ユーザネームかemail OK'
 
 				# ログイン成功したのでフラグを1にする
 				login_frag = 1
 
-				# 実行結果を開放する
-				sth_pass_username.finish
-				# データベースとの接続を終了する
-				dbh.disconnect
-
-				# クッキーにログインIDを覚えさせる処理だが、いまは保留
-				# res["Set-Cookie"] = "userid=#{row['user_id']};Max-Age=3600;"
-
 				# とりあえず動かすために
 				login_user = LoginUser.new
-				login_user.set_userid(row['user_id'])
-
-				p 'faejfaeoioaif'
-				# $user_id = row['user_id']
+				login_user.set_userid(row.user_id)
 
 				# 処理の結果を表示する
 				# ERBを、ERBHandlerを経由せずに直接呼び出して利用している
@@ -87,69 +69,54 @@ s.mount_proc("/login") { |req, res|
 		end
 	end
 
+	# signinが失敗した時の処理
 	if(login_frag == 0)
-		# 実行結果を開放する
-		sth_pass_username.finish
-		# データベースとの接続を終了する
-		dbh.disconnect
 
 		# 処理の結果を表示する
 		# ERBを、ERBHandlerを経由せずに直接呼び出して利用している
 		template = ERB.new( File.read('failed_login.erb') )
 		res.body << template.result( binding )
-	end
 
+	end
 }
 
 # /signupは新規登録のアクション
 s.mount_proc("/signup") { |req, res|
 
-	p req.query
+	# p req.query
 
-	# サインインが成功したかどうかのフラグ
-	# ステートメントハンドラが一回だけ実行されるよう
-	# 条件分岐させるために利用する
-	# 0:サインイン失敗 1:ログイン成功
+	# サインアップが成功したかどうかのフラグ
+	# 0:サインアップ失敗 1:サインアップ
 	signin_frag = 1
-
-	# dbhを作成し、データベース'research_log.db'に接続
-	dbh = DBI.connect( 'DBI:SQLite3:research_log.db' )
 
 	# パスワードをハッシュ値にする処理
 	pass = Digest::MD5.new.update(req.query['password']).to_s
-	puts pass
+	# puts pass
 
-	# usernameかemailとpasswordを入力の値と照合する処理
-	sth_pass_username = dbh.execute("select user_id, user_name, email, password from users;")
-	sth_pass_username.each do |row|
+	user = User.all
+	user.each do |row|
 
 		# ユーザネーム、email,passwordが既に使われているかどうかの判定
-		if req.query['username']==row['user_name']
+		if req.query['username']==row.user_name
 			signin_frag = 0
-		elsif req.query['email']==row['email']
+		elsif req.query['email']==row.email
 			singin_frag = 0
-		elsif req.query['password']==row['password']
+		elsif req.query['password']==row.password
 			singin_frag = 0
 		end
+
 	end
 
 	if(signin_frag==1)
 
-		# テーブルにデータを追加する
-		dbh.do("insert into users values(null, '#{req.query['username']}', 'takuma.jpg', 25, '#{req.query['firstname']}', '#{req.query['lastname']}', '#{pass.to_s}', '#{req.query['email']}');")
+		User.create(user_id: nil, user_name: "#{req.query['username']}", image_name: 'takuma.jpg', continuity: 25, firstname: "#{req.query['firstname']}", lastname: "#{req.query['lastname']}", password: "#{pass.to_s}", email: "#{req.query['email']}" )
 
-		# 実行結果を開放する
-		sth_pass_username.finish
+		# ログインユーザのidを取り出す
+		user_id = User.all.order("user_id desc").first
 
-		# user_idをグローバル変数にする
-		row = dbh.select_one("select * from users order by user_id desc limit 1;")
-
-		# とりあえず動かすために
+		# ログインユーザの情報をセットする
 		login_user = LoginUser.new
-		login_user.set_userid(row['user_id'])
-
-		# データベースとの接続を終了する
-		dbh.disconnect
+		login_user.set_userid(user_id.user_id)
 
 		# 処理の結果を表示する
 		# ERBを、ERBHandlerを経由せずに直接呼び出して利用している
@@ -157,12 +124,6 @@ s.mount_proc("/signup") { |req, res|
 		res.body << template.result( binding )
 
 	else
-
-		# 実行結果を開放する
-		sth_pass_username.finish
-
-		# データベースとの接続を終了する
-		dbh.disconnect
 
 		# 処理の結果を表示する
 		# ERBを、ERBHandlerを経由せずに直接呼び出して利用している
