@@ -1,16 +1,19 @@
 <%# -*- coding: utf-8 %>
 
-<%# 必要なライブラリの読み込み %>
+<% # 必要なライブラリの読み込み %>
 <% require 'rubygems' %>
 <% require 'dbi' %>
+<% require './data_model.rb'%>
 <% require './my_ruby_library/weather.rb' %>
 <% require './my_ruby_library/login_data.rb' %>
 
 <% # 天気情報を取得して、ハッシュとして受け取る処理 %>
 <% weather = weather() %>
+<% puts weather %>
 
+<% # ログインユーザの情報を取得 %>
 <% login_user = LoginUser.new %>
-<% p login_user.get_userid() %>
+<% puts login_user.get_userid() %>
 
 <%# 学習者の本日の合計時間を入れる配列 %>
 <% sumarray = Array.new() %>
@@ -90,12 +93,12 @@
             <tbody>
               <tr>
                 <td>
-<%# ログインされているユーザの情報を取り出す %>
-<% row = dbh.select_one("select * from users where user_id=#{login_user.get_userid()};") %>
-<% p row['user_id'] %>
 
-                  <img src="images/<%= "#{row['image_name']}" %>" alt="ユーザ画像" width="130" height="130" class="img-thumbnail img-responsive center-block" style="margin-top:8pt;">
-                  <h4 class="text-center"><a><%= "#{row['user_name'].to_s}".force_encoding("utf-8") %></a></h4>
+<% # ログインしているユーザの情報を取り出す %>
+<% user = User.find( login_user.get_userid() ) %>
+
+                  <img src="images/<%= "#{user.image_name}" %>" alt="ユーザ画像" width="130" height="130" class="img-thumbnail img-responsive center-block" style="margin-top:8pt;">
+                  <h4 class="text-center"><a><%= "#{user.user_name.to_s}".force_encoding("utf-8") %></a></h4>
                 </td>
               </tr>
             </tbody>

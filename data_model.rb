@@ -22,6 +22,6 @@ class Task < ActiveRecord::Base
 end
 
 # レコード取得
-p User.all
-p Category.all
-p Task.all
+puts User.all
+puts Category.all
+puts Task.all

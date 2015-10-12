@@ -44,7 +44,7 @@ s.mount_proc("/login") { |req, res|
 
 	user = User.all
 	user.each do |row|
-		if(pass = row.password)
+		if(pass == row.password)
 			puts 'パスワード OK'
 
 			if((req.query['username_login']==row.user_name)||((req.query['username_login']==row.email)))
