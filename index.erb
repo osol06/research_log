@@ -36,6 +36,8 @@
   <!-- BootStrapの読み込み -->
   <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css">
 
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.8.22/themes/base/jquery-ui.css" type="text/css" />
+
   <!-- DateTimePickerの読み込み -->
   <link href="css/datetimepicker/jquery.datetimepicker.css" rel="stylesheet" type="text/css" >
 
@@ -166,47 +168,10 @@
                   <td>
                     <div class="form-group">
 
-
-                      <!-- ユーザ名の選択 -->
-                      <p style="margin: 15px 10px;">
-                        <label for="user_select">作業者名</label>
-                        <select style="width:40%; min-width:250px;"class="form-control" id="name_select" name="user_id">
-
-    <%# ユーザ名をデータベースから取り出す %>
-    <% sth_name = dbh.execute("select * from users;") %>
-
-    <% sth_name.each do |row_name| %>
-
-                          <option value="<%= row_name["user_id"] %>"><%= "#{row_name["user_name"]}".force_encoding("utf-8") %></option>
-
-    <% end %>
-
-                        </select>
-                      </p>
-
-
                        <!-- タスク名の入力 -->
                       <p style="margin: 15px 10px;" >
                         <label for="task_name">タスク名</label>
                         <input style="width:40%; min-width:250px;" type="text" class="form-control" name="task_name">
-                      </p>
-
-
-                      <!-- カテゴリーの選択 -->
-                      <p style="margin: 15px 10px;" >
-                        <label for="category_id">カテゴリー名</label>
-                        <select style="width:40%; min-width:250px;" class="form-control" id="task_select" name="category_id">
-
-    <%# タスク名をデータベースから取り出す %>
-    <% sth_category = dbh.execute("select * from categories;") %>
-
-    <% sth_category.each do |row_category| %>
-
-                          <option value="<%= row_category["category_id"] %>"><%= "#{row_category["category_name"].to_s}".force_encoding("utf-8") %></option>
-
-    <% end %>
-
-                        </select>
                       </p>
 
                       <!-- 一人かグループかの選択 -->
@@ -269,18 +234,18 @@
       <!-- タイムライン表示 -->
       <div class="col-sm-4">
         <div class="panel panel-default">
-          <table class="table table-bordered">
+          <table class="table table-bordered scrollTable">
             <thead>
               <tr><th>タイムライン</th></tr>
             </thead>
             <tbody>
               <tr>
                 <td>
-                  <ul class="media-list">
-
+                  <ul class="media-list" >
+                    <hr>
     <%# コメントとuser_idをデータベースから逆順で取り出す %>
     <% sth_comment = dbh.execute("select comment, user_id from tasks order by task_id desc;") %>
-    <% sth_comment.first(5).each do |row_comment| %>
+    <% sth_comment.first(100).each do |row_comment| %>
       <% sth_image = dbh.select_one("select user_name, image_name from users where user_id = #{row_comment["user_id"]};") %>
                     <li class="media">
                       <!-- pull-right にすると、画像が右端に表示される -->
@@ -369,6 +334,7 @@
 
   <!-- javascriptの読み込み -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.22/jquery-ui.min.js"></script>
   <script src="js/bootstrap/bootstrap.min.js"></script>
 
   <!-- ライブラリ -->
@@ -376,6 +342,9 @@
   <script src="js/Chart/Chart.js"></script>
   <script src="http://momentjs.com/downloads/moment.js"></script>
   <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+  <script src="js/scrolltable/jquery.scrolltable.js"></script>
+
+  </script>
 
   <!-- 自分で書いたスクリプト -->
   <script src="js/my_library/current_time.js"></script>
@@ -456,8 +425,13 @@
   var date = m.format("YYYY年MM月DD日");
 
 
-  // 現在の日付を取得して表示する無名関数
   $(function (){
+
+    // テーブルにスクロールバーを付ける処理
+    $('.scrollTable').scrolltable({
+      maxHeight: 500
+    });
+
 
     // 現在の日付を表示するメソッド
     current_time(date);
@@ -746,8 +720,6 @@
 </html>
 
 <%# 実行結果を開放する %>
-<% sth_name.finish %>
-<% sth_category.finish %>
 <% sth_name_second.finish %>
 <% sth_name_third.finish %>
 <% sth_comment.finish %>
