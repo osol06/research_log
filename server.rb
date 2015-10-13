@@ -146,7 +146,8 @@ s.mount_proc("/log") { |req, res|
 	login_user = LoginUser.new
 
 	# テーブルにデータを追加する
-	Task.create(task_id: nil, user_id: "#{login_user.get_userid()}", category_id: "#{req.query['category_id']}", task_name: "#{req.query['task_name']}", start_time: "#{req.query['start_time']}", finish_time: "#{req.query['finish_time']}", group_frag: req.query['group_frag'], comment: "#{req.query['comment']}", music_frag: req.query['music_frag'], weather_frag: w_frag )
+	# category_idは一旦保留で1を挿入する事にしている
+	Task.create(task_id: nil, user_id: "#{login_user.get_userid()}", category_id: 1, task_name: "#{req.query['task_name']}", start_time: "#{req.query['start_time']}", finish_time: "#{req.query['finish_time']}", group_frag: req.query['group_frag'], comment: "#{req.query['comment']}", music_frag: req.query['music_frag'], weather_frag: w_frag )
 	# p Task.all
 
 	# 処理の結果を表示する

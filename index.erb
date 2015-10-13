@@ -243,24 +243,26 @@
                 <td>
                   <ul class="media-list" >
                     <hr>
-    <%# コメントとuser_idをデータベースから逆順で取り出す %>
-    <% sth_comment = dbh.execute("select comment, user_id from tasks order by task_id desc;") %>
-    <% sth_comment.first(100).each do |row_comment| %>
-      <% sth_image = dbh.select_one("select user_name, image_name from users where user_id = #{row_comment["user_id"]};") %>
-                    <li class="media">
-                      <!-- pull-right にすると、画像が右端に表示される -->
-                      <a class="media-left" href="#">
-                        <img class="media-object" src="images/<%= "#{sth_image["image_name"]}" %>" alt="写真" width="70" height="70" class="img-responsive" >
-                      </a>
-                      <div class="media-body">
-                        <h4 class="media-heading"> <%= "#{sth_image["user_name"]}".force_encoding("utf-8") %> </h4>
-                        <%= "#{row_comment["comment"]}".force_encoding("utf-8") %>
-                      </div>
-                    </li>
 
-                    <hr>
+<%# コメントとuser_idをデータベースから逆順で取り出す %>
+<% task = Task.all.order("task_id desc").limit(100)%>
+<% task.each do |row| %>
+<%  image_name = User.find_by(user_id: row.user_id ) %>
+<%  p image_name %>
 
-    <% end %>
+                      <li class="media">
+                        <!-- pull-right にすると、画像が右端に表示される -->
+                        <a class="media-left" href="#">
+                          <img class="media-object" src="images/<%= "#{image_name.image_name}" %>" alt="写真" width="70" height="70" class="img-responsive" >
+                        </a>
+                        <div class="media-body">
+                          <h4 class="media-heading"> <%= "#{image_name.user_name}".force_encoding("utf-8") %> </h4>
+                          <%= "#{row.comment}".force_encoding("utf-8") %>
+                        </div>
+                      </li>
+                      <hr>
+
+<% end %>
 
                   </ul>
                 </td>
@@ -722,7 +724,6 @@
 <%# 実行結果を開放する %>
 <% sth_name_second.finish %>
 <% sth_name_third.finish %>
-<% sth_comment.finish %>
 <% sth_name_bubble.finish %>
 
 <%# データベースとの接続を終了する %>
