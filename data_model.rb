@@ -9,9 +9,19 @@ config = YAML.load_file( './database.yml' )
 # 環境を切り替える
 ActiveRecord::Base.establish_connection(config["db"]["development"])
 
-# テーブルにアクセスするためのクラスを宣言
+# usersテーブルにアクセスするクラス
 class User < ActiveRecord::Base
 end
 
+# categoriesテーブルにアクセスするクラス
+class Category < ActiveRecord::Base
+end
+
+# taskテーブルにアクセスするクラス
+class Task < ActiveRecord::Base
+end
+
 # レコード取得
-p User.all
+puts User.all
+puts Category.all
+puts Task.all

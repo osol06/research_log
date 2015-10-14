@@ -1,22 +1,22 @@
 <%# -*- coding: utf-8 %>
 
-<%# 必要なライブラリの読み込み %>
+<% # 必要なライブラリの読み込み %>
 <% require 'rubygems' %>
-<% require 'dbi' %>
+<% require './data_model.rb'%>
 <% require './my_ruby_library/weather.rb' %>
+<% require './my_ruby_library/login_data.rb' %>
+<% require './total_learning_time.rb'%>
 
 <% # 天気情報を取得して、ハッシュとして受け取る処理 %>
 <% weather = weather() %>
+<% puts weather %>
 
+<% # 本日の合計時間も持ってくる処理 %>
+<% total_time = total_learning_time() %>
 
-<% p $user_id %>
-<%# 学習者の本日の合計時間を入れる配列 %>
-<% sumarray = Array.new() %>
-<% sumarray2 = Array.new() %>
-
-<%# データベース接続 %>
-<% dbh = DBI.connect('DBI:SQLite3:research_log.db') %>
-
+<% # ログインユーザの情報を取得 %>
+<% login_user = LoginUser.new %>
+<% puts login_user.get_userid() %>
 
 <!DOCTYPE html>
 <html lang="ja">
@@ -25,10 +25,13 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-  <title>美馬研究室 研究記録</title>
+  <title>mimalb studylog</title>
+  <link rel="shortcut icon" href="images/icon.png" type="image/png">
 
   <!-- BootStrapの読み込み -->
   <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css">
+
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.8.22/themes/base/jquery-ui.css" type="text/css" />
 
   <!-- DateTimePickerの読み込み -->
   <link href="css/datetimepicker/jquery.datetimepicker.css" rel="stylesheet" type="text/css" >
@@ -62,8 +65,8 @@
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li><a href="index.erb">ホーム</a></li>
-            <li><a href="log.html">記録する</a></li>
-            <li><a href="personal.erb">勉強ログ</a></li>
+            <li><a href="personal.erb">学習データ</a></li>
+            <li><a href="personal.erb">みんなの活動</a></li>
           </ul>
         </div>
 
@@ -87,12 +90,12 @@
             <tbody>
               <tr>
                 <td>
-<%# ログインされているユーザの情報を取り出す %>
-<% row = dbh.select_one("select * from users where user_id=#{$user_id};") %>
-<% p row['user_id'] %>
 
-                  <img src="images/<%= "#{row['image_name']}" %>" alt="ユーザ画像" width="130" height="130" class="img-thumbnail img-responsive center-block" style="margin-top:8pt;">
-                  <h4 class="text-center"><a><%= "#{row['user_name'].to_s}".force_encoding("utf-8") %></a></h4>
+<% # ログインしているユーザの情報を取り出す %>
+<% user = User.find( login_user.get_userid() ) %>
+
+                  <img src="images/<%= "#{user.image_name}" %>" alt="ユーザ画像" width="130" height="130" class="img-thumbnail img-responsive center-block" style="margin-top:8pt;">
+                  <h4 class="text-center"><a><%= "#{user.user_name.to_s}".force_encoding("utf-8") %></a></h4>
                 </td>
               </tr>
             </tbody>
@@ -148,148 +151,151 @@
       </div>
 
       <div class="col-sm-6">
-        <!-- 学習の記録フォーム　アクションはlog -->
-        <form method="post" action="log">
-          <div class="panel panel-default">
-            <table class="table table-bordered">
-              <thead>
-                <tr><th><span id="date"></span>の勉強を記録する</th></tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>
-                    <div class="form-group">
 
+        <!-- 学習時間ランキング -->
+        <div class="panel panel-default">
+          <table class="table table-bordered">
+            <thead>
+              <tr><th class="text-center">今日の学習時間ランキング</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <div style="float:left; margin-top: 50px;">
+                    <ul style="list-style:none;">
 
-                      <!-- ユーザ名の選択 -->
-                      <p style="margin: 15px 10px;">
-                        <label for="user_select">作業者名</label>
-                        <select style="width:40%; min-width:250px;"class="form-control" id="name_select" name="user_id">
+<% total_sort = total_time.sort_by{|key,val| -val} %>
+<% image_number = 1%>
+<% total_sort.first(3).each {|key, value| %>
 
-    <%# ユーザ名をデータベースから取り出す %>
-    <% sth_name = dbh.execute("select * from users;") %>
+                      <li style="font-size:20px; font-weight:bold;"><img src="images/rank<%= "#{image_number}" %>.png" style="width:50px; margin:5px;"><%= "#{key}".force_encoding("utf-8") %> <%= "#{value}".force_encoding("utf-8") %>分</li>
 
-    <% sth_name.each do |row_name| %>
+<%  image_number = image_number + 1 %>
+<% } %>
 
-                          <option value="<%= row_name["user_id"] %>"><%= "#{row_name["user_name"]}".force_encoding("utf-8") %></option>
-
-    <% end %>
-
-                        </select>
-                      </p>
-
-
-                       <!-- タスク名の入力 -->
-                      <p style="margin: 15px 10px;" >
-                        <label for="task_name">タスク名</label>
-                        <input style="width:40%; min-width:250px;" type="text" class="form-control" name="task_name">
-                      </p>
-
-
-                      <!-- カテゴリーの選択 -->
-                      <p style="margin: 15px 10px;" >
-                        <label for="category_id">カテゴリー名</label>
-                        <select style="width:40%; min-width:250px;" class="form-control" id="task_select" name="category_id">
-
-    <%# タスク名をデータベースから取り出す %>
-    <% sth_category = dbh.execute("select * from categories;") %>
-
-    <% sth_category.each do |row_category| %>
-
-                          <option value="<%= row_category["category_id"] %>"><%= "#{row_category["category_name"].to_s}".force_encoding("utf-8") %></option>
-
-    <% end %>
-
-                        </select>
-                      </p>
-
-                      <!-- 一人かグループかの選択 -->
-                      <p style="margin: 15px 10px;">
-                        <label for="group_frag">一人 or グループでの学習</label>
-                        <select style="width:40%; min-width:250px;"class="form-control"  name="group_frag">
-
-                          <option value="0">個人での学習</option>
-                          <option value="1">グループでの学習</option>
-
-                        </select>
-                      </p>
-
-                      <!-- 音楽ありなしかの選択 -->
-                      <p style="margin: 15px 10px;">
-                        <label for="group_frag">音楽の有無</label>
-                        <select style="width:40%; min-width:250px;"class="form-control"  name="music_frag">
-
-                          <option value="0">音楽なし</option>
-                          <option value="1">音楽あり</option>
-
-                        </select>
-                      </p>
-
-                      <!-- 作業時間の入力 -->
-                      <p style="margin: 15px 10px;" >
-                        <label for="start_time">作業した時間を入力</label>
-                        <div class="form-inline" style="margin:0px 0px 0px 10px;">
-                          <label>開始時間</label>
-                          <input id="datetimepicker_start" class="form-control" type="text" name="start_time" />
-                          <label>から</label>
-                          <input id="datetimepicker_finish" class="form-control" type="text" name="finish_time" />
-                          <label>まで</label>
-                        </div>
-                      </p>
-
-
-                      <!-- コメントの入力 -->
-                      <p style="margin: 15px 10px;" >
-                        <label for="comment">学習内容や感想など</label>
-                        <textarea name="comment" class="form-control" row="2" placeholder="学習内容や感想" style="resize: none;"></textarea>
-                        <p class="help-block" style="margin-left: 10px;">※できるだけ他の人もわかるように書きましょう。</p>
-                      </p>
-
-                      <p style="margin: 15px 10px;">
-                        <button type="submit" class="btn btn-success">記録する</button>
-                      </p>
-
+                    </ul>
+                  </div>
+                    <!-- みんなの学習時間のバブルチャート -->
+                    <div style="float:left;">
+                      <div id="myGraph"></div>
                     </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+        <!-- 学習の記録フォーム　アクションはlog -->
+        <div class="row">
+          <div class="col-sm-12">
+            <form method="post" action="log">
+              <div class="panel panel-default">
+                <table class="table table-bordered">
+                  <thead>
+                    <tr><th><span id="date"></span>の勉強を記録する</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <div class="form-group">
+
+                           <!-- タスク名の入力 -->
+                          <p style="margin: 15px 10px;" >
+                            <label for="task_name">タスク名</label>
+                            <input style="width:40%; min-width:250px;" type="text" class="form-control" name="task_name">
+                          </p>
+
+                          <!-- 一人かグループかの選択 -->
+                          <p style="margin: 15px 10px;">
+                            <label for="group_frag">一人 or グループでの学習</label>
+                            <select style="width:40%; min-width:250px;"class="form-control"  name="group_frag">
+
+                              <option value="0">個人での学習</option>
+                              <option value="1">グループでの学習</option>
+
+                            </select>
+                          </p>
+
+                          <!-- 音楽ありなしかの選択 -->
+                          <p style="margin: 15px 10px;">
+                            <label for="group_frag">音楽の有無</label>
+                            <select style="width:40%; min-width:250px;"class="form-control"  name="music_frag">
+
+                              <option value="0">音楽なし</option>
+                              <option value="1">音楽あり</option>
+
+                            </select>
+                          </p>
+
+                          <!-- 作業時間の入力 -->
+                          <p style="margin: 15px 10px;" >
+                            <label for="start_time">作業した時間を入力</label>
+                            <div class="form-inline" style="margin:0px 0px 0px 10px;">
+                              <label>開始時間</label>
+                              <input id="datetimepicker_start" class="form-control" type="text" name="start_time" />
+                              <label>から</label>
+                              <input id="datetimepicker_finish" class="form-control" type="text" name="finish_time" />
+                              <label>まで</label>
+                            </div>
+                          </p>
+
+
+                          <!-- コメントの入力 -->
+                          <p style="margin: 15px 10px;" >
+                            <label for="comment">学習内容や感想など</label>
+                            <textarea name="comment" class="form-control" row="2" placeholder="学習内容や感想" style="resize: none;"></textarea>
+                            <p class="help-block" style="margin-left: 10px;">※できるだけ他の人もわかるように書きましょう。</p>
+                          </p>
+
+                          <p style="margin: 15px 10px;">
+                            <button type="submit" class="btn btn-success">記録する</button>
+                          </p>
+
+                        </div>
+
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </form>
           </div>
-        </form>
+        </div>
 
       </div>
 
       <!-- タイムライン表示 -->
       <div class="col-sm-4">
         <div class="panel panel-default">
-          <table class="table table-bordered">
+          <table class="table table-bordered scrollTable">
             <thead>
-              <tr><th>タイムライン</th></tr>
+              <tr><th class="text-center">タイムライン</th></tr>
             </thead>
             <tbody>
               <tr>
                 <td>
-                  <ul class="media-list">
-
-    <%# コメントとuser_idをデータベースから逆順で取り出す %>
-    <% sth_comment = dbh.execute("select comment, user_id from tasks order by task_id desc;") %>
-    <% sth_comment.first(5).each do |row_comment| %>
-      <% sth_image = dbh.select_one("select user_name, image_name from users where user_id = #{row_comment["user_id"]};") %>
-                    <li class="media">
-                      <!-- pull-right にすると、画像が右端に表示される -->
-                      <a class="media-left" href="#">
-                        <img class="media-object" src="images/<%= "#{sth_image["image_name"]}" %>" alt="写真" width="70" height="70" class="img-responsive" >
-                      </a>
-                      <div class="media-body">
-                        <h4 class="media-heading"> <%= "#{sth_image["user_name"]}".force_encoding("utf-8") %> </h4>
-                        <%= "#{row_comment["comment"]}".force_encoding("utf-8") %>
-                      </div>
-                    </li>
-
+                  <ul class="media-list" >
                     <hr>
 
-    <% end %>
+<%# コメントとuser_idをデータベースから逆順で取り出す %>
+<% task = Task.all.order("task_id desc").limit(100)%>
+<% task.each do |row| %>
+<%  image_name = User.find_by(user_id: row.user_id ) %>
+<%  p image_name %>
+
+                      <li class="media">
+                        <!-- pull-right にすると、画像が右端に表示される -->
+                        <a class="media-left" href="#">
+                          <img class="media-object" src="images/<%= "#{image_name.image_name}" %>" alt="写真" width="70" height="70" class="img-responsive" >
+                        </a>
+                        <div class="media-body">
+                          <h4 class="media-heading"> <%= "#{image_name.user_name}".force_encoding("utf-8") %> </h4>
+                          <%= "#{row.comment}".force_encoding("utf-8") %>
+                        </div>
+                      </li>
+                      <hr>
+
+<% end %>
 
                   </ul>
                 </td>
@@ -298,58 +304,7 @@
           </table>
         </div>
       </div>
-
     </div>
-
-      <!-- 記録のグラフ -->
-      <form>
-        <div class="panel panel-default">
-          <table class="table table-bordered">
-            <thead>
-              <tr><th><span id="graph_date"></span>の勉強状況</th></tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>
-
-                  <!-- みんなの学習時間のバブルチャート -->
-                  <div id="myGraph"></div>
-
-                  <!-- みんなの学習時間グラフ -->
-                  <p>
-                    <h4><span class="label label-default">美馬研生の学習時間</span></h4><br>
-                    <canvas id="chart1" style=" width: 100% !important; max-width: 500px; height: auto !important;">
-                    </canvas>
-                  </p>
-
-
-
-                  <hr>
-
-                  <!-- みんなの学習カテゴリグラフ -->
-                  <p>
-                    <h4><span class="label label-default">美馬研生の学習カテゴリ</span></h4><br>
-                    <canvas id="chart2" style=" width: 100% !important; max-width: 500px; height: auto !important;">
-                    </canvas>
-                    <div id="pieLegend" ></div>
-                  </p>
-
-                  <hr>
-
-                  <!-- みんなの学習スタイルグラフ -->
-                  <p>
-                    <h4><span class="label label-default">美馬研生の学習スタイル</span></h4><br>
-                    <canvas id="chart3" style=" width: 100% !important; max-width: 500px; height: auto !important;">
-                    </canvas>
-                  </p>
-
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </form>
-
   </div>
 
 
@@ -363,6 +318,7 @@
 
   <!-- javascriptの読み込み -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.22/jquery-ui.min.js"></script>
   <script src="js/bootstrap/bootstrap.min.js"></script>
 
   <!-- ライブラリ -->
@@ -370,6 +326,8 @@
   <script src="js/Chart/Chart.js"></script>
   <script src="http://momentjs.com/downloads/moment.js"></script>
   <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+  <script src="js/scrolltable/jquery.scrolltable.js"></script>
+
 
   <!-- 自分で書いたスクリプト -->
   <script src="js/my_library/current_time.js"></script>
@@ -382,33 +340,20 @@
       "children": [
           {
               "name": "塩尻市",
-              "children": [
-<% # 各ユーザの本日の学習時間の合計を表示する処理  %>
-<% sth_name_bubble = dbh.execute("select user_id, user_name from users;") %>
-<% sth_name_bubble.each do |row_name_bubble| %>
+              "children": [
 
-<%    # 各ユーザの本日の学習時間の合計 %>
-<%    sum2 = 0 %>
-<%    study_hours_bubble = dbh.execute("select (strftime('%s', tasks.finish_time) - strftime('%s', tasks.start_time)) / 60 from tasks where date('now', 'localtime') between date(start_time) and date(finish_time) and user_id = #{row_name_bubble["user_id"]};") %>
-<%    study_hours_bubble.each do |row| %>
-
-<%       sum2 = sum2 + row[0].to_i %>
-
-<%    end %>
-<%#   デバック %>
-<%    puts sum2 %>
-<%    sumarray2.push(sum2) %>
-                  { "name": "<%= "#{ row_name_bubble["user_name"]}".force_encoding("utf-8") %>" , "households": <%= sum2 %> + 10 },
-<%    study_hours_bubble.finish %>
-<% end %>
+<% #みんなの合計学習時間の表示  %>
+<% total_time.each{|key,value| %>
+                  { "name": "<%= "#{key}".force_encoding("utf-8") %>" , "households": <%= value %> + 10 },
+<% } %>
                  
               ]
           }
       ]
   };
-  var svgWidth = 400; // SVG領域の横幅
-  var svgHeight = 300;    // SVG領域の縦幅
-  var diameter = 300; // 一番大きい円のサイズ
+  var svgWidth = 300; // SVG領域の横幅
+  var svgHeight = 250;    // SVG領域の縦幅
+  var diameter = 250; // 一番大きい円のサイズ
   var color = ["none", "#ffa0a0", "#a0a0ff", "orange", "#ffe090", "#a0ff90", "cyan", "#ccc", "#ff8080", "#c0ffc0", "#4090ff"];
   var svg = d3.select("#myGraph").append("svg")
       .attr("width", svgWidth).attr("height", svgHeight)
@@ -421,7 +366,7 @@
       .attr("transform", function(d) {    // 円のX,Y座標を設定
           return "translate(" + d.x + "," + d.y + ")";
       })
-      grp.append("circle")    // 円を生成する
+  grp.append("circle")    // 円を生成する
       .attr("r", function(d){ // 円を指定した半径にする
           return d.r;
       })
@@ -429,7 +374,7 @@
           return color[i];
       })
   grp.append("text")  // 文字を生成する
-      .attr("font-size", "9pt")   // 文字のサイズを指定する
+      .attr("font-size", "10pt")   // 文字のサイズを指定する
       .attr("fill", "black")  // 文字の塗りの色を指定する
       .style("text-anchor", "middle") // 円の座標の中央から表示するようにする
       .text(function(d) { return d.className; } ) // データの中のclassNameが地区名なので、それを出力
@@ -450,8 +395,13 @@
   var date = m.format("YYYY年MM月DD日");
 
 
-  // 現在の日付を取得して表示する無名関数
   $(function (){
+
+    // テーブルにスクロールバーを付ける処理
+    $('.scrollTable').scrolltable({
+      maxHeight: 500
+    });
+
 
     // 現在の日付を表示するメソッド
     current_time(date);
@@ -468,284 +418,8 @@
         lang: 'ja'
     });
 
-    // 棒グラフを描画する処理
-    var ctx1 = $("#chart1").get(0).getContext("2d");
-
-    // 棒グラフのデータ
-    var data1 = {
-      // X軸のラベル
-      labels : [
-
-<% # ユーザ名をデータベースから取り出す %>
-<% sth_name_second = dbh.execute("select user_name from users;") %>
-<% sth_name_second.each do |row_name_second| %>
-
-            "<%= "#{row_name_second["user_name"]}".force_encoding("utf-8") %>",
-
-<% end %>
-
-        ],
-      datasets : [
-          {
-            // グラフの描画設定
-            fillColor   : [
-              "rgba(131,170,206,0.5)",
-              "rgba(131,100,100,0.5)",
-              "rgba(110,185,255,0.5)",
-              "rgba(131,185,86,0.5)",
-              "rgba(246,133,124,0.5)",
-              "rgba(246,133,124,0.5)",
-              "rgba(206,195,73,0.5)"
-            ],
-            strokeColor : [
-              "rgba(131,185,206,1)",
-              "rgba(131,185,206,1)",
-              "rgba(131,185,206,1)",
-              "rgba(131,185,206,1)",
-              "rgba(246,133,124,1)",
-              "rgba(246,133,124,1)",
-              "rgba(206,195,73,1)"
-            ],
-            pointColor : "#00bfff", //点の色・透明度
-            pointStrokeColor : "#fff",//点の周りの色
-            data : [
-
-
-<% # 各ユーザの本日の学習時間の合計を表示する処理  %>
-<% sth_name_third = dbh.execute("select user_id from users;") %>
-<% sth_name_third.each do |row_name_third| %>
-
-<%    # 各ユーザの本日の学習時間の合計 %>
-<%    sum = 0 %>
-<%    study_hours = dbh.execute("select (strftime('%s', tasks.finish_time) - strftime('%s', tasks.start_time)) / 60 from tasks where date('now', 'localtime') between date(start_time) and date(finish_time) and user_id = #{row_name_third["user_id"]};") %>
-<%    study_hours.each do |row| %>
-
-<%       sum = sum + row[0].to_i %>
-
-<%    end %>
-<%#   デバック %>
-<%    puts sum %>
-<%    sumarray.push(sum) %>
-<%=   sum %>,
-<%    study_hours.finish %>
-<% end %>
-
-            ]
-          }
-        ]
-      };
-
-      // 棒グラフの設定
-      var option1 = {
-
-        // 値の開始値などを自分で設定するか
-        scaleOverride : true,
-
-        // y軸の値のステップ数
-        scaleSteps : 3,
-
-        // y軸のステップする大きさ
-        scaleStepWidth : <%= sumarray.max / 2 %>,
-
-        // Y軸の値の始まりの値
-        scaleStartValue : 0,
-
-        // ラベルの表示 ( Y 軸の値 )
-        scaleShowLabels : true,
-
-        scaleFontFamily : "'Arial'",
-        // X, Y 軸値のフォントサイズ
-        scaleFontSize : 12,
-        // X, Y 軸値のフォントスタイル, normal, italic など
-        scaleFontStyle : "italic",
-        // X, Y 軸値の文字色
-        scaleFontColor : "#666",
-
-
-        // Boolean - Whether the scale should start at zero, or an order of magnitude down from the lowest value
-        scaleBeginAtZero : true,
-
-        // Boolean - Whether grid lines are shown across the chart
-        scaleShowGridLines : true,
-
-        // String - Colour of the grid lines
-        scaleGridLineColor : "#c0c0c0",
-
-        // Number - Width of the grid lines
-        scaleGridLineWidth : 1,
-
-        // Boolean - Whether to show horizontal lines (except X axis)
-        scaleShowHorizontalLines: true,
-
-        // Boolean - Whether to show vertical lines (except Y axis)
-        scaleShowVerticalLines: true,
-
-        // Boolean - If there is a stroke on each bar
-        barShowStroke : true,
-
-        // Number - Pixel width of the bar stroke
-        barStrokeWidth : 2,
-
-        // Number - Spacing between each of the X value sets
-        barValueSpacing : 5,
-
-        // Number - Spacing between data sets within X values
-        barDatasetSpacing : 1,
-
-         // 表示の時のアニメーション
-        animation : true,
-
-        // アニメーションの速度 ( ステップ数 )
-        animationSteps : 100,
-
-        // アニメーションの種類, 以下が用意されている
-        animationEasing : "easeOutBounce",
-
-        // アニメーション終了後に実行する処理
-        onAnimationComplete : null
-
-      }
-
-      // 棒グラフを描画する
-      var myNewChart1 = new Chart(ctx1).Bar(data1,option1);
-
   });
-
-
-
-      // 円グラフを描画する処理
-      var ctx2 = $("#chart2").get(0).getContext("2d");
-
-      // 円グラフのデータ
-      var data2 = [
-            {
-                value : 55,
-                color : "#4169E1",
-                fillColor : "#4169E1",
-                label : "プログラミング"
-            },
-            {
-                value : 15,
-                color : "#FF3366",
-                fillColor : "#FF3366",
-                label : "英語",
-            },
-            {
-                value : 15,
-                color : "#339999",
-                fillColor : "#339999",
-                label : "授業"
-            },
-            {
-                value : 15,
-                color : "#FF9933",
-                fillColor : "#FF9933",
-                label : "情報技術者試験"
-            }
-        ];
-
-      // 円グラフの設定
-      var option2 = {
-
-          // アニメーション有無
-          animation : true
-
-      };
-
-      // 円グラフを描画する
-      var myNewChart2 = new Chart(ctx2).Pie(data2,option2);
-      $("#pieLegend").html(myNewChart2.generateLegend());
-
-
-      // レーダーチャート描画する処理
-      var ctx3 = $("#chart3").get(0).getContext("2d");
-
-      // レーダーチャートのデータ
-      var data3 = {
-        labels: ["継続性", "勉強のバランス", "夜型", "天気が良いと勉強する", "一人で学習"],
-        datasets: [
-                  {
-                    fillColor : "rgba(255, 0, 51, 0.5)",
-                    strokeColor : "rgba(220, 220, 220, 1)",
-                    pointColor : "rgba(220, 220, 220, 1)",
-                    pointStrokeColor : "#fff",
-                    data : [1, 59, 90, 81, 56]
-                  },
-                  {
-                    fillColor : "rgba(0, 51, 255, 0.5)",
-                    strokeColor : "rgba(151, 187, 205, 1)",
-                    pointColor : "rgba(151, 187, 205, 1)",
-                    pointStrokeColor : "#fff",
-                    data : [28, 48, 40, 19, 96]
-                　},
-                  {
-                    fillColor : "rgba(102, 255, 0, 0.5)",
-                    strokeColor : "rgba(151, 187, 205, 1)",
-                    pointColor : "rgba(151, 187, 205, 1)",
-                    pointStrokeColor : "#fff",
-                    data : [33, 30, 40, 89, 96]
-                　},
-                  {
-                    fillColor : "rgba(255, 255, 102, 0.5)",
-                    strokeColor : "rgba(151, 187, 205, 1)",
-                    pointColor : "rgba(151, 187, 205, 1)",
-                    pointStrokeColor : "#fff",
-                    data : [28, 32, 40, 90, 96]
-                　},
-                  {
-                    fillColor : "rgba(255, 51, 204, 0.5)",
-                    strokeColor : "rgba(151, 187, 205, 1)",
-                    pointColor : "rgba(151, 187, 205, 1)",
-                    pointStrokeColor : "#fff",
-                    data : [20, 48, 40, 32, 70]
-                　},
-                  {
-                    fillColor : "rgba(255, 102, 0, 0.5)",
-                    strokeColor : "rgba(151, 187, 205, 1)",
-                    pointColor : "rgba(151, 187, 205, 1)",
-                    pointStrokeColor : "#fff",
-                    data : [55, 48, 90, 50, 96]
-                　},
-                  {
-                    fillColor : "rgba(0, 153, 0, 0.5)",
-                    strokeColor : "rgba(151, 187, 205, 1)",
-                    pointColor : "rgba(151, 187, 205, 1)",
-                    pointStrokeColor : "#fff",
-                    data : [28, 48, 30, 80, 33]
-                　}
-        ]
-      };
-
-      // レーダーチャートの設定
-      var option3 = {
-
-            // 表示の時のアニメーション
-            animation : true,
-            // アニメーションの速度 ( ステップ数 )
-            animationSteps : 60,
-
-            animationEasing : "easeOutQuad",
-            // アニメーション終了後に実行する処理
-            // animation: false の時にも実行されるようです
-            // e.g. onAnimationComplete : function() {alert('complete');}
-            onAnimationComplete : null
-
-      };
-
-      // レーダーチャートを描画する
-      var myNewChart3 = new Chart(ctx3).Radar(data3,option3);
 
   </script>
 </body>
 </html>
-
-<%# 実行結果を開放する %>
-<% sth_name.finish %>
-<% sth_category.finish %>
-<% sth_name_second.finish %>
-<% sth_name_third.finish %>
-<% sth_comment.finish %>
-<% sth_name_bubble.finish %>
-
-<%# データベースとの接続を終了する %>
-<% dbh.disconnect %>
