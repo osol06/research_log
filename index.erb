@@ -2,7 +2,6 @@
 
 <% # 必要なライブラリの読み込み %>
 <% require 'rubygems' %>
-<% require 'dbi' %>
 <% require './data_model.rb'%>
 <% require './my_ruby_library/weather.rb' %>
 <% require './my_ruby_library/login_data.rb' %>
@@ -12,17 +11,12 @@
 <% weather = weather() %>
 <% puts weather %>
 
+<% # 本日の合計時間も持ってくる処理 %>
+<% total_time = total_learning_time() %>
+
 <% # ログインユーザの情報を取得 %>
 <% login_user = LoginUser.new %>
 <% puts login_user.get_userid() %>
-
-<%# 学習者の本日の合計時間を入れる配列 %>
-<% sumarray = Array.new() %>
-<% sumarray2 = Array.new() %>
-
-<%# データベース接続 %>
-<% dbh = DBI.connect('DBI:SQLite3:research_log.db') %>
-
 
 <!DOCTYPE html>
 <html lang="ja">
@@ -71,7 +65,7 @@
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li><a href="index.erb">ホーム</a></li>
-            <li><a href="log.html">学習データ</a></li>
+            <li><a href="personal.erb">学習データ</a></li>
             <li><a href="personal.erb">みんなの活動</a></li>
           </ul>
         </div>
@@ -167,13 +161,22 @@
             <tbody>
               <tr>
                 <td>
-                    <ul>
-                      <li>aaa</li>
-                      <li>aefa</li>
-                      <li>feaed</li>
+                  <div style="float:left; margin-top: 50px;">
+                    <ul style="list-style:none;">
+
+<% total_sort = total_time.sort_by{|key,val| -val} %>
+<% image_number = 1%>
+<% total_sort.first(3).each {|key, value| %>
+
+                      <li style="font-size:20px; font-weight:bold;"><img src="images/rank<%= "#{image_number}" %>.png" style="width:50px; margin:5px;"><%= "#{key}".force_encoding("utf-8") %> <%= "#{value}".force_encoding("utf-8") %>分</li>
+
+<%  image_number = image_number + 1 %>
+<% } %>
+
                     </ul>
+                  </div>
                     <!-- みんなの学習時間のバブルチャート -->
-                    <div style="margin:0 auto; width:300px;">
+                    <div style="float:left;">
                       <div id="myGraph"></div>
                     </div>
                 </td>
@@ -325,7 +328,6 @@
   <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
   <script src="js/scrolltable/jquery.scrolltable.js"></script>
 
-  </script>
 
   <!-- 自分で書いたスクリプト -->
   <script src="js/my_library/current_time.js"></script>
@@ -341,7 +343,6 @@
               "children": [
 
 <% #みんなの合計学習時間の表示  %>
-<% total_time = total_learning_time() %>
 <% total_time.each{|key,value| %>
                   { "name": "<%= "#{key}".force_encoding("utf-8") %>" , "households": <%= value %> + 10 },
 <% } %>
@@ -365,7 +366,7 @@
       .attr("transform", function(d) {    // 円のX,Y座標を設定
           return "translate(" + d.x + "," + d.y + ")";
       })
-      grp.append("circle")    // 円を生成する
+  grp.append("circle")    // 円を生成する
       .attr("r", function(d){ // 円を指定した半径にする
           return d.r;
       })
@@ -373,7 +374,7 @@
           return color[i];
       })
   grp.append("text")  // 文字を生成する
-      .attr("font-size", "9pt")   // 文字のサイズを指定する
+      .attr("font-size", "10pt")   // 文字のサイズを指定する
       .attr("fill", "black")  // 文字の塗りの色を指定する
       .style("text-anchor", "middle") // 円の座標の中央から表示するようにする
       .text(function(d) { return d.className; } ) // データの中のclassNameが地区名なので、それを出力
@@ -422,8 +423,3 @@
   </script>
 </body>
 </html>
-
-
-
-<%# データベースとの接続を終了する %>
-<% dbh.disconnect %>
