@@ -6,6 +6,7 @@
 <% require './data_model.rb'%>
 <% require './my_ruby_library/weather.rb' %>
 <% require './my_ruby_library/login_data.rb' %>
+<% require './total_learning_time.rb'%>
 
 <% # 天気情報を取得して、ハッシュとして受け取る処理 %>
 <% weather = weather() %>
@@ -157,11 +158,11 @@
 
       <div class="col-sm-6">
 
-        <!-- ユーザ情報 -->
+        <!-- 学習時間ランキング -->
         <div class="panel panel-default">
           <table class="table table-bordered">
             <thead>
-              <tr><th class="text-center">みんなの学習時間ランキング</th></tr>
+              <tr><th class="text-center">今日の学習時間ランキング</th></tr>
             </thead>
             <tbody>
               <tr>
@@ -172,8 +173,9 @@
                       <li>feaed</li>
                     </ul>
                     <!-- みんなの学習時間のバブルチャート -->
-                    <div id="myGraph" class="center-block" ></div>
-
+                    <div style="margin:0 auto; width:300px;">
+                      <div id="myGraph"></div>
+                    </div>
                 </td>
               </tr>
             </tbody>
@@ -336,33 +338,21 @@
       "children": [
           {
               "name": "塩尻市",
-              "children": [
-<% # 各ユーザの本日の学習時間の合計を表示する処理  %>
-<% sth_name_bubble = dbh.execute("select user_id, user_name from users;") %>
-<% sth_name_bubble.each do |row_name_bubble| %>
+              "children": [
 
-<%    # 各ユーザの本日の学習時間の合計 %>
-<%    sum2 = 0 %>
-<%    study_hours_bubble = dbh.execute("select (strftime('%s', tasks.finish_time) - strftime('%s', tasks.start_time)) / 60 from tasks where date('now', 'localtime') between date(start_time) and date(finish_time) and user_id = #{row_name_bubble["user_id"]};") %>
-<%    study_hours_bubble.each do |row| %>
-
-<%       sum2 = sum2 + row[0].to_i %>
-
-<%    end %>
-<%#   デバック %>
-<%    puts sum2 %>
-<%    sumarray2.push(sum2) %>
-                  { "name": "<%= "#{ row_name_bubble["user_name"]}".force_encoding("utf-8") %>" , "households": <%= sum2 %> + 10 },
-<%    study_hours_bubble.finish %>
-<% end %>
+<% #みんなの合計学習時間の表示  %>
+<% total_time = total_learning_time() %>
+<% total_time.each{|key,value| %>
+                  { "name": "<%= "#{key}".force_encoding("utf-8") %>" , "households": <%= value %> + 10 },
+<% } %>
                  
               ]
           }
       ]
   };
   var svgWidth = 300; // SVG領域の横幅
-  var svgHeight = 300;    // SVG領域の縦幅
-  var diameter = 300; // 一番大きい円のサイズ
+  var svgHeight = 250;    // SVG領域の縦幅
+  var diameter = 250; // 一番大きい円のサイズ
   var color = ["none", "#ffa0a0", "#a0a0ff", "orange", "#ffe090", "#a0ff90", "cyan", "#ccc", "#ff8080", "#c0ffc0", "#4090ff"];
   var svg = d3.select("#myGraph").append("svg")
       .attr("width", svgWidth).attr("height", svgHeight)
@@ -433,8 +423,7 @@
 </body>
 </html>
 
-<%# 実行結果を開放する %>
-<% sth_name_bubble.finish %>
+
 
 <%# データベースとの接続を終了する %>
 <% dbh.disconnect %>
