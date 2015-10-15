@@ -16,14 +16,7 @@
     margin: 0 auto !important;
 }
 
-li.1 {
-  color: red;
-}
 
-li.2 {
-  color: blue;
-}
-
-li.3 {
-  color: pink;
+svg {
+  width:100%;
 }

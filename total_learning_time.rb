@@ -96,9 +96,12 @@ def total_time_week( user_id )
     to = from + 1.day
 
   }
-  p time_week
+
+  # デバッグ
+  # p time_week
   return time_week
 
 end
 
-total_time_week(2)
+# デバッグ
+# total_time_week(2)
