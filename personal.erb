@@ -77,7 +77,7 @@
       <div class="panel panel-default">
         <table class="table table-bordered">
           <thead>
-            <tr><th>学習のタイムライン</th></tr>
+            <tr><th class="text-center">学習のタイムライン</th></tr>
           </thead>
           <tbody>
             <tr>
@@ -92,49 +92,53 @@
         </table>
       </div>
 
-      <!-- 記録のグラフ -->
-      <form>
-        <div class="panel panel-default">
-          <table class="table table-bordered">
-            <thead>
-              <tr><th><span id="graph_date"></span>の勉強状況</th></tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>
+      <div class="row">
+        <div class="col-sm-6">
+          <!-- 記録のグラフ -->
+          <div class="panel panel-default">
+            <table class="table table-bordered">
+              <thead>
+                <tr><th class="text-center">一週間の学習時間</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
 
-                  <!-- みんなの学習時間グラフ -->
-                  <p>
-                    <h4><span class="label label-default">美馬研生の学習時間</span></h4><br>
-                    <canvas id="chart1" style=" width: 100% !important; max-width: 500px; height: auto !important;">
+                    <!-- みんなの学習時間グラフ -->
+                    <p>
+                      <canvas id="chart1" style=" width: 100% !important; max-width: 500px; height: auto !important; margin: 0 auto;">
+                      </canvas>
+                    </p>
+
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="col-sm-6">
+          <!-- 記録のグラフ -->
+          <div class="panel panel-default">
+            <table class="table table-bordered">
+              <thead>
+                <tr><th class="text-center">学習スタイル</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+
+                    <!-- みんなの学習スタイルグラフ -->
+                    <canvas id="chart3" style=" width: 100% !important; max-width: 500px; padding-top: 15px; margin: 0 auto;">
                     </canvas>
-                  </p>
 
-                  <hr>
-
-                  <!-- みんなの学習カテゴリグラフ -->
-                  <p>
-                    <h4><span class="label label-default">美馬研生の学習カテゴリ</span></h4><br>
-                    <canvas id="chart2" style=" width: 100% !important; max-width: 500px; height: auto !important;">
-                    </canvas>
-                    <div id="pieLegend" ></div>
-                  </p>
-
-                  <hr>
-
-                  <!-- みんなの学習スタイルグラフ -->
-                  <p>
-                    <h4><span class="label label-default">美馬研生の学習スタイル</span></h4><br>
-                    <canvas id="chart3" style=" width: 100% !important; max-width: 500px; height: auto !important;">
-                    </canvas>
-                  </p>
-
-              </td>
-            </tr>
-          </tbody>
-        </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
-    </form>
 
     <!-- タイムライン表示機能 -->
     <div class="panel panel-default">
@@ -269,58 +273,38 @@
       // X軸のラベル
       labels : [
 
-<% # ユーザ名をデータベースから取り出す %>
-<% sth_name_second = dbh.execute("select user_name from users;") %>
-<% sth_name_second.each do |row_name_second| %>
+<% from = Time.now.in_time_zone.at_beginning_of_day %>
+<% # ローカル時間と9時間の差ができるため、その埋め合わせ %>
+<% from = from + 9.hour %>
+<% to = from + 7.day %>
+<% t = Time.now %>
+<% (1..8).each{|num| %>
 
-            "<%= "#{row_name_second["user_name"]}".force_encoding("utf-8") %>",
+                "<%= "#{t.strftime(" %m/%d")}".force_encoding("utf-8") %>",
 
-<% end %>
+<%   t = t - 1.day %>
+<% } %>
+
 
         ],
       datasets : [
           {
             // グラフの描画設定
             fillColor   : [
-              "rgba(131,170,206,0.5)",
-              "rgba(131,100,100,0.5)",
-              "rgba(110,185,255,0.5)",
-              "rgba(131,185,86,0.5)",
-              "rgba(246,133,124,0.5)",
-              "rgba(246,133,124,0.5)",
-              "rgba(206,195,73,0.5)"
+              "rgba(64,196,255,0.5)",
+
             ],
             strokeColor : [
-              "rgba(131,185,206,1)",
-              "rgba(131,185,206,1)",
-              "rgba(131,185,206,1)",
-              "rgba(131,185,206,1)",
-              "rgba(246,133,124,1)",
-              "rgba(246,133,124,1)",
-              "rgba(206,195,73,1)"
+              "rgba(64,196,255,1)",
             ],
             pointColor : "#00bfff", //点の色・透明度
             pointStrokeColor : "#fff",//点の周りの色
             data : [
 
-
-<% # 各ユーザの本日の学習時間の合計を表示する処理  %>
-<% sth_name_third = dbh.execute("select user_id from users;") %>
-<% sth_name_third.each do |row_name_third| %>
-
-<%    # 各ユーザの本日の学習時間の合計 %>
-<%    sum = 0 %>
-<%    study_hours = dbh.execute("select (strftime('%s', tasks.finish_time) - strftime('%s', tasks.start_time)) / 60 from tasks where date('now', 'localtime') between date(start_time) and date(finish_time) and user_id = #{row_name_third["user_id"]};") %>
-<%    study_hours.each do |row| %>
-
-<%       sum = sum + row[0].to_i %>
-
-<%    end %>
-<%#   デバック %>
-<%    puts sum %>
-<%    sumarray.push(sum) %>
-<%=   sum %>,
-<%    study_hours.finish %>
+<% # ユーザの一週間の学習時間 %>
+<% time_week = total_time_week(login_user.get_userid) %>
+<% time_week.each do |time| %>
+<%=   time %>,
 <% end %>
 
             ]
@@ -338,7 +322,7 @@
         scaleSteps : 3,
 
         // y軸のステップする大きさ
-        scaleStepWidth : <%= sumarray.max / 2 %>,
+        scaleStepWidth : <%= time_week.sort.last / 2 %>,
 
         // Y軸の値の始まりの値
         scaleStartValue : 0,
@@ -348,7 +332,7 @@
 
         scaleFontFamily : "'Arial'",
         // X, Y 軸値のフォントサイズ
-        scaleFontSize : 12,
+        scaleFontSize : 15,
         // X, Y 軸値のフォントスタイル, normal, italic など
         scaleFontStyle : "italic",
         // X, Y 軸値の文字色
@@ -405,49 +389,6 @@
   });
 
 
-
-      // 円グラフを描画する処理
-      var ctx2 = $("#chart2").get(0).getContext("2d");
-
-      // 円グラフのデータ
-      var data2 = [
-            {
-                value : 55,
-                color : "#4169E1",
-                fillColor : "#4169E1",
-                label : "プログラミング"
-            },
-            {
-                value : 15,
-                color : "#FF3366",
-                fillColor : "#FF3366",
-                label : "英語",
-            },
-            {
-                value : 15,
-                color : "#339999",
-                fillColor : "#339999",
-                label : "授業"
-            },
-            {
-                value : 15,
-                color : "#FF9933",
-                fillColor : "#FF9933",
-                label : "情報技術者試験"
-            }
-        ];
-
-      // 円グラフの設定
-      var option2 = {
-
-          // アニメーション有無
-          animation : true
-
-      };
-
-      // 円グラフを描画する
-      var myNewChart2 = new Chart(ctx2).Pie(data2,option2);
-      $("#pieLegend").html(myNewChart2.generateLegend());
 
 
       // レーダーチャート描画する処理
@@ -559,6 +500,9 @@
       // レーダーチャートの設定
       var option3 = {
 
+            // ポイントラベルのサイズ
+            pointLabelFontSize : 15,
+
             // 表示の時のアニメーション
             animation : true,
             // アニメーションの速度 ( ステップ数 )
@@ -580,8 +524,6 @@
 </html>
 
 <%# 実行結果を開放する %>
-<% sth_name_second.finish %>
-<% sth_name_third.finish %>
 <% sth_comment.finish %>
 <% solo_hours.finish %>
 <% all_hours.finish %>
