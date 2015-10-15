@@ -61,5 +61,3 @@ def total_learning_time
   return total_time
 
 end
-
-total_learning_time()
