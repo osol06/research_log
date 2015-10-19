@@ -198,11 +198,50 @@
                       <td>
                         <div class="form-group">
 
-                           <!-- タスク名の入力 -->
+
+                          <!-- タスク名の入力 -->
                           <p style="margin: 15px 10px;" >
-                            <label for="task_name">タスク名</label>
-                            <input style="width:40%; min-width:250px;" type="text" class="form-control" name="task_name">
+                            <label>タスク名</label>
+
+                            <div id="high_priority">
+                              <div class="btn-group" data-toggle="buttons" style="margin-left: 10px; margin-top:-20px;">
+                                <label class="btn btn-default active">
+                                    <input type="radio" autocomplete="off" name="task_name" value="left"> 英単語
+                                </label>
+                                <label class="btn btn-default">
+                                    <input type="radio" autocomplete="off" name="task_name" value="middle"> 研究
+                                </label>
+                                <label class="btn btn-default">
+                                    <input type="radio" autocomplete="off" name="task_name" value="right"> VEP
+                                </label>
+                              </div>
+                            </div>
+
+                            <div id="other_task" style="display:none; margin-left: 10px;" >
+                              <div class="btn-group" data-toggle="buttons">
+                                <label class="btn btn-default">
+                                    <input type="radio" autocomplete="off" name="task_name" value="ふぁえｆ"> 国語
+                                </label>
+                                <label class="btn btn-default">
+                                    <input type="radio" autocomplete="off" name="task_name" value="が"> ICT演習
+                                </label>
+                                <label class="btn btn-default">
+                                    <input type="radio" autocomplete="off" name="task_name" value="righふぇあt"> 英語の模試
+                                </label>
+                                <label class="btn btn-default">
+                                    <input type="radio" autocomplete="off" name="task_name" value="riふぁえght"> TOEIC
+                                </label>
+                              </div>
+                            </div>
+
+                            <div style="margin-left: 10px; margin-top: 3px;">
+                              <button id="other_bottun" type="button" class="btn btn-info other_click" ><i class="glyphicon glyphicon-file"></i> その他のタスク</button>
+                              <button type="button" class="btn btn-info" ><i class="glyphicon glyphicon-plus"></i> 新たなタスクの追加</button>
+                            </div>
+
                           </p>
+
+
 
                           <!-- 一人かグループかの選択 -->
                           <p style="margin: 15px 10px;">
@@ -416,6 +455,29 @@
         lang: 'ja'
     });
 
+    var flg = 'default'
+
+    // その他のタスクボタンのイベントメソッド
+    $('.other_click').click(function(){
+
+       if(flg == 'default'){
+
+           $('#other_task').show()
+           $('#high_priority').hide()
+           $("#other_bottun").text("よく記録するタスク");
+
+           flg = "changed";
+
+       }else{
+
+          $('#other_task').hide()
+          $('#high_priority').show()
+          $("#other_bottun").text("その他のタスク");
+
+           flg = 'default';
+
+       }
+     });
   });
 
   </script>
