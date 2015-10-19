@@ -31,6 +31,7 @@
   <!-- BootStrapの読み込み -->
   <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css">
 
+  <!-- ライブラリの追加 -->
   <link rel="stylesheet" href="http://code.jquery.com/ui/1.8.22/themes/base/jquery-ui.css" type="text/css" />
 
   <!-- DateTimePickerの読み込み -->
@@ -65,7 +66,7 @@
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li><a href="index.erb">ホーム</a></li>
-            <li><a href="personal.erb">学習データ</a></li>
+            <li><a href="personal.rhtml">学習データ</a></li>
             <li><a href="personal.erb">みんなの活動</a></li>
           </ul>
         </div>
@@ -205,43 +206,39 @@
 
                             <div id="high_priority">
                               <div class="btn-group" data-toggle="buttons" style="margin-left: 10px; margin-top:-20px;">
-                                <label class="btn btn-default active">
-                                    <input type="radio" autocomplete="off" name="task_name" value="left"> 英単語
-                                </label>
+
+<% #よく選択するタスクトップ5を表示 %>
+<% task_name = Task_name.where(user_id: login_user.get_userid()) %>
+<% task_name = task_name.order("count desc") %>
+<% task_name.first(5).each do |name| %>
+
                                 <label class="btn btn-default">
-                                    <input type="radio" autocomplete="off" name="task_name" value="middle"> 研究
+                                    <input type="radio" autocomplete="off" name="task_name" value="<%= "#{name.task_name}" %>"><%= "#{name.task_name}".force_encoding("utf-8") %>
                                 </label>
-                                <label class="btn btn-default">
-                                    <input type="radio" autocomplete="off" name="task_name" value="right"> VEP
-                                </label>
+
+<% end %>
+
                               </div>
                             </div>
 
-                            <div id="other_task" style="display:none; margin-left: 10px;" >
+                            <div id="other_task" style="display:none; margin-left: 10px; margin-top:-15px; margin-bottom:4.3px;" >
                               <div class="btn-group" data-toggle="buttons">
+
+<% task_name.each do |name| %>
+
                                 <label class="btn btn-default">
-                                    <input type="radio" autocomplete="off" name="task_name" value="ふぁえｆ"> 国語
+                                    <input type="radio" autocomplete="off" name="task_name" value="<%= "#{name.task_name}" %>"> <%= "#{name.task_name}".force_encoding("utf-8") %>
                                 </label>
-                                <label class="btn btn-default">
-                                    <input type="radio" autocomplete="off" name="task_name" value="が"> ICT演習
-                                </label>
-                                <label class="btn btn-default">
-                                    <input type="radio" autocomplete="off" name="task_name" value="righふぇあt"> 英語の模試
-                                </label>
-                                <label class="btn btn-default">
-                                    <input type="radio" autocomplete="off" name="task_name" value="riふぁえght"> TOEIC
-                                </label>
+<% end %>
                               </div>
                             </div>
 
                             <div style="margin-left: 10px; margin-top: 3px;">
                               <button id="other_bottun" type="button" class="btn btn-info other_click" ><i class="glyphicon glyphicon-file"></i> その他のタスク</button>
-                              <button type="button" class="btn btn-info" ><i class="glyphicon glyphicon-plus"></i> 新たなタスクの追加</button>
+                              <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal"><i class="glyphicon glyphicon-plus"></i> 新しいタスクの追加</button>
                             </div>
 
                           </p>
-
-
 
                           <!-- 一人かグループかの選択 -->
                           <p style="margin: 15px 10px;">
@@ -352,6 +349,35 @@
     </div>
   </footer>
 
+  <!-- モーダルウィンドウの中身 -->
+  <!-- 新しいタスクを追加フォーム -->
+  <div class="modal fade" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title"><i class="glyphicon glyphicon-plus"></i> 新しいタスクを追加</h4>
+        </div>
+
+        <div class="modal-body">
+          <form method="post" action="add_task">
+            <div class="form-group">
+              <label for="task_name">タスク名</label>
+              <input type="text" class="form-control" id="task_name" placeholder="追加するタスク名" name="task_name">
+            </div>
+            <button type="submit" class="btn btn-success">追加する</button>
+          </form>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">閉じる</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
 
   <!-- javascriptの読み込み -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -364,7 +390,6 @@
   <script src="http://momentjs.com/downloads/moment.js"></script>
   <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
   <script src="js/scrolltable/jquery.scrolltable.js"></script>
-
 
   <!-- 自分で書いたスクリプト -->
   <script src="js/my_library/current_time.js"></script>
@@ -478,6 +503,7 @@
 
        }
      });
+
   });
 
   </script>
