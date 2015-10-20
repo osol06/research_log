@@ -8,7 +8,6 @@ class LoginUser
 
   def set_userid( user_id )
       @@user_id = user_id
-      p @@user_id
   end
 
   def get_userid

@@ -55,9 +55,6 @@ def total_learning_time
 
   end
 
-  puts "本日のみんなの学習時間(分)"
-  p total_time
-
   return total_time
 
 end
