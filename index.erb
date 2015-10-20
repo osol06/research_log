@@ -1,22 +1,17 @@
-<%# -*- coding: utf-8 %>
+<%# coding: UTF-8 %>
 
-<% # 必要なライブラリの読み込み %>
+
 <% require 'rubygems' %>
+<% require 'erb' %>
 <% require './data_model.rb'%>
 <% require './my_ruby_library/weather.rb' %>
 <% require './my_ruby_library/login_data.rb' %>
 <% require './total_learning_time.rb'%>
 
-<% # 天気情報を取得して、ハッシュとして受け取る処理 %>
 <% weather = weather() %>
-<% puts weather %>
-
-<% # 本日の合計時間も持ってくる処理 %>
 <% total_time = total_learning_time() %>
-
-<% # ログインユーザの情報を取得 %>
 <% login_user = LoginUser.new %>
-<% puts login_user.get_userid() %>
+<% user_id = session['user_id'] %>
 
 <!DOCTYPE html>
 <html lang="ja">
@@ -31,7 +26,6 @@
   <!-- BootStrapの読み込み -->
   <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css">
 
-  <!-- ライブラリの追加 -->
   <link rel="stylesheet" href="http://code.jquery.com/ui/1.8.22/themes/base/jquery-ui.css" type="text/css" />
 
   <!-- DateTimePickerの読み込み -->
@@ -66,8 +60,8 @@
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li><a href="index.erb">ホーム</a></li>
-            <li><a href="personal.rhtml">学習データ</a></li>
-            <li><a href="personal.erb">みんなの活動</a></li>
+            <li><a href="./personal.rb">学習データ</a></li>
+            <li><a href="./personal.rb">みんなの活動</a></li>
           </ul>
         </div>
 
@@ -91,8 +85,8 @@
               <tr>
                 <td>
 
-<% # ログインしているユーザの情報を取り出す %>
-<% user = User.find( login_user.get_userid() ) %>
+
+<% user = User.find( user_id ) %>
 
                   <img src="images/<%= "#{user.image_name}" %>" alt="ユーザ画像" width="130" height="130" class="img-thumbnail img-responsive center-block" style="margin-top:8pt;">
                   <h4 class="text-center"><a><%= "#{user.user_name.to_s}".force_encoding("utf-8") %></a></h4>
@@ -188,7 +182,7 @@
         <!-- 学習の記録フォーム　アクションはlog -->
         <div class="row">
           <div class="col-sm-12">
-            <form method="post" action="log">
+            <form method="post" action="log.rb">
               <div class="panel panel-default">
                 <table class="table table-bordered">
                   <thead>
@@ -199,16 +193,14 @@
                       <td>
                         <div class="form-group">
 
-
-                          <!-- タスク名の入力 -->
+                           <!-- タスク名の入力 -->
                           <p style="margin: 15px 10px;" >
                             <label>タスク名</label>
 
                             <div id="high_priority">
                               <div class="btn-group" data-toggle="buttons" style="margin-left: 10px; margin-top:-20px;">
 
-<% #よく選択するタスクトップ5を表示 %>
-<% task_name = Task_name.where(user_id: login_user.get_userid()) %>
+<% task_name = Task_name.where(user_id: user_id) %>
 <% task_name = task_name.order("count desc") %>
 <% task_name.first(5).each do |name| %>
 
@@ -227,9 +219,11 @@
 <% task_name.each do |name| %>
 
                                 <label class="btn btn-default">
-                                    <input type="radio" autocomplete="off" name="task_name" value="<%= "#{name.task_name}" %>"> <%= "#{name.task_name}".force_encoding("utf-8") %>
+                                  <input type="radio" autocomplete="off" name="task_name" value="<%= "#{name.task_name}" %>"> <%= "#{name.task_name}".force_encoding("utf-8") %>
                                 </label>
+
 <% end %>
+
                               </div>
                             </div>
 
@@ -237,7 +231,6 @@
                               <button id="other_bottun" type="button" class="btn btn-info other_click" ><i class="glyphicon glyphicon-file"></i> その他のタスク</button>
                               <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal"><i class="glyphicon glyphicon-plus"></i> 新しいタスクの追加</button>
                             </div>
-
                           </p>
 
                           <!-- 一人かグループかの選択 -->
@@ -312,11 +305,11 @@
                   <ul class="media-list" >
                     <hr>
 
-<%# コメントとuser_idをデータベースから逆順で取り出す %>
+
 <% task = Task.all.order("task_id desc").limit(100)%>
 <% task.each do |row| %>
 <%  image_name = User.find_by(user_id: row.user_id ) %>
-<%  p image_name %>
+
 
                       <li class="media">
                         <!-- pull-right にすると、画像が右端に表示される -->
@@ -360,7 +353,7 @@
         </div>
 
         <div class="modal-body">
-          <form method="post" action="add_task">
+          <form method="post" action="add_task.rb">
             <div class="form-group">
               <label for="task_name">タスク名</label>
               <input type="text" class="form-control" id="task_name" placeholder="追加するタスク名" name="task_name">
@@ -377,8 +370,6 @@
     </div>
   </div>
 
-
-
   <!-- javascriptの読み込み -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.22/jquery-ui.min.js"></script>
@@ -390,6 +381,7 @@
   <script src="http://momentjs.com/downloads/moment.js"></script>
   <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
   <script src="js/scrolltable/jquery.scrolltable.js"></script>
+
 
   <!-- 自分で書いたスクリプト -->
   <script src="js/my_library/current_time.js"></script>
