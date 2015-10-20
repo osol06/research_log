@@ -19,14 +19,15 @@ config = {
   :Logger => WEBrick::Log::new("./logs/log",WEBrick::Log::DEBUG),# サーバログの出力
 }
 
-# 拡張子erbのファイルをERBを呼び出して処理するERBHandlerと関連付ける
+# 拡張子のファイルをHandlerと関連付ける
 WEBrick::HTTPServlet::FileHandler.add_handler("erb", WEBrick::HTTPServlet::ERBHandler)
 WEBrick::HTTPServlet::FileHandler.add_handler("rhtml", WEBrick::HTTPServlet::ERBHandler)
+WEBrick::HTTPServlet::FileHandler.add_handler("rb", WEBrick::HTTPServlet::CGIHandler)
 
 # WEBrickのHTTP Serverクラスのサーバーインスタンスを生成する
 s = WEBrick::HTTPServer.new( config )
 
-# erbのMIMEタイプを設定
+# MIMEタイプを設定
 s.config[:MimeTypes]["erb"] = "text/html"
 s.config[:MimeTypes]["rhtml"] = "text/html"
 
