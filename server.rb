@@ -31,28 +31,6 @@ s = WEBrick::HTTPServer.new( config )
 s.config[:MimeTypes]["erb"] = "text/html"
 s.config[:MimeTypes]["rhtml"] = "text/html"
 
-# 処理の登録
-# /add_taskは学習を記録するアクション
-s.mount_proc("/add_task") { |req, res|
-
-	# (注意)本来ならここで入力データに危険や不正がないかチェックするがとりあえず割愛
-	# p req.query
-	p "タスクネーム"
-	p req.query['task_name']
-	login_user = LoginUser.new
-	p login_user.get_userid()
-
-	# テーブルにデータを追加する
-	# category_idは一旦保留で1を挿入する事にしている
-	Task_name.create(task_name_id: nil, user_id: "#{login_user.get_userid()}", task_name: "#{req.query['task_name']}", count: 1)
-	# p Task.all
-
-	# 処理の結果を表示する
-	# ERBを、ERBHandlerを経由せずに直接呼び出して利用している
-	template = ERB.new( File.read('index.erb') )
-	res.body << template.result( binding )
-
-}
 
 #Ctrl-C割り込みがあった場合にサーバーを停止する処理を登録しておく
 trap(:INT) do
