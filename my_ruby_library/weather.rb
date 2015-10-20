@@ -116,4 +116,4 @@ end
 
 # デバック
 # puts "weather_fragのデバッグ"
-# puts (weather_frag("曇り"))
+#git  puts (weather_frag("曇り"))
