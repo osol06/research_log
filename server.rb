@@ -31,58 +31,6 @@ s = WEBrick::HTTPServer.new( config )
 s.config[:MimeTypes]["erb"] = "text/html"
 s.config[:MimeTypes]["rhtml"] = "text/html"
 
-# /signupは新規登録のアクション
-s.mount_proc("/signup") { |req, res|
-
-	# p req.query
-
-	# サインアップが成功したかどうかのフラグ
-	# 0:サインアップ失敗 1:サインアップ
-	signin_frag = 1
-
-	# パスワードをハッシュ値にする処理
-	pass = Digest::MD5.new.update(req.query['password']).to_s
-	# puts pass
-
-	user = User.all
-	user.each do |row|
-
-		# ユーザネーム、email,passwordが既に使われているかどうかの判定
-		if req.query['username']==row.user_name
-			signin_frag = 0
-		elsif req.query['email']==row.email
-			singin_frag = 0
-		elsif req.query['password']==row.password
-			singin_frag = 0
-		end
-
-	end
-
-	if(signin_frag==1)
-
-		User.create(user_id: nil, user_name: "#{req.query['username']}", image_name: 'takuma.jpg', continuity: 25, firstname: "#{req.query['firstname']}", lastname: "#{req.query['lastname']}", password: "#{pass.to_s}", email: "#{req.query['email']}" )
-
-		# ログインユーザのidを取り出す
-		user_id = User.all.order("user_id desc").first
-
-		# ログインユーザの情報をセットする
-		login_user = LoginUser.new
-		login_user.set_userid(user_id.user_id)
-
-		# 処理の結果を表示する
-		# ERBを、ERBHandlerを経由せずに直接呼び出して利用している
-		template = ERB.new( File.read('index.erb') )
-		res.body << template.result( binding )
-
-	else
-
-		# 処理の結果を表示する
-		# ERBを、ERBHandlerを経由せずに直接呼び出して利用している
-		template = ERB.new( File.read('failed_signin.erb') )
-		res.body << template.result( binding )
-
-	end
-}
 
 # 処理の登録
 # /logは学習を記録するアクション
@@ -127,6 +75,7 @@ s.mount_proc("/add_task") { |req, res|
 	p "タスクネーム"
 	p req.query['task_name']
 	login_user = LoginUser.new
+	p login_user.get_userid()
 
 	# テーブルにデータを追加する
 	# category_idは一旦保留で1を挿入する事にしている
