@@ -31,57 +31,6 @@ s = WEBrick::HTTPServer.new( config )
 s.config[:MimeTypes]["erb"] = "text/html"
 s.config[:MimeTypes]["rhtml"] = "text/html"
 
-# 処理の登録
-# /signupは新規登録のアクション
-s.mount_proc("/login") { |req, res|
-
-	# p req.query
-
-	# ログインが成功しているかどうかのフラグ
-	# 0:ログイン失敗 1:ログイン成功
-	login_frag = 0
-
-	# パスワードをハッシュ値にする処理
-	pass = Digest::MD5.new.update(req.query['password_login']).to_s
-	# puts pass
-
-	user = User.all
-	user.each do |row|
-		if(pass == row.password)
-			puts 'パスワード OK'
-
-			if((req.query['username_login']==row.user_name)||((req.query['username_login']==row.email)))
-				puts 'ユーザネームかemail OK'
-
-				# ログイン成功したのでフラグを1にする
-				login_frag = 1
-
-				# とりあえず動かすために
-				login_user = LoginUser.new
-				login_user.set_userid(row.user_id)
-
-				# 処理の結果を表示する
-				# ERBを、ERBHandlerを経由せずに直接呼び出して利用している
-				template = ERB.new( File.read('index.erb') )
-				res.body << template.result( binding )
-
-				# イテレータを終了してメソッドから抜ける
-				break
-			end
-		end
-	end
-
-	# signinが失敗した時の処理
-	if(login_frag == 0)
-
-		# 処理の結果を表示する
-		# ERBを、ERBHandlerを経由せずに直接呼び出して利用している
-		template = ERB.new( File.read('failed_login.erb') )
-		res.body << template.result( binding )
-
-	end
-}
-
 # /signupは新規登録のアクション
 s.mount_proc("/signup") { |req, res|
 

@@ -201,8 +201,42 @@
 
                            <!-- タスク名の入力 -->
                           <p style="margin: 15px 10px;" >
-                            <label for="task_name">タスク名</label>
-                            <input style="width:40%; min-width:250px;" type="text" class="form-control" name="task_name">
+                            <label>タスク名</label>
+
+                            <div id="high_priority">
+                              <div class="btn-group" data-toggle="buttons" style="margin-left: 10px; margin-top:-20px;">
+
+<% task_name = Task_name.where(user_id: login_user.get_userid()) %>
+<% task_name = task_name.order("count desc") %>
+<% task_name.first(5).each do |name| %>
+
+                                <label class="btn btn-default">
+                                    <input type="radio" autocomplete="off" name="task_name" value="<%= "#{name.task_name}" %>"><%= "#{name.task_name}".force_encoding("utf-8") %>
+                                </label>
+
+<% end %>
+
+                              </div>
+                            </div>
+
+                            <div id="other_task" style="display:none; margin-left: 10px; margin-top:-15px; margin-bottom:4.3px;" >
+                              <div class="btn-group" data-toggle="buttons">
+
+<% task_name.each do |name| %>
+
+                                <label class="btn btn-default">
+                                  <input type="radio" autocomplete="off" name="task_name" value="<%= "#{name.task_name}" %>"> <%= "#{name.task_name}".force_encoding("utf-8") %>
+                                </label>
+
+<% end %>
+
+                              </div>
+                            </div>
+
+                            <div style="margin-left: 10px; margin-top: 3px;">
+                              <button id="other_bottun" type="button" class="btn btn-info other_click" ><i class="glyphicon glyphicon-file"></i> その他のタスク</button>
+                              <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal"><i class="glyphicon glyphicon-plus"></i> 新しいタスクの追加</button>
+                            </div>
                           </p>
 
                           <!-- 一人かグループかの選択 -->
@@ -314,6 +348,33 @@
     </div>
   </footer>
 
+  <!-- モーダルウィンドウの中身 -->
+  <!-- 新しいタスクを追加フォーム -->
+  <div class="modal fade" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title"><i class="glyphicon glyphicon-plus"></i> 新しいタスクを追加</h4>
+        </div>
+
+        <div class="modal-body">
+          <form method="post" action="add_task">
+            <div class="form-group">
+              <label for="task_name">タスク名</label>
+              <input type="text" class="form-control" id="task_name" placeholder="追加するタスク名" name="task_name">
+            </div>
+            <button type="submit" class="btn btn-success">追加する</button>
+          </form>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">閉じる</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
 
   <!-- javascriptの読み込み -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -416,6 +477,30 @@
         format: 'Y-m-d H:i',
         lang: 'ja'
     });
+
+    var flg = 'default'
+
+    // その他のタスクボタンのイベントメソッド
+    $('.other_click').click(function(){
+
+       if(flg == 'default'){
+
+           $('#other_task').show()
+           $('#high_priority').hide()
+           $("#other_bottun").text("よく記録するタスク");
+
+           flg = "changed";
+
+       }else{
+
+          $('#other_task').hide()
+          $('#high_priority').show()
+          $("#other_bottun").text("その他のタスク");
+
+           flg = 'default';
+
+       }
+     });
 
   });
 
