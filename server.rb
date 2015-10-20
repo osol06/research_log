@@ -31,41 +31,6 @@ s = WEBrick::HTTPServer.new( config )
 s.config[:MimeTypes]["erb"] = "text/html"
 s.config[:MimeTypes]["rhtml"] = "text/html"
 
-
-# 処理の登録
-# /logは学習を記録するアクション
-s.mount_proc("/log") { |req, res|
-
-	# (注意)本来ならここで入力データに危険や不正がないかチェックするがとりあえず割愛
-	# p req.query
-
-	# 天気情報を持ってくる
-	weather = weather()
-	w_frag = weather_frag("#{weather['telop']}")
-
-	login_user = LoginUser.new
-
-	p req.query['task_name']
-
-	# 選択されたタスクidをもってきて
-	# カウントを1つ上げる
-	task_name = Task_name.find_by(user_id: login_user.get_userid(), task_name: "#{req.query['task_name']}")
-	p task_name
-	p task_name.count
-	task_name.update(count: task_name.count + 1)
-
-	# テーブルにデータを追加する
-	# category_idは一旦保留で1を挿入する事にしている
-	Task.create(task_id: nil, user_id: "#{login_user.get_userid()}", category_id: 1, task_name_id: task_name.task_name_id, task_name: "#{req.query['task_name']}", start_time: "#{req.query['start_time']}", finish_time: "#{req.query['finish_time']}", group_frag: req.query['group_frag'], comment: "#{req.query['comment']}", music_frag: req.query['music_frag'], weather_frag: w_frag )
-	# p Task.all
-
-	# 処理の結果を表示する
-	# ERBを、ERBHandlerを経由せずに直接呼び出して利用している
-	template = ERB.new( File.read('index.erb') )
-	res.body << template.result( binding )
-
-}
-
 # 処理の登録
 # /add_taskは学習を記録するアクション
 s.mount_proc("/add_task") { |req, res|

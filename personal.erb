@@ -1,21 +1,15 @@
-<%# -*- coding: utf-8 %>
+<%# coding: UTF-8 %>
 
-<%# 必要なライブラリの読み込み %>
 <% require 'rubygems' %>
 <% require 'dbi' %>
 <% require 'time' %>
 <% require './data_model.rb'%>
 <% require './my_ruby_library/login_data.rb' %>
+<% require './total_learning_time.rb' %>
 
-<%# 学習者の本日の合計時間を入れる配列 %>
 <% sumarray = Array.new() %>
 
-<%# データベース接続 %>
 <% dbh = DBI.connect('DBI:SQLite3:research_log.db') %>
-
-<% # ログインユーザの情報を取得 %>
-<% login_user = LoginUser.new %>
-<% puts login_user.get_userid() %>
 
 <!DOCTYPE html>
 <html lang="ja">
@@ -60,8 +54,8 @@
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li><a href="index.erb">ホーム</a></li>
-            <li><a href="personal.erb">学習データ</a></li>
-            <li><a href="personal.erb">みんなの活動</a></li>
+            <li><a href="./personal.rb">学習データ</a></li>
+            <li><a href="./personal.rb">みんなの活動</a></li>
           </ul>
         </div>
 
@@ -345,8 +339,7 @@
         debug:"#debug",     // debug string output elements
         rows : {
 
-<% from = Time.now.in_time_zone.at_beginning_of_day %>
-<% # ローカル時間と9時間の差ができるため、その埋め合わせ %>
+<% from = Time.now.at_beginning_of_day %>
 <% from = from + 9.hour %>
 <% to = from + 7.day %>
 <% t = Time.now %>
@@ -356,13 +349,11 @@
           schedule:[
 
 <%    time = Task.where(start_time: from...to) %>
-<%    time = time.where(user_id: login_user.get_userid) %>
+<%    time = time.where(user_id: session['user_id']) %>
 <%    time.each do |row| %>
                     {
 <%    start_time = Time.parse(row.start_time.to_s) %>
 <%    finish_time = Time.parse(row.finish_time.to_s) %>
-<% p row.start_time.to_s %>
-<% p start_time.strftime("%H:%M") %>
 
                         start:'<%= "#{start_time.strftime("%H:%M")}".force_encoding("utf-8") %>',
                         end:'<%= "#{finish_time.strftime("%H:%M")}".force_encoding("utf-8") %>',
@@ -392,7 +383,6 @@
       labels : [
 
 <% from = Time.now.in_time_zone.at_beginning_of_day %>
-<% # ローカル時間と9時間の差ができるため、その埋め合わせ %>
 <% from = from + 9.hour %>
 <% to = from + 7.day %>
 <% t = Time.now %>
@@ -419,8 +409,7 @@
             pointStrokeColor : "#fff",//点の周りの色
             data : [
 
-<% # ユーザの一週間の学習時間 %>
-<% time_week = total_time_week(login_user.get_userid) %>
+<% time_week = total_time_week(session['user_id']) %>
 <% time_week.each do |time| %>
 <%=   time %>,
 <% end %>
@@ -558,12 +547,8 @@
                     pointStrokeColor : "#fff",
                     data : [100, 59,
 
-<%# あるユーザの音楽ありで学習した時間の合計を計算 %>
 
-<%# 天気良い時に学習した時間の合計 %>
 <% nice_weather_sum = 0 %>
-
-<%# 天気が悪い時に学習した時間の合計 %>
 <% bad_weather_sum = 0 %>
 
 <% nice_weather_hours = dbh.execute("select (strftime('%s', tasks.finish_time) - strftime('%s', tasks.start_time)) / 60 from tasks where user_id = 2 and weather_frag = 1;") %>
@@ -580,19 +565,11 @@
 
 <% end %>
 
-<%# 良い天気の時に勉強した割合を出す %>
-<% puts "良い天気の時に勉強した割合を出す"%>
-<% puts (nice_weather_sum.to_f / (nice_weather_sum.to_f + bad_weather_sum.to_f)) * 100 %>
 <%= (nice_weather_sum.to_f / (nice_weather_sum.to_f + bad_weather_sum.to_f)) * 100 %>,
 
-
-
-<%# あるユーザの音楽ありで学習した時間の合計を計算 %>
-
-<%# 音楽あり学習した時間の合計 %>
 <% music_sum = 0 %>
 
-<%# 学習した時間の合計 %>
+
 <% music_all_sum = 0 %>
 
 <% music_hours = dbh.execute("select (strftime('%s', tasks.finish_time) - strftime('%s', tasks.start_time)) / 60 from tasks where user_id = 2 and music_frag = 1;") %>
@@ -602,7 +579,7 @@
 
 <% end %>
 
-<%# あるユーザの今までの学習時間の合計を計算 %>
+
 <% music_all_hours = dbh.execute("select (strftime('%s', tasks.finish_time) - strftime('%s', tasks.start_time)) / 60 from tasks where user_id = 2;") %>
 <% music_all_hours.each do |row| %>
 
@@ -610,19 +587,12 @@
 
 <% end %>
 
-<%# 音楽ありで学習した時間の割合を返す %>
-<% puts "音楽あり学習した割合のデバッグ"%>
-<% puts music_sum.to_f / music_all_sum.to_f * 100 %>
 <%= music_sum.to_f / music_all_sum.to_f * 100 %>,
 
 
-
-<%# あるユーザの一人で学習した時間の合計を計算 %>
-
-<%# 一人で学習した時間の合計 %>
 <% solo_sum = 0 %>
 
-<%# 学習した時間の合計 %>
+
 <% hours_sum = 0 %>
 
 <% solo_hours = dbh.execute("select (strftime('%s', tasks.finish_time) - strftime('%s', tasks.start_time)) / 60 from tasks where user_id = 2 and group_frag = 0;") %>
@@ -632,7 +602,6 @@
 
 <% end %>
 
-<%# あるユーザの今までの学習時間の合計を計算 %>
 <% all_hours = dbh.execute("select (strftime('%s', tasks.finish_time) - strftime('%s', tasks.start_time)) / 60 from tasks where user_id = 2;") %>
 <% all_hours.each do |row| %>
 
@@ -640,9 +609,6 @@
 
 <% end %>
 
-<%# 一人で学習した時間の割合を返す %>
-<% puts "一人で学習した割合のデバッグ"%>
-<% puts solo_sum.to_f / hours_sum.to_f * 100 %>
 <%= solo_sum.to_f / hours_sum.to_f * 100 %>
 
                    ]
@@ -678,7 +644,6 @@
 </body>
 </html>
 
-<%# 実行結果を開放する %>
 <% solo_hours.finish %>
 <% all_hours.finish %>
 <% music_hours.finish %>
@@ -686,5 +651,4 @@
 <% nice_weather_hours.finish %>
 <% bad_weather_hours.finish %>
 
-<%# データベースとの接続を終了する %>
 <% dbh.disconnect %>
