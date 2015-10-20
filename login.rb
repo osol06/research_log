@@ -1,9 +1,6 @@
 #! /usr/bin/ruby
 # -*- coding: UTF-8 -*-
 
-# HTTPヘッダの出力
-print "Content-type: text/html\n\n"
-
 
 require 'erb'
 require 'rubygems'
@@ -14,10 +11,8 @@ require './my_ruby_library/login_data.rb'
 require 'cgi'
 require 'cgi/session'
 
-
+# CGIを発行
 cgi = CGI.new
-
-# p req.query
 
 # ログインが成功しているかどうかのフラグ
 # 0:ログイン失敗 1:ログイン成功
@@ -54,8 +49,9 @@ user.each do |row|
       #セッションが張られていなければ
       else
 
-        #セッションを新規作成してカウント値を初期化
-        session = CGI::Session.new(cgi,{"new_session"=>true})
+        #セッションを新規作成
+        session = CGI::Session.new(cgi,{"new_session"=>true,
+                                        "session_expires"=> Time.now + 3600 })
         session['user_id'] = row.user_id
         #closeしてセッション情報をサーバに書き込む
         session.close
@@ -69,6 +65,7 @@ user.each do |row|
       # 処理の結果を表示する
       # ERBを、ERBHandlerを経由せずに直接呼び出して利用している
       template = ERB.new( File.read('index.erb') )
+      puts cgi.header({ 'Content-Type' => 'text/html'})
       print template.result( binding )
 
       # イテレータを終了してメソッドから抜ける
@@ -83,6 +80,7 @@ if(login_frag == 0)
   # 処理の結果を表示する
   # ERBを、ERBHandlerを経由せずに直接呼び出して利用している
   template = ERB.new( File.read('failed_login.erb') )
+  puts cgi.header({ 'Content-Type' => 'text/html'})
   print template.result( binding )
 
 end

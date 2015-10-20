@@ -45,7 +45,7 @@ s.mount_proc("/log") { |req, res|
 
 	login_user = LoginUser.new
 
-	 p req.query['task_name']
+	p req.query['task_name']
 
 	# 選択されたタスクidをもってきて
 	# カウントを1つ上げる
