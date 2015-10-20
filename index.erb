@@ -8,16 +8,10 @@
 <% require './my_ruby_library/login_data.rb' %>
 <% require './total_learning_time.rb'%>
 
-
 <% weather = weather() %>
-
-
-
 <% total_time = total_learning_time() %>
-
-
 <% login_user = LoginUser.new %>
-
+<% user_id = session['user_id'] %>
 
 <!DOCTYPE html>
 <html lang="ja">
@@ -92,7 +86,7 @@
                 <td>
 
 
-<% user = User.find( login_user.get_userid() ) %>
+<% user = User.find( user_id ) %>
 
                   <img src="images/<%= "#{user.image_name}" %>" alt="ユーザ画像" width="130" height="130" class="img-thumbnail img-responsive center-block" style="margin-top:8pt;">
                   <h4 class="text-center"><a><%= "#{user.user_name.to_s}".force_encoding("utf-8") %></a></h4>
@@ -206,7 +200,7 @@
                             <div id="high_priority">
                               <div class="btn-group" data-toggle="buttons" style="margin-left: 10px; margin-top:-20px;">
 
-<% task_name = Task_name.where(user_id: login_user.get_userid()) %>
+<% task_name = Task_name.where(user_id: user_id) %>
 <% task_name = task_name.order("count desc") %>
 <% task_name.first(5).each do |name| %>
 
