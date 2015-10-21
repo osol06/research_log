@@ -10,7 +10,6 @@
 
 <% weather = weather() %>
 <% total_time = total_learning_time() %>
-<% login_user = LoginUser.new %>
 <% user_id = session['user_id'] %>
 
 <!DOCTYPE html>
@@ -52,7 +51,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand text-info" href="index.erb"></a>
+          <a class="navbar-brand text-info" href="index.rb"></a>
 
         </div>
 
@@ -456,7 +455,6 @@
       maxHeight: 500
     });
 
-
     // 現在の日付を表示するメソッド
     current_time(date);
 
@@ -472,6 +470,7 @@
         lang: 'ja'
     });
 
+    // onclickが何回押されたかを判定するフラグ
     var flg = 'default'
 
     // その他のタスクボタンのイベントメソッド
