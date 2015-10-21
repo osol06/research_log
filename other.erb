@@ -55,7 +55,7 @@
           <ul class="nav navbar-nav">
             <li><a href="./index.rb">ホーム</a></li>
             <li><a href="./personal.rb">学習データ</a></li>
-            <li><a href="./personal.rb">みんなの活動</a></li>
+            <li><a href="other.erb">みんなの活動</a></li>
           </ul>
         </div>
 
@@ -349,7 +349,7 @@
           schedule:[
 
 <%    time = Task.where(start_time: from...to) %>
-<%    time = time.where(user_id: session['user_id']) %>
+<%    time = time.where(user_id: 2) %>
 <%    time.each do |row| %>
                     {
 <%    start_time = Time.parse(row.start_time.to_s) %>
@@ -409,7 +409,7 @@
             pointStrokeColor : "#fff",//点の周りの色
             data : [
 
-<% time_week = total_time_week(session['user_id']) %>
+<% time_week = total_time_week(2) %>
 <% time_week.each do |time| %>
 <%=   time %>,
 <% end %>
