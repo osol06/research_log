@@ -235,23 +235,25 @@
                           <!-- 一人かグループかの選択 -->
                           <p style="margin: 15px 10px;">
                             <label for="group_frag">一人 or グループでの学習</label>
-                            <select style="width:40%; min-width:250px;"class="form-control"  name="group_frag">
-
-                              <option value="0">個人での学習</option>
-                              <option value="1">グループでの学習</option>
-
-                            </select>
+                            <div class="btn-group" data-toggle="buttons" style="margin-left: 10px; margin-top:-20px;">
+                              <label class="btn btn-default">
+                                  <input type="radio" autocomplete="off" name="group_frag" value="0">一人で学習
+                              </label>
+                              <label class="btn btn-default">
+                                  <input type="radio" autocomplete="off" name="group_frag" value="1">グループで学習
+                            </div>
                           </p>
 
                           <!-- 音楽ありなしかの選択 -->
                           <p style="margin: 15px 10px;">
-                            <label for="group_frag">音楽の有無</label>
-                            <select style="width:40%; min-width:250px;"class="form-control"  name="music_frag">
-
-                              <option value="0">音楽なし</option>
-                              <option value="1">音楽あり</option>
-
-                            </select>
+                            <label for="group_frag">一人 or グループでの学習</label>
+                            <div class="btn-group" data-toggle="buttons" style="margin-left: 10px; margin-top:-20px;">
+                              <label class="btn btn-default">
+                                  <input type="radio" autocomplete="off" name="music_frag" value="0">音楽なし
+                              </label>
+                              <label class="btn btn-default">
+                                  <input type="radio" autocomplete="off" name="music_frag" value="1">音楽あり
+                            </div>
                           </p>
 
                           <!-- 作業時間の入力 -->
@@ -265,7 +267,6 @@
                               <label>まで</label>
                             </div>
                           </p>
-
 
                           <!-- コメントの入力 -->
                           <p style="margin: 15px 10px;" >
