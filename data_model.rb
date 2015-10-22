@@ -25,8 +25,13 @@ end
 class Task_name < ActiveRecord::Base
 end
 
+# taskテーブルにアクセスするクラス
+class Weather < ActiveRecord::Base
+end
+
 # レコード取得
 # puts User.all
 # puts Category.all
 # puts Task.all
 # puts Task_name.all
+# puts
