@@ -36,13 +36,12 @@ def create_heatmap_tsv( user_id )
 
       # タスクを始めた時間か終えた時間がある時間帯にあるときのレコードを抽出
       # 時間とかよくわからないけど、調整が必要だった
-      task_2 = task_1.where("DATE_FORMAT(start_time - INTERVAL 1 HOUR, '%H:%I:%S') between '#{format_hour[hour-1]}:00:00' and '#{format_hour[hour]}:00:00'")
+      task_2 = task_1.where("'#{format_hour[hour-1]}:00:00' between DATE_FORMAT(start_time, '%H:%I:%S') and DATE_FORMAT(finish_time, '%H:%I:%S')")
 
       # データを一旦配列に入れる
-      # task_2.countを9倍するのは、可視化するときのレベルが9個あるため
-      count = task_2.count * 9
+      count = task_2.count * 3
       task_data = [day, hour, count]
-      p task_data
+
       # 多次元配列にデータを格納
       tsv_data[t + hour -1] = task_data.dup
 
@@ -53,13 +52,8 @@ def create_heatmap_tsv( user_id )
 
   }
 
-  puts "デバッグです"
-  p tsv_data
-  p tsv_data.count
-
-
-
-  File.open("aaa.tsv", 'w') do |line|
+  # tsvの作成
+  File.open("#{user_id}.tsv", 'w') do |line|
 
     # 先頭の行を書き込む
     line.puts "day\thour\tvalue"
@@ -72,21 +66,6 @@ def create_heatmap_tsv( user_id )
     end
 
   end
-
-
-=begin
-  CSV.open("./aaa.tsv", "w") do |writer|
-
-    # tsvの先頭を入力
-    writer << ['day', 'hour', 'value']
-
-    # データを入力
-    tsv_data.each do |data|
-      writer << data
-    end
-
-  end
-=end
 
 end
 

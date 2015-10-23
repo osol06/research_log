@@ -10,10 +10,13 @@ require './my_ruby_library/weather.rb'
 require './my_ruby_library/login_data.rb'
 require 'cgi'
 require 'cgi/session'
+require './heatmap_data.rb'
 
 # CGIを発行
 cgi = CGI.new
 session = CGI::Session.new(cgi)
+
+create_heatmap_tsv(session["user_id"])
 
 
 # 処理の結果を表示する
