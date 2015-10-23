@@ -145,7 +145,7 @@
               <td>
 
                   <!-- hour heatmapchart -->
-                  <div id="chart" ></div>
+                  <div id="chart" style="margin-left:3%;"></div>
                   <div id="dataset-picker"></div>
 
               </td>
@@ -163,7 +163,63 @@
             <tr>
               <td>
 
-                <div id="jqPlot-sample" style="width: 80%; "></div>
+                <div id="jqPlot-sample" style="width: 100%; "></div>
+
+
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th></th>
+
+<% t = Time.now - 7.day %>
+<% (1..7).each{|num| %>
+
+                      <th class="text-center"><%= "#{t.strftime(" %m/%d")}".force_encoding("utf-8") %></th>
+
+<%   t = t + 1.day %>
+<% } %>
+
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="text-center">天気</td>
+
+<% from = Time.now.in_time_zone.at_beginning_of_day %>
+<% from = from - 7.day  %>
+<% to = from + 7.day %>
+<% weather = Weather.where(date: from..to).order("date") %>
+<% weather.each{|weather| %>
+
+                      <td>
+                        <div class="text-center">
+                          <h5><%= "#{weather.weather}" %></h5>
+                          <div class="center-block">
+                            <img src="<%= "#{weather.icon_url}" %>" class="center-block" >
+                          </div>
+                          <span><%= "#{weather.max_temperature}" %></span> / <span><%= "#{weather.min_temperature}" %></span>℃
+                        </div>
+                      </td>
+
+<% } %>
+
+                    </tr>
+                    <tr>
+                      <td class="text-center">学習時間(分)</td>
+
+<% from = Time.now.in_time_zone.at_beginning_of_day %>
+<% from = from - 7.day + 9.hour %>
+<% to = from + 7.day %>
+<% time_week = total_time_week_from_yesterday(session['user_id']) %>
+<% (1..7).each{|num| %>
+
+                      <td class="text-center"><%= time_week[num-1] %>分</td>
+
+<% } %>
+
+                    </tr>
+                  </tbody>
+                </table>
 
               </td>
             </tr>
@@ -505,7 +561,7 @@
 <% from = from + 9.hour %>
 <% to = from + 7.day %>
 <% t = Time.now - 7.day %>
-<% time_week = total_time_week(session['user_id']) %>
+<% time_week = total_time_week_from_yesterday(session['user_id']) %>
 <% (1..7).each{|num| %>
 
               [ '<%= "#{t.strftime(" %m/%d")}".force_encoding("utf-8") %>', <%= time_week[num-1] %> ],
