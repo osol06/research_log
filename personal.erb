@@ -145,7 +145,7 @@
               <td>
 
                   <!-- hour heatmapchart -->
-                  <div id="chart" ></div>
+                  <div id="chart" style="margin-left:3%;"></div>
                   <div id="dataset-picker"></div>
 
               </td>
@@ -163,7 +163,63 @@
             <tr>
               <td>
 
-                <div id="jqPlot-sample" style="width: 80%; "></div>
+                <div id="jqPlot-sample" style="width: 100%; "></div>
+
+
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th></th>
+
+<% t = Time.now - 7.day %>
+<% (1..7).each{|num| %>
+
+                      <th class="text-center"><%= "#{t.strftime(" %m/%d")}".force_encoding("utf-8") %></th>
+
+<%   t = t + 1.day %>
+<% } %>
+
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="text-center">天気</td>
+
+<% from = Time.now.in_time_zone.at_beginning_of_day %>
+<% from = from - 7.day  %>
+<% to = from + 7.day %>
+<% weather = Weather.where(date: from..to).order("date") %>
+<% weather.each{|weather| %>
+
+                      <td>
+                        <div class="text-center">
+                          <h5><%= "#{weather.weather}" %></h5>
+                          <div class="center-block">
+                            <img src="<%= "#{weather.icon_url}" %>" class="center-block" >
+                          </div>
+                          <span><%= "#{weather.max_temperature}" %></span> / <span><%= "#{weather.min_temperature}" %></span>℃
+                        </div>
+                      </td>
+
+<% } %>
+
+                    </tr>
+                    <tr>
+                      <td class="text-center">学習時間(分)</td>
+
+<% from = Time.now.in_time_zone.at_beginning_of_day %>
+<% from = from - 7.day + 9.hour %>
+<% to = from + 7.day %>
+<% time_week = total_time_week_from_yesterday(session['user_id']) %>
+<% (1..7).each{|num| %>
+
+                      <td class="text-center"><%= time_week[num-1] %>分</td>
+
+<% } %>
+
+                    </tr>
+                  </tbody>
+                </table>
 
               </td>
             </tr>
@@ -495,12 +551,37 @@
 
   });
 
-  jQuery( function() {
-    jQuery . jqplot(
+  // 気温と学習時間の関係グラフの描画
+  jQuery . jqplot(
         'jqPlot-sample',
         [
-            [ [ '16日', 650 ], [ '17日', 702 ], [ '18日', 740 ], [ '19日', 603 ], [ '20日', 805 ], [ '21日', 900 ],[ '22日', 900 ],[ '23日', 800 ],[ '24日', 400 ],[ '25日', 90 ],[ '26日', 900 ] ],
-            [ [ 1, 65 ], [ 2, 27 ], [ 3, 47 ], [ 4, 36 ], [ 5, 58 ], [ 6, 81 ], [ 7, 81 ], [ 8, 41 ], [ 9, 73 ], [ 10, 90 ],[11, 88] ]
+            [
+
+<% from = Time.now.in_time_zone.at_beginning_of_day %>
+<% from = from + 9.hour %>
+<% to = from + 7.day %>
+<% t = Time.now - 7.day %>
+<% time_week = total_time_week_from_yesterday(session['user_id']) %>
+<% (1..7).each{|num| %>
+
+              [ '<%= "#{t.strftime(" %m/%d")}".force_encoding("utf-8") %>', <%= time_week[num-1] %> ],
+
+<%   t = t + 1.day %>
+<% } %>
+
+
+            ],
+            [
+<% from = from - 8.day + 9.hour %>
+<% to = from + 7.day %>
+<% temperature = Weather.where(date: from..to).order("date") %>
+<% num = 1 %>
+<% temperature.each{|row| %>
+
+              [ <%= num %>, <%= row.max_temperature.to_i %> ],
+<% num = num + 1 %>
+<% } %>
+           ]
         ],
         {
             series:[
@@ -527,10 +608,7 @@
                 }
             }
         }
-    );
-} );
-
-
+  );
 
 
       // レーダーチャート描画する処理
