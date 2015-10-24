@@ -53,7 +53,7 @@ def create_heatmap_tsv( user_id )
   }
 
   # tsvの作成
-  File.open("#{user_id}.tsv", 'w') do |line|
+  File.open("./tsv_data/#{user_id}.tsv", 'w') do |line|
 
     # 先頭の行を書き込む
     line.puts "day\thour\tvalue"
