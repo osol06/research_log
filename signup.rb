@@ -9,7 +9,6 @@ require 'erb'
 require 'rubygems'
 require './data_model.rb'
 require 'digest/md5'
-require './my_ruby_library/weather.rb'
 require './my_ruby_library/login_data.rb'
 require 'cgi'
 require 'cgi/session'
@@ -66,7 +65,7 @@ if(signin_frag==1)
   else
 
     #セッションを新規作成してuser_idを設定
-    session = CGI::Session.new(cgi,{"new_session"=>true
+    session = CGI::Session.new(cgi,{"new_session"=>true,
                                     "session_expires"=> Time.now + 3600 })
     session['user_id'] = user_id.user_id
     #closeしてセッション情報をサーバに書き込む
