@@ -225,6 +225,8 @@
           </tbody>
         </table>
       </div>
+    </div>
+  </div>
 
 
   <!-- footer -->
@@ -267,7 +269,7 @@
           colors = ["#FBE9E7","#FFCCBC","#FF8A65","#FF7043","#FF5722","#F4511E","#E64A19","#D84315","#BF360C"], // alternatively colorbrewer.YlGnBu[9]
           days = ["日", "月", "火", "水", "木", "金", "土"],
           times = ["1am", "2am", "3am", "4am", "5am", "6am", "7am", "8am", "9am", "10am", "11am", "12am", "1pm", "2pm", "3pm", "4pm", "5pm", "6pm", "7pm", "8pm", "9pm", "10pm", "11pm", "12pm"];
-          datasets = ["<%= "#{session['user_id']}" %>.tsv", "data.tsv"];
+          datasets = ["./tsv_data/<%= "#{session['user_id']}" %>.tsv", "data.tsv"];
 
       var svg = d3.select("#chart").append("svg")
           .attr("width", width + margin.left + margin.right)
