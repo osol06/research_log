@@ -154,6 +154,28 @@
             <tbody>
               <tr>
                 <td>
+
+                  <div style="width:100%; height:200px; background-color:red; position: relative;">
+                    <div id='anime1' style="width:10px; height:10px; background-color:blue; position: absolute;">
+                    </div>
+                    <div id='anime2' style="width:10px; height:10px; background-color:blue; position: absolute; top:10%;">
+                    </div>
+                    <div id='anime3' style="width:10px; height:10px; background-color:blue; position: absolute; top:20%;">
+                    </div>
+                    <div id='anime4' style="width:10px; height:10px; background-color:blue; position: absolute; top:30%;">
+                    </div>
+                    <div id='anime5' style="width:10px; height:10px; background-color:blue; position: absolute; top:40%;">
+                    </div>
+                    <div id='anime6' style="width:10px; height:10px; background-color:blue; position: absolute; top:50%;">
+                    </div>
+                    <div id='anime7' style="width:10px; height:10px; background-color:blue; position: absolute; top:60%;">
+                    </div>
+
+                  </div>
+
+                  <button id="testbt"></button>
+
+
                   <div style="float:left; margin-top: 50px;">
                     <ul style="list-style:none;">
 
@@ -381,6 +403,9 @@
   <script src="http://momentjs.com/downloads/moment.js"></script>
   <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
   <script src="js/scrolltable/jquery.scrolltable.js"></script>
+  <script src="js/jQueryTween/jQueryTween-aio-min.js"></script>
+
+  </script>
 
 
   <!-- 自分で書いたスクリプト -->
@@ -495,6 +520,20 @@
 
        }
      });
+     $("#testbt").click(function(){
+
+        $('#anime1').jQueryTween({ to: { position: { left: '0%' } } });
+        $('#anime2').jQueryTween({ to: { position: { left: '10%' } } });
+        $('#anime3').jQueryTween({ to: { position: { left: '20%' } } });
+        $('#anime4').jQueryTween({ to: { position: { left: '30%' } } });
+        $('#anime5').jQueryTween({ to: { position: { left: '40%' } } });
+        $('#anime6').jQueryTween({ to: { position: { left: '50%' } } });
+        $('#anime7').jQueryTween({ to: { position: { left: '60%' } } });
+
+      });
+
+
+
 
   });
 
