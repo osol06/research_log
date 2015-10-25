@@ -103,10 +103,9 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td>
-                      <h5>連続ログイン　<strong>4日目</strong></h5>
-                      <h5>ランキング　　<strong>第2位</strong></h5>
-                      <h5>合計学習時間　<strong>380時間</strong></h5>
+                    <td class="text-center">
+                      <h5>学習時間ランキング<br><strong style="font-size:16pt;"><div style="margin:4px;">第<%= total_time_rank(session['user_id']) %>位</div></strong></h5>
+                      <h5>合計学習時間　<br><strong style="font-size:16pt;";"><div style="margin:4px;"><%= total_time_week_all(session['user_id']) %>時間</div></strong></h5>
                     </td>
                   </tr>
                 </tbody>
