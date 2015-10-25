@@ -29,6 +29,7 @@
 
   <!-- DateTimePickerの読み込み -->
   <link href="css/datetimepicker/jquery.datetimepicker.css" rel="stylesheet" type="text/css" >
+  <link href="css/timepicker/jquery.timepicker.css" rel="stylesheet" type="text/css">
 
   <!-- my_cssの読み込み -->
   <link href="css/my_css.css" rel="stylesheet" type="text/css" >
@@ -220,11 +221,10 @@
                         <!-- 作業時間の入力 -->
                         <p style="margin: 15px 10px;" >
                           <label for="start_time">作業した時間を入力</label>
-                          <div class="form-inline" style="margin:0px 0px 0px 10px;">
-                            <label>開始時間</label>
-                            <input id="datetimepicker_start" class="form-control" type="text" name="start_time" />
+                          <div id="timepicker" class="form-inline" style="margin:0px 0px 0px 10px;">
+                            <input class="time start form-control" type="text" name="start_time" style="width:80px;" />
                             <label>から</label>
-                            <input id="datetimepicker_finish" class="form-control" type="text" name="finish_time" />
+                            <input class="time end form-control" type="text" name="finish_time" />
                             <label>まで</label>
                           </div>
                         </p>
@@ -397,6 +397,9 @@
       <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
       <script src="js/scrolltable/jquery.scrolltable.js"></script>
       <script src="js/jQueryTween/jQueryTween-aio-min.js"></script>
+      <script src="js/timepicker/jquery.timepicker.js"></script>
+
+      </script>
 
       <!-- 自分で書いたスクリプト -->
       <script src="js/my_library/current_time.js"></script>
@@ -474,6 +477,63 @@
         // 現在の日付を表示するメソッド
         current_time(date);
 
+        // 時間入力
+        $('#timepicker .start').timepicker({
+          'timeFormat': 'H:i'
+        });
+
+        var date2 = new Date
+
+        // 今の時間をセットする
+        $('#timepicker .start').timepicker('setTime', (date2.getHours() - 1) + ":" + date2.getMinutes());
+
+        // durationを設定するために値を取得
+        start_time = $('#timepicker .start').val();
+
+        $('#timepicker .end').timepicker({
+          'durationTime' : start_time ,
+          'showDuration': true,
+          'maxTime': '23:59',
+          'timeFormat': 'H:i'
+        });
+
+        $('#timepicker .end').timepicker('setTime', date2.getHours() + ":" + date2.getMinutes());
+
+        // 始まりの時間が入力されるたびに呼ばれる
+        $('#timepicker .start').on('changeTime', function(){
+          start_time = $('#timepicker .start').val();
+          var date3 = $('#timepicker .start').timepicker('getTime', new Date());
+
+          // 一回エレメントを削除
+          $('#timepicker .end').timepicker('remove');
+
+          // durationを設定して追加する
+          $('#timepicker .end').timepicker({
+            'durationTime' : start_time ,
+            'showDuration': true,
+            'maxTime': '23:59',
+            'timeFormat': 'H:i'
+          });
+
+          var hours = date3.getHours() + 1;
+          var minutes = date3.getMinutes();
+
+          if( Number(date3.getHours()) >= 22 ){
+            hours = date3.getHours();
+            minutes = '30'
+          }
+
+          $('#timepicker .end').timepicker('setTime', hours + ":" + minutes );
+
+        });
+
+/*
+        $('#timepicker .end').timepicker({
+          'timeFormat': 'H:i'
+        });
+        */
+
+/*
         // 開始時間のUIの設定
         $('#datetimepicker_start').datetimepicker({
           format: 'Y-m-d H:i',
@@ -485,6 +545,7 @@
           format: 'Y-m-d H:i',
           lang: 'ja'
         });
+*/
 
         // onclickが何回押されたかを判定するフラグ
         var flg = 'default'
