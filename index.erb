@@ -27,8 +27,7 @@
 
   <link rel="stylesheet" href="http://code.jquery.com/ui/1.8.22/themes/base/jquery-ui.css" type="text/css" />
 
-  <!-- DateTimePickerの読み込み -->
-  <link href="css/datetimepicker/jquery.datetimepicker.css" rel="stylesheet" type="text/css" >
+  <!-- TimePickerの読み込み -->
   <link href="css/timepicker/jquery.timepicker.css" rel="stylesheet" type="text/css">
 
   <!-- my_cssの読み込み -->
@@ -161,14 +160,22 @@
                       <div id="high_priority">
                         <div class="btn-group" data-toggle="buttons" style="margin-left: 10px; margin-top:-20px;">
 
+                          <% count = 0%>
                           <% task_name = Task_name.where(user_id: user_id) %>
                           <% task_name = task_name.order("count desc") %>
                           <% task_name.first(5).each do |name| %>
+
+                          <%  if(count == 0) %>
+                              <label class="btn btn-default active">
+                                <input type="radio" autocomplete="off" name="task_name" value="<%= "#{name.task_name}" %>"><%= "#{name.task_name}".force_encoding("utf-8") %>
+                              </label>
+                          <%  end %>
 
                           <label class="btn btn-default">
                             <input type="radio" autocomplete="off" name="task_name" value="<%= "#{name.task_name}" %>"><%= "#{name.task_name}".force_encoding("utf-8") %>
                           </label>
 
+                          <% count = count + 1%>
                           <% end %>
 
                         </div>
@@ -177,12 +184,20 @@
                       <div id="other_task" style="display:none; margin-left: 10px; margin-top:-15px; margin-bottom:4.3px;" >
                         <div class="btn-group" data-toggle="buttons">
 
+                          <% count2 = 0%>
                           <% task_name.each do |name| %>
+
+                          <%  if(count2 == 0) %>
+                              <label class="btn btn-default active">
+                                <input type="radio" autocomplete="off" name="task_name" value="<%= "#{name.task_name}" %>"><%= "#{name.task_name}".force_encoding("utf-8") %>
+                              </label>
+                          <%  end %>
 
                           <label class="btn btn-default">
                             <input type="radio" autocomplete="off" name="task_name" value="<%= "#{name.task_name}" %>"> <%= "#{name.task_name}".force_encoding("utf-8") %>
                           </label>
 
+                          <%  count2 = count2 + 1 %>
                           <% end %>
 
                         </div>
@@ -198,7 +213,7 @@
                     <p style="margin: 15px 10px;">
                       <label for="group_frag">一人 or グループでの学習</label>
                       <div class="btn-group" data-toggle="buttons" style="margin-left: 10px; margin-top:-20px;">
-                        <label class="btn btn-default">
+                        <label class="btn btn-default active">
                           <input type="radio" autocomplete="off" name="group_frag" value="0">一人で学習
                         </label>
                         <label class="btn btn-default">
@@ -208,9 +223,9 @@
 
                       <!-- 音楽ありなしかの選択 -->
                       <p style="margin: 15px 10px;">
-                        <label for="group_frag">一人 or グループでの学習</label>
+                        <label for="group_frag">音楽なし or 音楽あり</label>
                         <div class="btn-group" data-toggle="buttons" style="margin-left: 10px; margin-top:-20px;">
-                          <label class="btn btn-default">
+                          <label class="btn btn-default active">
                             <input type="radio" autocomplete="off" name="music_frag" value="0">音楽なし
                           </label>
                           <label class="btn btn-default">
@@ -221,11 +236,10 @@
                         <!-- 作業時間の入力 -->
                         <p style="margin: 15px 10px;" >
                           <label for="start_time">作業した時間を入力</label>
-                          <div id="timepicker" class="form-inline" style="margin:0px 0px 0px 10px;">
+                          <div id="timepicker" class="form-inline" style="margin-top:-15px; margin-left:10px;">
                             <input class="time start form-control" type="text" name="start_time" style="width:80px;" />
                             <label>から</label>
-                            <input class="time end form-control" type="text" name="finish_time" />
-                            <label>まで</label>
+                            <input class="time end form-control" type="text" name="finish_time" style="width:80px;" />
                           </div>
                         </p>
 
@@ -384,14 +398,12 @@
           </div>
         </div>
 
-
       <!-- javascriptの読み込み -->
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
       <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.22/jquery-ui.min.js"></script>
       <script src="js/bootstrap/bootstrap.min.js"></script>
 
       <!-- ライブラリ -->
-      <script src="js/datetimepicker/jquery.datetimepicker.js"></script>
       <script src="js/Chart/Chart.js"></script>
       <script src="http://momentjs.com/downloads/moment.js"></script>
       <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
@@ -482,7 +494,7 @@
           'timeFormat': 'H:i'
         });
 
-        var date2 = new Date
+        var date2 = new Date();
 
         // 今の時間をセットする
         $('#timepicker .start').timepicker('setTime', (date2.getHours() - 1) + ":" + date2.getMinutes());
@@ -527,25 +539,6 @@
 
         });
 
-/*
-        $('#timepicker .end').timepicker({
-          'timeFormat': 'H:i'
-        });
-        */
-
-/*
-        // 開始時間のUIの設定
-        $('#datetimepicker_start').datetimepicker({
-          format: 'Y-m-d H:i',
-          lang: 'ja'
-        });
-
-        // 終了時間のUIの設定
-        $('#datetimepicker_finish').datetimepicker({
-          format: 'Y-m-d H:i',
-          lang: 'ja'
-        });
-*/
 
         // onclickが何回押されたかを判定するフラグ
         var flg = 'default'
