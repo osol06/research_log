@@ -25,7 +25,7 @@
   <!-- BootStrapの読み込み -->
   <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css">
 
-  <link rel="stylesheet" href="http://code.jquery.com/ui/1.8.22/themes/base/jquery-ui.css" type="text/css" />
+  <link type="text/css" rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/cupertino/jquery-ui.min.css" />
 
   <!-- TimePickerの読み込み -->
   <link href="css/timepicker/jquery.timepicker.css" rel="stylesheet" type="text/css">
@@ -146,7 +146,7 @@
         <div class="panel panel-default">
           <table class="table table-bordered">
             <thead>
-              <tr><th><span id="date"></span>の勉強を記録する</th></tr>
+              <tr><th class="text-center"><span id="date"></span>の勉強を記録する</th></tr>
             </thead>
             <tbody>
               <tr>
@@ -163,19 +163,33 @@
                           <% count = 0%>
                           <% task_name = Task_name.where(user_id: user_id) %>
                           <% task_name = task_name.order("count desc") %>
+                          <% task_name.count %>
+                          <% if(task_name.count == 0)%>
+
+                          <h5 class="text-danger"><span class="glyphicon glyphicon-exclamation-sign"></span>タスクがありません<h5>
+
+                          <% else %>
+
                           <% task_name.first(5).each do |name| %>
 
                           <%  if(count == 0) %>
-                              <label class="btn btn-default active">
-                                <input type="radio" autocomplete="off" name="task_name" value="<%= "#{name.task_name}" %>"><%= "#{name.task_name}".force_encoding("utf-8") %>
-                              </label>
-                          <%  end %>
 
-                          <label class="btn btn-default">
-                            <input type="radio" autocomplete="off" name="task_name" value="<%= "#{name.task_name}" %>"><%= "#{name.task_name}".force_encoding("utf-8") %>
+                          <label class="btn btn-default active">
+                            <input type="radio" autocomplete="off" name="task_name_id" value="<%= "#{name.task_name_id}" %>" checked><%= "#{name.task_name}".force_encoding("utf-8") %>
                           </label>
 
+                          <%  else %>
+
+                          <label class="btn btn-default">
+                            <input type="radio" autocomplete="off" name="task_name_id" value="<%= "#{name.task_name_id}" %>"><%= "#{name.task_name}".force_encoding("utf-8") %>
+                          </label>
+
+                          <%  end %>
+
                           <% count = count + 1%>
+
+                          <% end %>
+
                           <% end %>
 
                         </div>
@@ -188,14 +202,17 @@
                           <% task_name.each do |name| %>
 
                           <%  if(count2 == 0) %>
-                              <label class="btn btn-default active">
-                                <input type="radio" autocomplete="off" name="task_name" value="<%= "#{name.task_name}" %>"><%= "#{name.task_name}".force_encoding("utf-8") %>
-                              </label>
-                          <%  end %>
+                          <label class="btn btn-default active">
+                            <input type="radio" autocomplete="off" name="task_name_id" value="<%= "#{name.task_name_id}" %>" checked><%= "#{name.task_name}".force_encoding("utf-8") %>
+                          </label>
+
+                          <%  else %>
 
                           <label class="btn btn-default">
-                            <input type="radio" autocomplete="off" name="task_name" value="<%= "#{name.task_name}" %>"> <%= "#{name.task_name}".force_encoding("utf-8") %>
+                            <input type="radio" autocomplete="off" name="task_name_id" value="<%= "#{name.task_name_id}" %>"> <%= "#{name.task_name}".force_encoding("utf-8") %>
                           </label>
+
+                          <%  end %>
 
                           <%  count2 = count2 + 1 %>
                           <% end %>
@@ -204,7 +221,9 @@
                       </div>
 
                       <div style="margin-left: 10px; margin-top: 3px;">
+                      <% if(task_name.count != 0)%>
                         <button id="other_bottun" type="button" class="btn btn-info other_click" ><i class="glyphicon glyphicon-file"></i> その他のタスク</button>
+                      <% end %>
                         <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal"><i class="glyphicon glyphicon-plus"></i> 新しいタスクの追加</button>
                       </div>
                     </p>
@@ -214,7 +233,7 @@
                       <label for="group_frag">一人 or グループでの学習</label>
                       <div class="btn-group" data-toggle="buttons" style="margin-left: 10px; margin-top:-20px;">
                         <label class="btn btn-default active">
-                          <input type="radio" autocomplete="off" name="group_frag" value="0">一人で学習
+                          <input type="radio" autocomplete="off" name="group_frag" value="0" checked>一人で学習
                         </label>
                         <label class="btn btn-default">
                           <input type="radio" autocomplete="off" name="group_frag" value="1">グループで学習
@@ -226,7 +245,7 @@
                         <label for="group_frag">音楽なし or 音楽あり</label>
                         <div class="btn-group" data-toggle="buttons" style="margin-left: 10px; margin-top:-20px;">
                           <label class="btn btn-default active">
-                            <input type="radio" autocomplete="off" name="music_frag" value="0">音楽なし
+                            <input type="radio" autocomplete="off" name="music_frag" value="0" checked>音楽なし
                           </label>
                           <label class="btn btn-default">
                             <input type="radio" autocomplete="off" name="music_frag" value="1">音楽あり
@@ -236,10 +255,11 @@
                         <!-- 作業時間の入力 -->
                         <p style="margin: 15px 10px;" >
                           <label for="start_time">作業した時間を入力</label>
-                          <div id="timepicker" class="form-inline" style="margin-top:-15px; margin-left:10px;">
-                            <input class="time start form-control" type="text" name="start_time" style="width:80px;" />
+                          <div id="picker" class="form-inline" style="margin-top:-15px; margin-left:10px;">
+                            <input id="datepicker" class="form-control" type="text" name="date" style="width:105px;" />
+                            <input class="time start form-control" type="text" name="start_time" style="width:70px;" />
                             <label>から</label>
-                            <input class="time end form-control" type="text" name="finish_time" style="width:80px;" />
+                            <input class="time end form-control" type="text" name="finish_time" style="width:70px;" />
                           </div>
                         </p>
 
@@ -251,7 +271,9 @@
                         </p>
 
                         <p style="margin: 15px 10px;">
+                        <% if(task_name.count != 0)%>
                           <button type="submit" class="btn btn-success">記録する</button>
+                        <% end %>
                         </p>
 
                       </div>
@@ -398,186 +420,196 @@
           </div>
         </div>
 
-      <!-- javascriptの読み込み -->
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-      <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.22/jquery-ui.min.js"></script>
-      <script src="js/bootstrap/bootstrap.min.js"></script>
+        <!-- javascriptの読み込み -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
+        <script src="js/bootstrap/bootstrap.min.js"></script>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/i18n/jquery-ui-i18n.min.js"></script>
 
-      <!-- ライブラリ -->
-      <script src="js/Chart/Chart.js"></script>
-      <script src="http://momentjs.com/downloads/moment.js"></script>
-      <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-      <script src="js/scrolltable/jquery.scrolltable.js"></script>
-      <script src="js/jQueryTween/jQueryTween-aio-min.js"></script>
-      <script src="js/timepicker/jquery.timepicker.js"></script>
+        <!-- ライブラリ -->
+        <script src="js/Chart/Chart.js"></script>
+        <script src="http://momentjs.com/downloads/moment.js"></script>
+        <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+        <script src="js/scrolltable/jquery.scrolltable.js"></script>
+        <script src="js/jQueryTween/jQueryTween-aio-min.js"></script>
+        <script src="js/timepicker/jquery.timepicker.js"></script>
 
       </script>
 
       <!-- 自分で書いたスクリプト -->
       <script src="js/my_library/current_time.js"></script>
 
-    <script>
+      <script>
 
-    // みんなの学習時間をバブルチャートとして表示する処理
-    var list = {
-      "name": "長野県",
-      "children": [
-        {
-          "name": "塩尻市",
-          "children": [
+      // みんなの学習時間をバブルチャートとして表示する処理
+      var list = {
+        "name": "長野県",
+        "children": [
+          {
+            "name": "塩尻市",
+            "children": [
 
-            <% #みんなの合計学習時間の表示  %>
-            <% total_time.each{|key,value| %>
-              { "name": "<%= "#{key}".force_encoding("utf-8") %>" , "households": <%= value %> + 10 },
-              <% } %>
+              <% #みんなの合計学習時間の表示  %>
+              <% total_time.each{|key,value| %>
+                { "name": "<%= "#{key}".force_encoding("utf-8") %>" , "households": <%= value %> + 10 },
+                <% } %>
 
-            ]
+              ]
+            }
+          ]
+        };
+        var svgWidth = 300; // SVG領域の横幅
+        var svgHeight = 250;    // SVG領域の縦幅
+        var diameter = 250; // 一番大きい円のサイズ
+        var color = ["none", "#ffa0a0", "#a0a0ff", "orange", "#ffe090", "#a0ff90", "cyan", "#ccc", "#ff8080", "#c0ffc0", "#4090ff"];
+        var svg = d3.select("#myGraph").append("svg")
+        .attr("width", svgWidth).attr("height", svgHeight)
+        var bubble = d3.layout.pack()
+        .size([diameter, diameter]) // 表示サイズを指定
+        var grp = svg.selectAll("g")    // グループを対象にする
+        .data(bubble.nodes(classes(list)))  // データを読み込む
+        .enter()
+        .append("g")
+        .attr("transform", function(d) {    // 円のX,Y座標を設定
+          return "translate(" + d.x + "," + d.y + ")";
+        })
+        grp.append("circle")    // 円を生成する
+        .attr("r", function(d){ // 円を指定した半径にする
+          return d.r;
+        })
+        .attr("fill", function(d,i){    // 塗りの色を指定
+          return color[i];
+        })
+        grp.append("text")  // 文字を生成する
+        .attr("font-size", "10pt")   // 文字のサイズを指定する
+        .attr("fill", "black")  // 文字の塗りの色を指定する
+        .style("text-anchor", "middle") // 円の座標の中央から表示するようにする
+        .text(function(d) { return d.className; } ) // データの中のclassNameが地区名なので、それを出力
+        // 階層化されたJSONデータをフラット化する (D3.js本家のを少し変更して利用)
+        function classes(root) {
+          var classes = [];
+          function recurse(name, node) {
+            if (node.children) node.children.forEach(function(child) { recurse(node.name, child); });
+            else classes.push({packageName: name, className: node.name, value: node.households});
           }
-        ]
-      };
-      var svgWidth = 300; // SVG領域の横幅
-      var svgHeight = 250;    // SVG領域の縦幅
-      var diameter = 250; // 一番大きい円のサイズ
-      var color = ["none", "#ffa0a0", "#a0a0ff", "orange", "#ffe090", "#a0ff90", "cyan", "#ccc", "#ff8080", "#c0ffc0", "#4090ff"];
-      var svg = d3.select("#myGraph").append("svg")
-      .attr("width", svgWidth).attr("height", svgHeight)
-      var bubble = d3.layout.pack()
-      .size([diameter, diameter]) // 表示サイズを指定
-      var grp = svg.selectAll("g")    // グループを対象にする
-      .data(bubble.nodes(classes(list)))  // データを読み込む
-      .enter()
-      .append("g")
-      .attr("transform", function(d) {    // 円のX,Y座標を設定
-        return "translate(" + d.x + "," + d.y + ")";
-      })
-      grp.append("circle")    // 円を生成する
-      .attr("r", function(d){ // 円を指定した半径にする
-        return d.r;
-      })
-      .attr("fill", function(d,i){    // 塗りの色を指定
-        return color[i];
-      })
-      grp.append("text")  // 文字を生成する
-      .attr("font-size", "10pt")   // 文字のサイズを指定する
-      .attr("fill", "black")  // 文字の塗りの色を指定する
-      .style("text-anchor", "middle") // 円の座標の中央から表示するようにする
-      .text(function(d) { return d.className; } ) // データの中のclassNameが地区名なので、それを出力
-      // 階層化されたJSONデータをフラット化する (D3.js本家のを少し変更して利用)
-      function classes(root) {
-        var classes = [];
-        function recurse(name, node) {
-          if (node.children) node.children.forEach(function(child) { recurse(node.name, child); });
-          else classes.push({packageName: name, className: node.name, value: node.households});
+          recurse(null, root);
+          return {children: classes};
         }
-        recurse(null, root);
-        return {children: classes};
-      }
 
 
-      // 現在の日付を取得
-      var m = moment();
-      var date = m.format("YYYY年MM月DD日");
-
-
-      $(function (){
-
-        // テーブルにスクロールバーを付ける処理
-        $('.scrollTable').scrolltable({
-          maxHeight: 500
-        });
-
-        // 現在の日付を表示するメソッド
-        current_time(date);
-
-        // 時間入力
-        $('#timepicker .start').timepicker({
-          'timeFormat': 'H:i'
-        });
+        // 現在の日付を取得
+        var m = moment();
+        var date = m.format("YYYY年MM月DD日");
 
         var date2 = new Date();
+        var date4 = new Date();
 
-        // 今の時間をセットする
-        $('#timepicker .start').timepicker('setTime', (date2.getHours() - 1) + ":" + date2.getMinutes());
 
-        // durationを設定するために値を取得
-        start_time = $('#timepicker .start').val();
+        $(function (){
 
-        $('#timepicker .end').timepicker({
-          'durationTime' : start_time ,
-          'showDuration': true,
-          'maxTime': '23:59',
-          'timeFormat': 'H:i'
-        });
+          // テーブルにスクロールバーを付ける処理
+          $('.scrollTable').scrolltable({
+            maxHeight: 500
+          });
 
-        $('#timepicker .end').timepicker('setTime', date2.getHours() + ":" + date2.getMinutes());
+          // 現在の日付を表示するメソッド
+          current_time(date);
 
-        // 始まりの時間が入力されるたびに呼ばれる
-        $('#timepicker .start').on('changeTime', function(){
-          start_time = $('#timepicker .start').val();
-          var date3 = $('#timepicker .start').timepicker('getTime', new Date());
+          // 日付の入力
+          $.datepicker.setDefaults($.datepicker.regional['ja']);
+          // 3日付選択ボックスを生成
+          $('#datepicker').datepicker({ dateFormat: 'yy-mm-dd' });
+          $("#datepicker").datepicker("setDate", date2.getFullYear() + "-" + (date2.getMonth() + 1) + "-" + date2.getDate());
 
-          // 一回エレメントを削除
-          $('#timepicker .end').timepicker('remove');
+          // 時間入力
+          $('.start').timepicker({
+            'timeFormat': 'H:i'
+          });
 
-          // durationを設定して追加する
-          $('#timepicker .end').timepicker({
-            'durationTime' : start_time ,
+
+          // durationを設定するために値を取得
+          start_time = $('.start').val();
+
+          $('.end').timepicker({
+            'scrollDefault': start_time,
+            'durationTime' : start_time,
             'showDuration': true,
             'maxTime': '23:59',
             'timeFormat': 'H:i'
           });
 
-          var hours = date3.getHours() + 1;
-          var minutes = date3.getMinutes();
+          // 今の時間をセットする
+          $('.start').timepicker('setTime', (date4.getHours() - 1) + ":" + date4.getMinutes());
+          $('.end').timepicker('setTime', date4.getHours() + ":" + date4.getMinutes());
 
-          if( Number(date3.getHours()) >= 22 ){
-            hours = date3.getHours();
-            minutes = '30'
-          }
+          // 始まりの時間が入力されるたびに呼ばれる
+          $('.start').on('changeTime', function(){
+            start_time = $('.start').val();
+            var date3 = $('.start').timepicker('getTime', new Date());
 
-          $('#timepicker .end').timepicker('setTime', hours + ":" + minutes );
+            // 一回エレメントを削除
+            $('.end').timepicker('remove');
+
+            // durationを設定して追加する
+            $('.end').timepicker({
+              'scrollDefault': start_time,
+              'durationTime' : start_time,
+              'showDuration': true,
+              'maxTime': '23:59',
+              'timeFormat': 'H:i'
+            });
+
+            var hours = date3.getHours() + 1;
+            var minutes = date3.getMinutes();
+
+            if( Number(date3.getHours()) >= 22 ){
+              hours = date3.getHours();
+              minutes = '30'
+            }
+
+            $('.end').timepicker('setTime', hours + ":" + minutes );
+
+          });
+
+
+          // onclickが何回押されたかを判定するフラグ
+          var flg = 'default'
+
+          // その他のタスクボタンのイベントメソッド
+          $('.other_click').click(function(){
+
+            if(flg == 'default'){
+
+              $('#other_task').show()
+              $('#high_priority').hide()
+              $("#other_bottun").text("よく記録するタスク");
+
+              flg = "changed";
+
+            }else{
+
+              $('#other_task').hide()
+              $('#high_priority').show()
+              $("#other_bottun").text("その他のタスク");
+
+              flg = 'default';
+
+            }
+          });
+          $("#testbt").click(function(){
+
+            $('#anime1').jQueryTween({ to: { position: { left: '0%' } } });
+            $('#anime2').jQueryTween({ to: { position: { left: '10%' } } });
+            $('#anime3').jQueryTween({ to: { position: { left: '20%' } } });
+            $('#anime4').jQueryTween({ to: { position: { left: '30%' } } });
+            $('#anime5').jQueryTween({ to: { position: { left: '40%' } } });
+            $('#anime6').jQueryTween({ to: { position: { left: '50%' } } });
+            $('#anime7').jQueryTween({ to: { position: { left: '60%' } } });
+
+          });
 
         });
 
-
-        // onclickが何回押されたかを判定するフラグ
-        var flg = 'default'
-
-        // その他のタスクボタンのイベントメソッド
-        $('.other_click').click(function(){
-
-          if(flg == 'default'){
-
-            $('#other_task').show()
-            $('#high_priority').hide()
-            $("#other_bottun").text("よく記録するタスク");
-
-            flg = "changed";
-
-          }else{
-
-            $('#other_task').hide()
-            $('#high_priority').show()
-            $("#other_bottun").text("その他のタスク");
-
-            flg = 'default';
-
-          }
-        });
-        $("#testbt").click(function(){
-
-          $('#anime1').jQueryTween({ to: { position: { left: '0%' } } });
-          $('#anime2').jQueryTween({ to: { position: { left: '10%' } } });
-          $('#anime3').jQueryTween({ to: { position: { left: '20%' } } });
-          $('#anime4').jQueryTween({ to: { position: { left: '30%' } } });
-          $('#anime5').jQueryTween({ to: { position: { left: '40%' } } });
-          $('#anime6').jQueryTween({ to: { position: { left: '50%' } } });
-          $('#anime7').jQueryTween({ to: { position: { left: '60%' } } });
-
-        });
-
-      });
-
-      </script>
-    </body>
-    </html>
+        </script>
+      </body>
+      </html>
