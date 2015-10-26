@@ -14,7 +14,8 @@ def task_time(task_id)
   return time.total
 end
 
-def user_rank_percent(user_id)
+# ユーザidをキーに本日の学習時間量一位に対する割合が入ったハッシュを返すメソッド
+def user_rank_percent
 
   # ユーザidと本日の合計学習時間がはいったハッシュ
   total_time = {}
