@@ -6,7 +6,8 @@
 <% require './data_model.rb'%>
 <% require './my_ruby_library/weather.rb' %>
 <% require './my_ruby_library/login_data.rb' %>
-<% require './total_learning_time.rb'%>
+<% require './total_learning_time.rb' %>
+<% require './database_my_library.rb' %>
 
 <% weather = weather() %>
 <% total_time = total_learning_time() %>
@@ -104,8 +105,8 @@
                 <tbody>
                   <tr>
                     <td class="text-center">
-                      <h5>学習時間ランキング<br><strong style="font-size:16pt;"><div style="margin:4px;">第<%= total_time_rank(session['user_id']) %>位</div></strong></h5>
-                      <h5>合計学習時間　<br><strong style="font-size:16pt;";"><div style="margin:4px;"><%= total_time_week_all(session['user_id']) %>時間</div></strong></h5>
+                      <h5>学習時間ランキング<br><strong style="font-size:14pt;"><div style="margin:4px;">第<%= total_time_rank(session['user_id']) %>位</div></strong></h5>
+                      <h5>合計学習時間<br><strong style="font-size:14pt;";"><div style="margin:4px;"><%= total_time_week_all(session['user_id']) %>時間</div></strong></h5>
                     </td>
                   </tr>
                 </tbody>
@@ -290,13 +291,13 @@
                 <div class="panel panel-default">
                   <table class="table table-bordered scrollTable">
                     <thead>
-                      <tr><th class="text-center">タイムライン</th></tr>
+                      <tr><th class="text-center" style="height:35px;" >タイムライン</th></tr>
                     </thead>
                     <tbody>
                       <tr>
                         <td>
                           <ul class="media-list" >
-                            <hr>
+                            <div styel="height:13px;"></div>
 
                             <% task = Task.all.order("task_id desc").limit(100)%>
                             <% task.each do |row| %>
@@ -305,10 +306,11 @@
                             <li class="media">
                               <!-- pull-right にすると、画像が右端に表示される -->
                               <a class="media-left" href="#">
-                                <img class="media-object" src="images/<%= "#{image_name.image_name}" %>" alt="写真" width="70" height="70" class="img-responsive" >
+                                <img src="images/<%= "#{image_name.image_name}" %>" alt="写真" width="80" height="80" style="margin:10px;" class="media-object img-thumbnail img-responsive center-block" >
                               </a>
                               <div class="media-body">
                                 <h4 class="media-heading"> <%= "#{image_name.user_name}".force_encoding("utf-8") %> </h4>
+                                <h5 class="text-info"><strong>英単語 <%= "#{task_time(row.task_id)}".to_i %>分</strong></h5>
                                 <%= "#{row.comment}".force_encoding("utf-8") %>
                               </div>
                             </li>
@@ -326,7 +328,7 @@
             </div>
           </div>
 
-          <!-- タイムライン表示 -->
+          <!-- 学習時間ランキング -->
           <div class="col-sm-5">
             <div class="panel panel-default">
               <table class="table table-bordered">
