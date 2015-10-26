@@ -52,7 +52,51 @@ def user_rank_percent(user_id)
 
   end
 
-  p total_time
+  # 学習時間が多い順にソートする
+  total_time_sorted = total_time.sort_by{|key,val| -val}
+
+  # ハッシュの要素数
+  count = 1
+
+  # 一位の人の学習時間を入れる変数
+  first_rank_time = 0
+
+  #user_idと一位の学習時間に対するパーセンテージを入れるハッシュ
+  user_id_with_percent = {}
+
+  p total_time_sorted
+
+  total_time_sorted.each{ |key, value|
+
+    if(count == 1)
+
+      # まだ誰も記録していない
+      if(value == 0)
+
+        # 分母を適当に設定
+        first_rank_time = 1
+        first_percent = 0
+
+      else
+
+        first_rank_time = value
+        first_percent = 100
+
+      end
+
+      user_id_with_percent["#{key}"] = first_percent
+
+    else
+
+      percent = (value.to_f / first_rank_time.to_f) * 100
+      user_id_with_percent["#{key}"] = percent
+
+    end
+
+    count = count + 1
+  }
+
+p user_id_with_percent
 
 end
 
