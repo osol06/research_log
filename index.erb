@@ -339,21 +339,17 @@
                   <tr>
                     <td>
 
-                      <div style="width:100%; height:200px; background-color:red; position: relative;">
-                        <div id='anime1' style="width:10px; height:10px; background-color:blue; position: absolute;">
-                        </div>
-                        <div id='anime2' style="width:10px; height:10px; background-color:blue; position: absolute; top:10%;">
-                        </div>
-                        <div id='anime3' style="width:10px; height:10px; background-color:blue; position: absolute; top:20%;">
-                        </div>
-                        <div id='anime4' style="width:10px; height:10px; background-color:blue; position: absolute; top:30%;">
-                        </div>
-                        <div id='anime5' style="width:10px; height:10px; background-color:blue; position: absolute; top:40%;">
-                        </div>
-                        <div id='anime6' style="width:10px; height:10px; background-color:blue; position: absolute; top:50%;">
-                        </div>
-                        <div id='anime7' style="width:10px; height:10px; background-color:blue; position: absolute; top:60%;">
-                        </div>
+                      <div style="width:90%; height:300px; background-color:red; position: relative;">
+
+                        <% top = 0 %>
+                        <% user = User.all %>
+                        <% user.each do |row| %>
+
+                        <div id='anime<%= "#{row.user_id}" %>' style="width:10px; height:10px; background-color:blue; position: absolute; top:<%= top %>%;"><%= "#{row.user_name}" %></div>
+
+                        <%  top = top + 10 %>
+                        <% end  %>
+
                       </div>
 
                       <button id="testbt"></button>
@@ -597,15 +593,16 @@
 
               }
             });
+
             $("#testbt").click(function(){
 
-              $('#anime1').jQueryTween({ to: { position: { left: '0%' } } });
-              $('#anime2').jQueryTween({ to: { position: { left: '10%' } } });
-              $('#anime3').jQueryTween({ to: { position: { left: '20%' } } });
-              $('#anime4').jQueryTween({ to: { position: { left: '30%' } } });
-              $('#anime5').jQueryTween({ to: { position: { left: '40%' } } });
-              $('#anime6').jQueryTween({ to: { position: { left: '50%' } } });
-              $('#anime7').jQueryTween({ to: { position: { left: '60%' } } });
+              <% user_rank_percent = user_rank_percent() %>
+              <% user = User.all %>
+              <% user.each do |row| %>
+
+              $('#anime<%= "#{row.user_id}" %>').jQueryTween({ to: { position: { left: '<%= "#{user_rank_percent["#{row.user_id}"].to_i}" %>%' } }, duration: 1000,easing:TWEEN.Easing.Elastic.In } );
+
+              <% end %>
 
             });
 

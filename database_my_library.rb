@@ -65,7 +65,6 @@ def user_rank_percent
   #user_idと一位の学習時間に対するパーセンテージを入れるハッシュ
   user_id_with_percent = {}
 
-  p total_time_sorted
 
   total_time_sorted.each{ |key, value|
 
@@ -97,10 +96,10 @@ def user_rank_percent
     count = count + 1
   }
 
-p user_id_with_percent
+  return user_id_with_percent
 
 end
 
 # デバッグ
 # task_time(99)
-user_rank_percent(1)
+# user_rank_percent()
