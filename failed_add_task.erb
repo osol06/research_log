@@ -163,34 +163,11 @@
                           <% count = 0%>
                           <% task_name = Task_name.where(user_id: user_id) %>
                           <% task_name = task_name.order("count desc") %>
-                          <% task_name.count %>
-                          <% if(task_name.count == 0)%>
+                          <% task_name_one = Task_name.find(task_name_id)%>
 
-                          <h5 class="text-danger"><span class="glyphicon glyphicon-exclamation-sign"></span>タスクがありません<h5>
-
-                            <% else %>
-
-                            <% task_name.first(5).each do |name| %>
-
-                            <%  if(count == 0) %>
-
-                            <label class="btn btn-default active">
-                              <input type="radio" autocomplete="off" name="task_name_id" value="<%= "#{name.task_name_id}" %>" checked><%= "#{name.task_name}".force_encoding("utf-8") %>
-                            </label>
-
-                            <%  else %>
-
-                            <label class="btn btn-default">
-                              <input type="radio" autocomplete="off" name="task_name_id" value="<%= "#{name.task_name_id}" %>"><%= "#{name.task_name}".force_encoding("utf-8") %>
-                            </label>
-
-                            <%  end %>
-
-                            <% count = count + 1%>
-
-                            <% end %>
-
-                            <% end %>
+                          <label class="btn btn-default active">
+                            <input type="radio" autocomplete="off" name="task_name_id" value="<%= "#{task_name_one.task_name_id}" %>" checked> <%= "#{task_name_one.task_name}".force_encoding("utf-8") %>
+                          </label>
 
                           </div>
                         </div>
@@ -219,6 +196,8 @@
 
                           </div>
                         </div>
+
+                        <p class="text-danger" style="margin-left:10px;">※すでに登録されています</p>
 
                         <div style="margin-left: 10px; margin-top: 3px;">
                           <% if(task_name.count != 0)%>
