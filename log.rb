@@ -7,7 +7,6 @@ require 'rubygems'
 require './data_model.rb'
 require 'digest/md5'
 require './my_ruby_library/weather.rb'
-require './my_ruby_library/login_data.rb'
 require 'cgi'
 require 'cgi/session'
 
@@ -19,20 +18,31 @@ session = CGI::Session.new(cgi)
 weather = weather()
 w_frag = weather_frag("#{weather['telop']}")
 
-login_user = LoginUser.new
+# 時間が入力されているかの判定
+if(cgi['start_time'].empty? || cgi['finish_time'].empty?)
 
-# 選択されたタスクidをもってきて
-# カウントを1つ上げる
-task_name = Task_name.find_by(task_name_id: "#{cgi['task_name_id']}", user_id: session['user_id'] )
+  # 処理の結果を表示する
+  # ERBを、ERBHandlerを経由せずに直接呼び出して利用している
+  template = ERB.new( File.read('failed_log.erb') )
+  puts cgi.header({ 'Content-Type' => 'text/html'})
+  print template.result( binding )
 
-task_name.update(count: task_name.count + 1)
+else
 
-# テーブルにデータを追加する
-# category_idは一旦保留で1を挿入する事にしている
-Task.create(task_id: nil, user_id: "#{session['user_id']}", category_id: 1, task_name_id: task_name.task_name_id, task_name: "#{task_name.task_name}", start_time: "#{cgi['date']} #{cgi['start_time']}", finish_time: "#{cgi['date']} #{cgi['finish_time']}", group_frag: cgi['group_frag'], comment: "#{cgi['comment']}", music_frag: cgi['music_frag'], weather_frag: w_frag )
+  # 選択されたタスクidをもってきて
+  # カウントを1つ上げる
+  task_name = Task_name.find_by(task_name_id: "#{cgi['task_name_id']}", user_id: session['user_id'] )
 
-# 処理の結果を表示する
-# ERBを、ERBHandlerを経由せずに直接呼び出して利用している
-template = ERB.new( File.read('index.erb') )
-puts cgi.header({ 'Content-Type' => 'text/html'})
-print template.result( binding )
+  task_name.update(count: task_name.count + 1)
+
+  # テーブルにデータを追加する
+  # category_idは一旦保留で1を挿入する事にしている
+  Task.create(task_id: nil, user_id: "#{session['user_id']}", category_id: 1, task_name_id: task_name.task_name_id, task_name: "#{task_name.task_name}", start_time: "#{cgi['date']} #{cgi['start_time']}", finish_time: "#{cgi['date']} #{cgi['finish_time']}", group_frag: cgi['group_frag'], comment: "#{cgi['comment']}", music_frag: cgi['music_frag'], weather_frag: w_frag )
+
+  # 処理の結果を表示する
+  # ERBを、ERBHandlerを経由せずに直接呼び出して利用している
+  template = ERB.new( File.read('index.erb') )
+  puts cgi.header({ 'Content-Type' => 'text/html'})
+  print template.result( binding )
+
+end
