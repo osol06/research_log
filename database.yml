@@ -3,12 +3,12 @@ db:
     adapter:  mysql2
     host:     localhost
     username: root
-    password: root
+    password: b1012216
     database: research_log
 
   development:
     adapter:  mysql2
     host:     localhost
     username: root
-    password: root
+    password: b1012216
     database: research_log

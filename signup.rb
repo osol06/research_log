@@ -25,6 +25,8 @@ signin_frag = 1
 pass = Digest::MD5.new.update(cgi['password']).to_s
 # puts pass
 
+random = Random.new
+
 user = User.all
 user.each do |row|
 
@@ -41,7 +43,7 @@ end
 
 if(signin_frag==1)
 
-  User.create(user_id: nil, user_name: "#{cgi['username']}", image_name: 'takuma.jpg', continuity: 25, firstname: "#{cgi['firstname']}", lastname: "#{cgi['lastname']}", password: "#{pass.to_s}", email: "#{cgi['email']}" )
+  User.create(user_id: nil, user_name: "#{cgi['username']}", image_name: "#{random.rand(1..8)}.jpg", continuity: 25, firstname: "#{cgi['firstname']}", lastname: "#{cgi['lastname']}", password: "#{pass.to_s}", email: "#{cgi['email']}" )
 
   # ログインユーザのidを取り出す
   user_id = User.all.order("user_id desc").first
