@@ -55,7 +55,7 @@
           <ul class="nav navbar-nav">
             <li><a href="./index.rb">ホーム</a></li>
             <li><a href="./personal.rb">学習データ</a></li>
-            <li><a href="./personal.rb">みんなの活動</a></li>
+            <li><a href="./other.rb">みんなの活動</a></li>
           </ul>
         </div>
 
@@ -138,7 +138,7 @@
       <div class="panel panel-default">
         <table class="table table-bordered">
           <thead>
-            <tr><th class="text-center">学習時間帯の傾向map</th></tr>
+            <tr><th class="text-center">学習時間帯と頻度</th></tr>
           </thead>
           <tbody>
             <tr>
@@ -156,7 +156,7 @@
       <div class="panel panel-default">
         <table class="table table-bordered">
           <thead>
-            <tr><th class="text-center">学習時間と気温の関係</th></tr>
+            <tr><th class="text-center">学習時間と気温</th></tr>
           </thead>
           <tbody>
             <tr>
@@ -165,7 +165,7 @@
                 <div id="jqPlot-sample" style="width: 100%; "></div>
 
 
-                <table class="table table-bordered">
+                <table class="table table-bordered" style="margin-top:50px;">
                   <thead>
                     <tr>
                       <th></th>
@@ -182,7 +182,7 @@
                   </thead>
                   <tbody>
                     <tr>
-                      <td class="text-center">天気</td>
+                      <td class="text-center" >天気</td>
 
 <% from = Time.now.in_time_zone.at_beginning_of_day %>
 <% from = from - 7.day  %>
