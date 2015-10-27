@@ -23,13 +23,13 @@ login_user = LoginUser.new
 
 # 選択されたタスクidをもってきて
 # カウントを1つ上げる
-task_name = Task_name.find_by(user_id: session['user_id'], task_name: "#{cgi['task_name']}")
+task_name = Task_name.find_by(task_name_id: "#{cgi['task_name_id']}", user_id: session['user_id'] )
 
 task_name.update(count: task_name.count + 1)
 
 # テーブルにデータを追加する
 # category_idは一旦保留で1を挿入する事にしている
-Task.create(task_id: nil, user_id: "#{session['user_id']}", category_id: 1, task_name_id: task_name.task_name_id, task_name: "#{cgi['task_name']}", start_time: "#{cgi['start_time']}", finish_time: "#{cgi['finish_time']}", group_frag: cgi['group_frag'], comment: "#{cgi['comment']}", music_frag: cgi['music_frag'], weather_frag: w_frag )
+Task.create(task_id: nil, user_id: "#{session['user_id']}", category_id: 1, task_name_id: task_name.task_name_id, task_name: "#{task_name.task_name}", start_time: "#{cgi['date']} #{cgi['start_time']}", finish_time: "#{cgi['date']} #{cgi['finish_time']}", group_frag: cgi['group_frag'], comment: "#{cgi['comment']}", music_frag: cgi['music_frag'], weather_frag: w_frag )
 
 # 処理の結果を表示する
 # ERBを、ERBHandlerを経由せずに直接呼び出して利用している
