@@ -257,18 +257,16 @@
         <script src="js/my_library/current_time.js"></script>
         <script>
 
-
-
         // heatmapChart
         var margin = { top: 50, right: 0, bottom: 100, left: 30 },
-        width = 960 - margin.left - margin.right,
+        width = 900 - margin.left - margin.right ,
         height = 430 - margin.top - margin.bottom,
         gridSize = Math.floor(width / 24),
         legendElementWidth = gridSize*2,
         buckets = 9,
         colors = ["#FBE9E7","#FFCCBC","#FF8A65","#FF7043","#FF5722","#F4511E","#E64A19","#D84315","#BF360C"], // alternatively colorbrewer.YlGnBu[9]
         days = ["日", "月", "火", "水", "木", "金", "土"],
-        times = ["1am", "2am", "3am", "4am", "5am", "6am", "7am", "8am", "9am", "10am", "11am", "12am", "1pm", "2pm", "3pm", "4pm", "5pm", "6pm", "7pm", "8pm", "9pm", "10pm", "11pm", "12pm"];
+        times = ["1AM", "", "", "4AM", "", "", "7AM", "", "", "10AM", "", "", "1PM", "", "", "4AM", "", "", "7PM", "", "9PM", "", "", "12PM"];
         datasets = ["./tsv_data/<%= "#{session['user_id']}" %>.tsv", "data.tsv"];
 
         var svg = d3.select("#chart").append("svg")
