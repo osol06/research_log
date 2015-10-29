@@ -25,12 +25,15 @@
   <link href="css/schedule/style.css" rel="stylesheet" type="text/css"  />
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" >
   <link href="css/jqplot/jquery.jqplot.min.css" rel="stylesheet" >
+  <link type="text/css" rel="stylesheet" href="css/fakeLoader/fakeLoader.css">
 
   <!-- my_cssの読み込み -->
   <link href="css/my_css.css" rel="stylesheet" type="text/css" >
 
 </head>
 <body>
+
+  <div id="fakeloader"></div>
 
   <!-- ナビゲーション -->
   <nav class="navbar navbar-default" role="navigation">
@@ -229,6 +232,7 @@
         </div>
 
 
+
         <!-- footer -->
         <footer class="footer" style="height: 40px; background-color: #f5f5f5;">
           <div class="container" >
@@ -252,10 +256,24 @@
         <script src="js/jqplot/jquery.jqplot.min.js"></script>
         <script src="js/jqplot/jqplot.barRenderer.min.js"></script>
         <script src="js/jqplot/jqplot.categoryAxisRenderer.js"></script>
+        <script src="js/fakeLoader/fakeLoader.min.js"></script>
 
         <!-- 自分で書いたスクリプト -->
         <script src="js/my_library/current_time.js"></script>
         <script>
+
+        // 様々な処理をまとめた
+        $(function (){
+
+        // ローディングの画像を毎回読み込ませるためのスタンプ
+        var timestamp = new Date().getTime();
+
+        // ローディング画面
+        $("#fakeloader").fakeLoader({
+          timeToHide: 1200,
+          bgColor: "#80D8FF",
+          imagePath:"images/loading.gif?" + timestamp
+        });
 
         // heatmapChart
         var margin = { top: 50, right: 0, bottom: 100, left: 30 },
@@ -361,8 +379,7 @@
           var m = moment();
           var date = m.format("YYYY年MM月DD日");
 
-          // 様々な処理をまとめた
-          $(function (){
+
 
             // 現在の日付を表示するメソッド
             current_time(date);
@@ -532,7 +549,7 @@
                 // 棒グラフを描画する
                 var myNewChart1 = new Chart(ctx1).Bar(data1,option1);
 
-              });
+
 
               // 気温と学習時間の関係グラフの描画
               jQuery . jqplot(
@@ -699,6 +716,7 @@
                   // レーダーチャートを描画する
                   var myNewChart3 = new Chart(ctx3).Radar(data3,option3);
 
+                });
 
 
                   </script>

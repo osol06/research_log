@@ -25,12 +25,15 @@
   <link href="css/schedule/style.css" rel="stylesheet" type="text/css"  />
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" >
   <link href="css/jqplot/jquery.jqplot.min.css" rel="stylesheet" >
+  <link type="text/css" rel="stylesheet" href="css/fakeLoader/fakeLoader.css">
 
   <!-- my_cssの読み込み -->
   <link href="css/my_css.css" rel="stylesheet" type="text/css" >
 
 </head>
 <body>
+
+  <div id="fakeloader"></div>
 
   <!-- ナビゲーション -->
   <nav class="navbar navbar-default" role="navigation">
@@ -261,7 +264,6 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/2.3.2/js/bootstrap.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 
-
 <!-- ライブラリ -->
 <script src="js/datetimepicker/jquery.datetimepicker.js"></script>
 <script src="http://momentjs.com/downloads/moment.js"></script>
@@ -271,12 +273,25 @@
 <script src="js/jqplot/jquery.jqplot.min.js"></script>
 <script src="js/jqplot/jqplot.barRenderer.min.js"></script>
 <script src="js/jqplot/jqplot.categoryAxisRenderer.js"></script>
+<script src="js/fakeLoader/fakeLoader.min.js"></script>
 
 <!-- 自分で書いたスクリプト -->
 <script src="js/my_library/current_time.js"></script>
+
 <script>
 
+// ローディングの画像を毎回読み込ませるためのスタンプ
+var timestamp = new Date().getTime();
 
+// ローディング画面
+$("#fakeloader").fakeLoader({
+  timeToHide: 1200,
+  bgColor: "#80D8FF",
+  imagePath:"images/loading.gif?" + timestamp
+});
+
+// 様々な処理をまとめた
+$(function (){
 
 // heatmapChart
 var margin = { top: 50, right: 0, bottom: 100, left: 30 },
@@ -398,8 +413,7 @@ var heatmapChart = function(tsvFile) {
   var m = moment();
   var date = m.format("YYYY年MM月DD日");
 
-  // 様々な処理をまとめた
-  $(function (){
+
 
     // 現在の日付を表示するメソッド
     current_time(date);
@@ -569,7 +583,7 @@ var heatmapChart = function(tsvFile) {
         // 棒グラフを描画する
         var myNewChart1 = new Chart(ctx1).Bar(data1,option1);
 
-      });
+
 
 
       jQuery . jqplot(
@@ -712,6 +726,8 @@ var heatmapChart = function(tsvFile) {
 
       // レーダーチャートを描画する
       var myNewChart3 = new Chart(ctx3).Radar(data3,option3);
+
+      });
 
 
 

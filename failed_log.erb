@@ -27,6 +27,7 @@
   <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css">
 
   <link type="text/css" rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/cupertino/jquery-ui.min.css" />
+  <link type="text/css" rel="stylesheet" href="css/fakeLoader/fakeLoader.css">
 
   <!-- TimePickerの読み込み -->
   <link href="css/timepicker/jquery.timepicker.css" rel="stylesheet" type="text/css">
@@ -36,6 +37,8 @@
 
 </head>
 <body>
+
+  <div id="fakeloader"></div>
 
   <!-- ナビゲーション -->
   <nav class="navbar navbar-default" role="navigation">
@@ -443,6 +446,7 @@
           <script src="js/scrolltable/jquery.scrolltable.js"></script>
           <script src="js/jQueryTween/jQueryTween-aio-min.js"></script>
           <script src="js/timepicker/jquery.timepicker.js"></script>
+          <script src="js/fakeLoader/fakeLoader.min.js"></script>
 
         </script>
 
@@ -450,6 +454,18 @@
         <script src="js/my_library/current_time.js"></script>
 
         <script>
+
+        // ローディングの画像を毎回読み込ませるためのスタンプ
+        var timestamp = new Date().getTime();
+
+        // ローディング画面
+        $("#fakeloader").fakeLoader({
+          timeToHide: 1200,
+          bgColor: "#80D8FF",
+          imagePath:"images/loading.gif?" + timestamp
+        });
+
+  $(function (){
 
         // みんなの学習時間をバブルチャートとして表示する処理
         var list = {
@@ -515,7 +531,7 @@
           var date4 = new Date();
 
 
-          $(function (){
+
 
             // テーブルにスクロールバーを付ける処理
             $('.scrollTable').scrolltable({
