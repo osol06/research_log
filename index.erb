@@ -27,6 +27,7 @@
   <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css">
 
   <link type="text/css" rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/cupertino/jquery-ui.min.css" />
+  <link type="text/css" rel="stylesheet" href="css/fakeLoader/fakeLoader.css">
 
   <!-- TimePickerの読み込み -->
   <link href="css/timepicker/jquery.timepicker.css" rel="stylesheet" type="text/css">
@@ -36,6 +37,8 @@
 
 </head>
 <body>
+
+  <div id="fakeloader"></div>
 
   <!-- ナビゲーション -->
   <nav class="navbar navbar-default" role="navigation">
@@ -390,7 +393,7 @@
               </div>
             </div>
           </div>
-        </div>
+
 
 
         <!-- footer -->
@@ -427,6 +430,7 @@
 
             </div>
           </div>
+        </div>
 
           <!-- javascriptの読み込み -->
           <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -441,84 +445,38 @@
           <script src="js/scrolltable/jquery.scrolltable.js"></script>
           <script src="js/jQueryTween/jQueryTween-aio-min.js"></script>
           <script src="js/timepicker/jquery.timepicker.js"></script>
-
-        </script>
+          <script src="js/fakeLoader/fakeLoader.min.js"></script>
 
         <!-- 自分で書いたスクリプト -->
         <script src="js/my_library/current_time.js"></script>
 
         <script>
 
-        // みんなの学習時間をバブルチャートとして表示する処理
-        var list = {
-          "name": "長野県",
-          "children": [
-            {
-              "name": "塩尻市",
-              "children": [
+        // ローディングの画像を毎回読み込ませるためのスタンプ
+        var timestamp = new Date().getTime();
 
-                <% #みんなの合計学習時間の表示  %>
-                <% total_time.each{|key,value| %>
-                  { "name": "<%= "#{key}".force_encoding("utf-8") %>" , "households": <%= value %> + 10 },
-                  <% } %>
-
-                ]
-              }
-            ]
-          };
-          var svgWidth = 300; // SVG領域の横幅
-          var svgHeight = 250;    // SVG領域の縦幅
-          var diameter = 250; // 一番大きい円のサイズ
-          var color = ["none", "#ffa0a0", "#a0a0ff", "orange", "#ffe090", "#a0ff90", "cyan", "#ccc", "#ff8080", "#c0ffc0", "#4090ff"];
-          var svg = d3.select("#myGraph").append("svg")
-          .attr("width", svgWidth).attr("height", svgHeight)
-          var bubble = d3.layout.pack()
-          .size([diameter, diameter]) // 表示サイズを指定
-          var grp = svg.selectAll("g")    // グループを対象にする
-          .data(bubble.nodes(classes(list)))  // データを読み込む
-          .enter()
-          .append("g")
-          .attr("transform", function(d) {    // 円のX,Y座標を設定
-            return "translate(" + d.x + "," + d.y + ")";
-          })
-          grp.append("circle")    // 円を生成する
-          .attr("r", function(d){ // 円を指定した半径にする
-            return d.r;
-          })
-          .attr("fill", function(d,i){    // 塗りの色を指定
-            return color[i];
-          })
-          grp.append("text")  // 文字を生成する
-          .attr("font-size", "10pt")   // 文字のサイズを指定する
-          .attr("fill", "black")  // 文字の塗りの色を指定する
-          .style("text-anchor", "middle") // 円の座標の中央から表示するようにする
-          .text(function(d) { return d.className; } ) // データの中のclassNameが地区名なので、それを出力
-          // 階層化されたJSONデータをフラット化する (D3.js本家のを少し変更して利用)
-          function classes(root) {
-            var classes = [];
-            function recurse(name, node) {
-              if (node.children) node.children.forEach(function(child) { recurse(node.name, child); });
-              else classes.push({packageName: name, className: node.name, value: node.households});
-            }
-            recurse(null, root);
-            return {children: classes};
-          }
-
-
-          // 現在の日付を取得
-          var m = moment();
-          var date = m.format("YYYY年MM月DD日");
-
-          var date2 = new Date();
-          var date4 = new Date();
-
+        // ローディング画面
+        $("#fakeloader").fakeLoader({
+          timeToHide: 1200,
+          bgColor: "#80D8FF",
+          imagePath:"images/loading.gif?" + timestamp
+        });
 
           $(function (){
+
+
 
             // テーブルにスクロールバーを付ける処理
             $('.scrollTable').scrolltable({
               maxHeight: 500
             });
+
+            // 現在の日付を取得
+            var m = moment();
+            var date = m.format("YYYY年MM月DD日");
+
+            var date2 = new Date();
+            var date4 = new Date();
 
             // 現在の日付を表示するメソッド
             current_time(date);
