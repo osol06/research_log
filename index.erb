@@ -511,7 +511,7 @@
                         // 入力値を初期化
                         $form[0].reset();
 			                  var dt = data.split(",");
-                        $('#timeline_ul').prepend('<li class="media"><a class="media-left" href="#"><img src="images/' + dt[0] + ' alt="写真" width="80" height="80" style="margin:10px;" class="media-object img-thumbnail img-responsive center-block" ></a><div class="media-body"><h4 class="media-heading">' + dt[1] + '</h4><h5 class="text-info"><strong>' + dt[2] + " " + dt[3] + '分</strong></h5>' + dt[4] + '</div></li><hr>');
+                        $('#timeline_ul').prepend('<div styel="height:13px;"></div><li class="media"><a class="media-left" href="#"><img src="images/' + dt[0] + ' alt="写真" width="80" height="80" style="margin:10px;" class="media-object img-thumbnail img-responsive center-block" ></a><div class="media-body"><h4 class="media-heading">' + dt[1] + '</h4><h5 class="text-info"><strong>' + dt[2] + " " + dt[3] + '分</strong></h5>' + dt[4] + '</div></li><hr>');
                         // 日付のセット
                         $("#datepicker").datepicker("setDate", date2.getFullYear() + "-" + (date2.getMonth() + 1) + "-" + date2.getDate());
 
