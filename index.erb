@@ -27,7 +27,7 @@
   <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css">
 
   <link type="text/css" rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/cupertino/jquery-ui.min.css" />
-  <link type="text/css" rel="stylesheet" href="css/fakeLoader/fakeLoader.css">
+  <link type="text/css" rel="stylesheet" href="css/jQRangeSlider/iThing-min.css">
 
   <!-- TimePickerの読み込み -->
   <link href="css/timepicker/jquery.timepicker.css" rel="stylesheet" type="text/css">
@@ -37,8 +37,6 @@
 
 </head>
 <body>
-
-  <div id="fakeloader"></div>
 
   <!-- ナビゲーション -->
   <nav class="navbar navbar-default" role="navigation">
@@ -164,7 +162,7 @@
       </div>
 
       <!-- 学習の記録フォーム　アクションはlog.rb -->
-      <form method="post" action="log.rb">
+      <form id="log_form" method="post" action="log.rb">
         <div class="panel panel-default">
           <table class="table table-bordered">
             <thead>
@@ -285,6 +283,8 @@
                             </div>
                           </p>
 
+                          <div id="slider"></div>
+
                           <!-- コメントの入力 -->
                           <p style="margin: 15px 10px;" >
                             <label for="comment">学習内容や感想など</label>
@@ -306,6 +306,8 @@
                 </table>
               </div>
             </form>
+
+            <div id="result"></div>
 
             <div class="row">
               <div class="col-sm-12">
@@ -464,26 +466,81 @@
           <script src="js/scrolltable/jquery.scrolltable.js"></script>
           <script src="js/jQueryTween/jQueryTween-aio-min.js"></script>
           <script src="js/timepicker/jquery.timepicker.js"></script>
-          <script src="js/fakeLoader/fakeLoader.min.js"></script>
+          <script src="js/jQRangeSlider/jQRangeSlider-min.js"></script>
+          <script src="js/jQRangeSlider/jQAllRangeSliders-min.js"></script>
 
         <!-- 自分で書いたスクリプト -->
         <script src="js/my_library/current_time.js"></script>
 
         <script>
 
-        // ローディングの画像を毎回読み込ませるためのスタンプ
-        var timestamp = new Date().getTime();
-
-        // ローディング画面
-        $("#fakeloader").fakeLoader({
-          timeToHide: 1200,
-          bgColor: "#80D8FF",
-          imagePath:"images/loading.gif?" + timestamp
-        });
-
           $(function (){
 
 
+            $('#log_form').submit(function(event) {
+                // HTMLでの送信をキャンセル
+                event.preventDefault();
+
+                // 操作対象のフォーム要素を取得
+                var $form = $(this);
+
+                // 送信ボタンを取得
+                // （後で使う: 二重送信を防止する。）
+                var $button = $form.find('button');
+
+                // 送信
+                $.ajax({
+                    url: $form.attr('action'),
+                    type: $form.attr('method'),
+                    data: $form.serialize()
+                        + '&delay=1',  // （デモ用に入力値をちょいと操作します）
+                    timeout: 10000,  // 単位はミリ秒
+
+                    // 送信前
+                    beforeSend: function(xhr, settings) {
+                        // ボタンを無効化し、二重送信を防止
+                        $button.attr('disabled', true);
+                    },
+                    // 応答後
+                    complete: function(xhr, textStatus) {
+                        // ボタンを有効化し、再送信を許可
+                        $button.attr('disabled', false);
+                    },
+
+                    // 通信成功時の処理
+                    success: function(result, textStatus, xhr) {
+                        // 入力値を初期化
+                        $form[0].reset();
+                        // 日付のセット
+                        $("#datepicker").datepicker("setDate", date2.getFullYear() + "-" + (date2.getMonth() + 1) + "-" + date2.getDate());
+                        $('#result').text('OK');
+                    },
+
+                    // 通信失敗時の処理
+                    error: function(xhr, textStatus, error) {}
+                });
+            });
+
+            // 時間のフォーマット
+            function TwoDigits(val){
+
+              if (val < 10){
+                return "0" + val;
+              }
+
+              return val;
+            }
+
+            // 時間帯入力のスライダー設定
+            $("#slider").dateRangeSlider({
+                bounds: {min: new Date(2013, 0, 1), max: new Date(2013, 0, 1, 23, 59, 59)},
+                defaultValues: {min: new Date(2013, 0, 1, 8), max: new Date(2013, 0, 1, 18)},
+                formatter: function(value){
+                    var hours = value.getHours(),
+                        minutes = value.getMinutes();
+                    return TwoDigits(hours) + ":" + TwoDigits(minutes);
+                }
+            });
 
             // テーブルにスクロールバーを付ける処理
             $('.scrollTable').scrolltable({
