@@ -269,14 +269,10 @@
                           <p style="margin: 15px 10px;" >
                             <label for="start_time">作業した時間</label>
                             <div id="picker" class="form-inline" style="margin-top:-15px; margin-left:10px;">
-                              <input id="datepicker" class="form-control" type="text" name="date" style="width:105px;" />
-                              <input class="time start form-control" type="text" name="start_time" style="width:70px;" />
-                              <label>から</label>
-                              <input class="time end form-control" type="text" name="finish_time" style="width:70px;" />
+                              <input id="datepicker" class="form-control" type="text" name="date" style="width:105px; margin-bottom:10px;" />
+                              <div id="slider"></div>
                             </div>
                           </p>
-
-                          <div id="slider"></div>
 
                           <!-- コメントの入力 -->
                           <p style="margin: 15px 10px;" >
@@ -299,51 +295,6 @@
                 </table>
               </div>
             </form>
-
-            <div id="result"></div>
-
-            <div class="row">
-              <div class="col-sm-12">
-                <!-- タイムライン -->
-                <div class="panel panel-default">
-                  <table class="table table-bordered">
-                    <thead>
-                      <tr><th class="text-center" style="height:35px;" >タイムライン</th></tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>
-
-                          <ul id="timeline_ul" class="media-list" >
-                            <div styel="height:13px;"></div>
-
-                            <% task = Task.all.order("task_id desc").limit(50)%>
-                            <% task.each do |row| %>
-                            <%  image_name = User.find_by(user_id: row.user_id ) %>
-
-                            <li class="media">
-                              <!-- pull-right にすると、画像が右端に表示される -->
-                              <a class="media-left" href="#">
-                                <img src="images/<%= "#{image_name.image_name}" %>" alt="写真" width="80" height="80" style="margin:10px;" class="media-object img-thumbnail img-responsive center-block" >
-                              </a>
-                              <div class="media-body">
-                                <h4 class="media-heading"> <%= "#{image_name.user_name}".force_encoding("utf-8") %> </h4>
-                                <h5 class="text-info"><strong><%= "#{row.task_name}" %> <%= "#{task_time(row.task_id)}".to_i %>分</strong></h5>
-                                <%= "#{row.comment}".force_encoding("utf-8") %>
-                              </div>
-                            </li>
-                            <hr>
-
-                            <% end %>
-
-                          </ul>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
           </div>
 
           <div class="row">
@@ -358,7 +309,7 @@
                     <tr style="height:450px;">
                       <td>
 
-                        <ul class="cbp_tmtimeline">
+                        <ul id="timeline_ul" class="cbp_tmtimeline">
 
                           <% task = Task.all.order("task_id desc").limit(50)%>
                           <% task.each do |row| %>
@@ -387,7 +338,7 @@
 
               <div class="row">
                 <!-- 学習時間ランキング -->
-                <div class="col-sm-6">
+                <div class="col-sm-7">
                   <div class="panel panel-default">
                     <table class="table table-bordered">
                       <thead>
@@ -517,10 +468,22 @@
 
         // 現在の日付を取得
         var m = moment();
-        var date = m.format("YYYY年MM月DD日");
+        var date_first = m.format("YYYY年MM月DD日");
+        // 現在の日付を表示するメソッド
+        current_time(date_first);
 
         var date2 = new Date();
         var date4 = new Date();
+
+        // 時間のフォーマット
+        function TwoDigits(val){
+
+          if (val < 10){
+            return "0" + val;
+          }
+
+          return val;
+        }
 
 
         $('#log_form').submit(function(event) {
@@ -542,7 +505,7 @@
           $.ajax({
             url: $form.attr('action'),
             type: $form.attr('method'),
-            data: $form.serialize() + "&first_t=" + dateValues.min.toString() + "&last_t=" + dateValues.max.toString(),
+            data: $form.serialize() + "&start_t=" + dateValues.min.toString() + "&finish_t=" + dateValues.max.toString(),
             timeout: 10000,  // 単位はミリ秒
 
             // 送信前
@@ -559,14 +522,37 @@
             // 通信成功時の処理
             success: function(data) {
 
-
-
               // 入力値を初期化
               $form[0].reset();
               var dt = data.split(",");
-              $('#timeline_ul').prepend('<div styel="height:13px;"></div><li class="media"><a class="media-left" href="#"><img src="images/' + dt[0] +  + ' alt="写真" width="80" height="80" style="margin:10px;" class="media-object img-thumbnail img-responsive center-block" ></a><div class="media-body"><h4 class="media-heading">' + dt[1] + '</h4><h5 class="text-info"><strong>' + dt[2] + " " + dt[3] + '分</strong></h5>' + dt[4] + '</div></li><hr>');
-              // 日付のセット
+
+              $('#timeline_ul').prepend('<li><div style="display:none"><time class="cbp_tmtime" datetime="2013-04-10 18:30"><span>' + dt[5] + '</span> <span>' + dt[6] + '</span></time><div class="cbp_tmicon"><img src="images/' + dt[0] + '" alt="ユーザ画像" width="36" height="36" class="img-thumbnail img-responsive center-block"><h6 class="text-center" style="margin-top:0px;">' + dt[1] + '</h6></div><div class="cbp_tmlabel"><h4 style="font-weight:bold; margin-left:10px;">' + dt[2] + ' ' + dt[3] + '分</h4><p style="margin-left:10px;">' + dt[4] + '</p></div></div></li>');
+              $('li div').slideDown("slow");
               $("#datepicker").datepicker("setDate", date2.getFullYear() + "-" + (date2.getMonth() + 1) + "-" + date2.getDate());
+              $('#slider').dateRangeSlider("destroy");
+
+              // datepickerの値を持ってきて、sliderと紐付ける
+              var picker_date3 = $("#datepicker").val();
+              var date3 = new Date(picker_date3);
+
+              var slider_year3 = date3.getFullYear();
+              var slider_month3 = date3.getMonth();
+              // 何故か１日ずれるため
+              var slider_day3 = date3.getDate();
+              console.log(slider_day3)
+
+              // 時間帯入力のスライダー設定
+              $("#slider").dateRangeSlider({
+                step: {minutes:10},
+                bounds: {min: new Date(slider_year3,slider_month3,slider_day3,0,0), max: new Date(slider_year3,slider_month3,slider_day3, 23, 59, 59)},
+                defaultValues: {min: new Date(slider_year3,slider_month3,slider_day3, 1, 0), max: new Date(slider_year3,slider_month3,slider_day3, 15, 0)},
+                formatter: function(value){
+                  var hours = value.getHours(),
+                  minutes = value.getMinutes();
+                  return TwoDigits(hours) + ":" + TwoDigits(minutes);
+                }
+              });
+
             },
 
             // 通信失敗時の処理
@@ -580,28 +566,20 @@
         $('#datepicker').datepicker({ dateFormat: 'yy-mm-dd' });
         $("#datepicker").datepicker("setDate", date2.getFullYear() + "-" + (date2.getMonth() + 1) + "-" + date2.getDate());
 
-        // 時間のフォーマット
-        function TwoDigits(val){
-
-          if (val < 10){
-            return "0" + val;
-          }
-
-          return val;
-        }
 
         // datepickerの値を持ってきて、sliderと紐付ける
-        var picker_date = $("#datepicker").val();
-        var date = new Date(picker_date);
+        var picker_date1 = $("#datepicker").val();
+        var date1 = new Date(picker_date1);
 
-        var slider_year = date.getFullYear();
-        var slider_month = date.getMonth();
+        var slider_year = date1.getFullYear();
+        var slider_month = date1.getMonth();
         // 何故か１日ずれるため
-        var slider_day = date.getDay() + 1;
+        var slider_day = date1.getDate();
 
 
         // 時間帯入力のスライダー設定
         $("#slider").dateRangeSlider({
+          step: {minutes:10},
           bounds: {min: new Date(slider_year,slider_month,slider_day,0,0), max: new Date(slider_year,slider_month,slider_day, 23, 59, 59)},
           defaultValues: {min: new Date(slider_year,slider_month,slider_day, 1, 0), max: new Date(slider_year,slider_month,slider_day, 15, 0)},
           formatter: function(value){
@@ -611,64 +589,40 @@
           }
         });
 
+        // datepickerの値が変更された時に呼ばれるメソッド
+        $('#datepicker').datepicker()
+          .on('change.dp', function(e) {
+
+          $('#slider').dateRangeSlider("destroy");
+
+          // datepickerの値を持ってきて、sliderと紐付ける
+          var picker_date2 = $("#datepicker").val();
+          var date2 = new Date(picker_date2);
+          console.log(date2);
+
+          var slider_year2 = date2.getFullYear();
+          var slider_month2 = date2.getMonth();
+          // 何故か１日ずれるため
+          var slider_day2 = date2.getDate();
+          console.log(slider_day2)
+
+          // 時間帯入力のスライダー設定
+          $("#slider").dateRangeSlider({
+            step: {minutes:10},
+            bounds: {min: new Date(slider_year2,slider_month2,slider_day2,0,0), max: new Date(slider_year2,slider_month2,slider_day2, 23, 59, 59)},
+            defaultValues: {min: new Date(slider_year2,slider_month2,slider_day2, 1, 0), max: new Date(slider_year2,slider_month2,slider_day2, 15, 0)},
+            formatter: function(value){
+              var hours = value.getHours(),
+              minutes = value.getMinutes();
+              return TwoDigits(hours) + ":" + TwoDigits(minutes);
+            }
+          });
+
+        });
+
         // テーブルにスクロールバーを付ける処理
         $('.scrollTable').scrolltable({
           maxHeight: 350
-        });
-
-
-
-        // 現在の日付を表示するメソッド
-        current_time(date);
-
-        // 時間入力
-        $('.start').timepicker({
-          'timeFormat': 'H:i'
-        });
-
-
-        // durationを設定するために値を取得
-        start_time = $('.start').val();
-
-        $('.end').timepicker({
-          'scrollDefault': start_time,
-          'durationTime' : start_time,
-          'showDuration': true,
-          'maxTime': '23:59',
-          'timeFormat': 'H:i'
-        });
-
-        // 今の時間をセットする
-        $('.start').timepicker('setTime', (date4.getHours() - 1) + ":" + date4.getMinutes());
-        $('.end').timepicker('setTime', date4.getHours() + ":" + date4.getMinutes());
-
-        // 始まりの時間が入力されるたびに呼ばれる
-        $('.start').on('changeTime', function(){
-          start_time = $('.start').val();
-          var date3 = $('.start').timepicker('getTime', new Date());
-
-          // 一回エレメントを削除
-          $('.end').timepicker('remove');
-
-          // durationを設定して追加する
-          $('.end').timepicker({
-            'scrollDefault': start_time,
-            'durationTime' : start_time,
-            'showDuration': true,
-            'maxTime': '23:59',
-            'timeFormat': 'H:i'
-          });
-
-          var hours = date3.getHours() + 1;
-          var minutes = date3.getMinutes();
-
-          if( Number(date3.getHours()) >= 22 ){
-            hours = date3.getHours();
-            minutes = '30'
-          }
-
-          $('.end').timepicker('setTime', hours + ":" + minutes );
-
         });
 
 
