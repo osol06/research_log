@@ -30,18 +30,10 @@ task_name.update(count: task_name.count + 1)
 # category_idは一旦保留で1を挿入する事にしている
 Task.create(task_id: nil, user_id: "#{session['user_id']}", category_id: 1, task_name_id: task_name.task_name_id, task_name: "#{task_name.task_name}", start_time: "#{cgi['date']} #{cgi['start_time']}", finish_time: "#{cgi['date']} #{cgi['finish_time']}", group_frag: cgi['group_frag'], comment: "#{cgi['comment']}", music_frag: cgi['music_frag'], weather_frag: w_frag )
 
-ajax = {}
-
 image_name = User.find_by(user_id: session['user_id'] )
-
 time = Task.order("task_id desc")
 time = time.select("((UNIX_TIMESTAMP(finish_time) - UNIX_TIMESTAMP(start_time)) / 60) as total")
 time = time.find_by(user_id: session['user_id'])
-
-ajax['image_name'] = image_name
-ajax['task_name'] = task_name.task_name
-ajax['task_time'] = time.total
-ajax['comment'] = cgi['comment']
 
 puts cgi.header({ 'Content-Type' => 'text/html'})
 print "#{image_name.image_name},#{image_name.user_name},#{task_name.task_name},#{time.total.to_i},#{cgi['comment']}"

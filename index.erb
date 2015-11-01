@@ -28,6 +28,7 @@
 
   <link type="text/css" rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/cupertino/jquery-ui.min.css" />
   <link type="text/css" rel="stylesheet" href="css/jQRangeSlider/iThing-min.css">
+  <link type="text/css" rel="stylesheet" href="css/timeline/component.css">
 
   <!-- TimePickerの読み込み -->
   <link href="css/timepicker/jquery.timepicker.css" rel="stylesheet" type="text/css">
@@ -320,6 +321,52 @@
                     <tbody>
                       <tr>
                         <td>
+
+                          
+                          <ul class="cbp_tmtimeline">
+                          	<li>
+                          		<time class="cbp_tmtime" datetime="2013-04-10 18:30"><span>4/10/13</span> <span>18:30</span></time>
+                          		<div class="cbp_tmicon cbp_tmicon-phone"></div>
+                          		<div class="cbp_tmlabel">
+                          			<h2>Ricebean black-eyed pea</h2>
+                          			<p>Winter purslane...</p>
+                          		</div>
+                          	</li>
+                          	<li>
+                          		<time class="cbp_tmtime" datetime="2013-04-11T12:04"><span>4/11/13</span> <span>12:04</span></time>
+                          		<div class="cbp_tmicon cbp_tmicon-screen"></div>
+                          		<div class="cbp_tmlabel">
+                          			<h2>Greens radish arugula</h2>
+                          			<p>Caulie dandelion maize...</p>
+                          		</div>
+                          	</li>
+                          	<li>
+                          		<time class="cbp_tmtime" datetime="2013-04-13 05:36"><span>4/13/13</span> <span>05:36</span></time>
+                          		<div class="cbp_tmicon cbp_tmicon-mail"></div>
+                          		<div class="cbp_tmlabel">
+                          			<h2>Sprout garlic kohlrabi</h2>
+                          			<p>Parsnip lotus root...</p>
+                          		</div>
+                          	</li>
+                          	<li>
+                          		<time class="cbp_tmtime" datetime="2013-04-15 13:15"><span>4/15/13</span> <span>13:15</span></time>
+                          		<div class="cbp_tmicon cbp_tmicon-phone"></div>
+                          		<div class="cbp_tmlabel">
+                          			<h2>Watercress ricebean</h2>
+                          			<p>Peanut gourd nori...</p>
+                          		</div>
+                          	</li>
+                          	<li>
+                          		<time class="cbp_tmtime" datetime="2013-04-16 21:30"><span>4/16/13</span> <span>21:30</span></time>
+                          		<div class="cbp_tmicon cbp_tmicon-earth"></div>
+                          		<div class="cbp_tmlabel">
+                          			<h2>Courgette daikon</h2>
+                          			<p>Parsley amaranth tigernut...</p>
+                          		</div>
+                          	</li>
+                          </ul>
+
+
                           <ul id="timeline_ul" class="media-list" >
                             <div styel="height:13px;"></div>
 
@@ -468,6 +515,7 @@
           <script src="js/timepicker/jquery.timepicker.js"></script>
           <script src="js/jQRangeSlider/jQRangeSlider-min.js"></script>
           <script src="js/jQRangeSlider/jQAllRangeSliders-min.js"></script>
+          <script src="js/timeline/modernizr.custom.js"></script>
 
         <!-- 自分で書いたスクリプト -->
         <script src="js/my_library/current_time.js"></script>
@@ -511,10 +559,9 @@
                         // 入力値を初期化
                         $form[0].reset();
 			                  var dt = data.split(",");
-                        $('#timeline_ul').prepend('<div styel="height:13px;"></div><li class="media"><a class="media-left" href="#"><img src="images/' + dt[0] + ' alt="写真" width="80" height="80" style="margin:10px;" class="media-object img-thumbnail img-responsive center-block" ></a><div class="media-body"><h4 class="media-heading">' + dt[1] + '</h4><h5 class="text-info"><strong>' + dt[2] + " " + dt[3] + '分</strong></h5>' + dt[4] + '</div></li><hr>');
+                        $('#timeline_ul').prepend('<div styel="height:13px;"></div><li class="media"><a class="media-left" href="#"><img src="images/' + dt[0] +  + ' alt="写真" width="80" height="80" style="margin:10px;" class="media-object img-thumbnail img-responsive center-block" ></a><div class="media-body"><h4 class="media-heading">' + dt[1] + '</h4><h5 class="text-info"><strong>' + dt[2] + " " + dt[3] + '分</strong></h5>' + dt[4] + '</div></li><hr>');
                         // 日付のセット
                         $("#datepicker").datepicker("setDate", date2.getFullYear() + "-" + (date2.getMonth() + 1) + "-" + date2.getDate());
-
                     },
 
                     // 通信失敗時の処理
