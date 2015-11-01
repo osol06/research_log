@@ -1,3 +1,4 @@
+/*
 @font-face {
 	font-family: 'ecoico';
 	src:url('../fonts/timelineicons/ecoico.eot');
@@ -8,6 +9,7 @@
 	font-weight: normal;
 	font-style: normal;
 } /* Made with http://icomoon.io/ */
+
 
 .cbp_tmtimeline {
 	margin: 30px 0 0 0;
@@ -41,13 +43,17 @@
 	text-align: right;
 }
 
+/* 日付 */
 .cbp_tmtimeline > li .cbp_tmtime span:first-child {
-	font-size: 0.9em;
+	font-size: 1.2em;
+	margin-left: 30px;
 	color: #bdd0db;
 }
 
+/* 時間 */
 .cbp_tmtimeline > li .cbp_tmtime span:last-child {
-	font-size: 2.9em;
+	font-size: 1.5em;
+	margin-left: 20px;
 	color: #3594cb;
 }
 
@@ -60,8 +66,8 @@
 	margin: 0 0 15px 25%;
 	background: #3594cb;
 	color: #fff;
-	padding: 2em;
-	font-size: 1.2em;
+	padding: 0.5em;
+	font-size: 1.0em;
 	font-weight: 300;
 	line-height: 1.4;
 	position: relative;
@@ -72,7 +78,7 @@
 	background: #6cbfee;
 }
 
-.cbp_tmtimeline > li .cbp_tmlabel h2 {
+.cbp_tmtimeline > li .cbp_tmlabel h4 {
 	margin-top: 0px;
 	padding: 0 0 10px 0;
 	border-bottom: 1px solid rgba(255,255,255,0.4);
@@ -98,8 +104,8 @@
 
 /* The icons */
 .cbp_tmtimeline > li .cbp_tmicon {
-	width: 40px;
-	height: 40px;
+
+	/*
 	font-family: 'ecoico';
 	speak: none;
 	font-style: normal;
@@ -107,19 +113,26 @@
 	font-variant: normal;
 	text-transform: none;
 	font-size: 1.4em;
+
 	line-height: 40px;
+
 	-webkit-font-smoothing: antialiased;
+	*/
 	position: absolute;
+	/*
 	color: #fff;
 	background: #46a4da;
 	border-radius: 50%;
 	box-shadow: 0 0 0 8px #afdcf8;
+
 	text-align: center;
+	*/
 	left: 20%;
 	top: 0;
 	margin: 0 0 0 -25px;
 }
 
+/*
 .cbp_tmicon-phone:before {
 	content: "\e000";
 }
@@ -135,6 +148,7 @@
 .cbp_tmicon-earth:before {
 	content: "\e003";
 }
+*/
 
 /* Example Media Queries */
 @media screen and (max-width: 65.375em) {
