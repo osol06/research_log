@@ -28,6 +28,7 @@
 	background: #afdcf8;
 	left: 20%;
 	margin-left: -10px;
+	z-index:1;
 }
 
 /* The date/time */
@@ -104,6 +105,9 @@
 
 /* The icons */
 .cbp_tmtimeline > li .cbp_tmicon {
+	display: inline;
+	float:left;
+	z-index:2;
 
 	/*
 	font-family: 'ecoico';
@@ -118,7 +122,9 @@
 
 	-webkit-font-smoothing: antialiased;
 	*/
-	position: absolute;
+
+	position: relative;
+
 	/*
 	color: #fff;
 	background: #46a4da;
