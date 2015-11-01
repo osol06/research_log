@@ -27,7 +27,8 @@
   <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css">
 
   <link type="text/css" rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/cupertino/jquery-ui.min.css" />
-  <link type="text/css" rel="stylesheet" href="css/fakeLoader/fakeLoader.css">
+  <link type="text/css" rel="stylesheet" href="css/jQRangeSlider/iThing-min.css">
+  <link type="text/css" rel="stylesheet" href="css/timeline/component.css">
 
   <!-- TimePickerの読み込み -->
   <link href="css/timepicker/jquery.timepicker.css" rel="stylesheet" type="text/css">
@@ -37,8 +38,6 @@
 
 </head>
 <body>
-
-  <div id="fakeloader"></div>
 
   <!-- ナビゲーション -->
   <nav class="navbar navbar-default" role="navigation">
@@ -71,7 +70,7 @@
   </nav>
 
   <!-- メインコンテンツ  -->
-  <div class="container" style="padding: 20px 0">
+  <div class="container" style="padding: 0px 0">
 
     <!-- グリッドシステムを使用する -->
     <div class="row">
@@ -100,6 +99,17 @@
         <!-- ユーザ情報 -->
         <div class="row">
           <div class="col-sm-12">
+
+          <div class="panel panel-default">
+            <h6 class="text-danger" style="margin-left:10px;">更新情報</h6>
+            <ul>
+              <li>非同期</li>
+              <li>オートログイン</li>
+              <li>時間帯入力</li>
+            </ul>
+          </div>
+
+
             <div class="panel panel-default">
               <table class="table table-bordered">
                 <thead>
@@ -142,29 +152,10 @@
       </div>
     </div>
 
-    <div class="col-sm-5">
-
-
-      <div class="panel panel-default">
-        <h4 class="text-danger" style="margin-left:10px;">更新情報</h4>
-        <ul>
-          <li>ローディング画面の追加</li>
-          <li>同じタスクが入力された時の処理を追加</li>
-          <li>時間が入力されていない時の処理を追加</li>
-          <li>くどいところを修正</li>
-          <li>でも逆にローディングがくどい気がするという不安</li>
-        </ul>
-        <h4 class="text-danger" style="margin-left:10px;">もうすぐ更新予定</h4>
-        <ul>
-          <li>オートログイン</li>
-          <li>日にちをまたいだ記録の処理</li>
-          <li>記録が二重にされる問題を解消</li>
-        </ul>
-
-      </div>
+    <div class="col-sm-4">
 
       <!-- 学習の記録フォーム　アクションはlog.rb -->
-      <form method="post" action="log.rb">
+      <form id="log_form" method="post" action="log.rb">
         <div class="panel panel-default">
           <table class="table table-bordered">
             <thead>
@@ -192,7 +183,7 @@
 
                             <% else %>
 
-                            <% task_name.first(5).each do |name| %>
+                            <% task_name.first(3).each do |name| %>
 
                             <%  if(count == 0) %>
 
@@ -278,10 +269,8 @@
                           <p style="margin: 15px 10px;" >
                             <label for="start_time">作業した時間</label>
                             <div id="picker" class="form-inline" style="margin-top:-15px; margin-left:10px;">
-                              <input id="datepicker" class="form-control" type="text" name="date" style="width:105px;" />
-                              <input class="time start form-control" type="text" name="start_time" style="width:70px;" />
-                              <label>から</label>
-                              <input class="time end form-control" type="text" name="finish_time" style="width:70px;" />
+                              <input id="datepicker" class="form-control" type="text" name="date" style="width:105px; margin-bottom:10px;" />
+                              <div id="slider"></div>
                             </div>
                           </p>
 
@@ -306,295 +295,375 @@
                 </table>
               </div>
             </form>
-
-            <div class="row">
-              <div class="col-sm-12">
-                <!-- タイムライン -->
-                <div class="panel panel-default">
-                  <table class="table table-bordered scrollTable">
-                    <thead>
-                      <tr><th class="text-center" style="height:35px;" >タイムライン</th></tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>
-                          <ul class="media-list" >
-                            <div styel="height:13px;"></div>
-
-                            <% task = Task.all.order("task_id desc").limit(50)%>
-                            <% task.each do |row| %>
-                            <%  image_name = User.find_by(user_id: row.user_id ) %>
-
-                            <li class="media">
-                              <!-- pull-right にすると、画像が右端に表示される -->
-                              <a class="media-left" href="#">
-                                <img src="images/<%= "#{image_name.image_name}" %>" alt="写真" width="80" height="80" style="margin:10px;" class="media-object img-thumbnail img-responsive center-block" >
-                              </a>
-                              <div class="media-body">
-                                <h4 class="media-heading"> <%= "#{image_name.user_name}".force_encoding("utf-8") %> </h4>
-                                <h5 class="text-info"><strong><%= "#{row.task_name}" %> <%= "#{task_time(row.task_id)}".to_i %>分</strong></h5>
-                                <%= "#{row.comment}".force_encoding("utf-8") %>
-                              </div>
-                            </li>
-                            <hr>
-
-                            <% end %>
-
-                          </ul>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
           </div>
 
-          <!-- 学習時間ランキング -->
-          <div class="col-sm-5">
-            <div class="panel panel-default">
-              <table class="table table-bordered">
-                <thead>
-                  <tr><th class="text-center">今日の学習時間ランキング</th></tr>
-                </thead>
-                <tbody>
-                  <tr style="height:450px;">
-                    <td>
+          <div class="row">
+            <!-- タイムライン -->
+            <div class="col-sm-6">
+              <div class="panel panel-default">
+                <table class="table table-bordered scrollTable">
+                  <thead>
+                    <tr><th class="text-center" style="height:35px;">タイムライン</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr style="height:450px;">
+                      <td>
 
-                      <div style="float:left; margin-left:-30px;">
-                        <ul style="list-style:none;">
+                        <ul id="timeline_ul" class="cbp_tmtimeline">
 
-                          <% total_sort = total_time.sort_by{|key,val| -val} %>
-                          <% image_number = 1%>
-                          <% difference = 0%>
-                          <% total_sort.first(3).each {|key, value| %>
+                          <% task = Task.all.order("task_id desc").limit(50)%>
+                          <% task.each do |row| %>
+                          <%  image_name = User.find_by(user_id: row.user_id ) %>
+                          <%  datetime = DateTime.parse("#{row.timestamp}") %>
+                          <%  date =  datetime.strftime("%m/%d")%>
+                          <%  time = datetime.strftime("%H:%M")%>
 
-                            <% if(image_number == 1) %>
-
-                            <% difference = value %>
-                            <li style="font-size:20px; font-weight:bold;"><img src="images/rank<%= "#{image_number}" %>.png" style="width:50px; margin:5px;"><%= "#{key}".force_encoding("utf-8") %> <%= "#{value}".force_encoding("utf-8") %>分</li>
-
-                            <% else %>
-
-                            <li style="font-size:20px; font-weight:bold;"><img src="images/rank<%= "#{image_number}" %>.png" style="width:50px; margin:5px;"><%= "#{key}".force_encoding("utf-8") %> <span style="pa-top:10px;"><%= "#{value}".force_encoding("utf-8") %>分 </span><span class="text-danger">(１位まであと<%= difference - value %>分)</span></li>
-
-                            <% end %>
-
-                            <%  image_number = image_number + 1 %>
-                            <% } %>
-
-                          </ul>
-                        </div>
-
-                        <img src="./images/ranking.png" width="100%">
-                        <div style="width:100% height:300px;">
-                          <div style="width:80%; height:300px;  position: relative;">
-
-                            <% top = 0 %>
-                            <% user = User.all %>
-                            <% user.each do |row| %>
-
-                            <div id='anime<%= "#{row.user_id}" %>' style="margin-left:20px; position: absolute; top:<%= top %>%;">
-                              <img src="images/<%= "#{row.image_name}" %>" alt="ユーザ画像" width="45" height="45" class="img-responsive center-block" style="margin-top:8pt; margin-left:4px;">
-                              <h6 class="text-center" style="margin-top:-1px;"><%= "#{row.user_name}" %></h6>
+                          <li>
+                            <time class="cbp_tmtime" datetime="2013-04-10 18:30"><span><%= date %></span> <span><%= time %></span></time>
+                            <div class="cbp_tmicon"><img src="images/takuma.jpg" alt="ユーザ画像" width="36" height="36" class="img-thumbnail img-responsive center-block"><h6 class="text-center" style="margin-top:0px;"><%= "#{image_name.user_name}".force_encoding("utf-8") %></h6></div>
+                            <div class="cbp_tmlabel">
+                              <h4 style="font-weight:bold; margin-left:10px;"><%= "#{row.task_name}" %> <%= "#{task_time(row.task_id)}".to_i %>分</h4>
+                              <p style="margin-left:10px;"><%= "#{row.comment}".force_encoding("utf-8") %></p>
                             </div>
+                          </li>
 
-                            <%  top = top + 11 %>
-                            <% end  %>
+                          <% end%>
 
-                          </div>
-                        </div>
-
+                        </ul>
                       </td>
                     </tr>
                   </tbody>
                 </table>
               </div>
-            </div>
-          </div>
 
+              <div class="row">
+                <!-- 学習時間ランキング -->
+                <div class="col-sm-7">
+                  <div class="panel panel-default">
+                    <table class="table table-bordered">
+                      <thead>
+                        <tr><th class="text-center">今日の学習時間ランキング</th></tr>
+                      </thead>
+                      <tbody>
+                        <tr style="height:450px;">
+                          <td>
 
+                            <div style="float:left; margin-left:-30px;">
+                              <ul style="list-style:none;">
 
-        <!-- footer -->
-        <footer class="footer" style="height: 40px; background-color: #f5f5f5;">
-          <div class="container" >
-            <p class="text-muted" style="padding: 5px;">Copyright (C) 2015 Takuma Sasaki ALL Right Reserved.</p>
-          </div>
-        </footer>
+                                <% total_sort = total_time.sort_by{|key,val| -val} %>
+                                <% image_number = 1%>
+                                <% difference = 0%>
+                                <% total_sort.first(3).each {|key, value| %>
 
-        <!-- モーダルウィンドウの中身 -->
-        <!-- 新しいタスクを追加フォーム -->
-        <div class="modal fade" id="myModal">
-          <div class="modal-dialog">
-            <div class="modal-content">
+                                  <% if(image_number == 1) %>
 
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title"><i class="glyphicon glyphicon-plus"></i> 新しいタスクを追加</h4>
-              </div>
+                                  <% difference = value %>
+                                  <li style="font-size:13px; font-weight:bold;"><img src="images/rank<%= "#{image_number}" %>.png" style="width:30px; margin:5px;"><%= "#{key}".force_encoding("utf-8") %> <%= "#{value}".force_encoding("utf-8") %>分</li>
 
-              <div class="modal-body">
-                <form method="post" action="add_task.rb">
-                  <div class="form-group">
-                    <label for="task_name">タスク名</label>
-                    <input type="text" class="form-control" id="task_name" placeholder="追加するタスク名" name="task_name">
+                                  <% else %>
+
+                                  <li style="font-size:13px; font-weight:bold;"><img src="images/rank<%= "#{image_number}" %>.png" style="width:30px; margin:5px;"><%= "#{key}".force_encoding("utf-8") %> <span style="pa-top:10px;"><%= "#{value}".force_encoding("utf-8") %>分 </span><span class="text-danger">(１位まであと<%= difference - value %>分)</span></li>
+
+                                  <% end %>
+
+                                  <%  image_number = image_number + 1 %>
+                                  <% } %>
+
+                                </ul>
+                              </div>
+
+                              <img src="./images/ranking.png" width="100%">
+                              <div style="width:100% height:300px;">
+                                <div style="width:70%; height:300px;  position: relative;">
+
+                                  <% top = 0 %>
+                                  <% user = User.all %>
+                                  <% user.each do |row| %>
+
+                                  <div id='anime<%= "#{row.user_id}" %>' style="margin-left:20px; position: absolute; top:<%= top %>%;">
+                                    <img src="images/<%= "#{row.image_name}" %>" alt="ユーザ画像" width="35" height="35" class="img-responsive center-block" style="margin-top:8pt; margin-left:4px;">
+                                    <h6 class="text-center" style="margin-top:-1px;"><%= "#{row.user_name}" %></h6>
+                                  </div>
+
+                                  <%  top = top + 11 %>
+                                  <% end  %>
+
+                                </div>
+                              </div>
+
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
                   </div>
-                  <button type="submit" class="btn btn-success">追加する</button>
-                </form>
+                </div>
               </div>
-
-              <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-dismiss="modal">閉じる</button>
-              </div>
-
             </div>
+
           </div>
         </div>
+      </div>
 
-          <!-- javascriptの読み込み -->
-          <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-          <script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
-          <script src="js/bootstrap/bootstrap.min.js"></script>
-          <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/i18n/jquery-ui-i18n.min.js"></script>
+      <!-- footer -->
+      <footer class="footer" style="height: 40px; background-color: #f5f5f5;">
+        <div class="container" >
+          <p class="text-muted" style="padding: 5px;">Copyright (C) 2015 Takuma Sasaki ALL Right Reserved.</p>
+        </div>
+      </footer>
 
-          <!-- ライブラリ -->
-          <script src="js/Chart/Chart.js"></script>
-          <script src="http://momentjs.com/downloads/moment.js"></script>
-          <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-          <script src="js/scrolltable/jquery.scrolltable.js"></script>
-          <script src="js/jQueryTween/jQueryTween-aio-min.js"></script>
-          <script src="js/timepicker/jquery.timepicker.js"></script>
-          <script src="js/fakeLoader/fakeLoader.min.js"></script>
+      <!-- モーダルウィンドウの中身 -->
+      <!-- 新しいタスクを追加フォーム -->
+      <div class="modal fade" id="myModal">
+        <div class="modal-dialog">
+          <div class="modal-content">
 
-        <!-- 自分で書いたスクリプト -->
-        <script src="js/my_library/current_time.js"></script>
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title"><i class="glyphicon glyphicon-plus"></i> 新しいタスクを追加</h4>
+            </div>
 
-        <script>
+            <div class="modal-body">
+              <form method="post" action="add_task.rb">
+                <div class="form-group">
+                  <label for="task_name">タスク名</label>
+                  <input type="text" class="form-control" id="task_name" placeholder="追加するタスク名" name="task_name">
+                </div>
+                <button type="submit" class="btn btn-success">追加する</button>
+              </form>
+            </div>
 
-        // ローディングの画像を毎回読み込ませるためのスタンプ
-        var timestamp = new Date().getTime();
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" data-dismiss="modal">閉じる</button>
+            </div>
 
-        // ローディング画面
-        $("#fakeloader").fakeLoader({
-          timeToHide: 1200,
-          bgColor: "#80D8FF",
-          imagePath:"images/loading.gif?" + timestamp
-        });
+          </div>
+        </div>
+      </div>
 
-          $(function (){
+      <!-- javascriptの読み込み -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+      <script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
+      <script src="js/bootstrap/bootstrap.min.js"></script>
+      <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/i18n/jquery-ui-i18n.min.js"></script>
+
+      <!-- ライブラリ -->
+      <script src="js/Chart/Chart.js"></script>
+      <script src="http://momentjs.com/downloads/moment.js"></script>
+      <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+      <script src="js/scrolltable/jquery.scrolltable.js"></script>
+      <script src="js/jQueryTween/jQueryTween-aio-min.js"></script>
+      <script src="js/timepicker/jquery.timepicker.js"></script>
+      <script src="js/jQRangeSlider/jQRangeSlider-min.js"></script>
+      <script src="js/jQRangeSlider/jQAllRangeSliders-min.js"></script>
+      <script src="js/timeline/modernizr.custom.js"></script>
+
+      <!-- 自分で書いたスクリプト -->
+      <script src="js/my_library/current_time.js"></script>
+
+      <script>
+
+      $(function (){
+
+        // 現在の日付を取得
+        var m = moment();
+        var date_first = m.format("YYYY年MM月DD日");
+        // 現在の日付を表示するメソッド
+        current_time(date_first);
+
+        var date2 = new Date();
+        var date4 = new Date();
+
+        // 時間のフォーマット
+        function TwoDigits(val){
+
+          if (val < 10){
+            return "0" + val;
+          }
+
+          return val;
+        }
 
 
+        $('#log_form').submit(function(event) {
+          // HTMLでの送信をキャンセル
+          event.preventDefault();
 
-            // テーブルにスクロールバーを付ける処理
-            $('.scrollTable').scrolltable({
-              maxHeight: 500
-            });
+          // 操作対象のフォーム要素を取得
+          var $form = $(this);
 
-            // 現在の日付を取得
-            var m = moment();
-            var date = m.format("YYYY年MM月DD日");
+          // 送信ボタンを取得
+          // （後で使う: 二重送信を防止する。）
+          var $button = $form.find('button');
 
-            var date2 = new Date();
-            var date4 = new Date();
-
-            // 現在の日付を表示するメソッド
-            current_time(date);
-
-            // 日付の入力
-            $.datepicker.setDefaults($.datepicker.regional['ja']);
-            // 3日付選択ボックスを生成
-            $('#datepicker').datepicker({ dateFormat: 'yy-mm-dd' });
-            $("#datepicker").datepicker("setDate", date2.getFullYear() + "-" + (date2.getMonth() + 1) + "-" + date2.getDate());
-
-            // 時間入力
-            $('.start').timepicker({
-              'timeFormat': 'H:i'
-            });
+          var dateValues = $("#slider").dateRangeSlider("values");
+          console.log(dateValues.min.toString() + " " + dateValues.max.toString());
 
 
-            // durationを設定するために値を取得
-            start_time = $('.start').val();
+          // 送信
+          $.ajax({
+            url: $form.attr('action'),
+            type: $form.attr('method'),
+            data: $form.serialize() + "&start_t=" + dateValues.min.toString() + "&finish_t=" + dateValues.max.toString(),
+            timeout: 10000,  // 単位はミリ秒
 
-            $('.end').timepicker({
-              'scrollDefault': start_time,
-              'durationTime' : start_time,
-              'showDuration': true,
-              'maxTime': '23:59',
-              'timeFormat': 'H:i'
-            });
+            // 送信前
+            beforeSend: function(xhr, settings) {
+              // ボタンを無効化し、二重送信を防止
+              $button.attr('disabled', true);
+            },
+            // 応答後
+            complete: function(xhr, textStatus) {
+              // ボタンを有効化し、再送信を許可
+              $button.attr('disabled', false);
+            },
 
-            // 今の時間をセットする
-            $('.start').timepicker('setTime', (date4.getHours() - 1) + ":" + date4.getMinutes());
-            $('.end').timepicker('setTime', date4.getHours() + ":" + date4.getMinutes());
+            // 通信成功時の処理
+            success: function(data) {
 
-            // 始まりの時間が入力されるたびに呼ばれる
-            $('.start').on('changeTime', function(){
-              start_time = $('.start').val();
-              var date3 = $('.start').timepicker('getTime', new Date());
+              // 入力値を初期化
+              $form[0].reset();
+              var dt = data.split(",");
 
-              // 一回エレメントを削除
-              $('.end').timepicker('remove');
+              $('#timeline_ul').prepend('<li><div style="display:none"><time class="cbp_tmtime" datetime="2013-04-10 18:30"><span>' + dt[5] + '</span> <span>' + dt[6] + '</span></time><div class="cbp_tmicon"><img src="images/' + dt[0] + '" alt="ユーザ画像" width="36" height="36" class="img-thumbnail img-responsive center-block"><h6 class="text-center" style="margin-top:0px;">' + dt[1] + '</h6></div><div class="cbp_tmlabel"><h4 style="font-weight:bold; margin-left:10px;">' + dt[2] + ' ' + dt[3] + '分</h4><p style="margin-left:10px;">' + dt[4] + '</p></div></div></li>');
+              $('li div').slideDown("slow");
+              $("#datepicker").datepicker("setDate", date2.getFullYear() + "-" + (date2.getMonth() + 1) + "-" + date2.getDate());
+              $('#slider').dateRangeSlider("destroy");
 
-              // durationを設定して追加する
-              $('.end').timepicker({
-                'scrollDefault': start_time,
-                'durationTime' : start_time,
-                'showDuration': true,
-                'maxTime': '23:59',
-                'timeFormat': 'H:i'
+              // datepickerの値を持ってきて、sliderと紐付ける
+              var picker_date3 = $("#datepicker").val();
+              var date3 = new Date(picker_date3);
+
+              var slider_year3 = date3.getFullYear();
+              var slider_month3 = date3.getMonth();
+              // 何故か１日ずれるため
+              var slider_day3 = date3.getDate();
+              console.log(slider_day3)
+
+              // 時間帯入力のスライダー設定
+              $("#slider").dateRangeSlider({
+                step: {minutes:10},
+                bounds: {min: new Date(slider_year3,slider_month3,slider_day3,0,0), max: new Date(slider_year3,slider_month3,slider_day3, 23, 59, 59)},
+                defaultValues: {min: new Date(slider_year3,slider_month3,slider_day3, 1, 0), max: new Date(slider_year3,slider_month3,slider_day3, 15, 0)},
+                formatter: function(value){
+                  var hours = value.getHours(),
+                  minutes = value.getMinutes();
+                  return TwoDigits(hours) + ":" + TwoDigits(minutes);
+                }
               });
 
-              var hours = date3.getHours() + 1;
-              var minutes = date3.getMinutes();
+            },
 
-              if( Number(date3.getHours()) >= 22 ){
-                hours = date3.getHours();
-                minutes = '30'
-              }
+            // 通信失敗時の処理
+            error: function(xhr, textStatus, error) {}
+          });
+        });
 
-              $('.end').timepicker('setTime', hours + ":" + minutes );
-
-            });
-
-
-            // onclickが何回押されたかを判定するフラグ
-            var flg = 'default'
-
-            // その他のタスクボタンのイベントメソッド
-            $('.other_click').click(function(){
-
-              if(flg == 'default'){
-
-                $('#other_task').show()
-                $('#high_priority').hide()
-                $("#other_bottun").text("よく記録するタスク");
-
-                flg = "changed";
-
-              }else{
-
-                $('#other_task').hide()
-                $('#high_priority').show()
-                $("#other_bottun").text("その他のタスク");
-
-                flg = 'default';
-
-              }
-            });
+        // 日付の入力
+        $.datepicker.setDefaults($.datepicker.regional['ja']);
+        // 3日付選択ボックスを生成
+        $('#datepicker').datepicker({ dateFormat: 'yy-mm-dd' });
+        $("#datepicker").datepicker("setDate", date2.getFullYear() + "-" + (date2.getMonth() + 1) + "-" + date2.getDate());
 
 
-            // ランキングアニメーション
-            <% user_rank_percent = user_rank_percent() %>
-            <% user = User.all %>
-            <% user.each do |row| %>
+        // datepickerの値を持ってきて、sliderと紐付ける
+        var picker_date1 = $("#datepicker").val();
+        var date1 = new Date(picker_date1);
 
-            $('#anime<%= "#{row.user_id}" %>').jQueryTween({ to: { position: { left: '<%= "#{user_rank_percent["#{row.user_id}"].to_i}" %>%' } }, duration: 1000,easing: TWEEN.Easing.Quadratic.In } );
+        var slider_year = date1.getFullYear();
+        var slider_month = date1.getMonth();
+        // 何故か１日ずれるため
+        var slider_day = date1.getDate();
 
-            <% end %>
 
+        // 時間帯入力のスライダー設定
+        $("#slider").dateRangeSlider({
+          step: {minutes:10},
+          bounds: {min: new Date(slider_year,slider_month,slider_day,0,0), max: new Date(slider_year,slider_month,slider_day, 23, 59, 59)},
+          defaultValues: {min: new Date(slider_year,slider_month,slider_day, 1, 0), max: new Date(slider_year,slider_month,slider_day, 15, 0)},
+          formatter: function(value){
+            var hours = value.getHours(),
+            minutes = value.getMinutes();
+            return TwoDigits(hours) + ":" + TwoDigits(minutes);
+          }
+        });
 
+        // datepickerの値が変更された時に呼ばれるメソッド
+        $('#datepicker').datepicker()
+          .on('change.dp', function(e) {
+
+          $('#slider').dateRangeSlider("destroy");
+
+          // datepickerの値を持ってきて、sliderと紐付ける
+          var picker_date2 = $("#datepicker").val();
+          var date2 = new Date(picker_date2);
+          console.log(date2);
+
+          var slider_year2 = date2.getFullYear();
+          var slider_month2 = date2.getMonth();
+          // 何故か１日ずれるため
+          var slider_day2 = date2.getDate();
+          console.log(slider_day2)
+
+          // 時間帯入力のスライダー設定
+          $("#slider").dateRangeSlider({
+            step: {minutes:10},
+            bounds: {min: new Date(slider_year2,slider_month2,slider_day2,0,0), max: new Date(slider_year2,slider_month2,slider_day2, 23, 59, 59)},
+            defaultValues: {min: new Date(slider_year2,slider_month2,slider_day2, 1, 0), max: new Date(slider_year2,slider_month2,slider_day2, 15, 0)},
+            formatter: function(value){
+              var hours = value.getHours(),
+              minutes = value.getMinutes();
+              return TwoDigits(hours) + ":" + TwoDigits(minutes);
+            }
           });
 
-          </script>
-        </body>
-        </html>
+        });
+
+        // テーブルにスクロールバーを付ける処理
+        $('.scrollTable').scrolltable({
+          maxHeight: 350
+        });
+
+
+        // onclickが何回押されたかを判定するフラグ
+        var flg = 'default'
+
+        // その他のタスクボタンのイベントメソッド
+        $('.other_click').click(function(){
+
+          if(flg == 'default'){
+
+            $('#other_task').show()
+            $('#high_priority').hide()
+            $("#other_bottun").text("よく記録するタスク");
+
+            flg = "changed";
+
+          }else{
+
+            $('#other_task').hide()
+            $('#high_priority').show()
+            $("#other_bottun").text("その他のタスク");
+
+            flg = 'default';
+
+          }
+        });
+
+
+        // ランキングアニメーション
+        <% user_rank_percent = user_rank_percent() %>
+        <% user = User.all %>
+        <% user.each do |row| %>
+
+        $('#anime<%= "#{row.user_id}" %>').jQueryTween({ to: { position: { left: '<%= "#{user_rank_percent["#{row.user_id}"].to_i}" %>%' } }, duration: 1000,easing: TWEEN.Easing.Quadratic.In } );
+
+        <% end %>
+
+
+      });
+
+      </script>
+    </body>
+    </html>

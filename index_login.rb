@@ -38,9 +38,7 @@ else
   # ERBを、ERBHandlerを経由せずに直接呼び出して利用している
   template = ERB.new( File.read('index_login.erb') )
   puts cgi.header({
-    'Content-Type' => 'text/html',
-    'Location' => cgi['']
-    })
+    'Content-Type' => 'text/html'})
   print template.result( binding )
 
 end
