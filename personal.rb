@@ -18,7 +18,6 @@ session = CGI::Session.new(cgi)
 
 create_heatmap_tsv(session["user_id"])
 
-
 # 処理の結果を表示する
 # ERBを、ERBHandlerを経由せずに直接呼び出して利用している
 template = ERB.new( File.read('personal.erb') )
