@@ -87,9 +87,11 @@
                 <td>
 
                   <% user = User.find( user_id ) %>
-
-                  <img src="images/<%= "#{user.image_name}" %>" alt="ユーザ画像" width="130" height="130" class="img-thumbnail img-responsive center-block" style="margin-top:8pt;">
-                  <h4 class="text-center"><a><%= "#{user.user_name.to_s}".force_encoding("utf-8") %></a></h4>
+                  <a data-toggle="modal" data-target="#edit_user_info" >
+                    <img src="images/<%= "#{user.image_name}" %>" alt="ユーザ画像" width="130" height="130" class="img-thumbnail img-responsive center-block" style="margin-top:8pt;">
+                    <h4 class="text-center"><%= "#{user.user_name.to_s}".force_encoding("utf-8") %></h4>
+                    <h6 class="text-center">編集</h6>
+                  </a>
                 </td>
               </tr>
             </tbody>
@@ -410,6 +412,38 @@
                   <input type="text" class="form-control" id="task_name" placeholder="追加するタスク名" name="task_name">
                 </div>
                 <button type="submit" class="btn btn-success">追加する</button>
+              </form>
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" data-dismiss="modal">閉じる</button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- モーダルウィンドウの中身 -->
+      <!-- ユーザ情報の編集 -->
+      <div class="modal fade" id="edit_user_info">
+        <div class="modal-dialog">
+          <div class="modal-content">
+
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title"><i class="glyphicon glyphicon-plus"></i> ユーザ情報の編集</h4>
+            </div>
+
+            <div class="modal-body">
+              <form method="post" action="edit_user_info.rb" enctype="multipart/form-data" >
+                <div class="form-group">
+                  <label for="user_name">ユーザネーム</label>
+                  <% user = User.find( user_id ) %>
+                  <input type="text" class="form-control" id="user_name" name="user_name" value="<%= "#{user.user_name}" %>" >
+                  <label for="image_name" style="margin-top:15px;">ユーザ画像</label>
+                  <input type="file" name="image_name">
+                </div>
+                <button type="submit" class="btn btn-success">更新する</button>
               </form>
             </div>
 
