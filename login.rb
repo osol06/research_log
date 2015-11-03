@@ -62,7 +62,7 @@ else
 
           #セッションを新規作成
           session = CGI::Session.new(cgi,{"new_session"=>true,
-                                          "session_expires"=> Time.now + 3600 })
+                                          "session_expires"=> Time.local(2016, 3) })
           session['user_id'] = row.user_id
           #closeしてセッション情報をサーバに書き込む
           session.close
