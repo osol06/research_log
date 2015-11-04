@@ -301,7 +301,7 @@
 
                           <li>
                             <time class="cbp_tmtime" datetime="2013-04-10 18:30"><span><%= date %></span> <span><%= time %></span></time>
-                            <div class="cbp_tmicon"><img src="images/takuma.jpg" alt="ユーザ画像" width="36" height="36" class="img-thumbnail img-responsive center-block"><h6 class="text-center" style="margin-top:0px;"><%= "#{image_name.user_name}".force_encoding("utf-8") %></h6></div>
+                            <div class="cbp_tmicon"><img src="images/<%= "#{image_name.image_name}" %>" alt="ユーザ画像" width="36" height="36" class="img-thumbnail img-responsive center-block"><h6 class="text-center" style="margin-top:0px;"><%= "#{image_name.user_name}".force_encoding("utf-8") %></h6></div>
                             <div class="cbp_tmlabel">
                               <h4 style="font-weight:bold; margin-left:10px;"><%= "#{row.task_name}" %> <%= "#{task_time(row.task_id)}".to_i %>分</h4>
                               <p style="margin-left:10px;"><%= "#{row.comment}".force_encoding("utf-8") %></p>
@@ -363,7 +363,7 @@
                                   <% user.each do |row| %>
 
                                   <div id='anime<%= "#{row.user_id}" %>' style="margin-left:20px; position: absolute; top:<%= top %>%;">
-                                    <img src="images/<%= "#{row.image_name}" %>" alt="ユーザ画像" width="35" height="35" class="img-responsive center-block" style="margin-top:8pt; margin-left:4px;">
+                                    <img src="images/<%= "#{row.image_name}" %>" alt="ユーザ画像" width="35" height="35" class="center-block" style="margin-top:8pt; margin-left:4px;">
                                     <h6 class="text-center" style="margin-top:-1px;"><%= "#{row.user_name}" %></h6>
                                   </div>
 
