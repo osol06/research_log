@@ -303,8 +303,8 @@
                             <time class="cbp_tmtime" datetime="2013-04-10 18:30"><span><%= date %></span> <span><%= time %></span></time>
                             <div class="cbp_tmicon"><img src="images/<%= "#{image_name.image_name}" %>" alt="ユーザ画像" width="36" height="36" class="img-thumbnail img-responsive center-block"><h6 class="text-center" style="margin-top:0px;"><%= "#{image_name.user_name}".force_encoding("utf-8") %></h6></div>
                             <div class="cbp_tmlabel">
-                              <h4 style="font-weight:bold; margin-left:10px;"><%= "#{row.task_name}" %> <%= "#{task_time(row.task_id)}".to_i %>分</h4>
-                              <p style="margin-left:10px;"><%= "#{row.comment}".force_encoding("utf-8") %></p>
+                              <h4 style="font-weight:bold; font-size:1.0em; margin-left:10px;"><%= "#{row.task_name}" %> <%= "#{task_time(row.task_id)}".to_i %>分</h4>
+                              <p style="margin:0 0 0 10px;"><%= "#{row.comment}".force_encoding("utf-8") %></p>
                             </div>
                           </li>
 
@@ -539,7 +539,7 @@
               $form[0].reset();
               var dt = data.split(",");
 
-              $('#timeline_ul').prepend('<li><div style="display:none"><time class="cbp_tmtime" datetime="2013-04-10 18:30"><span>' + dt[5] + '</span> <span>' + dt[6] + '</span></time><div class="cbp_tmicon"><img src="images/' + dt[0] + '" alt="ユーザ画像" width="36" height="36" class="img-thumbnail img-responsive center-block"><h6 class="text-center" style="margin-top:0px;">' + dt[1] + '</h6></div><div class="cbp_tmlabel"><h4 style="font-weight:bold; margin-left:10px;">' + dt[2] + ' ' + dt[3] + '分</h4><p style="margin-left:10px;">' + dt[4] + '</p></div></div></li>');
+              $('#timeline_ul').prepend('<li><div style="display:none"><time class="cbp_tmtime" datetime="2013-04-10 18:30"><span>' + dt[5] + '</span> <span>' + dt[6] + '</span></time><div class="cbp_tmicon"><img src="images/' + dt[0] + '" alt="ユーザ画像" width="36" height="36" class="img-thumbnail img-responsive center-block"><h6 class="text-center" style="margin-top:0px;">' + dt[1] + '</h6></div><div class="cbp_tmlabel"><h4 style="font-weight:bold; font-size:1.0em; margin-left:10px;">' + dt[2] + ' ' + dt[3] + '分</h4><p style="margin:0 0 0 10px;">' + dt[4] + '</p></div></div></li>');
               $('li div').slideDown("slow");
               $("#datepicker").datepicker("setDate", date2.getFullYear() + "-" + (date2.getMonth() + 1) + "-" + date2.getDate());
               $('#slider').dateRangeSlider("destroy");
