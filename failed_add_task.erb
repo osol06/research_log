@@ -547,18 +547,19 @@
               // datepickerの値を持ってきて、sliderと紐付ける
               var picker_date3 = $("#datepicker").val();
               var date3 = new Date(picker_date3);
+              var now3 = new Date();
 
               var slider_year3 = date3.getFullYear();
               var slider_month3 = date3.getMonth();
-              // 何故か１日ずれるため
               var slider_day3 = date3.getDate();
-              console.log(slider_day3)
+              var slider_hour3 = now3.getHours();
+              var slider_minutes3 = now3.getMinutes();
 
               // 時間帯入力のスライダー設定
               $("#slider").dateRangeSlider({
                 step: {minutes:10},
                 bounds: {min: new Date(slider_year3,slider_month3,slider_day3,0,0), max: new Date(slider_year3,slider_month3,slider_day3, 23, 59, 59)},
-                defaultValues: {min: new Date(slider_year3,slider_month3,slider_day3, 1, 0), max: new Date(slider_year3,slider_month3,slider_day3, 15, 0)},
+                defaultValues: {min: new Date(slider_year3,slider_month3,slider_day3, slider_hour3 - 2, slider_minutes3), max: new Date(slider_year3,slider_month3,slider_day3, slider_hour3, slider_minutes3)},
                 formatter: function(value){
                   var hours = value.getHours(),
                   minutes = value.getMinutes();
@@ -583,18 +584,20 @@
         // datepickerの値を持ってきて、sliderと紐付ける
         var picker_date1 = $("#datepicker").val();
         var date1 = new Date(picker_date1);
+        var now1 = new Date();
 
         var slider_year = date1.getFullYear();
         var slider_month = date1.getMonth();
-        // 何故か１日ずれるため
         var slider_day = date1.getDate();
+        var slider_hour = now1.getHours();
+        var slider_minutes = now1.getMinutes();
 
 
         // 時間帯入力のスライダー設定
         $("#slider").dateRangeSlider({
           step: {minutes:10},
           bounds: {min: new Date(slider_year,slider_month,slider_day,0,0), max: new Date(slider_year,slider_month,slider_day, 23, 59, 59)},
-          defaultValues: {min: new Date(slider_year,slider_month,slider_day, 1, 0), max: new Date(slider_year,slider_month,slider_day, 15, 0)},
+          defaultValues: {min: new Date(slider_year,slider_month,slider_day, slider_hour - 2, slider_minutes), max: new Date(slider_year,slider_month,slider_day, slider_hour, slider_minutes)},
           formatter: function(value){
             var hours = value.getHours(),
             minutes = value.getMinutes();
@@ -611,19 +614,19 @@
           // datepickerの値を持ってきて、sliderと紐付ける
           var picker_date2 = $("#datepicker").val();
           var date2 = new Date(picker_date2);
-          console.log(date2);
+          var now2 = new Date();
 
           var slider_year2 = date2.getFullYear();
           var slider_month2 = date2.getMonth();
-          // 何故か１日ずれるため
           var slider_day2 = date2.getDate();
-          console.log(slider_day2)
+          var slider_hour2 = now2.getHours();
+          var slider_minutes2 = now2.getMinutes();
 
           // 時間帯入力のスライダー設定
           $("#slider").dateRangeSlider({
             step: {minutes:10},
             bounds: {min: new Date(slider_year2,slider_month2,slider_day2,0,0), max: new Date(slider_year2,slider_month2,slider_day2, 23, 59, 59)},
-            defaultValues: {min: new Date(slider_year2,slider_month2,slider_day2, 1, 0), max: new Date(slider_year2,slider_month2,slider_day2, 15, 0)},
+            defaultValues: {min: new Date(slider_year2,slider_month2,slider_day2, slider_hour2 - 2, slider_minutes2), max: new Date(slider_year2,slider_month2,slider_day2, slider_hour2, slider_minutes2)},
             formatter: function(value){
               var hours = value.getHours(),
               minutes = value.getMinutes();
