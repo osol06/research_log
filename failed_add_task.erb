@@ -301,10 +301,10 @@
 
                           <li>
                             <time class="cbp_tmtime" datetime="2013-04-10 18:30"><span><%= date %></span> <span><%= time %></span></time>
-                            <div class="cbp_tmicon"><img src="images/takuma.jpg" alt="ユーザ画像" width="36" height="36" class="img-thumbnail img-responsive center-block"><h6 class="text-center" style="margin-top:0px;"><%= "#{image_name.user_name}".force_encoding("utf-8") %></h6></div>
+                            <div class="cbp_tmicon"><img src="images/<%= "#{image_name.image_name}" %>" alt="ユーザ画像" width="36" height="36" class="img-thumbnail img-responsive center-block"><h6 class="text-center" style="margin-top:0px;"><%= "#{image_name.user_name}".force_encoding("utf-8") %></h6></div>
                             <div class="cbp_tmlabel">
-                              <h4 style="font-weight:bold; margin-left:10px;"><%= "#{row.task_name}" %> <%= "#{task_time(row.task_id)}".to_i %>分</h4>
-                              <p style="margin-left:10px;"><%= "#{row.comment}".force_encoding("utf-8") %></p>
+                              <h4 style="font-weight:bold; font-size:1.0em; margin-left:10px;"><%= "#{row.task_name}" %> <%= "#{task_time(row.task_id)}".to_i %>分</h4>
+                              <p style="margin:0 0 0 10px;"><%= "#{row.comment}".force_encoding("utf-8") %></p>
                             </div>
                           </li>
 
@@ -363,7 +363,7 @@
                                   <% user.each do |row| %>
 
                                   <div id='anime<%= "#{row.user_id}" %>' style="margin-left:20px; position: absolute; top:<%= top %>%;">
-                                    <img src="images/<%= "#{row.image_name}" %>" alt="ユーザ画像" width="35" height="35" class="img-responsive center-block" style="margin-top:8pt; margin-left:4px;">
+                                    <img src="images/<%= "#{row.image_name}" %>" alt="ユーザ画像" width="35" height="35" class="center-block" style="margin-top:8pt; margin-left:4px;">
                                     <h6 class="text-center" style="margin-top:-1px;"><%= "#{row.user_name}" %></h6>
                                   </div>
 
@@ -539,7 +539,7 @@
               $form[0].reset();
               var dt = data.split(",");
 
-              $('#timeline_ul').prepend('<li><div style="display:none"><time class="cbp_tmtime" datetime="2013-04-10 18:30"><span>' + dt[5] + '</span> <span>' + dt[6] + '</span></time><div class="cbp_tmicon"><img src="images/' + dt[0] + '" alt="ユーザ画像" width="36" height="36" class="img-thumbnail img-responsive center-block"><h6 class="text-center" style="margin-top:0px;">' + dt[1] + '</h6></div><div class="cbp_tmlabel"><h4 style="font-weight:bold; margin-left:10px;">' + dt[2] + ' ' + dt[3] + '分</h4><p style="margin-left:10px;">' + dt[4] + '</p></div></div></li>');
+              $('#timeline_ul').prepend('<li><div style="display:none"><time class="cbp_tmtime" datetime="2013-04-10 18:30"><span>' + dt[5] + '</span> <span>' + dt[6] + '</span></time><div class="cbp_tmicon"><img src="images/' + dt[0] + '" alt="ユーザ画像" width="36" height="36" class="img-thumbnail img-responsive center-block"><h6 class="text-center" style="margin-top:0px;">' + dt[1] + '</h6></div><div class="cbp_tmlabel"><h4 style="font-weight:bold; font-size:1.0em; margin-left:10px;">' + dt[2] + ' ' + dt[3] + '分</h4><p style="margin:0 0 0 10px;">' + dt[4] + '</p></div></div></li>');
               $('li div').slideDown("slow");
               $("#datepicker").datepicker("setDate", date2.getFullYear() + "-" + (date2.getMonth() + 1) + "-" + date2.getDate());
               $('#slider').dateRangeSlider("destroy");
@@ -547,18 +547,19 @@
               // datepickerの値を持ってきて、sliderと紐付ける
               var picker_date3 = $("#datepicker").val();
               var date3 = new Date(picker_date3);
+              var now3 = new Date();
 
               var slider_year3 = date3.getFullYear();
               var slider_month3 = date3.getMonth();
-              // 何故か１日ずれるため
               var slider_day3 = date3.getDate();
-              console.log(slider_day3)
+              var slider_hour3 = now3.getHours();
+              var slider_minutes3 = now3.getMinutes();
 
               // 時間帯入力のスライダー設定
               $("#slider").dateRangeSlider({
                 step: {minutes:10},
                 bounds: {min: new Date(slider_year3,slider_month3,slider_day3,0,0), max: new Date(slider_year3,slider_month3,slider_day3, 23, 59, 59)},
-                defaultValues: {min: new Date(slider_year3,slider_month3,slider_day3, 1, 0), max: new Date(slider_year3,slider_month3,slider_day3, 15, 0)},
+                defaultValues: {min: new Date(slider_year3,slider_month3,slider_day3, slider_hour3 - 2, slider_minutes3), max: new Date(slider_year3,slider_month3,slider_day3, slider_hour3, slider_minutes3)},
                 formatter: function(value){
                   var hours = value.getHours(),
                   minutes = value.getMinutes();
@@ -583,18 +584,20 @@
         // datepickerの値を持ってきて、sliderと紐付ける
         var picker_date1 = $("#datepicker").val();
         var date1 = new Date(picker_date1);
+        var now1 = new Date();
 
         var slider_year = date1.getFullYear();
         var slider_month = date1.getMonth();
-        // 何故か１日ずれるため
         var slider_day = date1.getDate();
+        var slider_hour = now1.getHours();
+        var slider_minutes = now1.getMinutes();
 
 
         // 時間帯入力のスライダー設定
         $("#slider").dateRangeSlider({
           step: {minutes:10},
           bounds: {min: new Date(slider_year,slider_month,slider_day,0,0), max: new Date(slider_year,slider_month,slider_day, 23, 59, 59)},
-          defaultValues: {min: new Date(slider_year,slider_month,slider_day, 1, 0), max: new Date(slider_year,slider_month,slider_day, 15, 0)},
+          defaultValues: {min: new Date(slider_year,slider_month,slider_day, slider_hour - 2, slider_minutes), max: new Date(slider_year,slider_month,slider_day, slider_hour, slider_minutes)},
           formatter: function(value){
             var hours = value.getHours(),
             minutes = value.getMinutes();
@@ -611,19 +614,19 @@
           // datepickerの値を持ってきて、sliderと紐付ける
           var picker_date2 = $("#datepicker").val();
           var date2 = new Date(picker_date2);
-          console.log(date2);
+          var now2 = new Date();
 
           var slider_year2 = date2.getFullYear();
           var slider_month2 = date2.getMonth();
-          // 何故か１日ずれるため
           var slider_day2 = date2.getDate();
-          console.log(slider_day2)
+          var slider_hour2 = now2.getHours();
+          var slider_minutes2 = now2.getMinutes();
 
           // 時間帯入力のスライダー設定
           $("#slider").dateRangeSlider({
             step: {minutes:10},
             bounds: {min: new Date(slider_year2,slider_month2,slider_day2,0,0), max: new Date(slider_year2,slider_month2,slider_day2, 23, 59, 59)},
-            defaultValues: {min: new Date(slider_year2,slider_month2,slider_day2, 1, 0), max: new Date(slider_year2,slider_month2,slider_day2, 15, 0)},
+            defaultValues: {min: new Date(slider_year2,slider_month2,slider_day2, slider_hour2 - 2, slider_minutes2), max: new Date(slider_year2,slider_month2,slider_day2, slider_hour2, slider_minutes2)},
             formatter: function(value){
               var hours = value.getHours(),
               minutes = value.getMinutes();

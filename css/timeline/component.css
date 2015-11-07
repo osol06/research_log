@@ -81,7 +81,7 @@
 
 .cbp_tmtimeline > li .cbp_tmlabel h4 {
 	margin-top: 0px;
-	padding: 0 0 10px 0;
+	padding: 0 0 4px 0;
 	border-bottom: 1px solid rgba(255,255,255,0.4);
 }
 
@@ -183,7 +183,7 @@
 		margin: 0 0 30px 0;
 		padding: 1em;
 		font-weight: 400;
-		font-size: 95%;
+		font-size: 55%;
 	}
 
 	.cbp_tmtimeline > li .cbp_tmlabel:after {
