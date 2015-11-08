@@ -29,6 +29,10 @@ end
 class Weather < ActiveRecord::Base
 end
 
+#date = Task.where(user_id: 1).order("start_time desc")
+#date = date.select("distinct DATE_FORMAT(start_time,'%Y/%m/%d') as date")
+#p date
+
 # レコード取得
 # puts User.all
 # puts Category.all
