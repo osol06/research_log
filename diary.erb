@@ -1,0 +1,202 @@
+<%# coding: UTF-8 %>
+
+
+<% require 'rubygems' %>
+<% require 'erb' %>
+<% require './data_model.rb'%>
+<% require './my_ruby_library/weather.rb' %>
+<% require './my_ruby_library/login_data.rb' %>
+<% require './total_learning_time.rb' %>
+<% require './database_my_library.rb' %>
+
+<% weather = weather() %>
+<% total_time = total_learning_time() %>
+<% user_id = session['user_id'] %>
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <title>mimlab studylog</title>
+  <link rel="shortcut icon" href="images/icon.png" type="image/png">
+
+  <!-- BootStrapの読み込み -->
+  <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css">
+
+  <link type="text/css" rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/cupertino/jquery-ui.min.css" />
+  <link type="text/css" rel="stylesheet" href="css/jQRangeSlider/iThing-min.css">
+  <link type="text/css" rel="stylesheet" href="css/timeline/component.css">
+
+  <!-- TimePickerの読み込み -->
+  <link href="css/timepicker/jquery.timepicker.css" rel="stylesheet" type="text/css">
+
+  <!-- my_cssの読み込み -->
+  <link href="css/my_css.css" rel="stylesheet" type="text/css" >
+
+</head>
+<body>
+
+  <!-- ナビゲーション -->
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container">
+
+      <!-- ナビゲーションヘッダー -->
+      <div class="navbar-header">
+
+        <!-- スマホサイズになった時のボタンの設定 -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand text-info" href="./index.rb"></a>
+
+      </div>
+
+      <!-- ナビゲーションの内容 -->
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="./index.rb">ホーム</a></li>
+          <li><a href="./personal.rb">学習データ</a></li>
+          <li><a href="./other.rb">みんなの活動</a></li>
+          <li><a href="./diary.rb">卒研日記</a></li>
+        </ul>
+      </div>
+
+    </div>
+  </nav>
+
+  <!-- メインコンテンツ  -->
+  <div class="container" style="padding: 0px 0">
+
+    <!-- グリッドシステムを使用する -->
+    <div class="row">
+
+      <!-- ログイン情報 -->
+      <div class="col-sm-2">
+        <div class="panel panel-default">
+          <table class="table table-bordered">
+            <thead>
+              <tr><th class="text-center">ログイン情報</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+
+                  <% user = User.find( user_id ) %>
+                  <img src="images/<%= "#{user.image_name}" %>" alt="ユーザ画像" width="130" height="130" class="img-thumbnail img-responsive center-block" style="margin-top:8pt;">
+                  <h4 class="text-center"><%= "#{user.user_name.to_s}".force_encoding("utf-8") %></h4>
+
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <ul id="menu" style="margin-bottom:20px; height:450px; overflow:auto;">
+
+          <% date = Task.where(user_id: user_id).order("start_time desc") %>
+          <% date = date.select("distinct DATE_FORMAT(start_time,'%Y/%m/%d') as date") %>
+          <% date.each do |row| %>
+          <li><a href="#"><%= row.date %></a></li>
+          <% end %>
+
+        </ul>
+
+      </div>
+
+      <!-- 日記の本体 -->
+      <div class="col-sm-10">
+        <div class="panel panel-default" style="height:500px;">
+          <div class="container-fluid">
+            <div class="row">
+
+              <div class="col-xs-8 col-xs-offset-2 text-center" style="padding:10px;">
+                <button type="button" class="btn btn-default" >
+                  <span class="glyphicon glyphicon-chevron-left .col-xs-4 .col-xs-offset-4"></span>
+                </button>
+                <span>2015/11/12</span>
+                <button type="button" class="btn btn-default">
+                  <span class="glyphicon glyphicon-chevron-right .col-xs-4 .col-xs-offset-4"></span>
+                </button>
+              </div>
+
+            </div>
+
+            <h4>2015年11月12日　天気:晴れ</h4>
+            <p>
+              学習したもの
+              <ol>
+                <li>英単語</li>
+                <li>研究</li>
+                <li>数学</li>
+                <li>新入社員研修</li>
+              </ol>
+            </p>
+
+            <p>
+              学習時間:30時間
+            </p>
+
+              重要キーワード<br>
+              Ajax, apple, MySQL<br>
+              <p style="padding:20px;">
+                コメント<br>
+                みんなからのコメントごもっともだなあ…。どうにか直しきりたい。バイト行ってこよう。他の人の活動状況がもっとよく見えるようにならないものだろうか。広い面積をとっている学習ランキングからの情報量は実はあまり多くないとおもう。
+              </p>
+
+              　
+
+
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- footer -->
+<footer class="footer" style="height: 40px; background-color: #f5f5f5;">
+  <div class="container" >
+    <p class="text-muted" style="padding: 5px;">Copyright (C) 2015 Takuma Sasaki ALL Right Reserved.</p>
+  </div>
+</footer>
+
+<!-- javascriptの読み込み -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
+<script src="js/bootstrap/bootstrap.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/i18n/jquery-ui-i18n.min.js"></script>
+
+<!-- ライブラリ -->
+<script src="js/Chart/Chart.js"></script>
+<script src="http://momentjs.com/downloads/moment.js"></script>
+<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script src="js/scrolltable/jquery.scrolltable.js"></script>
+<script src="js/jQueryTween/jQueryTween-aio-min.js"></script>
+<script src="js/timepicker/jquery.timepicker.js"></script>
+<script src="js/jQRangeSlider/jQRangeSlider-min.js"></script>
+<script src="js/jQRangeSlider/jQAllRangeSliders-min.js"></script>
+<script src="js/timeline/modernizr.custom.js"></script>
+
+<!-- 自分で書いたスクリプト -->
+<script src="js/my_library/current_time.js"></script>
+
+<script>
+
+$(function (){
+
+  $( "#menu" ).menu();
+
+});
+
+</script>
+</body>
+</html>
