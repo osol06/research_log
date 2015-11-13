@@ -102,8 +102,14 @@
 
           <% date = Task.where(user_id: user_id).order("start_time desc") %>
           <% date = date.select("distinct DATE_FORMAT(start_time,'%Y/%m/%d') as date") %>
+          <% delay_a_day = 0 %>
           <% date.each do |row| %>
-          <li><a href="#"><%= row.date %></a></li>
+            <% if(delay_a_day != 0) %>
+          <li><a id="date" class="menue" value="<%= row.date %>"><%= row.date %></a></li>
+            <% end %>
+
+            <% delay_a_day = delay_a_day + 1 %>
+
           <% end %>
 
         </ul>
@@ -114,21 +120,19 @@
       <div class="col-sm-10">
         <div class="panel panel-default" style="height:500px;">
           <div class="container-fluid">
-            <div class="row">
 
-              <div class="col-xs-8 col-xs-offset-2 text-center" style="padding:10px;">
-                <button type="button" class="btn btn-default" >
-                  <span class="glyphicon glyphicon-chevron-left .col-xs-4 .col-xs-offset-4"></span>
-                </button>
-                <span>2015/11/12</span>
-                <button type="button" class="btn btn-default">
-                  <span class="glyphicon glyphicon-chevron-right .col-xs-4 .col-xs-offset-4"></span>
-                </button>
-              </div>
+            <% date2 = Task.where(user_id: user_id).order("start_time desc") %>
+            <% date2 = date.select("distinct DATE_FORMAT(start_time,'%Y/%m/%d') as date") %>
+            <% delay_a_day2 = 0 %>
+            <% date2.first(2).each do |row| %>
+              <% if(delay_a_day2 != 0) %>
+            <h4 id="diary_date"><%= row.date %></h4>
+              <% end %>
 
-            </div>
+              <% delay_a_day2 = delay_a_day2 + 1 %>
 
-            <h4>2015年11月12日　天気:晴れ</h4>
+            <% end %>
+
             <p>
               学習したもの
               <ol>
@@ -143,17 +147,12 @@
               学習時間:30時間
             </p>
 
-              重要キーワード<br>
-              Ajax, apple, MySQL<br>
-              <p style="padding:20px;">
-                コメント<br>
-                みんなからのコメントごもっともだなあ…。どうにか直しきりたい。バイト行ってこよう。他の人の活動状況がもっとよく見えるようにならないものだろうか。広い面積をとっている学習ランキングからの情報量は実はあまり多くないとおもう。
-              </p>
-
-              　
-
-
-
+            重要キーワード<br>
+            Ajax, apple, MySQL<br>
+            <h4>コメント</h4>
+            <p id="comment">
+              みんなからのコメントごもっともだなあ…。どうにか直しきりたい。バイト行ってこよう。他の人の活動状況がもっとよく見えるようにならないものだろうか。広い面積をとっている学習ランキングからの情報量は実はあまり多くないとおもう。
+            </p>
           </div>
         </div>
       </div>
@@ -193,9 +192,64 @@
 
 $(function (){
 
+  // 曜日をスクロール可能にする
   $( "#menu" ).menu();
 
+  // メニューで日付が選択された時に呼ばれるメソッド
+  $("#date.menue").click(function(){
+
+    // 操作対象のフォーム要素を取得
+    var $text = $(this).text();
+    // デバッグ
+    console.log($text);
+
+    // 送信ボタンを取得
+    //（後で使う: 二重送信を防止する。）
+    //var $button = $date.find('a');
+
+    $.ajax({
+      url: './diary_data.rb',
+      type: 'post',
+      dataType: 'json',
+      contentType: "application/json; charset=utf-8",
+      data: {date: $text},
+      timeout: 10000,  // 単位はミリ秒
+
+      // 送信前
+      beforeSend: function(xhr, settings) {
+        // ボタンを無効化し、二重送信を防止
+        $(this).attr('disabled', true);
+      },
+      // 応答後
+      complete: function(xhr, textStatus) {
+        // ボタンを有効化し、再送信を許可
+        $(this).attr('disabled', false);
+      },
+
+      // 通信成功時の処理
+      success: function(json) {
+        console.log(json);
+
+        // 日記の日付
+        $('#diary_date').text($text);
+        var aa = $('#diary_date').text();
+        console.log(aa);
+        // コメント
+        $("#comment").text(json.comment);
+
+      },
+
+      // 通信失敗時の処理
+      error: function(xhr, textStatus, error) {
+        console.log("失敗");
+      }
+    });
+
+    return false;
+  });
+
 });
+
 
 </script>
 </body>
