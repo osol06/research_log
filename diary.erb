@@ -104,11 +104,11 @@
           <% date = date.select("distinct DATE_FORMAT(start_time,'%Y/%m/%d') as date") %>
           <% delay_a_day = 0 %>
           <% date.each do |row| %>
-            <% if(delay_a_day != 0) %>
+          <% if(delay_a_day != 0) %>
           <li><a id="date" class="menue" value="<%= row.date %>"><%= row.date %></a></li>
-            <% end %>
+          <% end %>
 
-            <% delay_a_day = delay_a_day + 1 %>
+          <% delay_a_day = delay_a_day + 1 %>
 
           <% end %>
 
@@ -118,41 +118,58 @@
 
       <!-- 日記の本体 -->
       <div class="col-sm-10">
-        <div class="panel panel-default" style="height:500px;">
+        <div class="panel panel-default">
           <div class="container-fluid">
+            <div class="row" style="padding:10px;">
 
-            <% date2 = Task.where(user_id: user_id).order("start_time desc") %>
-            <% date2 = date.select("distinct DATE_FORMAT(start_time,'%Y/%m/%d') as date") %>
-            <% delay_a_day2 = 0 %>
-            <% date2.first(2).each do |row| %>
+              <% date2 = Task.where(user_id: user_id).order("start_time desc") %>
+              <% date2 = date.select("distinct DATE_FORMAT(start_time,'%Y/%m/%d') as date") %>
+              <% delay_a_day2 = 0 %>
+              <% date2.first(2).each do |row| %>
               <% if(delay_a_day2 != 0) %>
-            <h4 id="diary_date"><%= row.date %></h4>
+
+              <h4><span id="diary_date" style="border-bottom: solid; border-width: 2px;padding-bottom: 2px;">Date: <%= row.date %></span></h4>
               <% end %>
 
               <% delay_a_day2 = delay_a_day2 + 1 %>
 
-            <% end %>
+              <% end %>
 
-            <p>
-              学習したもの
-              <ol>
-                <li>英単語</li>
-                <li>研究</li>
-                <li>数学</li>
-                <li>新入社員研修</li>
-              </ol>
-            </p>
 
-            <p>
-              学習時間:30時間
-            </p>
+                <div class="col-sm-4">
+                    <h5><strong>学習したもの</strong></h5>
+                    <ol>
+                      <li>英単語 12:30~13:40</li>
+                      <li>研究 12:30~13:40</li>
+                      <li>数学 12:30~13:40</li>
+                      <li>新入社員研修 12:30~13:40</li>
+                    </ol>
 
-            重要キーワード<br>
-            Ajax, apple, MySQL<br>
-            <h4>コメント</h4>
-            <p id="comment">
-              みんなからのコメントごもっともだなあ…。どうにか直しきりたい。バイト行ってこよう。他の人の活動状況がもっとよく見えるようにならないものだろうか。広い面積をとっている学習ランキングからの情報量は実はあまり多くないとおもう。
-            </p>
+                </div>
+
+                <div class="col-sm-4">
+
+                    <h5><strong>学習時間</strong></h5>
+                    <p>
+                      合計: 30時間
+                    </p>
+
+                </div>
+
+                <div class="col-sm-4">
+                </div>
+
+                <div class="col-sm-12">
+                  <div class="wrapnote2">
+                    <div class="note">
+                      <p>今日の天気は晴れ</p>
+                      <p id="comment">画像を使いたくなく、改行の予定がない場合はこちらをご利用ください。</p>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -231,9 +248,7 @@ $(function (){
         console.log(json);
 
         // 日記の日付
-        $('#diary_date').text($text);
-        var aa = $('#diary_date').text();
-        console.log(aa);
+        $('#diary_date').text("Date: " + $text);
         // コメント
         $("#comment").text(json.comment);
 

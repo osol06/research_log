@@ -20,3 +20,16 @@
 svg {
   width:100%;
 }
+
+.wrapnote2 {
+	width: 100%;
+}
+.wrapnote2 .note {
+	margin: 10px;
+}
+.wrapnote2 .note p {
+	border-bottom: 1px dashed #9fb7d4;
+	font-size: 100%;
+	line-height: 30px;
+	padding: 0 10px;
+}
