@@ -12,6 +12,7 @@
 <% weather = weather() %>
 <% total_time = total_learning_time() %>
 <% user_id = session['user_id'] %>
+<% last_time = "" %>
 
 <!DOCTYPE html>
 <html lang="ja">
@@ -29,6 +30,7 @@
   <link type="text/css" rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/cupertino/jquery-ui.min.css" />
   <link type="text/css" rel="stylesheet" href="css/jQRangeSlider/iThing-min.css">
   <link type="text/css" rel="stylesheet" href="css/timeline/component.css">
+  <link type="test/css" rel="stylesheet" href="css/circliful/jquery.circliful.css">
 
   <!-- TimePickerの読み込み -->
   <link href="css/timepicker/jquery.timepicker.css" rel="stylesheet" type="text/css">
@@ -129,6 +131,8 @@
               <% if(delay_a_day2 != 0) %>
 
               <h4><span id="diary_date" style="border-bottom: solid; border-width: 2px;padding-bottom: 2px;">Date: <%= row.date %></span></h4>
+
+              <% last_time = row.date %>
               <% end %>
 
               <% delay_a_day2 = delay_a_day2 + 1 %>
@@ -137,32 +141,45 @@
 
 
                 <div class="col-sm-4">
-                    <h5><strong>学習したもの</strong></h5>
-                    <ol>
-                      <li>英単語 12:30~13:40</li>
-                      <li>研究 12:30~13:40</li>
-                      <li>数学 12:30~13:40</li>
-                      <li>新入社員研修 12:30~13:40</li>
-                    </ol>
-
+                  <h5><strong>学習したもの</strong></h5>
+                  <ol>
+                    <% task_name_array = task_and_zone_with_date('2015/11/03', session['user_id']) %>
+                    <% task_name_array.each do |row| %>
+                      <li><%= row %></li>
+                    <% end %>
+                  </ol>
                 </div>
 
                 <div class="col-sm-4">
-
-                    <h5><strong>学習時間</strong></h5>
-                    <p>
-                      合計: 30時間
-                    </p>
-
+                  <h5><strong>学習時間</strong></h5>
+                  <p>
+                    <% total = total_time_with_date(last_time, session['user_id']) %>
+                    合計: <%= total %>時間
+                  </p>
+                  <p>
+                    <% diff = time_diff(last_time, session['user_id']) %>
+                    前日より<%= diff %>時間 Down <img src="./images/down.png" width="10" alt="アップダウン">
+                  </p>
                 </div>
 
                 <div class="col-sm-4">
+                  <h5><strong>目標達成率(実装中)</strong></h5>
+                  <div class="row">
+                    <div class="col-sm-5">
+                      <div id="myStat" data-dimension="100" data-text="35%" data-width="10" data-fontsize="22" data-info-fontsize="10" data-percent="35" data-fgcolor="#61a9dc" data-bgcolor="#eee" data-fill="#ddd"></div>
+                    </div>
+                    <div class="col-sm-7" style="margin-top:10px;">
+                      <img src="./images/mima_still.png" width="150" alt="先生のコメント">
+                    </div>
+                  </div>
                 </div>
 
                 <div class="col-sm-12">
                   <div class="wrapnote2">
                     <div class="note">
-                      <p>今日の天気は晴れ</p>
+                      <h5><strong>つぶやき</strong></h5>
+                      <% weather = weather_with_date(last_time) %>
+                      <p>今日の天気は<%= weather['weather'] %><img style="width:30px; padding:2px;" src="<%= "#{weather['icon']}" %>" >でした。</p>
                       <p id="comment">画像を使いたくなく、改行の予定がない場合はこちらをご利用ください。</p>
                     </div>
                   </div>
@@ -201,6 +218,7 @@
 <script src="js/jQRangeSlider/jQRangeSlider-min.js"></script>
 <script src="js/jQRangeSlider/jQAllRangeSliders-min.js"></script>
 <script src="js/timeline/modernizr.custom.js"></script>
+<script src="js/circliful/jquery.circliful.min.js"></script>
 
 <!-- 自分で書いたスクリプト -->
 <script src="js/my_library/current_time.js"></script>
@@ -211,6 +229,9 @@ $(function (){
 
   // 曜日をスクロール可能にする
   $( "#menu" ).menu();
+
+  // 達成率円グラフ
+  $('#myStat').circliful();
 
   // メニューで日付が選択された時に呼ばれるメソッド
   $("#date.menue").click(function(){

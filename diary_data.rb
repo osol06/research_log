@@ -18,6 +18,7 @@ session = CGI::Session.new(cgi)
 
 # その日のコメントを抽出
 task = Task.where("DATE_FORMAT(start_time,'%Y/%m/%d') = '#{cgi['date']}' ")
+task = task.where("user_id = '#{session['user_id']}' ")
 comment = ""
 task.each do |row|
   comment = comment + row.comment
