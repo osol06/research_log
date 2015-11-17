@@ -255,6 +255,27 @@ def task_and_zone_with_date(date, user_id)
   task = task.where("user_id = #{user_id}")
   task = task.select("task_name, DATE_FORMAT(start_time,'%k:%i') as start, DATE_FORMAT(finish_time,'%k:%i') as finish")
 
+  task_name = ""
+  task.each do |row|
+    task_name = task_name + "," + row.task_name + " " + row.start + " ~ " + row.finish
+  end
+
+  task_name_array = task_name.split(",")
+
+  # 配列の空を消す
+  task_name_array = task_name_array.compact.reject(&:empty?)
+  #p task_name_array
+
+  return task_name_array
+
+end
+
+# 日付を引数に、その日学習したタスク名と時間帯の文字列が入った配列を返すメソッド
+def task_and_zone_with_date_str(date, user_id)
+
+  task = Task.where("DATE_FORMAT(start_time,'%Y/%m/%d') = '#{date}'")
+  task = task.where("user_id = #{user_id}")
+  task = task.select("task_name, DATE_FORMAT(start_time,'%k:%i') as start, DATE_FORMAT(finish_time,'%k:%i') as finish")
 
   task_name = ""
   task.each do |row|
