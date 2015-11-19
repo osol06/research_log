@@ -42,6 +42,8 @@
 </head>
 <body>
 
+  <div id="fakeloader"></div>
+
   <!-- ナビゲーション -->
   <nav class="navbar navbar-default" role="navigation">
     <div class="container">
@@ -83,8 +85,8 @@
           <!-- ランキングでソートするラジオボタン -->
           <div class="btn-group alignment" data-toggle="buttons-radio" style="margin-bottom:10px;">
             <button type="button" class="btn btn-info sort" data-sort="myorder:asc" >本日のランキング</button>
-            <button type="button" class="btn btn-info sort" data-sort="myorder:desc">週間ランキング</button>
-            <button type="button" class="btn btn-info sort" data-sort="random">総合ランキング</button>
+            <button type="button" class="btn btn-info sort" data-sort="myorder:desc">下の方を見る</button>
+            <button type="button" class="btn btn-info sort" data-sort="random">ランダムに見る</button>
           </div>
 
           <button id="ajax">ajax</button>
@@ -121,37 +123,10 @@
                 </div>
                 <div class="col-sm-3">
                   <h5 class="text-center"><strong>最近の学習</strong></h5>
-                  <ul id="recent_timeline_<%= row.user_id %>" style="height:100px; overflow:auto;">
-                    <li>
-                      <h5>英語 30分</h5>
-                      <h6>今日は英単語をたくさん学習した。少しつかれたけど結構良い感じだった。</h6>
-                    </li>
-                    <hr>
-                    <li>
-                      <h5>英語 30分</h5>
-                      <h6>今日は英単語をたくさ学習した。少しつかれたけど結構良い感じだった。</h6>
-                    </li>
-                    <hr>
-                    <li>
-                      <h5>英語 30分</h5>
-                      <h6>今日は英単語をたくさ学習した。少しつかれたけど結構良い感じだった。</h6>
-                    </li>
-                    <hr>
-                    <li>
-                      <h5>英語 30分</h5>
-                      <h6>今日は英単語をたくさ学習した。少しつかれたけど結構良い感じだった。</h6>
-                    </li>
-                    <hr>
-                    <li>
-                      <h5>英語 30分</h5>
-                      <h6>今日は英単語をたくさ学習した。少しつかれたけど結構良い感じだった。</h6>
-                    </li>
-                    <hr>
-                    <li>
-                      <h5>英語 30分</h5>
-                      <h6>今日は英単語をたくさ学習した。少しつかれたけど結構良い感じだった。</h6>
-                    </li>
-                  </ul>
+
+                  <h5 id="task_name_<%= row.user_id %>">英語 30分</h5>
+                  <h6 id="comment_<%= row.user_id %>">今日は英単語をたくさん学習した。少しつかれたけど結構良い感じだった。</h6>
+
                 </div>
               </div>
             </div>
@@ -168,7 +143,7 @@
         <div class="panel panel-default">
           <table id="right_timeline" class="table table-bordered">
             <thead>
-              <tr><th class="text-center" style="height:30px;">タイムライン</th></tr>
+              <tr><th class="text-center" style="height:30px;">タイムライン(考え中)</th></tr>
             </thead>
             <tbody>
               <tr>
@@ -182,72 +157,191 @@
           </table>
         </div>
       </div>
-      </div>
-
     </div>
+
   </div>
+</div>
 
-  <!-- footer -->
-  <footer class="footer" style="height: 40px; background-color: #f5f5f5;">
-    <div class="container" >
-      <p class="text-muted" style="padding: 5px;">Copyright (C) 2015 Takuma Sasaki ALL Right Reserved.</p>
-    </div>
-  </footer>
+<!-- footer -->
+<footer class="footer" style="height: 40px; background-color: #f5f5f5;">
+  <div class="container" >
+    <p class="text-muted" style="padding: 5px;">Copyright (C) 2015 Takuma Sasaki ALL Right Reserved.</p>
+  </div>
+</footer>
 
-  <!-- javascriptの読み込み -->
-  <script src="https://code.jquery.com/jquery-1.10.2.min.js" type="text/javascript" language="javascript"></script>
-  <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.min.js" type="text/javascript" language="javascript"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/2.3.2/js/bootstrap.min.js"></script>
+<!-- javascriptの読み込み -->
+<script src="https://code.jquery.com/jquery-1.10.2.min.js" type="text/javascript" language="javascript"></script>
+<script src="https://code.jquery.com/ui/1.10.4/jquery-ui.min.js" type="text/javascript" language="javascript"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/2.3.2/js/bootstrap.min.js"></script>
 
-  <!-- ライブラリ -->
-  <script src="js/datetimepicker/jquery.datetimepicker.js"></script>
-  <script src="http://momentjs.com/downloads/moment.js"></script>
-  <script src="js/Chart/Chart.js"></script>
-  <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-  <script src="js/scrolltable/jquery.scrolltable.js"></script>
-  <script type="text/javascript" src="js/schedule/jq.schedule.js"></script>
-  <script src="js/jqplot/jquery.jqplot.min.js"></script>
-  <script src="js/jqplot/jqplot.barRenderer.min.js"></script>
-  <script src="js/jqplot/jqplot.categoryAxisRenderer.js"></script>
-  <script src="js/circliful/jquery.circliful.min.js"></script>
-  <script src="js/fakeLoader/fakeLoader.min.js"></script>
-  <script src="js/mixitup/jquery.mixitup.min.js"></script>
+<!-- ライブラリ -->
+<script src="js/datetimepicker/jquery.datetimepicker.js"></script>
+<script src="http://momentjs.com/downloads/moment.js"></script>
+<script src="js/Chart/Chart.js"></script>
+<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script src="js/scrolltable/jquery.scrolltable.js"></script>
+<script type="text/javascript" src="js/schedule/jq.schedule.js"></script>
+<script src="js/jqplot/jquery.jqplot.min.js"></script>
+<script src="js/jqplot/jqplot.barRenderer.min.js"></script>
+<script src="js/jqplot/jqplot.categoryAxisRenderer.js"></script>
+<script src="js/circliful/jquery.circliful.min.js"></script>
+<script src="js/fakeLoader/fakeLoader.min.js"></script>
+<script src="js/mixitup/jquery.mixitup.min.js"></script>
 
-  <!-- 自分で書いたスクリプト -->
-  <script src="js/my_library/current_time.js"></script>
+<!-- 自分で書いたスクリプト -->
+<script src="js/my_library/current_time.js"></script>
 
-  <script>
+<script>
+
+// ローディングの画像を毎回読み込ませるためのスタンプ
+var timestamp = new Date().getTime();
+
+// ローディング画面
+$("#fakeloader").fakeLoader({
+  timeToHide: 1200,
+  bgColor: "#80D8FF",
+  imagePath:"images/loading.gif?" + timestamp
+});
 
 
-  $(function (){
+$(function (){
 
-    // Instantiate MixItUp:
-    $('#Container').mixItUp();
+  // Instantiate MixItUp:
+  $('#Container').mixItUp();
 
-    // テーブルにスクロールバーを付ける処理
-    $('#right_timeline').scrolltable({
-      maxHeight: 750
-    });
+  // テーブルにスクロールバーを付ける処理
+  $('#right_timeline').scrolltable({
+    maxHeight: 750
+  });
 
-    // レーダーチャートの設定
-    var option3 = {
+  // レーダーチャートの設定
+  var option3 = {
 
-      // ポイントラベルのサイズ
-      pointLabelFontSize : 5,
+    // ポイントラベルのサイズ
+    pointLabelFontSize : 5,
 
-      // 表示の時のアニメーション
-      animation : true,
-      // アニメーションの速度 ( ステップ数 )
-      animationSteps : 60,
+    // 表示の時のアニメーション
+    animation : true,
+    // アニメーションの速度 ( ステップ数 )
+    animationSteps : 60,
 
-      animationEasing : "easeOutQuad",
-      // アニメーション終了後に実行する処理
-      // animation: false の時にも実行されるようです
-      // e.g. onAnimationComplete : function() {alert('complete');}
-      onAnimationComplete : null
+    animationEasing : "easeOutQuad",
+    // アニメーション終了後に実行する処理
+    // animation: false の時にも実行されるようです
+    // e.g. onAnimationComplete : function() {alert('complete');}
+    onAnimationComplete : null
 
-    };
+  };
 
+
+  // 非同期通信
+  $.ajax({
+    url: './other_data.rb',
+    dataType: 'json',
+    contentType: "application/json; charset=utf-8",
+    timeout: 10000,  // 単位はミリ秒
+
+    // 送信前
+    beforeSend: function(xhr, settings) {
+      // ボタンを無効化し、二重送信を防止
+      $(this).attr('disabled', true);
+    },
+    // 応答後
+    complete: function(xhr, textStatus) {
+      // ボタンを有効化し、再送信を許可
+      $(this).attr('disabled', false);
+    },
+
+    // 通信成功時の処理
+    success: function(json) {
+
+      console.log(json);
+
+      // 達成率の描画
+      for(var key in json.achevement_rate) {
+
+        // デバッグ
+        // console.log(json.achevement_rate[key]);
+
+        // 達成率の更新
+        $('#myStat_' + key).replaceWith('<div id="myStat_' + key + '" class="center-block" data-dimension="80" data-text="' + json.achevement_rate[key] + '%" data-width="10" data-fontsize="22" data-info-fontsize="10" data-percent="' + json.achevement_rate[key] + '" data-fgcolor="#61a9dc" data-bgcolor="#eee" data-fill="#ddd"></div>');
+        $('#myStat_' + key).circliful();
+
+      }
+
+      // 本日の合計学習時間ランキング
+      for(var key in json.total_time_rank) {
+
+        // デバッグ
+        console.log(json.total_time_rank[key]);
+
+        // ランキングの更新
+        $('#total_time_rank_' + key).text(json.total_time_rank[key]);
+        if(json.total_time_rank[key] == '圏外'){
+          $("#row_" + key).attr("data-myorder",100000);
+        }else{
+          $("#row_" + key).attr("data-myorder",json.total_time_rank[key]);
+        }
+
+      }
+
+      // レーダーチャートの描画
+      for(var key in json.alone_rate) {
+
+        // デバッグ
+        console.log(json.alone_rate[key]);
+
+        // レーダーチャートを作成するタグのidを取得
+        var ctx3 = $("#chart_" + key).get(0).getContext("2d");
+
+        // レーダーチャートのデータ
+        var data3 = {
+          labels: ["継続性", "朝型", "晴れ", "音楽", "一人"],
+          datasets: [
+            {
+              fillColor : "rgba(255, 0, 51, 0.5)",
+              strokeColor : "rgba(220, 220, 220, 1)",
+              pointColor : "rgba(220, 220, 220, 1)",
+              pointStrokeColor : "#fff",
+              data : [100, json.morning_rate[key], json.weather_rate[key], json.music_rate[key], json.alone_rate[key]]
+            },
+          ]
+        };
+
+        // レーダーチャートを描画する
+        var myNewChart3 = new Chart(ctx3).Radar(data3,option3);
+
+      }
+
+
+      // タイムラインの更新
+      for(var key in json.task) {
+
+        // デバッグ
+        console.log(json.task[key]);
+        $("h5#task_name_" + key).text(json.task[key]);
+        $("h6#comment_" + key).text(json.comment[key]);
+
+      }
+
+      // 右側のタイムライン
+      var right_head_array = json.right_head.split(",");
+      var right_comment_array = json.right_comment.split(",");
+      var image_name = json.image_name.split(",");
+      $.each(right_head_array, function(index, value){
+        $('.media-list').append('<hr><li class="media" style="padding:0; margin:0;"><div class="media-left"><img class="media-object" src="images/' + image_name[index] + '" alt="写真" width="50" height="50" style="padding-left:5px;" ><h5 class="text-center">takuma</h5></div><div class="media-body"><h4 class="media-heading">' + value + '</h4>' + right_comment_array[index] + '</div>');
+      });
+
+
+    },
+
+    // 通信失敗時の処理
+    error: function(xhr, textStatus, error) {
+      console.log("失敗");
+    }
+  });
+
+  $("#ajax").click(function(){
 
     // 非同期通信
     $.ajax({
@@ -307,7 +401,7 @@
           console.log(json.total_time_rank[key]);
 
           // レーダーチャートを作成するタグのidを取得
-          var ctx3 = $("#chart_" + key).get(0).getContext("2d");
+          var ctx3 = $("#chart" + key).get(0).getContext("2d");
 
           // レーダーチャートのデータ
           var data3 = {
@@ -339,14 +433,6 @@
 
         }
 
-        // 右側のタイムライン
-        var right_head_array = json.right_head.split(",");
-        var right_comment_array = json.right_comment.split(",");
-        var image_name = json.image_name.split(",");
-        $.each(right_head_array, function(index, value){
-          $('.media-list').append('<hr><li class="media" style="padding:0; margin:0;"><div class="media-left"><img class="media-object" src="images/' + image_name[index] + '" alt="写真" width="50" height="50" style="padding-left:5px;" ><h5 class="text-center">takuma</h5></div><div class="media-body"><h4 class="media-heading">' + value + '</h4>' + right_comment_array[index] + '</div>');
-        });
-
 
       },
 
@@ -356,114 +442,13 @@
       }
     });
 
-    $("#ajax").click(function(){
-
-      // 非同期通信
-      $.ajax({
-        url: './other_data.rb',
-        dataType: 'json',
-        contentType: "application/json; charset=utf-8",
-        timeout: 10000,  // 単位はミリ秒
-
-        // 送信前
-        beforeSend: function(xhr, settings) {
-          // ボタンを無効化し、二重送信を防止
-          $(this).attr('disabled', true);
-        },
-        // 応答後
-        complete: function(xhr, textStatus) {
-          // ボタンを有効化し、再送信を許可
-          $(this).attr('disabled', false);
-        },
-
-        // 通信成功時の処理
-        success: function(json) {
-
-          console.log(json);
-
-          // 達成率の描画
-          for(var key in json.achevement_rate) {
-
-            // デバッグ
-            // console.log(json.achevement_rate[key]);
-
-            // 達成率の更新
-            $('#myStat_' + key).replaceWith('<div id="myStat_' + key + '" class="center-block" data-dimension="80" data-text="' + json.achevement_rate[key] + '%" data-width="10" data-fontsize="22" data-info-fontsize="10" data-percent="' + json.achevement_rate[key] + '" data-fgcolor="#61a9dc" data-bgcolor="#eee" data-fill="#ddd"></div>');
-            $('#myStat_' + key).circliful();
-
-          }
-
-          // 本日の合計学習時間ランキング
-          for(var key in json.total_time_rank) {
-
-            // デバッグ
-            console.log(json.total_time_rank[key]);
-
-            // ランキングの更新
-            $('#total_time_rank_' + key).text(json.total_time_rank[key]);
-            if(json.total_time_rank[key] == '圏外'){
-              $("#row_" + key).attr("data-myorder",100000);
-            }else{
-              $("#row_" + key).attr("data-myorder",json.total_time_rank[key]);
-            }
-
-          }
-
-          // レーダーチャートの描画
-          for(var key in json.total_time_rank) {
-
-            // デバッグ
-            console.log(json.total_time_rank[key]);
-
-            // レーダーチャートを作成するタグのidを取得
-            var ctx3 = $("#chart" + key).get(0).getContext("2d");
-
-            // レーダーチャートのデータ
-            var data3 = {
-              labels: ["継続性", "朝型", "晴れ", "音楽", "一人"],
-              datasets: [
-                {
-                  fillColor : "rgba(255, 0, 51, 0.5)",
-                  strokeColor : "rgba(220, 220, 220, 1)",
-                  pointColor : "rgba(220, 220, 220, 1)",
-                  pointStrokeColor : "#fff",
-                  data : [100, 59, 80, 20, 40]
-                },
-              ]
-            };
-
-            // レーダーチャートを描画する
-            var myNewChart3 = new Chart(ctx3).Radar(data3,option3);
-
-          }
-
-          // タイムラインの更新
-          for(var key in json.total_time_rank) {
-
-            // デバッグ
-            console.log(json.total_time_rank[key]);
-
-            // スクロール
-            $("#recent_timeline_" + key).menu();
-
-          }
-
-
-        },
-
-        // 通信失敗時の処理
-        error: function(xhr, textStatus, error) {
-          console.log("失敗");
-        }
-      });
-
-    });
-
-
   });
 
 
+});
 
-  </script>
+
+
+</script>
 </body>
 </html>

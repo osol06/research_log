@@ -4,6 +4,7 @@
 require './data_model.rb'
 require 'active_support'
 require 'active_support/core_ext'
+require './database_my_library.rb'
 require 'date'
 
 # 各ユーザの本日の学習時間の合計(分)とユーザ名が入ったハッシュを返すメソッド
@@ -243,11 +244,9 @@ def total_time_week( user_id )
 
 end
 
-# ユーザidを引数にその人のいままでの学習時間(分)が入った配列を返すメソッド
+# ユーザidを引数にその人のいままでの学習時間(時)が入った配列を返すメソッド
 def total_time_week_all( user_id )
 
-  # 一週間の学習時間(分)が入った配列
-  time_week = Array.new
   task = Task.where(user_id: user_id)
 
   # 合計時間を計算するための変数
@@ -416,7 +415,217 @@ def now_achevement_rate_hash
 
 end
 
+# １人で学習する割合とユーザIDが入ったハッシュを返すメソッド
+def alone_rate
+
+  alone_hash = {}
+
+  user = User.all
+  user.each do |row|
+
+    task = Task.where("user_id = #{row.user_id}")
+    task = task.where("group_frag = 0")
+
+    # 合計時間を計算するための変数
+    sum = 0
+    time = task.select("(UNIX_TIMESTAMP(finish_time) - UNIX_TIMESTAMP(start_time)) / 3600 as total")
+
+    # 本日の合計時間を計算
+    time.each do |time_row|
+      sum = sum + time_row.total.to_i
+    end
+
+    if total_time_week_all(row.user_id) == 0
+      alone_hash["#{row.user_id}"] = 0
+    else
+      alone_hash["#{row.user_id}"] = sum.to_f / total_time_week_all(row.user_id).to_f * 100
+    end
+
+  end
+
+  return alone_hash
+
+end
+
+# 音楽ありで学習する割合とユーザIDが入ったハッシュを返すメソッド
+def music_rate
+
+  music_hash = {}
+
+  user = User.all
+  user.each do |row|
+
+    task = Task.where("user_id = #{row.user_id}")
+    task = task.where("music_frag = 1")
+
+    # 合計時間を計算するための変数
+    sum = 0
+    time = task.select("(UNIX_TIMESTAMP(finish_time) - UNIX_TIMESTAMP(start_time)) / 3600 as total")
+
+    # 本日の合計時間を計算
+    time.each do |time_row|
+      sum = sum + time_row.total.to_i
+    end
+
+    if total_time_week_all(row.user_id) == 0
+      music_hash["#{row.user_id}"] = 0
+    else
+      music_hash["#{row.user_id}"] = sum.to_f / total_time_week_all(row.user_id).to_f * 100
+    end
+
+  end
+
+  return music_hash
+
+end
+
+# 音楽ありで学習する割合とユーザIDが入ったハッシュを返すメソッド
+def music_rate
+
+  music_hash = {}
+
+  user = User.all
+  user.each do |row|
+
+    task = Task.where("user_id = #{row.user_id}")
+    task = task.where("music_frag = 1")
+
+    # 合計時間を計算するための変数
+    sum = 0
+    time = task.select("(UNIX_TIMESTAMP(finish_time) - UNIX_TIMESTAMP(start_time)) / 3600 as total")
+
+    # 本日の合計時間を計算
+    time.each do |time_row|
+      sum = sum + time_row.total.to_i
+    end
+
+    if total_time_week_all(row.user_id) == 0
+      music_hash["#{row.user_id}"] = 0
+    else
+      music_hash["#{row.user_id}"] = sum.to_f / total_time_week_all(row.user_id).to_f * 100
+    end
+
+  end
+
+  return music_hash
+
+end
+
+# 天気の良い時に学習する割合とユーザIDが入ったハッシュを返すメソッド
+def weather_rate
+
+  weather_hash = {}
+
+  user = User.all
+  user.each do |row|
+
+    task = Task.where("user_id = #{row.user_id}")
+    task = task.where("weather_frag = 1")
+
+    # 合計時間を計算するための変数
+    sum = 0
+    time = task.select("(UNIX_TIMESTAMP(finish_time) - UNIX_TIMESTAMP(start_time)) / 3600 as total")
+
+    # 本日の合計時間を計算
+    time.each do |time_row|
+      sum = sum + time_row.total.to_i
+    end
+
+    if total_time_week_all(row.user_id) == 0
+      weather_hash["#{row.user_id}"] = 0
+    else
+      weather_hash["#{row.user_id}"] = sum.to_f / total_time_week_all(row.user_id).to_f * 100
+    end
+
+  end
+
+  return weather_hash
+
+end
+
+# 朝に学習する割合とユーザIDが入ったハッシュを返すメソッド
+def morning_rate
+
+  morning_hash = {}
+
+  user = User.all
+  user.each do |row|
+
+    task = Task.where("user_id = #{row.user_id}")
+    task = task.where("DATE_FORMAT(start_time,'%H/%m/%s') between '06:00:00' and '12:00:00' ")
+
+    # 合計時間を計算するための変数
+    sum = 0
+    time = task.select("(UNIX_TIMESTAMP(finish_time) - UNIX_TIMESTAMP(start_time)) / 3600 as total")
+
+    # 本日の合計時間を計算
+    time.each do |time_row|
+      sum = sum + time_row.total.to_i
+    end
+
+    if total_time_week_all(row.user_id) == 0
+      morning_hash["#{row.user_id}"] = 0
+    else
+      morning_hash["#{row.user_id}"] = sum.to_f / total_time_week_all(row.user_id).to_f * 100
+    end
+
+  end
+
+  return morning_hash
+
+end
+
+# 最近1回分のコメントを抽出する
+def recent_comment
+
+  recent_comment_hash = {}
+
+  user = User.all
+  user.each do |row|
+
+    task = Task.where("user_id = #{row.user_id}")
+    task = task.order("task_id desc")
+    comment = ""
+
+    task.first(1).each do |row|
+
+        recent_comment_hash["#{row.user_id}"] = row.comment
+
+    end
+
+  end
+
+  return recent_comment_hash
+
+end
+
+# 最近1回分のタスク名などを抽出する
+def recent_task
+
+  recent_task_hash = {}
+
+  user = User.all
+  user.each do |row|
+
+    task_model = Task.where("user_id = #{row.user_id}")
+    task = ""
+
+    # 最近の3回分のコメントを抽出
+    task_model.first(1).each do |row2|
+      recent_task_hash["#{row.user_id}"] = task + row2.task_name + " " + task_time(row2.task_id).to_i.to_s + "分 " + row2.start_time.strftime("%H:%m") + " ~ " + row2.finish_time.strftime("%H:%m")
+    end
+
+  end
+
+  return recent_task_hash
+
+end
+
 # デバッグ
+# p recent_comment()
+# p morning_rate
+# p alone_rate()
+# p total_time_week_all(1)
 # p now_total_time_rank()
 # p now_total_time_rank()
 # time_diff('2015/11/04', 2)

@@ -24,7 +24,23 @@ achevement_rate_hash = now_achevement_rate_hash()
 # 本日の学習時間ランキングを取得
 total_time_rank_hash = now_total_time_rank()
 
+# １人で学習する割合
+alone_rate_hash = alone_rate()
 
+# 音楽ありで学習する割合
+music_rate_hash = music_rate()
+
+# 天気の良い時に学習する割合
+weather_rate_hash = weather_rate()
+
+# 朝に学習する割合
+morning_rate_hash = morning_rate()
+
+# コメント
+comment_hash = recent_comment()
+
+# タスク名
+task_hash = recent_task()
 
 # その日のタスク名と時間帯を抽出
 task_name = ""
@@ -69,6 +85,12 @@ end
 hash = {
         "achevement_rate" => achevement_rate_hash,
         "total_time_rank" => total_time_rank_hash,
+        "alone_rate" => alone_rate_hash,
+        "music_rate" => music_rate_hash,
+        "weather_rate" => weather_rate_hash,
+        "morning_rate" => morning_rate_hash,
+        "comment" => comment_hash,
+        "task" => task_hash,
         "right_head" => right_head,
         "right_comment" => comment,
         "image_name" => image_name
