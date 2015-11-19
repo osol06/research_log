@@ -366,6 +366,7 @@ def weather_with_date(date)
 
 end
 
+
 # 日付とユーザIDを引数に、その日付のユーザの合計学習時間を返すメソッド
 def total_time_with_date(date, user_id)
 

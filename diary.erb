@@ -109,6 +109,7 @@
           <% date.each do |row| %>
           <% if(delay_a_day != 0) %>
           <li><a id="date" class="menue" value="<%= row.date %>"><%= row.date %></a></li>
+
           <% end %>
 
           <% delay_a_day = delay_a_day + 1 %>
@@ -132,7 +133,6 @@
               <% if(delay_a_day2 != 0) %>
 
               <h4><span id="diary_date" style="border-bottom: solid; border-width: 2px;padding-bottom: 2px;">Date: <%= row.date %></span></h4>
-
               <% last_time = row.date %>
               <% end %>
 
@@ -144,7 +144,7 @@
               <div class="col-sm-4">
                 <h5><strong>学習したもの</strong></h5>
                 <ol id="task_name_list" style="position: relative">
-                  <% task_name_array = task_and_zone_with_date('2015/11/09', session['user_id']) %>
+                  <% task_name_array = task_and_zone_with_date(last_time, session['user_id']) %>
                   <% task_name_array.each do |row| %>
                   <li><%= row %></li>
                   <% end %>
@@ -193,7 +193,7 @@
 </div>
 
 <!-- footer -->
-<footer class="footer" style="height: 40px; background-color: #f5f5f5;">
+<footer id="footer" class="footer" style="height: 40px; background-color: #f5f5f5;">
   <div class="container" >
     <p class="text-muted" style="padding: 5px;">Copyright (C) 2015 Takuma Sasaki ALL Right Reserved.</p>
   </div>
@@ -218,6 +218,7 @@
 <script src="js/circliful/jquery.circliful.min.js"></script>
 <script src="js/textillate/jquery.lettering.js"></script>
 <script src="js/textillate/jquery.textillate.js"></script>
+<script src="js/footerFixed/footerFixed.js"></script>
 
 <!-- 自分で書いたスクリプト -->
 <script src="js/my_library/current_time.js"></script>
