@@ -106,11 +106,11 @@
           <div class="col-sm-12">
 
           <div class="panel panel-default">
-            <h6 class="text-danger" style="margin-left:10px;">更新情報</h6>
+            <h6 class="text-danger" style="margin-left:10px;">new!! 更新情報(11/20)</h6>
             <ul>
-              <li>非同期</li>
-              <li>オートログイン</li>
-              <li>時間帯入力</li>
+              <li>卒研日記自動生成</li>
+              <li>みんなの活動</li>
+              <li>UIなどの調整</li>
             </ul>
           </div>
 
@@ -131,29 +131,6 @@
               </table>
             </div>
           </div>
-
-          <!-- お天気情報 -->
-          <div class="col-sm-12">
-            <div class="panel panel-default">
-              <table class="table table-bordered">
-                <thead>
-                  <tr><th class="text-center"><%= "#{weather['city']}" %>の天気</th></tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>
-                      <div class="text-center">
-                        <h4 class="tec"><%= "#{weather['telop']}" %></h4>
-                        <img src="<%= "#{weather['icon']}" %>" class="img-responsive center-block" >
-                        <span><%= "#{weather['max_celsius']}" %></span> / <span><%= "#{weather['min_celsius']}" %></span>℃
-                      </div>
-                    </div>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
       </div>
     </div>
 
@@ -311,7 +288,7 @@
                     <tr><th class="text-center" style="height:35px;">タイムライン</th></tr>
                   </thead>
                   <tbody>
-                    <tr style="height:450px;">
+                    <tr style="height:1050px;">
                       <td>
 
                         <ul id="timeline_ul" class="cbp_tmtimeline">
@@ -341,69 +318,7 @@
                 </table>
               </div>
 
-              <div class="row">
-                <!-- 学習時間ランキング -->
-                <div class="col-sm-7">
-                  <div class="panel panel-default">
-                    <table class="table table-bordered">
-                      <thead>
-                        <tr><th class="text-center">今日の学習時間ランキング</th></tr>
-                      </thead>
-                      <tbody>
-                        <tr style="height:450px;">
-                          <td>
 
-                            <div style="float:left; margin-left:-30px;">
-                              <ul style="list-style:none;">
-
-                                <% total_sort = total_time.sort_by{|key,val| -val} %>
-                                <% image_number = 1%>
-                                <% difference = 0%>
-                                <% total_sort.first(3).each {|key, value| %>
-
-                                  <% if(image_number == 1) %>
-
-                                  <% difference = value %>
-                                  <li style="font-size:13px; font-weight:bold;"><img src="images/rank<%= "#{image_number}" %>.png" style="width:30px; margin:5px;"><%= "#{key}".force_encoding("utf-8") %> <%= "#{value}".force_encoding("utf-8") %>分</li>
-
-                                  <% else %>
-
-                                  <li style="font-size:13px; font-weight:bold;"><img src="images/rank<%= "#{image_number}" %>.png" style="width:30px; margin:5px;"><%= "#{key}".force_encoding("utf-8") %> <span style="pa-top:10px;"><%= "#{value}".force_encoding("utf-8") %>分 </span><span class="text-danger">(１位まであと<%= difference - value %>分)</span></li>
-
-                                  <% end %>
-
-                                  <%  image_number = image_number + 1 %>
-                                  <% } %>
-
-                                </ul>
-                              </div>
-
-                              <img src="./images/ranking.png" width="100%">
-                              <div style="width:100% height:300px;">
-                                <div style="width:70%; height:300px;  position: relative;">
-
-                                  <% top = 0 %>
-                                  <% user = User.all %>
-                                  <% user.each do |row| %>
-
-                                  <div id='anime<%= "#{row.user_id}" %>' style="margin-left:20px; position: absolute; top:<%= top %>%;">
-                                    <img src="images/<%= "#{row.image_name}" %>" alt="ユーザ画像" width="35" height="35" class="center-block" style="margin-top:8pt; margin-left:4px;">
-                                    <h6 class="text-center" style="margin-top:-1px;"><%= "#{row.user_name}" %></h6>
-                                  </div>
-
-                                  <%  top = top + 11 %>
-                                  <% end  %>
-
-                                </div>
-                              </div>
-
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
 
@@ -662,7 +577,7 @@
 
         // テーブルにスクロールバーを付ける処理
         $('.scrollTable').scrolltable({
-          maxHeight: 350
+          maxHeight: 625
         });
 
         // onclickが何回押されたかを判定するフラグ
