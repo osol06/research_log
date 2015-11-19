@@ -1,15 +1,18 @@
 <%# coding: UTF-8 %>
 
+
 <% require 'rubygems' %>
-<% require 'dbi' %>
-<% require 'time' %>
+<% require 'erb' %>
 <% require './data_model.rb'%>
+<% require './my_ruby_library/weather.rb' %>
 <% require './my_ruby_library/login_data.rb' %>
 <% require './total_learning_time.rb' %>
+<% require './database_my_library.rb' %>
 
-<% sumarray = Array.new() %>
-
-<% dbh = DBI.connect('DBI:SQLite3:research_log.db') %>
+<% weather = weather() %>
+<% total_time = total_learning_time() %>
+<% user_id = session['user_id'] %>
+<% last_time = "" %>
 
 <!DOCTYPE html>
 <html lang="ja">
@@ -21,19 +24,23 @@
   <title>mimlab studylog</title>
   <link rel="shortcut icon" href="images/icon.png" type="image/png">
 
-  <link href="https://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"  />
-  <link href="css/schedule/style.css" rel="stylesheet" type="text/css"  />
-  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" >
-  <link href="css/jqplot/jquery.jqplot.min.css" rel="stylesheet" >
-  <link type="text/css" rel="stylesheet" href="css/fakeLoader/fakeLoader.css">
+  <!-- BootStrapの読み込み -->
+  <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css">
+
+  <link type="text/css" rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/cupertino/jquery-ui.min.css" />
+  <link type="text/css" rel="stylesheet" href="css/jQRangeSlider/iThing-min.css">
+  <link type="text/css" rel="stylesheet" href="css/timeline/component.css">
+  <link type="text/css" rel="stylesheet" href="css/circliful/jquery.circliful.css">
+  <link tyle="text/css" rel="stylesheet" href="css/textillate/animate.css">
+
+  <!-- TimePickerの読み込み -->
+  <link href="css/timepicker/jquery.timepicker.css" rel="stylesheet" type="text/css">
 
   <!-- my_cssの読み込み -->
   <link href="css/my_css.css" rel="stylesheet" type="text/css" >
 
 </head>
 <body>
-
-  <div id="fakeloader"></div>
 
   <!-- ナビゲーション -->
   <nav class="navbar navbar-default" role="navigation">
@@ -67,681 +74,251 @@
     </div>
   </nav>
 
-  <!-- メインコンテンツ  -->
-  <div class="container" style="padding: 20px 0">
-
-    <!-- ユーザ情報 -->
-    <!-- グリッドシステムを使用する -->
+  <div class="container" style="padding: 10px 0">
     <div class="row">
-      <div class="panel panel-default">
-        <table class="table table-bordered">
-          <thead>
-            <tr><th class="text-center">佐々木の学習記録</th></tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>
-                佐々木の学習記録です
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
 
-      <div class="panel panel-default">
-        <table class="table table-bordered">
-          <thead>
-            <tr><th class="text-center">学習のタイムライン</th></tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>
-                <div style="padding: 10px">
-                  <!-- 学習時間のタイムライン -->
-                  <div id="schedule"></div>
+      <div class="col-sm-8">
+        <div class="row">
+
+          <!-- ランキングでソートするラジオボタン -->
+          <div class="btn-group alignment" data-toggle="buttons-radio" style="margin-bottom:10px;">
+            <button type="button" class="btn btn-info sort" data-sort="myorder:asc" >本日のランキング</button>
+            <button type="button" class="btn btn-info sort" data-sort="myorder:desc">週間ランキング</button>
+            <button type="button" class="btn btn-info sort" data-sort="random">総合ランキング</button>
+          </div>
+
+          <div id='Container'>
+            <div class="mix col-sm-12 panel panel-default" data-myorder="2" style="height:140px;">
+              <div class="row">
+                <div class="col-sm-2">
+                  <img src="./images/2.jpg" class="thumbnail center-block" width="90" height="90" style="margin-top:8px;" />
+                  <h4 class="text-center" style="margin-top:-15px;">ichinose</h4>
                 </div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+                <div class="col-sm-2">
+                  <h5 class="text-center"><strong>ランキング</strong></h5>
+                  <ul class="text-center" style="list-style-type:none; margin:0px; padding:0px">
+                    <li>合計時間 第<strong class="text-danger">2</strong>位</li>
+                    <li>朝学習　 第<strong class="text-danger">1</strong>位</li>
+                    <li>晴れ学習 第<strong class="text-danger">6</strong>位</li>
+                    <li>１人学習 第<strong class="text-danger">3</strong>位</li>
+                    <li>機械学習 第<strong class="text-danger">5</strong>位</li>
+                  </ul>
+                </div>
+                <div class="col-sm-2">
+                  <h5 class="text-center"><strong>本日の達成度</strong></h5>
+                  <div id="myStat" class="center-block" data-dimension="100" data-text="35%" data-width="10" data-fontsize="22" data-info-fontsize="10" data-percent="35" data-fgcolor="#61a9dc" data-bgcolor="#eee" data-fill="#ddd"></div>
+                </div>
+                <div class="col-sm-3" style="height:200px;">
+                  <h5 class="text-center" style="padding-bottom:-5px;"><strong>学習傾向</strong></h5>
 
-      <div class="row">
-        <div class="col-sm-6">
-          <!-- 記録のグラフ -->
-          <div class="panel panel-default">
-            <table class="table table-bordered">
-              <thead>
-                <tr><th class="text-center">一週間の学習時間</th></tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>
+                  <!-- みんなの学習スタイルグラフ -->
+                  <canvas id="chart3" class="center-block" style="width: 130px; height:100px;">
+                  </canvas>
 
-                    <!-- みんなの学習時間グラフ -->
-                    <p>
-                      <canvas id="chart1" style=" width: 100% !important; max-width: 500px; height: auto !important; margin: 0 auto;">
-                      </canvas>
-                    </p>
+                </div>
+                <div class="col-sm-3">
+                  <h5 class="text-center"><strong>最近の学習</strong></h5>
+                  <ul id="recent_timeline" style="height:100px; overflow:auto;">
+                    <li>
+                      <h5>英語 30分</h5>
+                      <h6>今日は英単語をたくさ学習した。少しつかれたけど結構良い感じだった。</h6>
+                    </li>
+                    <hr>
+                    <li>
+                      <h5>英語 30分</h5>
+                      <h6>今日は英単語をたくさ学習した。少しつかれたけど結構良い感じだった。</h6>
+                    </li>
+                    <hr>
+                    <li>
+                      <h5>英語 30分</h5>
+                      <h6>今日は英単語をたくさ学習した。少しつかれたけど結構良い感じだった。</h6>
+                    </li>
+                    <hr>
+                    <li>
+                      <h5>英語 30分</h5>
+                      <h6>今日は英単語をたくさ学習した。少しつかれたけど結構良い感じだった。</h6>
+                    </li>
+                    <hr>
+                    <li>
+                      <h5>英語 30分</h5>
+                      <h6>今日は英単語をたくさ学習した。少しつかれたけど結構良い感じだった。</h6>
+                    </li>
+                    <hr>
+                    <li>
+                      <h5>英語 30分</h5>
+                      <h6>今日は英単語をたくさ学習した。少しつかれたけど結構良い感じだった。</h6>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="mix col-sm-12 panel panel-default" data-myorder="6" style="height:130px;">
+              <div class="row">
+                <div class="col-sm-2">
+                  <img src="./images/6.jpg" class="thumbnail center-block" width="90" height="90" style="margin-top:8px;" />
+                  <h4 class="text-center" style="margin-top:-15px;">takuma</h4>
+                </div>
+                <div class="col-sm-2">
+                  6
+                </div>
+              </div>
+            </div>
+            <div class="mix col-sm-12 panel panel-default" data-myorder="3" style="height:130px;">
+              <div class="row">
+                <div class="col-sm-2">
+                  <img src="./images/3.jpg" class="thumbnail center-block" width="90" height="90" style="margin-top:8px;" />
+                  <h4 class="text-center" style="margin-top:-15px;">tomo</h4>
+                </div>
+                <div class="col-sm-2">
+                  3
+                </div>
+              </div>
+            </div>
+            <div class="mix col-sm-12 panel panel-default" data-myorder="1" style="height:130px;">
+              <div class="row">
+                <div class="col-sm-2">
+                  <img src="./images/1.jpg" class="thumbnail center-block" width="90" height="90" style="margin-top:8px;" />
+                  <h4 class="text-center" style="margin-top:-15px;">yuki</h4>
+                </div>
+                <div class="col-sm-2">
+                  1
+                </div>
+              </div>
+            </div>
+            <div class="mix col-sm-12 panel panel-default" data-myorder="2" style="height:130px;">
+              <div class="row">
+                <div class="col-sm-2">
+                  <img src="./images/2.jpg" class="thumbnail center-block" width="90" height="90" style="margin-top:8px;" />
+                  <h4 class="text-center" style="margin-top:-15px;">ichinose</h4>
+                </div>
+                <div class="col-sm-2">
+                  2
+                </div>
+              </div>
+            </div>
+            <div class="mix col-sm-12 panel panel-default" data-myorder="2" style="height:130px;">
+              <div class="row">
+                <div class="col-sm-2">
+                  <img src="./images/2.jpg" class="thumbnail center-block" width="90" height="90" style="margin-top:8px;" />
+                  <h4 class="text-center" style="margin-top:-15px;">ichinose</h4>
+                </div>
+                <div class="col-sm-2">
+                  2
+                </div>
+              </div>
+            </div>
+            <div class="mix col-sm-12 panel panel-default" data-myorder="2" style="height:130px;">
+              <div class="row">
+                <div class="col-sm-2">
+                  <img src="./images/2.jpg" class="thumbnail center-block" width="90" height="90" style="margin-top:8px;" />
+                  <h4 class="text-center" style="margin-top:-15px;">ichinose</h4>
+                </div>
+                <div class="col-sm-2">
+                  2
+                </div>
+              </div>
+            </div>
 
-                  </td>
-                </tr>
-              </tbody>
-            </table>
           </div>
-        </div>
 
-        <div class="col-sm-6">
-          <!-- 記録のグラフ -->
-          <div class="panel panel-default">
-            <table class="table table-bordered">
-              <thead>
-                <tr><th class="text-center">学習スタイル</th></tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>
-
-                    <!-- みんなの学習スタイルグラフ -->
-                    <canvas id="chart3" style=" width: 100% !important; max-width: 500px; padding-top: 15px; margin: 0 auto;">
-                    </canvas>
-
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
         </div>
       </div>
 
-      <div class="panel panel-default">
-        <table class="table table-bordered">
-          <thead>
-            <tr><th class="text-center">学習時間帯の傾向map</th></tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>
-
-                <!-- hour heatmapchart -->
-                <div id="chart" ></div>
-                <div id="dataset-picker"></div>
-
-              </td>
-            </tr>
-          </tbody>
-        </table>
+      <div class="col-sm-4">
+        <div style="height:300px; background-color:red;"></div>
       </div>
 
-      <div class="panel panel-default">
-        <table class="table table-bordered">
-          <thead>
-            <tr><th class="text-center">学習時間と気温の関係</th></tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>
-
-                <div id="jqPlot-sample" style="width: 100%; "></div>
-
-                <table class="table table-bordered" style="margin-top:50px;">
-                  <thead>
-                    <tr>
-                      <th></th>
-
-                      <% t = Time.now - 7.day %>
-                      <% (1..7).each{|num| %>
-
-                        <th class="text-center"><%= "#{t.strftime(" %m/%d")}".force_encoding("utf-8") %></th>
-
-                        <%   t = t + 1.day %>
-                        <% } %>
-
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td class="text-center" >天気</td>
-
-                        <% from = Time.now.in_time_zone.at_beginning_of_day %>
-                        <% from = from - 7.day  %>
-                        <% to = from + 7.day %>
-                        <% weather = Weather.where(date: from..to).order("date") %>
-                        <% weather.each{|weather| %>
-
-                          <td>
-                            <div class="text-center">
-                              <h5><%= "#{weather.weather}" %></h5>
-                              <div class="center-block">
-                                <img src="<%= "#{weather.icon_url}" %>" class="center-block" >
-                              </div>
-                              <span><%= "#{weather.max_temperature}" %></span> / <span><%= "#{weather.min_temperature}" %></span>℃
-                            </div>
-                          </td>
-
-                          <% } %>
-
-                        </tr>
-                        <tr>
-                          <td class="text-center">学習時間(分)</td>
-
-                          <% from = Time.now.in_time_zone.at_beginning_of_day %>
-                          <% from = from - 7.day + 9.hour %>
-                          <% to = from + 7.day %>
-                          <% time_week = total_time_week_from_yesterday(1) %>
-                          <% (1..7).each{|num| %>
-
-                            <td class="text-center"><%= time_week[num-1] %>分</td>
-
-                            <% } %>
-
-                          </tr>
-                        </tbody>
-                      </table>
-
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-
-            </td>
-          </tr>
-        </tbody>
-      </table>
     </div>
   </div>
-</div>
+
+  <!-- footer -->
+  <footer class="footer" style="height: 40px; background-color: #f5f5f5;">
+    <div class="container" >
+      <p class="text-muted" style="padding: 5px;">Copyright (C) 2015 Takuma Sasaki ALL Right Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- javascriptの読み込み -->
+  <script src="https://code.jquery.com/jquery-1.10.2.min.js" type="text/javascript" language="javascript"></script>
+  <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.min.js" type="text/javascript" language="javascript"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/2.3.2/js/bootstrap.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+
+  <!-- ライブラリ -->
+  <script src="js/datetimepicker/jquery.datetimepicker.js"></script>
+  <script src="http://momentjs.com/downloads/moment.js"></script>
+  <script src="js/Chart/Chart.js"></script>
+  <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+  <script src="js/scrolltable/jquery.scrolltable.js"></script>
+  <script type="text/javascript" src="js/schedule/jq.schedule.js"></script>
+  <script src="js/jqplot/jquery.jqplot.min.js"></script>
+  <script src="js/jqplot/jqplot.barRenderer.min.js"></script>
+  <script src="js/jqplot/jqplot.categoryAxisRenderer.js"></script>
+  <script src="js/circliful/jquery.circliful.min.js"></script>
+  <script src="js/fakeLoader/fakeLoader.min.js"></script>
+  <script src="js/mixitup/jquery.mixitup.min.js"></script>
+
+  <!-- 自分で書いたスクリプト -->
+  <script src="js/my_library/current_time.js"></script>
+
+  <script>
 
 
-<!-- footer -->
-<footer class="footer" style="height: 40px; background-color: #f5f5f5;">
-  <div class="container" >
-    <p class="text-muted" style="padding: 5px;">Copyright (C) 2015 Takuma Sasaki ALL Right Reserved.</p>
-  </div>
-</footer>
+  $(function (){
 
-<!-- javascriptの読み込み -->
-<script src="https://code.jquery.com/jquery-1.10.2.min.js" type="text/javascript" language="javascript"></script>
-<script src="https://code.jquery.com/ui/1.10.4/jquery-ui.min.js" type="text/javascript" language="javascript"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/2.3.2/js/bootstrap.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
+    // Instantiate MixItUp:
+    $('#Container').mixItUp();
 
-<!-- ライブラリ -->
-<script src="js/datetimepicker/jquery.datetimepicker.js"></script>
-<script src="http://momentjs.com/downloads/moment.js"></script>
-<script src="js/Chart/Chart.js"></script>
-<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-<script type="text/javascript" src="js/schedule/jq.schedule.js"></script>
-<script src="js/jqplot/jquery.jqplot.min.js"></script>
-<script src="js/jqplot/jqplot.barRenderer.min.js"></script>
-<script src="js/jqplot/jqplot.categoryAxisRenderer.js"></script>
-<script src="js/fakeLoader/fakeLoader.min.js"></script>
+    // 達成率円グラフ
+    $('#myStat').circliful();
 
-<!-- 自分で書いたスクリプト -->
-<script src="js/my_library/current_time.js"></script>
+    // タイムラインをスクロール可能にする
+    $( "#recent_timeline" ).menu();
 
-<script>
+    // レーダーチャートを作成するタグのidを取得
+    var ctx3 = $("#chart3").get(0).getContext("2d");
 
-// ローディングの画像を毎回読み込ませるためのスタンプ
-var timestamp = new Date().getTime();
+    // レーダーチャートのデータ
+    var data3 = {
+      labels: ["継続性", "朝型", "晴れ", "音楽", "一人"],
+      datasets: [
+        {
+          fillColor : "rgba(255, 0, 51, 0.5)",
+          strokeColor : "rgba(220, 220, 220, 1)",
+          pointColor : "rgba(220, 220, 220, 1)",
+          pointStrokeColor : "#fff",
+          data : [100, 59, 80, 20, 40]
+        },
+      ]
+    };
 
-// ローディング画面
-$("#fakeloader").fakeLoader({
-  timeToHide: 1200,
-  bgColor: "#80D8FF",
-  imagePath:"images/loading.gif?" + timestamp
-});
+    // レーダーチャートの設定
+    var option3 = {
 
-// 様々な処理をまとめた
-$(function (){
+      // ポイントラベルのサイズ
+      pointLabelFontSize : 5,
 
-// heatmapChart
-var margin = { top: 50, right: 0, bottom: 100, left: 30 },
-width = 960 - margin.left - margin.right,
-height = 430 - margin.top - margin.bottom,
-gridSize = Math.floor(width / 24),
-legendElementWidth = gridSize*2,
-buckets = 9,
-colors = ["#FBE9E7","#FFCCBC","#FF8A65","#FF7043","#FF5722","#F4511E","#E64A19","#D84315","#BF360C"], // alternatively colorbrewer.YlGnBu[9]
-days = ["月", "火", "水", "木", "金", "土", "日"],
-times = ["1AM", "", "", "4AM", "", "", "7AM", "", "", "10AM", "", "", "1PM", "", "", "4AM", "", "", "7PM", "", "9PM", "", "", "12PM"];
-datasets = ["./tsv_data/1.tsv", "data2.tsv"];
+      // 表示の時のアニメーション
+      animation : true,
+      // アニメーションの速度 ( ステップ数 )
+      animationSteps : 60,
 
-var svg = d3.select("#chart").append("svg")
-.attr("width", width + margin.left + margin.right)
-.attr("height", height + margin.top + margin.bottom)
-.append("g")
-.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+      animationEasing : "easeOutQuad",
+      // アニメーション終了後に実行する処理
+      // animation: false の時にも実行されるようです
+      // e.g. onAnimationComplete : function() {alert('complete');}
+      onAnimationComplete : null
 
-var dayLabels = svg.selectAll(".dayLabel")
-.data(days)
-.enter().append("text")
-.text(function (d) { return d; })
-.attr("x", 0)
-.attr("y", function (d, i) { return i * gridSize; })
-.style("text-anchor", "end")
-.attr("transform", "translate(-6," + gridSize / 1.5 + ")")
-.attr("class", function (d, i) { return ((i >= 0 && i <= 4) ? "dayLabel mono axis axis-workweek" : "dayLabel mono axis"); });
+    };
 
-var timeLabels = svg.selectAll(".timeLabel")
-.data(times)
-.enter().append("text")
-.text(function(d) { return d; })
-.attr("x", function(d, i) { return i * gridSize; })
-.attr("y", 0)
-.style("text-anchor", "middle")
-.attr("transform", "translate(" + gridSize / 2 + ", -6)")
-.attr("class", function(d, i) { return ((i >= 7 && i <= 16) ? "timeLabel mono axis axis-worktime" : "timeLabel mono axis"); });
+    // レーダーチャートを描画する
+    var myNewChart3 = new Chart(ctx3).Radar(data3,option3);
 
-var heatmapChart = function(tsvFile) {
-  d3.tsv(tsvFile,
-    function(d) {
-      return {
-        day: +d.day,
-        hour: +d.hour,
-        value: +d.value
-      };
-    },
-    function(error, data) {
-      var colorScale = d3.scale.quantile()
-      .domain([0, buckets - 1, d3.max(data, function (d) { return d.value; })])
-      .range(colors);
 
-      var cards = svg.selectAll(".hour")
-      .data(data, function(d) {return d.day+':'+d.hour;});
-
-      cards.append("title");
-
-      cards.enter().append("rect")
-      .attr("x", function(d) { return (d.hour - 1) * gridSize; })
-      .attr("y", function(d) { return (d.day - 1) * gridSize; })
-      .attr("rx", 4)
-      .attr("ry", 4)
-      .attr("class", "hour bordered")
-      .attr("width", gridSize)
-      .attr("height", gridSize)
-      .style("fill", colors[0]);
-
-      cards.transition().duration(1000)
-      .style("fill", function(d) { return colorScale(d.value); });
-
-      cards.select("title").text(function(d) { return d.value; });
-
-      cards.exit().remove();
-
-      var legend = svg.selectAll(".legend")
-      .data([0].concat(colorScale.quantiles()), function(d) { return d; });
-
-      legend.enter().append("g")
-      .attr("class", "legend");
-
-      legend.append("rect")
-      .attr("x", function(d, i) { return legendElementWidth * i; })
-      .attr("y", height)
-      .attr("width", legendElementWidth)
-      .attr("height", gridSize / 2)
-      .style("fill", function(d, i) { return colors[i]; });
-
-      legend.append("text")
-      .attr("class", "mono")
-      .text(function(d) { return "≥ " + Math.round(d); })
-      .attr("x", function(d, i) { return legendElementWidth * i; })
-      .attr("y", height + gridSize);
-
-      legend.exit().remove();
-
-    });
-  };
-
-  heatmapChart(datasets[0]);
-
-  var datasetpicker = d3.select("#dataset-picker").selectAll(".dataset-button")
-  .data(datasets);
-
-  datasetpicker.enter()
-  .append("input")
-  .attr("value", function(d){ return "Dataset " + d })
-  .attr("type", "button")
-  .attr("class", "dataset-button")
-  .on("click", function(d) {
-    heatmapChart(d);
   });
 
-  // heatmapChart
 
 
-
-  // 現在の日付を取得
-  var m = moment();
-  var date = m.format("YYYY年MM月DD日");
-
-
-
-    // 現在の日付を表示するメソッド
-    current_time(date);
-
-    // 勉強のタイムライン
-    $("#schedule").timeSchedule({
-      startTime: "03:00", // schedule start time(HH:ii)
-      endTime: "23:00",   // schedule end time(HH:ii)
-      widthTime:600,      // cell timestamp
-      timeLineY:45,       // height(px)
-      verticalScrollbar:20,   // scrollbar (px)
-      timeLineBorder:2,   // border(top and bottom)
-      debug:"#debug",     // debug string output elements
-      rows : {
-
-        <% from = Time.now.at_beginning_of_day %>
-        <% from = from + 9.hour %>
-        <% to = from + 7.day %>
-        <% t = Time.now %>
-        <% (1..5).each{|num| %>
-          '<%= "#{num}" %>' : {
-            title : '<%= "#{t.strftime("%Y年 %m月 %d日")}" %>',
-            schedule:[
-
-              <%    time = Task.where(start_time: from...to) %>
-              <%    time = time.where(user_id: 1) %>
-              <%    time.each do |row| %>
-              {
-                <%    start_time = Time.parse(row.start_time.to_s) %>
-                <%    finish_time = Time.parse(row.finish_time.to_s) %>
-
-                start:'<%= "#{start_time.strftime("%H:%M")}".force_encoding("utf-8") %>',
-                end:'<%= "#{finish_time.strftime("%H:%M")}".force_encoding("utf-8") %>',
-                text:'<%= "#{row.task_name}".force_encoding("utf-8") %>',
-                data:{
-                }
-              },
-              <%    end %>
-
-            ]
-          },
-          <% from = from - 1.day%>
-          <% to = from + 1.day %>
-          <% t = t - 1.day %>
-          <% } %>
-
-        },
-      });
-
-
-      // 棒グラフを描画する処理
-      var ctx1 = $("#chart1").get(0).getContext("2d");
-
-      // 棒グラフのデータ
-      var data1 = {
-        // X軸のラベル
-        labels : [
-
-          <% from = Time.now.in_time_zone.at_beginning_of_day %>
-          <% from = from + 9.hour %>
-          <% to = from + 7.day %>
-          <% t = Time.now %>
-          <% (1..8).each{|num| %>
-
-            "<%= "#{t.strftime(" %m/%d")}".force_encoding("utf-8") %>",
-
-            <%   t = t - 1.day %>
-            <% } %>
-
-
-          ],
-          datasets : [
-            {
-              // グラフの描画設定
-              fillColor   : [
-                "rgba(64,196,255,0.5)",
-
-              ],
-              strokeColor : [
-                "rgba(64,196,255,1)",
-              ],
-              pointColor : "#00bfff", //点の色・透明度
-              pointStrokeColor : "#fff",//点の周りの色
-              data : [
-
-                <% time_week = total_time_week(1) %>
-                <% time_week.each do |time| %>
-                <%=   time %>,
-                <% end %>
-
-              ]
-            }
-          ]
-        };
-
-        // 棒グラフの設定
-        var option1 = {
-
-          // 値の開始値などを自分で設定するか
-          scaleOverride : true,
-
-          // y軸の値のステップ数
-          scaleSteps : 3,
-
-          // y軸のステップする大きさ
-          scaleStepWidth : <%= time_week.sort.last / 2 %>,
-
-          // Y軸の値の始まりの値
-          scaleStartValue : 0,
-
-          // ラベルの表示 ( Y 軸の値 )
-          scaleShowLabels : true,
-
-          scaleFontFamily : "'Arial'",
-          // X, Y 軸値のフォントサイズ
-          scaleFontSize : 15,
-          // X, Y 軸値のフォントスタイル, normal, italic など
-          scaleFontStyle : "italic",
-          // X, Y 軸値の文字色
-          scaleFontColor : "#666",
-
-
-          // Boolean - Whether the scale should start at zero, or an order of magnitude down from the lowest value
-          scaleBeginAtZero : true,
-
-          // Boolean - Whether grid lines are shown across the chart
-          scaleShowGridLines : true,
-
-          // String - Colour of the grid lines
-          scaleGridLineColor : "#c0c0c0",
-
-          // Number - Width of the grid lines
-          scaleGridLineWidth : 1,
-
-          // Boolean - Whether to show horizontal lines (except X axis)
-          scaleShowHorizontalLines: true,
-
-          // Boolean - Whether to show vertical lines (except Y axis)
-          scaleShowVerticalLines: true,
-
-          // Boolean - If there is a stroke on each bar
-          barShowStroke : true,
-
-          // Number - Pixel width of the bar stroke
-          barStrokeWidth : 2,
-
-          // Number - Spacing between each of the X value sets
-          barValueSpacing : 5,
-
-          // Number - Spacing between data sets within X values
-          barDatasetSpacing : 1,
-
-          // 表示の時のアニメーション
-          animation : true,
-
-          // アニメーションの速度 ( ステップ数 )
-          animationSteps : 100,
-
-          // アニメーションの種類, 以下が用意されている
-          animationEasing : "easeOutBounce",
-
-          // アニメーション終了後に実行する処理
-          onAnimationComplete : null
-
-        }
-
-        // 棒グラフを描画する
-        var myNewChart1 = new Chart(ctx1).Bar(data1,option1);
-
-
-
-
-      jQuery . jqplot(
-        'jqPlot-sample',
-        [
-          [ [ '16日', 650 ], [ '17日', 702 ], [ '18日', 740 ], [ '19日', 603 ], [ '20日', 805 ], [ '21日', 900 ],[ '22日', 900 ],[ '23日', 800 ],[ '24日', 400 ],[ '25日', 90 ],[ '26日', 900 ] ],
-          [ [ 1, 65 ], [ 2, 27 ], [ 3, 47 ], [ 4, 36 ], [ 5, 58 ], [ 6, 81 ], [ 7, 81 ], [ 8, 41 ], [ 9, 73 ], [ 10, 90 ],[11, 88] ]
-        ],
-        {
-          series:[
-            {
-              renderer: jQuery . jqplot . BarRenderer
-            },
-            {
-              xaxis: 'x2axis',
-              yaxis: 'y2axis'
-            }
-          ],
-          axes: {
-            xaxis: {
-              renderer: jQuery . jqplot . CategoryAxisRenderer,
-            },
-            x2axis: {
-              renderer: jQuery . jqplot . CategoryAxisRenderer,
-            },
-            yaxis: {
-              autoscale: true,
-            },
-            y2axis: {
-              autoscale: true,
-            }
-          }
-        }
-      );
-
-
-
-
-      // レーダーチャート描画する処理
-      var ctx3 = $("#chart3").get(0).getContext("2d");
-
-      // レーダーチャートのデータ
-      var data3 = {
-        labels: ["継続性", "勉強のバランス", "天気が良い", "音楽がある", "一人で学習"],
-        datasets: [
-          {
-            fillColor : "rgba(255, 0, 51, 0.5)",
-            strokeColor : "rgba(220, 220, 220, 1)",
-            pointColor : "rgba(220, 220, 220, 1)",
-            pointStrokeColor : "#fff",
-            data : [100, 59,
-
-
-              <% nice_weather_sum = 0 %>
-              <% bad_weather_sum = 0 %>
-
-              <% nice_weather_hours = dbh.execute("select (strftime('%s', tasks.finish_time) - strftime('%s', tasks.start_time)) / 60 from tasks where user_id = 2 and weather_frag = 1;") %>
-              <% nice_weather_hours.each do |row| %>
-
-              <%   nice_weather_sum = nice_weather_sum + row[0].to_i %>
-
-              <% end %>
-
-              <% bad_weather_hours = dbh.execute("select (strftime('%s', tasks.finish_time) - strftime('%s', tasks.start_time)) / 60 from tasks where user_id = 2 and weather_frag = 2;") %>
-              <% bad_weather_hours.each do |row| %>
-
-              <%   bad_weather_sum = bad_weather_sum + row[0].to_i %>
-
-              <% end %>
-
-              <%= (nice_weather_sum.to_f / (nice_weather_sum.to_f + bad_weather_sum.to_f)) * 100 %>,
-
-              <% music_sum = 0 %>
-
-
-              <% music_all_sum = 0 %>
-
-              <% music_hours = dbh.execute("select (strftime('%s', tasks.finish_time) - strftime('%s', tasks.start_time)) / 60 from tasks where user_id = 2 and music_frag = 1;") %>
-              <% music_hours.each do |row| %>
-
-              <%   music_sum = music_sum + row[0].to_i %>
-
-              <% end %>
-
-
-              <% music_all_hours = dbh.execute("select (strftime('%s', tasks.finish_time) - strftime('%s', tasks.start_time)) / 60 from tasks where user_id = 2;") %>
-              <% music_all_hours.each do |row| %>
-
-              <%   music_all_sum = music_all_sum + row[0].to_i %>
-
-              <% end %>
-
-              <%= music_sum.to_f / music_all_sum.to_f * 100 %>,
-
-
-              <% solo_sum = 0 %>
-
-
-              <% hours_sum = 0 %>
-
-              <% solo_hours = dbh.execute("select (strftime('%s', tasks.finish_time) - strftime('%s', tasks.start_time)) / 60 from tasks where user_id = 2 and group_frag = 0;") %>
-              <% solo_hours.each do |row| %>
-
-              <%   solo_sum = solo_sum + row[0].to_i %>
-
-              <% end %>
-
-              <% all_hours = dbh.execute("select (strftime('%s', tasks.finish_time) - strftime('%s', tasks.start_time)) / 60 from tasks where user_id = 2;") %>
-              <% all_hours.each do |row| %>
-
-              <%   hours_sum = hours_sum + row[0].to_i %>
-
-              <% end %>
-
-              <%= solo_sum.to_f / hours_sum.to_f * 100 %>
-
-            ]
-          },
-        ]
-      };
-
-      // レーダーチャートの設定
-      var option3 = {
-
-        // ポイントラベルのサイズ
-        pointLabelFontSize : 15,
-
-        // 表示の時のアニメーション
-        animation : true,
-        // アニメーションの速度 ( ステップ数 )
-        animationSteps : 60,
-
-        animationEasing : "easeOutQuad",
-        // アニメーション終了後に実行する処理
-        // animation: false の時にも実行されるようです
-        // e.g. onAnimationComplete : function() {alert('complete');}
-        onAnimationComplete : null
-
-      };
-
-      // レーダーチャートを描画する
-      var myNewChart3 = new Chart(ctx3).Radar(data3,option3);
-
-      });
-
-
-
-      </script>
-    </body>
-    </html>
-
-    <% solo_hours.finish %>
-    <% all_hours.finish %>
-    <% music_hours.finish %>
-    <% music_all_hours.finish %>
-    <% nice_weather_hours.finish %>
-    <% bad_weather_hours.finish %>
-
-    <% dbh.disconnect %>
+  </script>
+</body>
+</html>
