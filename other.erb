@@ -163,8 +163,25 @@
         </div>
       </div>
 
+      <!-- 右側のタイムライン -->
       <div class="col-sm-4">
-        <div style="height:300px; background-color:red;"></div>
+        <div class="panel panel-default">
+          <table id="right_timeline" class="table table-bordered">
+            <thead>
+              <tr><th class="text-center" style="height:30px;">タイムライン</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <ul class="media-list" style="height:100%; overflow:auto" >
+
+                  </ul>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
       </div>
 
     </div>
@@ -207,8 +224,10 @@
     // Instantiate MixItUp:
     $('#Container').mixItUp();
 
-    // タイムラインをスクロール可能にする
-    $( "#recent_timeline" ).menu();
+    // テーブルにスクロールバーを付ける処理
+    $('#right_timeline').scrolltable({
+      maxHeight: 750
+    });
 
     // レーダーチャートの設定
     var option3 = {
@@ -319,6 +338,14 @@
           $("#recent_timeline_" + key).menu();
 
         }
+
+        // 右側のタイムライン
+        var right_head_array = json.right_head.split(",");
+        var right_comment_array = json.right_comment.split(",");
+        var image_name = json.image_name.split(",");
+        $.each(right_head_array, function(index, value){
+          $('.media-list').append('<hr><li class="media" style="padding:0; margin:0;"><div class="media-left"><img class="media-object" src="images/' + image_name[index] + '" alt="写真" width="50" height="50" style="padding-left:5px;" ><h5 class="text-center">takuma</h5></div><div class="media-body"><h4 class="media-heading">' + value + '</h4>' + right_comment_array[index] + '</div>');
+        });
 
 
       },

@@ -25,14 +25,6 @@ achevement_rate_hash = now_achevement_rate_hash()
 total_time_rank_hash = now_total_time_rank()
 
 
-=begin
-# その日のコメントを抽出
-task = Task.where("DATE_FORMAT(start_time,'%Y/%m/%d') = '#{cgi['date']}' ")
-task = task.where("user_id = '#{session['user_id']}' ")
-comment = ""
-task.each do |row|
-  comment = comment + row.comment
-end
 
 # その日のタスク名と時間帯を抽出
 task_name = ""
@@ -48,18 +40,38 @@ task_name_array.each do |row|
   first_count =  first_count + 1
 end
 
-# 天気情報
-weather_data = weather_with_date(cgi['date'])
+# コメントと学習時間帯などを持ってくる
+task = Task.all
 
-# 合計時間
-total_time = total_time_with_date(cgi['date'], session['user_id'])
+# 最新のコメントの抽出
+first_comment_count = 0
+right_head = ""
+comment = ""
+image_name = ""
+task.first(100).each do |row|
 
-=end
+  user = User.find(row.user_id)
+
+  if(first_comment_count == 0)
+    right_head = right_head + user.user_name + " " + task_time(row.task_id).to_i.to_s
+    comment = comment + row.comment
+    image_name = image_name + user.image_name
+  else
+    right_head = right_head + "," + user.user_name + " " + task_time(row.task_id).to_i.to_s
+    comment = comment + "," + row.comment
+    image_name = image_name + "," + user.image_name
+  end
+  first_comment_count = first_comment_count + 1
+end
+
 
 # 送信するデータ
 hash = {
         "achevement_rate" => achevement_rate_hash,
-        "total_time_rank" => total_time_rank_hash
+        "total_time_rank" => total_time_rank_hash,
+        "right_head" => right_head,
+        "right_comment" => comment,
+        "image_name" => image_name
        }
 
 # RubyオブジェクトからJSONに変換
