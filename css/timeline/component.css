@@ -65,24 +65,30 @@
 /* Right content */
 .cbp_tmtimeline > li .cbp_tmlabel {
 	margin: 0 0 15px 25%;
+	/*
 	background: #3594cb;
-	color: #fff;
+	*/
+	color: black;
 	padding: 0.5em;
 	font-size: 1.0em;
 	font-weight: 300;
 	line-height: 1.4;
 	position: relative;
+
 	border-radius: 5px;
+	border-style: solid;
+	border-width: 2px;
+	border-color: #3594cb;
 }
 
 .cbp_tmtimeline > li:nth-child(odd) .cbp_tmlabel {
-	background: #6cbfee;
+	border-color: #6cbfee;
 }
 
 .cbp_tmtimeline > li .cbp_tmlabel h4 {
 	margin-top: 0px;
 	padding: 0 0 4px 0;
-	border-bottom: 1px solid rgba(255,255,255,0.4);
+	border-bottom: 1px solid #3594cb;
 }
 
 /* The triangle */
