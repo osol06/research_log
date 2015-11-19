@@ -293,24 +293,6 @@
 
                         <ul id="timeline_ul" class="cbp_tmtimeline">
 
-                          <% task = Task.all.order("task_id desc").limit(50)%>
-                          <% task.each do |row| %>
-                          <%  image_name = User.find_by(user_id: row.user_id ) %>
-                          <%  datetime = DateTime.parse("#{row.timestamp}") %>
-                          <%  date =  datetime.strftime("%m/%d")%>
-                          <%  time = datetime.strftime("%H:%M")%>
-
-                          <li>
-                            <time class="cbp_tmtime" datetime="2013-04-10 18:30"><span><%= date %></span> <span><%= time %></span></time>
-                            <div class="cbp_tmicon"><img src="images/<%= "#{image_name.image_name}" %>" alt="ユーザ画像" width="36" height="36" class="center-block"><h6 class="text-center" style="margin-top:0px;"><%= "#{image_name.user_name}".force_encoding("utf-8") %></h6></div>
-                            <div class="cbp_tmlabel">
-                              <h4 style="font-weight:bold; font-size:1.0em; margin-left:10px;"><%= "#{row.task_name}" %> <%= "#{task_time(row.task_id)}".to_i %>分</h4>
-                              <p style="margin:0 0 0 10px;"><%= "#{row.comment}".force_encoding("utf-8") %></p>
-                            </div>
-                          </li>
-
-                          <% end%>
-
                         </ul>
                       </td>
                     </tr>
@@ -417,6 +399,117 @@
       <script>
 
       $(function (){
+
+        // 五秒間ごとにタイムラインを更新する
+        setInterval(function(){
+
+          var now = moment();
+          time_now = now.format("YYYY/MM/DD HH:mm:ss");
+          now.subtract(5, "second");
+          time_before = now.format("YYYY/MM/DD HH:mm:ss");
+
+
+          $.ajax({
+            url: './realtime.rb',
+            type: 'post',
+            dataType: 'json',
+            contentType: "application/json; charset=utf-8",
+            data: {time_before: time_before,
+                   time_now: time_now},
+            timeout: 10000,  // 単位はミリ秒
+
+            // 送信前
+            beforeSend: function(xhr, settings) {
+              // ボタンを無効化し、二重送信を防止
+              $(this).attr('disabled', true);
+            },
+            // 応答後
+            complete: function(xhr, textStatus) {
+              // ボタンを有効化し、再送信を許可
+              $(this).attr('disabled', false);
+            },
+
+            // 通信成功時の処理
+            success: function(json) {
+
+              // デバッグ
+              console.log(json);
+
+              // 新しいデータがあれば、タイムラインを更新する
+              if( json.frag == 1 ){
+
+                console.log("aaa");
+
+                // 右側のタイムライン
+                var date_array = json.date.split(",");
+                var time_array = json.time.split(",");
+                var image_name_array = json.image_name.split(",");
+                var user_name_array = json.user_name.split(",");
+                var head_array = json.head.split(",");
+                var comment_array = json.comment.split(",");
+
+                $.each(date_array, function(index, value){
+                  console.log("iii");
+                  $('#timeline_ul').prepend('<li><div style="display:none;"><time class="cbp_tmtime" datetime="2013-04-10 18:30"><span>' + value + '</span> <span>' + time_array[index] + '</span></time><div class="cbp_tmicon"><img src="images/' + image_name_array[index] + '" alt="ユーザ画像" width="36" height="36" class="center-block"><h6 class="text-center" style="margin-top:0px;">' + user_name_array[index] + '</h6></div><div class="cbp_tmlabel"><h4 style="font-weight:bold; font-size:1.0em; margin-left:10px;">' + head_array[index] + '分</h4><p style="margin:0 0 0 10px;">' + comment_array[index] + '</p></div></div></li>');
+                  $('li div').slideDown("slow");
+                });
+
+              }
+
+            },
+
+            // 通信失敗時の処理
+            error: function(xhr, textStatus, error) {
+              console.log("失敗");
+            }
+          });
+
+        },6000);
+
+
+        $.ajax({
+          url: './timeline_data.rb',
+          dataType: 'json',
+          contentType: "application/json; charset=utf-8",
+          timeout: 10000,  // 単位はミリ秒
+
+          // 送信前
+          beforeSend: function(xhr, settings) {
+            // ボタンを無効化し、二重送信を防止
+            //$(this).attr('disabled', true);
+          },
+          // 応答後
+          complete: function(xhr, textStatus) {
+            // ボタンを有効化し、再送信を許可
+            //$(this).attr('disabled', false);
+          },
+
+          // 通信成功時の処理
+          success: function(json) {
+
+            // デバッグ
+            console.log(json);
+
+            // 右側のタイムライン
+            var date_array = json.date.split(",");
+            var time_array = json.time.split(",");
+            var image_name_array = json.image_name.split(",");
+            var user_name_array = json.user_name.split(",");
+            var head_array = json.head.split(",");
+            var comment_array = json.comment.split(",");
+
+            $.each(date_array, function(index, value){
+              $('#timeline_ul').append('<li><time class="cbp_tmtime" datetime="2013-04-10 18:30"><span>' + value + '</span> <span>' + time_array[index] + '</span></time><div class="cbp_tmicon"><img src="images/' + image_name_array[index] + '" alt="ユーザ画像" width="36" height="36" class="center-block"><h6 class="text-center" style="margin-top:0px;">' + user_name_array[index] + '</h6></div><div class="cbp_tmlabel"><h4 style="font-weight:bold; font-size:1.0em; margin-left:10px;">' + head_array[index] + '分</h4><p style="margin:0 0 0 10px;">' + comment_array[index] + '</p></div></li>');
+            });
+
+          },
+
+          // 通信失敗時の処理
+          error: function(xhr, textStatus, error) {
+            console.log("失敗");
+          }
+        });
+
 
         // 現在の日付を取得
         var m = moment();
