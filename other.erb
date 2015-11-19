@@ -87,41 +87,44 @@
             <button type="button" class="btn btn-info sort" data-sort="random">総合ランキング</button>
           </div>
 
+          <button id="ajax">ajax</button>
+
           <div id='Container'>
-            <div class="mix col-sm-12 panel panel-default" data-myorder="2" style="height:140px;">
+
+            <% user = User.all %>
+            <% user_count = user.count %>
+            <% user.each do |row| %>
+
+            <div id="row_<%= row.user_id %>" class="mix col-sm-12 panel panel-default" data-myorder="2" style="height:140px;">
               <div class="row">
                 <div class="col-sm-2">
-                  <img src="./images/2.jpg" class="thumbnail center-block" width="90" height="90" style="margin-top:8px;" />
-                  <h4 class="text-center" style="margin-top:-15px;">ichinose</h4>
+                  <img src="./images/<%= row.image_name %>" class="thumbnail center-block" width="90" height="90" style="margin-top:8px;" />
+                  <h4 class="text-center" style="margin-top:-15px;"><%= row.user_name %></h4>
                 </div>
                 <div class="col-sm-2">
                   <h5 class="text-center"><strong>ランキング</strong></h5>
                   <ul class="text-center" style="list-style-type:none; margin:0px; padding:0px">
-                    <li>合計時間 第<strong class="text-danger">2</strong>位</li>
-                    <li>朝学習　 第<strong class="text-danger">1</strong>位</li>
-                    <li>晴れ学習 第<strong class="text-danger">6</strong>位</li>
-                    <li>１人学習 第<strong class="text-danger">3</strong>位</li>
-                    <li>機械学習 第<strong class="text-danger">5</strong>位</li>
+                    <li>合計時間 <div style="padding-top:10px; font-size:20px;">第 <strong id="total_time_rank_<%= row.user_id %>" class="text-danger">2</strong> 位</div></li>
                   </ul>
                 </div>
                 <div class="col-sm-2">
-                  <h5 class="text-center"><strong>本日の達成度</strong></h5>
-                  <div id="myStat" class="center-block" data-dimension="100" data-text="35%" data-width="10" data-fontsize="22" data-info-fontsize="10" data-percent="35" data-fgcolor="#61a9dc" data-bgcolor="#eee" data-fill="#ddd"></div>
+                  <h5 class="text-center"><strong>達成度(実装中)</strong></h5>
+                  <div id="myStat_<%= row.user_id %>" class="center-block" data-dimension="70" data-text="35%" data-width="10" data-fontsize="22" data-info-fontsize="10" data-percent="35" data-fgcolor="#61a9dc" data-bgcolor="#eee" data-fill="#ddd"></div>
                 </div>
                 <div class="col-sm-3" style="height:200px;">
                   <h5 class="text-center" style="padding-bottom:-5px;"><strong>学習傾向</strong></h5>
 
                   <!-- みんなの学習スタイルグラフ -->
-                  <canvas id="chart3" class="center-block" style="width: 130px; height:100px;">
+                  <canvas id="chart_<%= row.user_id %>" class="center-block" style="width: 130px; height:100px;">
                   </canvas>
 
                 </div>
                 <div class="col-sm-3">
                   <h5 class="text-center"><strong>最近の学習</strong></h5>
-                  <ul id="recent_timeline" style="height:100px; overflow:auto;">
+                  <ul id="recent_timeline_<%= row.user_id %>" style="height:100px; overflow:auto;">
                     <li>
                       <h5>英語 30分</h5>
-                      <h6>今日は英単語をたくさ学習した。少しつかれたけど結構良い感じだった。</h6>
+                      <h6>今日は英単語をたくさん学習した。少しつかれたけど結構良い感じだった。</h6>
                     </li>
                     <hr>
                     <li>
@@ -152,72 +155,8 @@
                 </div>
               </div>
             </div>
-            <div class="mix col-sm-12 panel panel-default" data-myorder="6" style="height:130px;">
-              <div class="row">
-                <div class="col-sm-2">
-                  <img src="./images/6.jpg" class="thumbnail center-block" width="90" height="90" style="margin-top:8px;" />
-                  <h4 class="text-center" style="margin-top:-15px;">takuma</h4>
-                </div>
-                <div class="col-sm-2">
-                  6
-                </div>
-              </div>
-            </div>
-            <div class="mix col-sm-12 panel panel-default" data-myorder="3" style="height:130px;">
-              <div class="row">
-                <div class="col-sm-2">
-                  <img src="./images/3.jpg" class="thumbnail center-block" width="90" height="90" style="margin-top:8px;" />
-                  <h4 class="text-center" style="margin-top:-15px;">tomo</h4>
-                </div>
-                <div class="col-sm-2">
-                  3
-                </div>
-              </div>
-            </div>
-            <div class="mix col-sm-12 panel panel-default" data-myorder="1" style="height:130px;">
-              <div class="row">
-                <div class="col-sm-2">
-                  <img src="./images/1.jpg" class="thumbnail center-block" width="90" height="90" style="margin-top:8px;" />
-                  <h4 class="text-center" style="margin-top:-15px;">yuki</h4>
-                </div>
-                <div class="col-sm-2">
-                  1
-                </div>
-              </div>
-            </div>
-            <div class="mix col-sm-12 panel panel-default" data-myorder="2" style="height:130px;">
-              <div class="row">
-                <div class="col-sm-2">
-                  <img src="./images/2.jpg" class="thumbnail center-block" width="90" height="90" style="margin-top:8px;" />
-                  <h4 class="text-center" style="margin-top:-15px;">ichinose</h4>
-                </div>
-                <div class="col-sm-2">
-                  2
-                </div>
-              </div>
-            </div>
-            <div class="mix col-sm-12 panel panel-default" data-myorder="2" style="height:130px;">
-              <div class="row">
-                <div class="col-sm-2">
-                  <img src="./images/2.jpg" class="thumbnail center-block" width="90" height="90" style="margin-top:8px;" />
-                  <h4 class="text-center" style="margin-top:-15px;">ichinose</h4>
-                </div>
-                <div class="col-sm-2">
-                  2
-                </div>
-              </div>
-            </div>
-            <div class="mix col-sm-12 panel panel-default" data-myorder="2" style="height:130px;">
-              <div class="row">
-                <div class="col-sm-2">
-                  <img src="./images/2.jpg" class="thumbnail center-block" width="90" height="90" style="margin-top:8px;" />
-                  <h4 class="text-center" style="margin-top:-15px;">ichinose</h4>
-                </div>
-                <div class="col-sm-2">
-                  2
-                </div>
-              </div>
-            </div>
+
+            <% end %>
 
           </div>
 
@@ -242,7 +181,6 @@
   <script src="https://code.jquery.com/jquery-1.10.2.min.js" type="text/javascript" language="javascript"></script>
   <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.min.js" type="text/javascript" language="javascript"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/2.3.2/js/bootstrap.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
 
   <!-- ライブラリ -->
   <script src="js/datetimepicker/jquery.datetimepicker.js"></script>
@@ -269,28 +207,8 @@
     // Instantiate MixItUp:
     $('#Container').mixItUp();
 
-    // 達成率円グラフ
-    $('#myStat').circliful();
-
     // タイムラインをスクロール可能にする
     $( "#recent_timeline" ).menu();
-
-    // レーダーチャートを作成するタグのidを取得
-    var ctx3 = $("#chart3").get(0).getContext("2d");
-
-    // レーダーチャートのデータ
-    var data3 = {
-      labels: ["継続性", "朝型", "晴れ", "音楽", "一人"],
-      datasets: [
-        {
-          fillColor : "rgba(255, 0, 51, 0.5)",
-          strokeColor : "rgba(220, 220, 220, 1)",
-          pointColor : "rgba(220, 220, 220, 1)",
-          pointStrokeColor : "#fff",
-          data : [100, 59, 80, 20, 40]
-        },
-      ]
-    };
 
     // レーダーチャートの設定
     var option3 = {
@@ -311,8 +229,208 @@
 
     };
 
-    // レーダーチャートを描画する
-    var myNewChart3 = new Chart(ctx3).Radar(data3,option3);
+
+    // 非同期通信
+    $.ajax({
+      url: './other_data.rb',
+      dataType: 'json',
+      contentType: "application/json; charset=utf-8",
+      timeout: 10000,  // 単位はミリ秒
+
+      // 送信前
+      beforeSend: function(xhr, settings) {
+        // ボタンを無効化し、二重送信を防止
+        $(this).attr('disabled', true);
+      },
+      // 応答後
+      complete: function(xhr, textStatus) {
+        // ボタンを有効化し、再送信を許可
+        $(this).attr('disabled', false);
+      },
+
+      // 通信成功時の処理
+      success: function(json) {
+
+        console.log(json);
+
+        // 達成率の描画
+        for(var key in json.achevement_rate) {
+
+          // デバッグ
+          // console.log(json.achevement_rate[key]);
+
+          // 達成率の更新
+          $('#myStat_' + key).replaceWith('<div id="myStat_' + key + '" class="center-block" data-dimension="80" data-text="' + json.achevement_rate[key] + '%" data-width="10" data-fontsize="22" data-info-fontsize="10" data-percent="' + json.achevement_rate[key] + '" data-fgcolor="#61a9dc" data-bgcolor="#eee" data-fill="#ddd"></div>');
+          $('#myStat_' + key).circliful();
+
+        }
+
+        // 本日の合計学習時間ランキング
+        for(var key in json.total_time_rank) {
+
+          // デバッグ
+          console.log(json.total_time_rank[key]);
+
+          // ランキングの更新
+          $('#total_time_rank_' + key).text(json.total_time_rank[key]);
+          if(json.total_time_rank[key] == '圏外'){
+            $("#row_" + key).attr("data-myorder",100000);
+          }else{
+            $("#row_" + key).attr("data-myorder",json.total_time_rank[key]);
+          }
+
+        }
+
+        // レーダーチャートの描画
+        for(var key in json.total_time_rank) {
+
+          // デバッグ
+          console.log(json.total_time_rank[key]);
+
+          // レーダーチャートを作成するタグのidを取得
+          var ctx3 = $("#chart_" + key).get(0).getContext("2d");
+
+          // レーダーチャートのデータ
+          var data3 = {
+            labels: ["継続性", "朝型", "晴れ", "音楽", "一人"],
+            datasets: [
+              {
+                fillColor : "rgba(255, 0, 51, 0.5)",
+                strokeColor : "rgba(220, 220, 220, 1)",
+                pointColor : "rgba(220, 220, 220, 1)",
+                pointStrokeColor : "#fff",
+                data : [100, 59, 80, 20, 40]
+              },
+            ]
+          };
+
+          // レーダーチャートを描画する
+          var myNewChart3 = new Chart(ctx3).Radar(data3,option3);
+
+        }
+
+        // タイムラインの更新
+        for(var key in json.total_time_rank) {
+
+          // デバッグ
+          console.log(json.total_time_rank[key]);
+
+          // スクロール
+          $("#recent_timeline_" + key).menu();
+
+        }
+
+
+      },
+
+      // 通信失敗時の処理
+      error: function(xhr, textStatus, error) {
+        console.log("失敗");
+      }
+    });
+
+    $("#ajax").click(function(){
+
+      // 非同期通信
+      $.ajax({
+        url: './other_data.rb',
+        dataType: 'json',
+        contentType: "application/json; charset=utf-8",
+        timeout: 10000,  // 単位はミリ秒
+
+        // 送信前
+        beforeSend: function(xhr, settings) {
+          // ボタンを無効化し、二重送信を防止
+          $(this).attr('disabled', true);
+        },
+        // 応答後
+        complete: function(xhr, textStatus) {
+          // ボタンを有効化し、再送信を許可
+          $(this).attr('disabled', false);
+        },
+
+        // 通信成功時の処理
+        success: function(json) {
+
+          console.log(json);
+
+          // 達成率の描画
+          for(var key in json.achevement_rate) {
+
+            // デバッグ
+            // console.log(json.achevement_rate[key]);
+
+            // 達成率の更新
+            $('#myStat_' + key).replaceWith('<div id="myStat_' + key + '" class="center-block" data-dimension="80" data-text="' + json.achevement_rate[key] + '%" data-width="10" data-fontsize="22" data-info-fontsize="10" data-percent="' + json.achevement_rate[key] + '" data-fgcolor="#61a9dc" data-bgcolor="#eee" data-fill="#ddd"></div>');
+            $('#myStat_' + key).circliful();
+
+          }
+
+          // 本日の合計学習時間ランキング
+          for(var key in json.total_time_rank) {
+
+            // デバッグ
+            console.log(json.total_time_rank[key]);
+
+            // ランキングの更新
+            $('#total_time_rank_' + key).text(json.total_time_rank[key]);
+            if(json.total_time_rank[key] == '圏外'){
+              $("#row_" + key).attr("data-myorder",100000);
+            }else{
+              $("#row_" + key).attr("data-myorder",json.total_time_rank[key]);
+            }
+
+          }
+
+          // レーダーチャートの描画
+          for(var key in json.total_time_rank) {
+
+            // デバッグ
+            console.log(json.total_time_rank[key]);
+
+            // レーダーチャートを作成するタグのidを取得
+            var ctx3 = $("#chart" + key).get(0).getContext("2d");
+
+            // レーダーチャートのデータ
+            var data3 = {
+              labels: ["継続性", "朝型", "晴れ", "音楽", "一人"],
+              datasets: [
+                {
+                  fillColor : "rgba(255, 0, 51, 0.5)",
+                  strokeColor : "rgba(220, 220, 220, 1)",
+                  pointColor : "rgba(220, 220, 220, 1)",
+                  pointStrokeColor : "#fff",
+                  data : [100, 59, 80, 20, 40]
+                },
+              ]
+            };
+
+            // レーダーチャートを描画する
+            var myNewChart3 = new Chart(ctx3).Radar(data3,option3);
+
+          }
+
+          // タイムラインの更新
+          for(var key in json.total_time_rank) {
+
+            // デバッグ
+            console.log(json.total_time_rank[key]);
+
+            // スクロール
+            $("#recent_timeline_" + key).menu();
+
+          }
+
+
+        },
+
+        // 通信失敗時の処理
+        error: function(xhr, textStatus, error) {
+          console.log("失敗");
+        }
+      });
+
+    });
 
 
   });

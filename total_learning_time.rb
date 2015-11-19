@@ -56,7 +56,67 @@ def total_learning_time
 
   end
 
+
+
   return total_time
+
+end
+
+# 本日のユーザIDと学習時間ランキングが入った
+def now_total_time_rank
+
+  # ユーザ名と本日の合計学習時間がはいったハッシュ
+  total_time_rank = {}
+
+  # ユーザテーブルのデータを持ってくる
+  user  = User.all
+  user.each do |row|
+
+    # 合計時間を計算するための変数
+    sum = 0
+
+    # 今日の日付
+    from = Time.now.in_time_zone.at_beginning_of_day
+
+    # ローカル時間と9時間の差ができるため、その埋め合わせ
+    from = from + 9.hour
+    to   = from + 1.day
+    time = Task.where(start_time: from...to)
+    time = time.where(user_id: row.user_id)
+    time = time.select("(UNIX_TIMESTAMP(finish_time) - UNIX_TIMESTAMP(start_time)) / 60 as total")
+
+    # 本日の合計時間を計算
+    time.each do |time_row|
+      sum = sum + time_row.total.to_i
+    end
+
+    total_time_rank["#{row.id}"] = sum
+
+  end
+
+  # ハッシュを値で降順にする。返り値は配列なので、eachの部分にsortedを使う
+  sorted =  total_time_rank.sort_by{|key,val| -val}
+
+  # ランキング
+  rank = 1
+  sorted.each{|key, value|
+
+    if total_time_rank["#{key}"] != 0
+
+      total_time_rank["#{key}"] = rank
+
+      # ランクを一つ増やす
+      rank = rank + 1
+
+    else
+
+      total_time_rank["#{key}"] = '圏外'
+
+    end
+
+  }
+
+  return total_time_rank
 
 end
 
@@ -336,7 +396,28 @@ def time_diff(date, user_id)
 
 end
 
+# 本日の達成度がkey:ユーザーID,value:達成率のハッシュで返すメソッド
+# 今は仮なのであとで作成する
+def now_achevement_rate_hash
+
+  # ユーザIDと達成率のハッシュ
+  achevement_rate_hash = {}
+
+  user = User.all
+  user.each do |row|
+
+    #未完成部分
+    achevement_rate_hash["#{row.user_id}"] = Random.rand(1 .. 100)
+
+  end
+
+  return achevement_rate_hash
+
+end
+
 # デバッグ
+# p now_total_time_rank()
+# p now_total_time_rank()
 # time_diff('2015/11/04', 2)
 # total_time_with_date('2015/10/21', 2)
 # p task_and_zone_with_date('2015/11/03', 2)
