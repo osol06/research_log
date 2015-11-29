@@ -49,8 +49,8 @@ def music_average_array
 end
 
 # デバッグ
-puts "音楽あり"
-puts music_average_array()
+#puts "音楽あり"
+#puts music_average_array()
 
 # 音楽があるときの各ユーザの学習時間の平均が入った配列を返すメソッド(ユーザidで昇順)
 def no_music_average_array
@@ -96,5 +96,5 @@ def no_music_average_array
 end
 
 # デバッグ
-puts "音楽なし"
-puts no_music_average_array()
+#puts "音楽なし"
+#puts no_music_average_array()
