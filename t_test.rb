@@ -111,8 +111,13 @@ print(temperature)
 temperaturetest <- cor.test(x, y, method="pearson")
 print(temperaturetest)
 
+
 RCOMMAND
 
 # Rubyのコード
 puts temperature_r.temperature.to_s
 puts temperature_r.temperaturetest.to_s
+
+r = RSRuby.instance
+data = r.rnorm(100)
+puts r.plot(data)
