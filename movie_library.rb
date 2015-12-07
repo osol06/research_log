@@ -16,7 +16,7 @@ def good_weather_rank
 
     task = Task.where("user_id = #{row.user_id}")
     task = task.where("weather_frag = 1")
-    task = task.where("start_time between '2015-11-20' and '2015-12-01'")
+    task = task.where("start_time between '2015-11-10' and '2015-12-01'")
     time = task.select("(UNIX_TIMESTAMP(finish_time) - UNIX_TIMESTAMP(start_time)) / 60 as total")
 
     sum = 0
@@ -51,7 +51,7 @@ def music_rank
 
     task = Task.where("user_id = #{row.user_id}")
     task = task.where("music_frag = 1")
-    task = task.where("start_time between '2015-11-20' and '2015-12-01'")
+    task = task.where("start_time between '2015-11-10' and '2015-12-01'")
     time = task.select("(UNIX_TIMESTAMP(finish_time) - UNIX_TIMESTAMP(start_time)) / 60 as total")
 
     sum = 0
@@ -85,7 +85,7 @@ def morning_rank
   user.each do |row|
 
     task = Task.where("user_id = #{row.user_id}")
-    task = task.where("start_time between '2015-11-20' and '2015-12-01'")
+    task = task.where("start_time between '2015-11-10' and '2015-12-01'")
     task = task.where("date_format(start_time, '%H:%I:%S') between '06:00:00' and '12:00:00' or date_format(finish_time, '%H:%I:%S') between '06:00:00' and '12:00:00'")
     time = task.select("(UNIX_TIMESTAMP(finish_time) - UNIX_TIMESTAMP(start_time)) / 60 as total")
 
@@ -120,7 +120,7 @@ def total_rank
   user.each do |row|
 
     task = Task.where("user_id = #{row.user_id}")
-    task.where("start_time between '2015-11-20' and '2015-12-01'")
+    task.where("start_time between '2015-11-10' and '2015-12-01'")
     time = task.select("(UNIX_TIMESTAMP(finish_time) - UNIX_TIMESTAMP(start_time)) / 60 as total")
 
     sum = 0
