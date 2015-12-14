@@ -227,10 +227,10 @@
 
                       <!-- 一人かグループかの選択 -->
                       <p style="margin: 15px 10px;">
-                        <label for="group_frag">人数</label>
+                        <label id="group_label" for="group_frag">人数</label>
                         <div class="btn-group" data-toggle="buttons" style="margin-left: 10px; margin-top:-20px;">
-                          <label class="btn btn-default active">
-                            <input type="radio" autocomplete="off" name="group_frag" value="0" checked>一人で学習
+                          <label class="btn btn-default">
+                            <input type="radio" autocomplete="off" name="group_frag" value="0">一人で学習
                           </label>
                           <label class="btn btn-default">
                             <input type="radio" autocomplete="off" name="group_frag" value="1">グループで学習
@@ -239,10 +239,10 @@
 
                         <!-- 音楽ありなしかの選択 -->
                         <p style="margin: 15px 10px;">
-                          <label for="group_frag">音楽</label>
+                          <label id="music_label" for="group_frag">音楽</label>
                           <div class="btn-group" data-toggle="buttons" style="margin-left: 10px; margin-top:-20px;">
-                            <label class="btn btn-default active">
-                              <input type="radio" autocomplete="off" name="music_frag" value="0" checked>音楽なし
+                            <label class="btn btn-default">
+                              <input type="radio" autocomplete="off" name="music_frag" value="0">音楽なし
                             </label>
                             <label class="btn btn-default">
                               <input type="radio" autocomplete="off" name="music_frag" value="1">音楽あり
@@ -534,6 +534,26 @@
         }
 
         $('#log_form').submit(function(event) {
+
+          // エラー表示の初期化
+          $("p.error").remove();
+
+          // グループか１人かの選択チェック
+          if($(":radio[name='group_frag']:checked").size()==0){
+            $("#group_label").append("<p class='error' style='color:red'>選択してください</p>");
+          }
+
+          // 音楽ありなしの選択チェック
+          if($(":radio[name='music_frag']:checked").size()==0){
+            $("#music_label").append("<p class='error' style='color:red'>選択してください</p>");
+          }
+
+          // エラーがあったとき
+          if ($("p.error").size()>0) {
+            // submitをキャンセル
+            return false;
+          }
+
           // HTMLでの送信をキャンセル
           event.preventDefault();
 
