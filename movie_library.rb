@@ -143,3 +143,19 @@ end
 # デバッグ
 puts "総合学習時間ランキング"
 puts total_rank()
+
+def total_sum
+  sum = 0
+  total = total_rank()
+  total.each{|key, value|
+
+    sum = value.to_i + sum
+
+  }
+
+return sum / 60
+
+end
+
+puts "合計学習時間"
+puts total_sum()

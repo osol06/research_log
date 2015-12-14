@@ -408,9 +408,9 @@ def timezone_six_to_twelve
 
 end
 
-#puts "6~12時の間の平均学習時間"
-#puts timezone_six_to_twelve()
-#puts timezone_six_to_twelve().count
+puts "6~12時の間の平均学習時間"
+puts timezone_six_to_twelve()
+puts timezone_six_to_twelve().count
 
 # 各時間帯の各ユーザの平均学習量を返すメソッド
 def timezone_twelve_to_eighteen
@@ -454,9 +454,9 @@ def timezone_twelve_to_eighteen
 
 end
 
-#puts "12~18時の間の平均学習時間"
-#puts timezone_twelve_to_eighteen()
-#puts timezone_twelve_to_eighteen().count
+puts "12~18時の間の平均学習時間"
+puts timezone_twelve_to_eighteen()
+puts timezone_twelve_to_eighteen().count
 
 # 各時間帯の各ユーザの平均学習量を返すメソッド
 def timezone_eighteen_to_twentyfour
@@ -500,6 +500,36 @@ def timezone_eighteen_to_twentyfour
 
 end
 
-#puts "18~24時の間の平均学習時間"
-#puts timezone_eighteen_to_twentyfour()
-#puts timezone_eighteen_to_twentyfour().count
+puts "18~24時の間の平均学習時間"
+puts timezone_eighteen_to_twentyfour()
+puts timezone_eighteen_to_twentyfour().count
+
+
+# ユーザの数をかえすメソッド
+def user_count
+
+  return User.count
+
+end
+
+puts "ユーザ数"
+puts user_count
+
+# 全ユーザ名が入った配列を返すメソッド
+def user_name_array
+
+  array = []
+
+  user = User.all
+  user.each do |row|
+
+    array.push(row.user_name)
+
+  end
+
+return array
+
+end
+
+puts "ユーザ名"
+p user_name_array()

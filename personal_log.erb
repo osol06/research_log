@@ -81,7 +81,7 @@
         <form method="post" action="./other_log_btm.rb">
           <% user = User.all %>
           <% user.each do |row| %>
-          <button type="submit" class="btn btn-info" value="<%= row.user_id %>" name="log_user_id" ><%= row.user_name %></button>
+          <button type="submit" class="btn btn-info" value="<%= row.user_id %>" name="log_user_name" ><%= row.user_name %></button>
           <% end %>
         </form>
       </div>
@@ -226,7 +226,7 @@
                           <% from = Time.now.in_time_zone.at_beginning_of_day %>
                           <% from = from - 7.day + 9.hour %>
                           <% to = from + 7.day %>
-                          <% time_week = total_time_week_from_yesterday(session['user_id']) %>
+                          <% time_week = total_time_week_from_yesterday(cgi['log_user_id']) %>
                           <% (1..7).each{|num| %>
 
                             <td class="text-center"><%= time_week[num-1] %>分</td>
@@ -299,7 +299,7 @@
         colors = ["#FBE9E7","#FFCCBC","#FF8A65","#FF7043","#FF5722","#F4511E","#E64A19","#D84315","#BF360C"], // alternatively colorbrewer.YlGnBu[9]
         days = ["日", "月", "火", "水", "木", "金", "土"],
         times = ["1AM", "", "", "4AM", "", "", "7AM", "", "", "10AM", "", "", "1PM", "", "", "4AM", "", "", "7PM", "", "9PM", "", "", "12PM"];
-        datasets = ["./tsv_data/<%= "#{session['user_id']}" %>.tsv", "data.tsv"];
+        datasets = ["./tsv_data/<%= "#{cgi['log_user_id']}" %>.tsv", "data.tsv"];
 
         var svg = d3.select("#chart").append("svg")
         .attr("width", width + margin.left + margin.right)
@@ -419,7 +419,7 @@
                     schedule:[
 
                       <%    time = Task.where(start_time: from...to) %>
-                      <%    time = time.where(user_id: session['user_id']) %>
+                      <%    time = time.where(user_id: cgi['log_user_id']) %>
                       <%    time.each do |row| %>
                       {
                         <%    start_time = Time.parse(row.start_time.to_s) %>
@@ -479,7 +479,7 @@
                       pointStrokeColor : "#fff",//点の周りの色
                       data : [
 
-                        <% time_week = total_time_week(session['user_id']) %>
+                        <% time_week = total_time_week(cgi['log_user_id']) %>
                         <% time_week.each do |time| %>
                         <%=   time %>,
                         <% end %>
@@ -575,7 +575,7 @@
                     <% from = from + 9.hour %>
                     <% to = from + 7.day %>
                     <% t = Time.now - 7.day %>
-                    <% time_week = total_time_week_from_yesterday(session['user_id']) %>
+                    <% time_week = total_time_week_from_yesterday(cgi['log_user_id']) %>
                     <% (1..7).each{|num| %>
 
                       [ '<%= "#{t.strftime(" %m/%d")}".force_encoding("utf-8") %>', <%= time_week[num-1] %> ],

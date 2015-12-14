@@ -12,6 +12,7 @@ no_music = no_music_average_array()
 music_r = RSRuby.instance
 
 # ここからRのコード
+puts "音楽ありなしのt検定"
 music_r.eval_R <<-RCOMMAND
 x <- c(#{music.join(",")})
 y <- c(#{no_music.join(",")})
@@ -30,6 +31,7 @@ group = group_average_array()
 num_people_r = RSRuby.instance
 
 # ここからRのコード
+puts "１人またはグループ学習のt検定"
 num_people_r.eval_R <<-RCOMMAND
 x <- c(#{alone.join(",")})
 y <- c(#{group.join(",")})
@@ -38,63 +40,22 @@ print(num)
 
 RCOMMAND
 
-# ここからRubyのコード
-#puts num_people_r.num.to_s
+# 天気が良いか悪いかのt検定
+good_w = good_weather_average_array()
+bad_w = bad_weather_average_array()
 
-# 時間帯と学習時間のt検定
-# (1)6~12と12~18
-six_to_twelve = timezone_six_to_twelve()
-twelve_to_eighteen = timezone_twelve_to_eighteen()
-
-six_to_eighteen_r = RSRuby.instance
+weather_r = RSRuby.instance
 
 # ここからRのコード
-six_to_eighteen_r.eval_R <<-RCOMMAND
-x <- c(#{six_to_twelve.join(",")})
-y <- c(#{twelve_to_eighteen.join(",")})
-sixtoeighteen <- t.test(x,y,paired=TRUE)
-print(sixtoeighteen)
+puts "天気の良し悪しのt検定"
+weather_r.eval_R <<-RCOMMAND
+x <- c(#{good_w.join(",")})
+y <- c(#{bad_w.join(",")})
+num <- t.test(x,y,paired=TRUE)
+print(num)
 
 RCOMMAND
 
-# ここからRubyのコード
-#puts six_to_eighteen_r.sixtoeighteen.to_s
-
-# (2)12~18と18~24
-twelve_to_eighteen = timezone_twelve_to_eighteen()
-eighteen_to_twentyfour = timezone_eighteen_to_twentyfour()
-
-twelve_to_twentyfour_r = RSRuby.instance
-
-# ここからRのコード
-twelve_to_twentyfour_r.eval_R <<-RCOMMAND
-x <- c(#{twelve_to_eighteen.join(",")})
-y <- c(#{eighteen_to_twentyfour.join(",")})
-twelvetotwentyfour <- t.test(x,y,paired=TRUE)
-print(twelvetotwentyfour)
-
-RCOMMAND
-
-# ここからRubyのコード
-puts twelve_to_twentyfour_r.twelvetotwentyfour.to_s
-
-# (3)6~12と18~24
-six_to_twelve = timezone_six_to_twelve()
-eighteen_to_twentyfour = timezone_eighteen_to_twentyfour()
-
-six_to_twentyfour_r = RSRuby.instance
-
-# ここからRのコード
-six_to_twentyfour_r.eval_R <<-RCOMMAND
-x <- c(#{six_to_twelve.join(",")})
-y <- c(#{twelve_to_eighteen.join(",")})
-sixtotwentyfour <- t.test(x,y,paired=TRUE)
-print(sixtotwentyfour)
-
-RCOMMAND
-
-# ここからRubyのコード
-puts six_to_twentyfour_r.sixtotwentyfour.to_s
 
 # 最高気温と学習時間の相関関係
 max_temperature = max_temperature_array()
@@ -103,6 +64,7 @@ temperature_average = each_temperature_average()
 temperature_r = RSRuby.instance
 
 # ここからRのコード
+puts "最高気温と学習時間の相関係数と無相関検定"
 temperature_r.eval_R <<-RCOMMAND
 x <- c(#{max_temperature.join(",")})
 y <- c(#{temperature_average.join(",")})
@@ -115,9 +77,34 @@ print(temperaturetest)
 RCOMMAND
 
 # Rubyのコード
-puts temperature_r.temperature.to_s
 puts temperature_r.temperaturetest.to_s
 
-r = RSRuby.instance
-data = r.rnorm(100)
-puts r.plot(data)
+
+
+# 時間帯と学習量の関係
+puts six_to_twelve = timezone_six_to_twelve()
+puts twelve_to_eighteen = timezone_twelve_to_eighteen()
+puts eighteen_to_twentyfour = timezone_eighteen_to_twentyfour()
+
+# ユーザの数
+user_count = user_count()
+# ユーザ名
+user_name = user_name_array()
+p user_name
+
+timezone_result = six_to_twelve.concat(twelve_to_eighteen).concat(eighteen_to_twentyfour)
+
+timezone_r = RSRuby.instance
+
+# ここからRのコード
+puts "時間帯による一元配置分散分析(対応あり)"
+timezone_r.eval_R <<-RCOMMAND
+timezone_result <- c(#{timezone_result.join(",")})
+print(timezone_result)
+zone <- factor(c(rep("6~12",#{user_count}),rep("12~18",#{user_count}),rep("18~24",#{user_count})))
+print(zone)
+person <- factor(rep(c("#{user_name[0]}","#{user_name[1]}","#{user_name[2]}","#{user_name[3]}","#{user_name[4]}","#{user_name[5]}","#{user_name[6]}","#{user_name[7]}"),3))
+print(person)
+result <- summary(aov(timezone_result~zone+person))
+print(result)
+RCOMMAND
