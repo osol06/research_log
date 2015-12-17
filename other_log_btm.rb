@@ -16,9 +16,10 @@ require './heatmap_data.rb'
 cgi = CGI.new
 session = CGI::Session.new(cgi)
 
+create_heatmap_tsv(cgi['log_user_id'])
+
 # 処理の結果を表示する
 # ERBを、ERBHandlerを経由せずに直接呼び出して利用している
 template = ERB.new( File.read('personal_log.erb') )
 puts cgi.header({ 'Content-Type' => 'text/html'})
-puts cgi["log_user_id"]
 print template.result( binding )

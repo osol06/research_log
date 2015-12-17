@@ -81,7 +81,7 @@
         <form method="post" action="./other_log_btm.rb">
           <% user = User.all %>
           <% user.each do |row| %>
-          <button type="submit" class="btn btn-info" value="<%= row.user_id %>" name="log_user_name" ><%= row.user_name %></button>
+          <button type="submit" class="btn btn-info" value="<%= row.user_id %>" name="log_user_id" ><%= row.user_name %></button>
           <% end %>
         </form>
       </div>
