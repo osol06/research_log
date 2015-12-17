@@ -17,16 +17,20 @@ end
 class Category < ActiveRecord::Base
 end
 
-# taskテーブルにアクセスするクラス
+# tasksテーブルにアクセスするクラス
 class Task < ActiveRecord::Base
 end
 
-# taskテーブルにアクセスするクラス
+# task_namesテーブルにアクセスするクラス
 class Task_name < ActiveRecord::Base
 end
 
-# taskテーブルにアクセスするクラス
+# weathersテーブルにアクセスするクラス
 class Weather < ActiveRecord::Base
+end
+
+# Questionsテーブルにアクセスするクラス
+class Question < ActiveRecord::Base
 end
 
 #date = Task.where(user_id: 1).order("start_time desc")

@@ -1,0 +1,367 @@
+<%# coding: UTF-8 %>
+
+
+<% require 'rubygems' %>
+<% require 'erb' %>
+<% require './data_model.rb'%>
+<% require './my_ruby_library/weather.rb' %>
+<% require './my_ruby_library/login_data.rb' %>
+<% require './total_learning_time.rb' %>
+<% require './database_my_library.rb' %>
+
+<% user_id = session['user_id'] %>
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+<title>mimalab studylog</title>
+<link rel="shortcut icon" href="images/icon.png" type="image/png">
+
+<!-- BootStrapの読み込み -->
+<link href="css/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css">
+
+<link type="text/css" rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/cupertino/jquery-ui.min.css" />
+<link type="text/css" rel="stylesheet" href="css/jQRangeSlider/iThing-min.css">
+<link type="text/css" rel="stylesheet" href="css/timeline/component.css">
+<link type="text/css" rel="stylesheet" href="css/sweetalert/sweetalert.css">
+
+<!-- TimePickerの読み込み -->
+<link href="css/timepicker/jquery.timepicker.css" rel="stylesheet" type="text/css">
+
+<!-- my_cssの読み込み -->
+<link href="css/my_css.css" rel="stylesheet" type="text/css" >
+
+</head>
+<body>
+
+<!-- ナビゲーション -->
+<nav class="navbar navbar-default" role="navigation">
+<div class="container">
+
+<!-- ナビゲーションヘッダー -->
+<div class="navbar-header">
+
+<!-- スマホサイズになった時のボタンの設定 -->
+<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+<span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bat"></span>
+</button>
+<a class="navbar-brand text-info" href="./index.rb"></a>
+
+</div>
+
+<!-- ナビゲーションの内容 -->
+<div class="navbar-collapse collapse">
+<ul class="nav navbar-nav">
+<li><a href="./index.rb">ホーム</a></li>
+<li><a href="./personal.rb">学習データ</a></li>
+<li><a href="./other.rb">みんなの活動</a></li>
+<li><a href="./diary.rb">卒研日記</a></li>
+<li><a href="./evaluate.rb">評価シート</a></li>
+</ul>
+</div>
+
+</div>
+</nav>
+
+<!-- メインコンテンツ  -->
+<div class="container" style="padding: 0px 0">
+
+<% user = User.find(user_id) %>
+<h4><%= user.user_name %>さん　評価を始めさせていただきます</h4>
+<p>項目は全てで8項目あります。全てに答えてください。</p>
+<form id="question_log" method="post" action="./question.rb">
+  <div class="col-sm-12">
+    <div class="panel panel-default">
+      <div style="margin:20px;">
+
+        <p><b>1.ツールの利用の方法についてお聞きします。</b></p>
+        <div class="form-group">
+          <p id="timeline_label" class="control-label"><b>1.1 タイムライン(以下のページ)はどれくらいの頻度で見ますか。</b></p>
+          <div class="radio-inline">
+            <input type="radio" value="1" name="timeline">
+            <label for="timeline">ほとんど見ない</label>
+          </div>
+          <div class="radio-inline">
+            <input type="radio" value="2" name="timeline">
+            <label for="timeline">たまに見る</label>
+          </div>
+          <div class="radio-inline">
+            <input type="radio" value="3" name="timeline">
+            <label for="timeline">よく見る</label>
+          </div>
+          <div>
+            <img src="./images/evalu_timeline.png" style="width:700px; margin:10px;" class="thumbnail"></img>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <p id="personal_label" class="control-label"><b>1.2 学習データ(以下のページ)はどれくらいの頻度で見ますか。</b></p>
+          <div class="radio-inline">
+            <input type="radio" value="1" name="personal">
+            <label for="personal">ほとんど見ない</label>
+          </div>
+          <div class="radio-inline">
+            <input type="radio" value="2" name="personal">
+            <label for="personal">たまに見る</label>
+          </div>
+          <div class="radio-inline">
+            <input type="radio" value="3" name="personal">
+            <label for="personal">よく見る</label>
+          </div>
+          <div>
+            <img src="./images/evalu_personal.png" style="width:700px; margin:10px;" class="thumbnail"></img>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <p id="diary_label" class="control-label"><b>1.3 卒研日記はどれくらいの頻度で見ますか。</b></p>
+          <div class="radio-inline">
+            <input type="radio" value="1" name="diary">
+            <label for="diary">ほとんど見ない</label>
+          </div>
+          <div class="radio-inline">
+            <input type="radio" value="2" name="diary">
+            <label for="diary">たまに見る</label>
+          </div>
+          <div class="radio-inline">
+            <input type="radio" value="3" name="diary">
+            <label for="diary">よく見る</label>
+          </div>
+          <div>
+            <img src="./images/evalu_diary.png" style="width:700px; margin:10px;" class="thumbnail"></img>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <p id="rank_label" class="control-label"><b>1.4 ランキングはどれくらいの頻度で見ますか。</b></p>
+          <div class="radio-inline">
+            <input type="radio" value="1" name="rank">
+            <label for="rank">ほとんど見ない</label>
+          </div>
+          <div class="radio-inline">
+            <input type="radio" value="2" name="rank">
+            <label for="rank">たまに見る</label>
+          </div>
+          <div class="radio-inline">
+            <input type="radio" value="3" name="rank">
+            <label for="rank">よく見る</label>
+          </div>
+          <div>
+            <img src="./images/evalu_rank.png" style="width:700px; margin:10px;" class="thumbnail"></img>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <p id="open_label" class="control-label"><b>1.5 ツールを開いたまま使用しますか。</b></p>
+          <div class="radio-inline">
+            <input type="radio" value="1" name="open">
+            <label for="open">すぐ閉じる</label>
+          </div>
+          <div class="radio-inline">
+            <input type="radio" value="2" name="open">
+            <label for="open">少し開いておく</label>
+          </div>
+          <div class="radio-inline">
+            <input type="radio" value="3" name="open">
+            <label for="open">ずっと開いたまま</label>
+          </div>
+        </div>
+
+
+        <p><b>2.学習記録についてお聞きします。</b></p>
+
+        <div class="form-group">
+          <p id="ui_label" class="control-label"><b>2.1 記録はしやすかったですか。</b></p>
+          <div class="radio-inline">
+            <input type="radio" value="1" name="ui">
+            <label for="ui">記録しづらい</label>
+          </div>
+          <div class="radio-inline">
+            <input type="radio" value="2" name="ui">
+            <label for="ui">どちらとも言えない</label>
+          </div>
+          <div class="radio-inline">
+            <input type="radio" value="3" name="ui">
+            <label for="ui">記録しやすい</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <p id="smart_label" class="control-label"><b>2.2 スマートフォン等からアクセスしたことはありますか。</b></p>
+          <div class="radio-inline">
+            <input type="radio" value="1" name="smart">
+            <label for="smart">全然ない</label>
+          </div>
+          <div class="radio-inline">
+            <input type="radio" value="2" name="smart">
+            <label for="smart">たまにある</label>
+          </div>
+          <div class="radio-inline">
+            <input type="radio" value="3" name="smart">
+            <label for="smart">よくある</label>
+          </div>
+        </div>
+
+        <!-- textarea -->
+        <div class="form-group">
+          <label id="other_label" class="control-label">3. その他(感想や意見などがあれば)</label>
+          <textarea name="other" class="form-control" placeholder="感想や意見など" rows="3"></textarea>
+        </div>
+
+          <p style="margin-top:15px;">
+            <button type="submit" class="btn btn-success">評価を送信する</button>
+          </p>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- footer -->
+<footer id="footer" class="footer" style="height: 40px; background-color: #f5f5f5;">
+  <div class="container" >
+    <p class="text-muted" style="padding: 5px;">Copyright (C) 2015 Takuma Sasaki ALL Right Reserved.</p>
+  </div>
+</footer>
+
+<!-- javascriptの読み込み -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
+<script src="js/bootstrap/bootstrap.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/i18n/jquery-ui-i18n.min.js"></script>
+
+<!-- ライブラリ -->
+<script src="js/Chart/Chart.js"></script>
+<script src="http://momentjs.com/downloads/moment.js"></script>
+<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script src="js/scrolltable/jquery.scrolltable.js"></script>
+<script src="js/jQueryTween/jQueryTween-aio-min.js"></script>
+<script src="js/timepicker/jquery.timepicker.js"></script>
+<script src="js/jQRangeSlider/jQRangeSlider-min.js"></script>
+<script src="js/jQRangeSlider/jQAllRangeSliders-min.js"></script>
+<script src="js/timeline/modernizr.custom.js"></script>
+<script src="js/footerFixed/footerFixed.js"></script>
+<script src="js/sweetalert/sweetalert.min.js"></script>
+
+<!-- 自分で書いたスクリプト -->
+<script src="js/my_library/current_time.js"></script>
+
+<script>
+
+
+
+
+
+$(function (){
+
+  $('#question_log').submit(function(event) {
+
+    // エラー表示の初期化
+    $("p.error").remove();
+
+    // 1.1の選択チェック
+    if($(":radio[name='timeline']:checked").size()==0){
+      $("#timeline_label").append("<p class='error' style='color:red'>選択してください</p>");
+    }
+
+    // 1.2の選択チェック
+    if($(":radio[name='personal']:checked").size()==0){
+      $("#personal_label").append("<p class='error' style='color:red'>選択してください</p>");
+    }
+
+    // 1.3の選択チェック
+    if($(":radio[name='diary']:checked").size()==0){
+      $("#diary_label").append("<p class='error' style='color:red'>選択してください</p>");
+    }
+
+    // 1.4の選択チェック
+    if($(":radio[name='rank']:checked").size()==0){
+      $("#rank_label").append("<p class='error' style='color:red'>選択してください</p>");
+    }
+
+    // 1.5の選択チェック
+    if($(":radio[name='open']:checked").size()==0){
+      $("#open_label").append("<p class='error' style='color:red'>選択してください</p>");
+    }
+
+    // 2.1の選択チェック
+    if($(":radio[name='ui']:checked").size()==0){
+      $("#ui_label").append("<p class='error' style='color:red'>選択してください</p>");
+    }
+
+    // 2.2の選択チェック
+    if($(":radio[name='smart']:checked").size()==0){
+      $("#smart_label").append("<p class='error' style='color:red'>選択してください</p>");
+    }
+
+    // エラーがあったとき
+    if ($("p.error").size()>0) {
+
+      alert("入力されてない項目があります")
+      // submitをキャンセル
+      return false;
+    }
+
+    // HTMLでの送信をキャンセル
+    event.preventDefault();
+
+    // 操作対象のフォーム要素を取得
+    var $form = $(this);
+
+    // 送信ボタンを取得
+    // （後で使う: 二重送信を防止する。）
+    var $button = $form.find('button');
+
+    // 送信
+    $.ajax({
+      url: $form.attr('action'),
+      type: $form.attr('method'),
+      data: $form.serialize(),
+      timeout: 10000,  // 単位はミリ秒
+
+      // 送信前
+      beforeSend: function(xhr, settings) {
+        // ボタンを無効化し、二重送信を防止
+        $button.attr('disabled', true);
+      },
+      // 応答後
+      complete: function(xhr, textStatus) {
+        // ボタンを有効化し、再送信を許可
+        $button.attr('disabled', false);
+      },
+
+      // 通信成功時の処理
+      success: function() {
+
+        // 入力値を初期化
+        $form[0].reset();
+        swal({
+          title:"送信完了!",
+          text:"ありがとうございます",
+          imageUrl:"./images/usagi.jpg",
+          imageSize:"200x300"
+        });
+
+      },
+
+      // 通信失敗時の処理
+      error: function(xhr, textStatus, error) {}
+    });
+  });
+
+});
+
+</script>
+</body>
+</html>
