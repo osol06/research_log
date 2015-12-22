@@ -24,7 +24,7 @@ rescue ArgumentError
 end
 
 #セッションが張られていれば
-if session != nil
+if session != nil and session['user_id'] != nil and session['user_id'] != ""
 
   # 処理の結果を表示する
   # ERBを、ERBHandlerを経由せずに直接呼び出して利用している
