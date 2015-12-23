@@ -25,7 +25,10 @@
 	top: 0;
 	bottom: 0;
 	width: 10px;
+	/*
 	background: #afdcf8;
+	*/
+	background: #ef9a9a;
 	left: 20%;
 	margin-left: -10px;
 	z-index:1;
@@ -48,18 +51,18 @@
 .cbp_tmtimeline > li .cbp_tmtime span:first-child {
 	font-size: 1.2em;
 	margin-left: 20px;
-	color: #bdd0db;
+	color: #80CBC4;
 }
 
 /* 時間 */
 .cbp_tmtimeline > li .cbp_tmtime span:last-child {
 	font-size: 1.2em;
 	margin-left: 20px;
-	color: #3594cb;
+	color: #e57373;
 }
 
 .cbp_tmtimeline > li:nth-child(odd) .cbp_tmtime span:last-child {
-	color: #6cbfee;
+	color: #ef9a9a;
 }
 
 /* Right content */
@@ -78,17 +81,23 @@
 	border-radius: 5px;
 	border-style: solid;
 	border-width: 2px;
+	/*
 	border-color: #3594cb;
+	*/
+	border-color: #e57373;
 }
 
 .cbp_tmtimeline > li:nth-child(odd) .cbp_tmlabel {
+	/*
 	border-color: #6cbfee;
+	*/
+	border-color: #ef9a9a;
 }
 
 .cbp_tmtimeline > li .cbp_tmlabel h4 {
 	margin-top: 0px;
 	padding: 0 0 4px 0;
-	border-bottom: 1px solid #3594cb;
+	border-bottom: 1px solid #ef9a9a;
 }
 
 /* The triangle */
@@ -100,13 +109,13 @@
 	width: 0;
 	position: absolute;
 	pointer-events: none;
-	border-right-color: #3594cb;
+	border-right-color: #e57373;
 	border-width: 10px;
 	top: 10px;
 }
 
 .cbp_tmtimeline > li:nth-child(odd) .cbp_tmlabel:after {
-	border-right-color: #6cbfee;
+	border-right-color: #ef9a9a;
 }
 
 /* The icons */
