@@ -395,13 +395,21 @@
       <script src="js/jQRangeSlider/jQAllRangeSliders-min.js"></script>
       <script src="js/timeline/modernizr.custom.js"></script>
       <script src="js/footerFixed/footerFixed.js"></script>
+      <script src="js/snowfall/snowfall.jquery.js"></script>
 
       <!-- 自分で書いたスクリプト -->
       <script src="js/my_library/current_time.js"></script>
 
       <script>
 
+
+
+
       $(function (){
+
+
+
+
 
         // 五秒間ごとにタイムラインを更新する
         setInterval(function(){
@@ -730,6 +738,24 @@
         $('#anime<%= "#{row.user_id}" %>').jQueryTween({ to: { position: { left: '<%= "#{user_rank_percent["#{row.user_id}"].to_i}" %>%' } }, duration: 1000,easing: TWEEN.Easing.Quadratic.In } );
 
         <% end %>
+
+        // 雪を降らせる処理
+        $(document).snowfall({
+          // 雪の量 (数値)
+          flakeCount : 70,
+          // z-indexの値
+          flakeIndex : "888",
+          // 最小サイズ （数値）
+          minSize : 5,
+          // 最大サイズ（数値）
+          maxSize : 25,
+          // 最低速度（数値）
+          minSpeed : 1,
+          // 最高速度（数値）
+          maxSpeed : 2,
+          // オリジナル画像を使用する場合
+          image : "./images/crystal.png"
+        });
 
 
       });
