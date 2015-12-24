@@ -84,14 +84,14 @@
         <div class="panel panel-default">
           <table class="table table-bordered">
             <thead>
-              <tr><th class="text-center">ログイン情報</th></tr>
+              <tr><th class="text-center"><img src="./images/bell.png" width="20px;"></img> ログイン情報</th></tr>
             </thead>
             <tbody>
               <tr>
                 <td>
 
                   <% user = User.find( user_id ) %>
-                  <a data-toggle="modal" data-target="#edit_user_info" >
+                  <a data-toggle="modal" data-target="#edit_user_info" style="color:#b71c1c;" >
                     <img src="images/<%= "#{user.image_name}" %>" alt="ユーザ画像" width="130" height="130" class="img-thumbnail img-responsive center-block" style="margin-top:8pt;">
                     <h4 class="text-center"><%= "#{user.user_name.to_s}".force_encoding("utf-8") %></h4>
                     <h6 class="text-center">編集</h6>
@@ -108,11 +108,9 @@
           <div class="col-sm-12">
 
           <div class="panel panel-default">
-            <h6 class="text-danger" style="margin-left:10px;">new!! 更新情報(11/20)</h6>
+            <h6 style="margin-left:10px; color:#c62828;">new!! 更新情報(12/23)</h6>
             <ul>
-              <li>卒研日記自動生成</li>
-              <li>みんなの活動</li>
-              <li>UIなどの調整</li>
+              <li>クリスマス仕様</li>
             </ul>
           </div>
 
@@ -219,9 +217,9 @@
 
                         <div style="margin-left: 10px; margin-top: 3px;">
                           <% if(task_name.count != 0)%>
-                          <button id="other_bottun" type="button" class="btn btn-info other_click" ><i class="glyphicon glyphicon-file"></i> その他のタスク</button>
+                          <button id="other_bottun" type="button" class="btn btn-danger other_click" ><i class="glyphicon glyphicon-file"></i> その他のタスク</button>
                           <% end %>
-                          <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal"><i class="glyphicon glyphicon-plus"></i> 新しいタスクの追加</button>
+                          <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal"><i class="glyphicon glyphicon-plus"></i> 新しいタスクの追加</button>
                         </div>
                       </p>
 
@@ -267,7 +265,7 @@
 
                           <p style="margin: 15px 10px;">
                             <% if(task_name.count != 0)%>
-                            <button type="submit" class="btn btn-success">記録する</button>
+                            <button type="submit" class="btn christmasbtn" style="background-color:#009688; color: #fff;">記録する</button>
                             <% end %>
                           </p>
 
@@ -287,7 +285,7 @@
               <div class="panel panel-default">
                 <table class="table table-bordered scrollTable">
                   <thead>
-                    <tr><th class="text-center" style="height:35px;">タイムライン( 新デザイン!! 5秒ごとにリアルタイム更新 )</th></tr>
+                    <tr><th class="text-center" style="height:35px;"><img src="./images/wreath.png" width="20px;"></img> タイムライン</th></tr>
                   </thead>
                   <tbody>
                     <tr style="height:1050px;">
@@ -395,11 +393,15 @@
       <script src="js/jQRangeSlider/jQAllRangeSliders-min.js"></script>
       <script src="js/timeline/modernizr.custom.js"></script>
       <script src="js/footerFixed/footerFixed.js"></script>
+      <script src="js/snowfall/snowfall.jquery.js"></script>
 
       <!-- 自分で書いたスクリプト -->
       <script src="js/my_library/current_time.js"></script>
 
       <script>
+
+
+
 
       $(function (){
 
@@ -721,15 +723,35 @@
           }
         });
 
+        // 雪を降らせる処理
+        $(document).snowfall({
+          // 雪の量 (数値)
+          flakeCount : 70,
+          // z-indexの値
+          flakeIndex : "888",
+          // 最小サイズ （数値）
+          minSize : 5,
+          // 最大サイズ（数値）
+          maxSize : 25,
+          // 最低速度（数値）
+          minSpeed : 1,
+          // 最高速度（数値）
+          maxSpeed : 2,
+          // オリジナル画像を使用する場合
+          image : "./images/crystal.png"
 
-        // ランキングアニメーション
-        <% user_rank_percent = user_rank_percent() %>
-        <% user = User.all %>
-        <% user.each do |row| %>
+        });
 
-        $('#anime<%= "#{row.user_id}" %>').jQueryTween({ to: { position: { left: '<%= "#{user_rank_percent["#{row.user_id}"].to_i}" %>%' } }, duration: 1000,easing: TWEEN.Easing.Quadratic.In } );
-
-        <% end %>
+        $('.christmasbtn').hover(
+          function(){
+            // マウスオーバー時
+            $(this).css('backgroundColor', '#00695C');
+          },
+          function () {
+            // マウスオーバー外れた時
+            $(this).css('backgroundColor', '#009688');
+          }
+        );
 
 
       });

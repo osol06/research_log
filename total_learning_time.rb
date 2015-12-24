@@ -199,7 +199,7 @@ def total_time_week_from_yesterday( user_id )
 
   # デバッグ
   # p time_week
-  return time_week
+  return time_week.reverse
 
 end
 
