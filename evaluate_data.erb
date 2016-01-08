@@ -76,7 +76,7 @@
 
       <h4>ほかの人の記録を見る</h4>
 
-      <!-- ランキングでソートするラジオボタン -->
+      <!-- 記録を見るユーザの選択ボタン -->
       <div class="btn-group alignment" data-toggle="buttons-radio" style="margin-bottom:10px;">
         <form method="post" action="./other_log_btm.rb">
           <% user = User.all %>
@@ -86,23 +86,57 @@
         </form>
       </div>
 
+      <!-- 記録回数の分析 -->
       <div class="panel panel-default">
         <table class="table table-bordered">
           <thead>
-            <tr><th class="text-center">学習のタイムライン</th></tr>
+            <tr><th class="text-center">記録回数</th></tr>
           </thead>
           <tbody>
             <tr>
               <td>
                 <div style="padding: 10px">
-                  <!-- 学習時間のタイムライン -->
-                  <div id="schedule"></div>
+
+                  <!-- 学習記録回数(棒グラフ) -->
+                  <canvas id="log_count_bar"></canvas>
+                  <p>合計記録回数 : <b>321回</b></p>
+
+                  <!-- 学習記録回数(折れ線グラフ) -->
+                  <canvas id="log_count_line"></canvas>
+                  <p>１日の平均記録回数 : <b>321回</b></p>
+
                 </div>
               </td>
             </tr>
           </tbody>
         </table>
       </div>
+
+      <div class="panel panel-default">
+        <table class="table table-bordered">
+          <thead>
+            <tr><th class="text-center">学習時間</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <div style="padding: 10px">
+
+                  <!-- 学習記録回数(棒グラフ) -->
+                  <canvas id="log_time_bar"></canvas>
+                  <p>合計学習時間 : <b>512時間</b></p>
+
+                  <!-- 学習記録回数(折れ線グラフ) -->
+                  <canvas id="log_time_line"></canvas>
+                  <p>１日の平均学習時間 : <b>2.5時間</b></p>
+
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
 
       <div class="row">
         <div class="col-sm-6">
@@ -271,6 +305,8 @@
         <script src="js/jqplot/jqplot.barRenderer.min.js"></script>
         <script src="js/jqplot/jqplot.categoryAxisRenderer.js"></script>
         <script src="js/fakeLoader/fakeLoader.min.js"></script>
+        <script type="text/javascript" language="javascript"  src="js/ccchart/ccchart.js"></script>
+        <script type="text/javascript" language="javascript"  src="js/ccchart/ccchart_my.js"></script>
 
         <!-- 自分で書いたスクリプト -->
         <script src="js/my_library/current_time.js"></script>
@@ -279,289 +315,353 @@
         // 様々な処理をまとめた
         $(function (){
 
-        // ローディングの画像を毎回読み込ませるためのスタンプ
-        var timestamp = new Date().getTime();
+          // ローディングの画像を毎回読み込ませるためのスタンプ
+          var timestamp = new Date().getTime();
 
-        // ローディング画面
-        $("#fakeloader").fakeLoader({
-          timeToHide: 1200,
-          bgColor: "#80D8FF",
-          imagePath:"images/loading.gif?" + timestamp
-        });
+          // ローディング画面
+          $("#fakeloader").fakeLoader({
+            timeToHide: 1200,
+            bgColor: "#80D8FF",
+            imagePath:"images/loading.gif?" + timestamp
+          });
 
-        // heatmapChart
-        var margin = { top: 50, right: 0, bottom: 100, left: 30 },
-        width = 900 - margin.left - margin.right ,
-        height = 430 - margin.top - margin.bottom,
-        gridSize = Math.floor(width / 24),
-        legendElementWidth = gridSize*2,
-        buckets = 9,
-        colors = ["#FBE9E7","#FFCCBC","#FF8A65","#FF7043","#FF5722","#F4511E","#E64A19","#D84315","#BF360C"], // alternatively colorbrewer.YlGnBu[9]
-        days = ["日", "月", "火", "水", "木", "金", "土"],
-        times = ["1AM", "", "", "4AM", "", "", "7AM", "", "", "10AM", "", "", "1PM", "", "", "4PM", "", "", "7PM", "", "9PM", "", "", "12PM"];
-        datasets = ["./tsv_data/<%= "#{session['user_id']}" %>.tsv", "data.tsv"];
+          // 学習時間の棒グラフを表示
+          var log_count_bar_data = {
 
-        var svg = d3.select("#chart").append("svg")
-        .attr("width", width + margin.left + margin.right)
-        .attr("height", height + margin.top + margin.bottom)
-        .append("g")
-        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-        var dayLabels = svg.selectAll(".dayLabel")
-        .data(days)
-        .enter().append("text")
-        .text(function (d) { return d; })
-        .attr("x", 0)
-        .attr("y", function (d, i) { return i * gridSize; })
-        .style("text-anchor", "end")
-        .attr("transform", "translate(-6," + gridSize / 1.5 + ")")
-        .attr("class", function (d, i) { return ((i >= 0 && i <= 4) ? "dayLabel mono axis axis-workweek" : "dayLabel mono axis"); });
-
-        var timeLabels = svg.selectAll(".timeLabel")
-        .data(times)
-        .enter().append("text")
-        .text(function(d) { return d; })
-        .attr("x", function(d, i) { return i * gridSize; })
-        .attr("y", 0)
-        .style("text-anchor", "middle")
-        .attr("transform", "translate(" + gridSize / 2 + ", -6)")
-        .attr("class", function(d, i) { return ((i >= 7 && i <= 16) ? "timeLabel mono axis axis-worktime" : "timeLabel mono axis"); });
-
-        var heatmapChart = function(tsvFile) {
-          d3.tsv(tsvFile,
-            function(d) {
-              return {
-                day: +d.day,
-                hour: +d.hour,
-                value: +d.value
-              };
+            "config": {
+              "title": "合計記録回数",
+              "subTitle": "2015/11/10から2015/12/1",
+              "type": "bar",
+              "colorSet":
+              ["red","#FF9114","#3CB000","#00A8A2","#0036C0","#C328FF","#FF34C0"],
+              "bgGradient": {
+                "direction":"vertical",
+                "from":"#687478",
+                "to":"#222222"
+              }
             },
-            function(error, data) {
-              var colorScale = d3.scale.quantile()
-              .domain([0, buckets - 1, d3.max(data, function (d) { return d.value; })])
-              .range(colors);
 
-              var cards = svg.selectAll(".hour")
-              .data(data, function(d) {return d.day+':'+d.hour;});
-
-              cards.append("title");
-
-              cards.enter().append("rect")
-              .attr("x", function(d) { return (d.hour - 1) * gridSize; })
-              .attr("y", function(d) { return (d.day - 1) * gridSize; })
-              .attr("rx", 4)
-              .attr("ry", 4)
-              .attr("class", "hour bordered")
-              .attr("width", gridSize)
-              .attr("height", gridSize)
-              .style("fill", colors[0]);
-
-              cards.transition().duration(1000)
-              .style("fill", function(d) { return colorScale(d.value); });
-
-              cards.select("title").text(function(d) { return d.value; });
-
-              cards.exit().remove();
-
-              var legend = svg.selectAll(".legend")
-              .data([0].concat(colorScale.quantiles()), function(d) { return d; });
-
-              legend.enter().append("g")
-              .attr("class", "legend");
-
-              legend.append("rect")
-              .attr("x", function(d, i) { return legendElementWidth * i; })
-              .attr("y", height)
-              .attr("width", legendElementWidth)
-              .attr("height", gridSize / 2)
-              .style("fill", function(d, i) { return colors[i]; });
-
-              legend.append("text")
-              .attr("class", "mono")
-              .text(function(d) { return "≥ " + Math.round(d); })
-              .attr("x", function(d, i) { return legendElementWidth * i; })
-              .attr("y", height + gridSize);
-
-              legend.exit().remove();
-
-            });
+            "data": [
+              ["ユーザ","A","B","C","D","E","F","G"],
+              ["記録回数",4,20,50,10,2,40,12]
+            ]
           };
+          ccchart.init('log_count_bar', log_count_bar_data)
 
-          heatmapChart(datasets[0]);
+          var log_count_line_data = {
 
-          // 現在の日付を取得
-          var m = moment();
-          var date = m.format("YYYY年MM月DD日");
+            "config": {
+              "title": "記録回数の推移",
+              "subTitle": "2015/11/10から2015/12/1",
+              "type": "line",
+              "width" : "900", //チャート幅
+              "lineWidth": 4,
+              "colorSet":
+              ["red","#FF9114","#3CB000","#00A8A2","#0036C0","#C328FF","#FF34C0"],
+              "bgGradient": {
+                "direction":"vertical",
+                "from":"#687478",
+                "to":"#222222"
+              },
+              "useMarker": "css-ring",
+              "markerWidth": 12
+            },
+
+            "data": [
+              ["日付",10,11,12,13,14,15,16,17,18],
+              ["A",2,1,3,4,2,5,5,4,0],
+              ["B",10,2,3,4,7,9,4,4,9],
+              ["C",3,5,6,2,2,1,3,3,7],
+              ["D",7,5,2,8,1,9,5,2,5],
+              ["E",3,2,2,2,1,4,6,4,9],
+              ["F",2,3,3,1,2,3,5,8,0],
+            ]
+          };
+          ccchart.init('log_count_line', log_count_line_data)
+
+          // 学習時間の棒グラフを表示
+          var log_time_bar_data = {
+
+            "config": {
+              "title": "合計学習時間",
+              "subTitle": "2015/11/10から2015/12/1",
+              "type": "bar",
+              "colorSet":
+              ["red","#FF9114","#3CB000","#00A8A2","#0036C0","#C328FF","#FF34C0"],
+              "bgGradient": {
+                "direction":"vertical",
+                "from":"#687478",
+                "to":"#222222"
+              }
+            },
+
+            "data": [
+              ["ユーザ","A","B","C","D","E","F","G"],
+              ["記録回数",90,100,300,800,30,400,320]
+            ]
+          };
+          ccchart.init('log_time_bar', log_time_bar_data)
+
+          var log_time_line_data = {
+
+            "config": {
+              "title": "学習時間の推移",
+              "subTitle": "2015/11/10から2015/12/1",
+              "type": "line",
+              "width" : "900", //チャート幅
+              "lineWidth": 4,
+              "colorSet":
+              ["red","#FF9114","#3CB000","#00A8A2","#0036C0","#C328FF","#FF34C0"],
+              "bgGradient": {
+                "direction":"vertical",
+                "from":"#687478",
+                "to":"#222222"
+              },
+              "useMarker": "css-ring",
+              "markerWidth": 12
+            },
+
+            "data": [
+              ["日付",10,11,12,13,14,15,16,17,18],
+              ["A",2,1,3,4,2,5,5,4,0],
+              ["B",10,2,3,4,7,9,4,4,9],
+              ["C",3,5,6,2,2,1,3,3,7],
+              ["D",7,5,2,8,1,9,5,2,5],
+              ["E",3,2,2,2,1,4,6,4,9],
+              ["F",2,3,3,1,2,3,5,8,0],
+            ]
+          };
+          ccchart.init('log_time_line', log_time_line_data)
+
+
+          // heatmapChart
+          var margin = { top: 50, right: 0, bottom: 100, left: 30 },
+          width = 900 - margin.left - margin.right ,
+          height = 430 - margin.top - margin.bottom,
+          gridSize = Math.floor(width / 24),
+          legendElementWidth = gridSize*2,
+          buckets = 9,
+          colors = ["#FBE9E7","#FFCCBC","#FF8A65","#FF7043","#FF5722","#F4511E","#E64A19","#D84315","#BF360C"], // alternatively colorbrewer.YlGnBu[9]
+          days = ["日", "月", "火", "水", "木", "金", "土"],
+          times = ["1AM", "", "", "4AM", "", "", "7AM", "", "", "10AM", "", "", "1PM", "", "", "4PM", "", "", "7PM", "", "9PM", "", "", "12PM"];
+          datasets = ["./tsv_data/<%= "#{session['user_id']}" %>.tsv", "data.tsv"];
+
+          var svg = d3.select("#chart").append("svg")
+          .attr("width", width + margin.left + margin.right)
+          .attr("height", height + margin.top + margin.bottom)
+          .append("g")
+          .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+          var dayLabels = svg.selectAll(".dayLabel")
+          .data(days)
+          .enter().append("text")
+          .text(function (d) { return d; })
+          .attr("x", 0)
+          .attr("y", function (d, i) { return i * gridSize; })
+          .style("text-anchor", "end")
+          .attr("transform", "translate(-6," + gridSize / 1.5 + ")")
+          .attr("class", function (d, i) { return ((i >= 0 && i <= 4) ? "dayLabel mono axis axis-workweek" : "dayLabel mono axis"); });
+
+          var timeLabels = svg.selectAll(".timeLabel")
+          .data(times)
+          .enter().append("text")
+          .text(function(d) { return d; })
+          .attr("x", function(d, i) { return i * gridSize; })
+          .attr("y", 0)
+          .style("text-anchor", "middle")
+          .attr("transform", "translate(" + gridSize / 2 + ", -6)")
+          .attr("class", function(d, i) { return ((i >= 7 && i <= 16) ? "timeLabel mono axis axis-worktime" : "timeLabel mono axis"); });
+
+          var heatmapChart = function(tsvFile) {
+            d3.tsv(tsvFile,
+              function(d) {
+                return {
+                  day: +d.day,
+                  hour: +d.hour,
+                  value: +d.value
+                };
+              },
+              function(error, data) {
+                var colorScale = d3.scale.quantile()
+                .domain([0, buckets - 1, d3.max(data, function (d) { return d.value; })])
+                .range(colors);
+
+                var cards = svg.selectAll(".hour")
+                .data(data, function(d) {return d.day+':'+d.hour;});
+
+                cards.append("title");
+
+                cards.enter().append("rect")
+                .attr("x", function(d) { return (d.hour - 1) * gridSize; })
+                .attr("y", function(d) { return (d.day - 1) * gridSize; })
+                .attr("rx", 4)
+                .attr("ry", 4)
+                .attr("class", "hour bordered")
+                .attr("width", gridSize)
+                .attr("height", gridSize)
+                .style("fill", colors[0]);
+
+                cards.transition().duration(1000)
+                .style("fill", function(d) { return colorScale(d.value); });
+
+                cards.select("title").text(function(d) { return d.value; });
+
+                cards.exit().remove();
+
+                var legend = svg.selectAll(".legend")
+                .data([0].concat(colorScale.quantiles()), function(d) { return d; });
+
+                legend.enter().append("g")
+                .attr("class", "legend");
+
+                legend.append("rect")
+                .attr("x", function(d, i) { return legendElementWidth * i; })
+                .attr("y", height)
+                .attr("width", legendElementWidth)
+                .attr("height", gridSize / 2)
+                .style("fill", function(d, i) { return colors[i]; });
+
+                legend.append("text")
+                .attr("class", "mono")
+                .text(function(d) { return "≥ " + Math.round(d); })
+                .attr("x", function(d, i) { return legendElementWidth * i; })
+                .attr("y", height + gridSize);
+
+                legend.exit().remove();
+
+              });
+            };
+
+            heatmapChart(datasets[0]);
+
+            // 現在の日付を取得
+            var m = moment();
+            var date = m.format("YYYY年MM月DD日");
 
 
 
             // 現在の日付を表示するメソッド
             current_time(date);
 
-            // 勉強のタイムライン
-            $("#schedule").timeSchedule({
-              startTime: "03:00", // schedule start time(HH:ii)
-              endTime: "23:00",   // schedule end time(HH:ii)
-              widthTime:600,      // cell timestamp
-              timeLineY:45,       // height(px)
-              verticalScrollbar:20,   // scrollbar (px)
-              timeLineBorder:2,   // border(top and bottom)
-              debug:"#debug",     // debug string output elements
-              rows : {
 
-                <% from = Time.now.at_beginning_of_day %>
+            // 棒グラフを描画する処理
+            var ctx1 = $("#chart1").get(0).getContext("2d");
+
+            // 棒グラフのデータ
+            var data1 = {
+              // X軸のラベル
+              labels : [
+
+                <% from = Time.now.in_time_zone.at_beginning_of_day %>
                 <% from = from + 9.hour %>
                 <% to = from + 7.day %>
                 <% t = Time.now %>
-                <% (1..5).each{|num| %>
-                  '<%= "#{num}" %>' : {
-                    title : '<%= "#{t.strftime("%Y年 %m月 %d日")}" %>',
-                    schedule:[
+                <% (1..8).each{|num| %>
 
-                      <%    time = Task.where(start_time: from...to) %>
-                      <%    time = time.where(user_id: session['user_id']) %>
-                      <%    time.each do |row| %>
-                      {
-                        <%    start_time = Time.parse(row.start_time.to_s) %>
-                        <%    finish_time = Time.parse(row.finish_time.to_s) %>
+                  "<%= "#{t.strftime(" %m/%d")}".force_encoding("utf-8") %>",
 
-                        start:'<%= "#{start_time.strftime("%H:%M")}".force_encoding("utf-8") %>',
-                        end:'<%= "#{finish_time.strftime("%H:%M")}".force_encoding("utf-8") %>',
-                        text:'<%= "#{row.task_name}".force_encoding("utf-8") %>',
-                        data:{
-                        }
-                      },
-                      <%    end %>
-
-                    ]
-                  },
-                  <% from = from - 1.day%>
-                  <% to = from + 1.day %>
-                  <% t = t - 1.day %>
+                  <%   t = t - 1.day %>
                   <% } %>
 
-                },
-              });
+
+                ],
+                datasets : [
+                  {
+                    // グラフの描画設定
+                    fillColor   : [
+                      "rgba(64,196,255,0.5)",
+
+                    ],
+                    strokeColor : [
+                      "rgba(64,196,255,1)",
+                    ],
+                    pointColor : "#00bfff", //点の色・透明度
+                    pointStrokeColor : "#fff",//点の周りの色
+                    data : [
+
+                      <% time_week = total_time_week(session['user_id']) %>
+                      <% time_week.each do |time| %>
+                      <%=   time %>,
+                      <% end %>
+
+                    ]
+                  }
+                ]
+              };
+
+              // 棒グラフの設定
+              var option1 = {
+
+                // 値の開始値などを自分で設定するか
+                scaleOverride : true,
+
+                // y軸の値のステップ数
+                scaleSteps : 3,
+
+                // y軸のステップする大きさ
+                scaleStepWidth : <%= time_week.sort.last / 2 %>,
+
+                // Y軸の値の始まりの値
+                scaleStartValue : 0,
+
+                // ラベルの表示 ( Y 軸の値 )
+                scaleShowLabels : true,
+
+                scaleFontFamily : "'Arial'",
+                // X, Y 軸値のフォントサイズ
+                scaleFontSize : 15,
+                // X, Y 軸値のフォントスタイル, normal, italic など
+                scaleFontStyle : "italic",
+                // X, Y 軸値の文字色
+                scaleFontColor : "#666",
 
 
-              // 棒グラフを描画する処理
-              var ctx1 = $("#chart1").get(0).getContext("2d");
+                // Boolean - Whether the scale should start at zero, or an order of magnitude down from the lowest value
+                scaleBeginAtZero : true,
 
-              // 棒グラフのデータ
-              var data1 = {
-                // X軸のラベル
-                labels : [
+                // Boolean - Whether grid lines are shown across the chart
+                scaleShowGridLines : true,
 
-                  <% from = Time.now.in_time_zone.at_beginning_of_day %>
-                  <% from = from + 9.hour %>
-                  <% to = from + 7.day %>
-                  <% t = Time.now %>
-                  <% (1..8).each{|num| %>
+                // String - Colour of the grid lines
+                scaleGridLineColor : "#c0c0c0",
 
-                    "<%= "#{t.strftime(" %m/%d")}".force_encoding("utf-8") %>",
+                // Number - Width of the grid lines
+                scaleGridLineWidth : 1,
 
-                    <%   t = t - 1.day %>
-                    <% } %>
+                // Boolean - Whether to show horizontal lines (except X axis)
+                scaleShowHorizontalLines: true,
 
+                // Boolean - Whether to show vertical lines (except Y axis)
+                scaleShowVerticalLines: true,
 
-                  ],
-                  datasets : [
-                    {
-                      // グラフの描画設定
-                      fillColor   : [
-                        "rgba(64,196,255,0.5)",
+                // Boolean - If there is a stroke on each bar
+                barShowStroke : true,
 
-                      ],
-                      strokeColor : [
-                        "rgba(64,196,255,1)",
-                      ],
-                      pointColor : "#00bfff", //点の色・透明度
-                      pointStrokeColor : "#fff",//点の周りの色
-                      data : [
+                // Number - Pixel width of the bar stroke
+                barStrokeWidth : 2,
 
-                        <% time_week = total_time_week(session['user_id']) %>
-                        <% time_week.each do |time| %>
-                        <%=   time %>,
-                        <% end %>
+                // Number - Spacing between each of the X value sets
+                barValueSpacing : 5,
 
-                      ]
-                    }
-                  ]
-                };
+                // Number - Spacing between data sets within X values
+                barDatasetSpacing : 1,
 
-                // 棒グラフの設定
-                var option1 = {
+                // 表示の時のアニメーション
+                animation : true,
 
-                  // 値の開始値などを自分で設定するか
-                  scaleOverride : true,
+                // アニメーションの速度 ( ステップ数 )
+                animationSteps : 100,
 
-                  // y軸の値のステップ数
-                  scaleSteps : 3,
+                // アニメーションの種類, 以下が用意されている
+                animationEasing : "easeOutBounce",
 
-                  // y軸のステップする大きさ
-                  scaleStepWidth : <%= time_week.sort.last / 2 %>,
+                // アニメーション終了後に実行する処理
+                onAnimationComplete : null
 
-                  // Y軸の値の始まりの値
-                  scaleStartValue : 0,
+              }
 
-                  // ラベルの表示 ( Y 軸の値 )
-                  scaleShowLabels : true,
-
-                  scaleFontFamily : "'Arial'",
-                  // X, Y 軸値のフォントサイズ
-                  scaleFontSize : 15,
-                  // X, Y 軸値のフォントスタイル, normal, italic など
-                  scaleFontStyle : "italic",
-                  // X, Y 軸値の文字色
-                  scaleFontColor : "#666",
-
-
-                  // Boolean - Whether the scale should start at zero, or an order of magnitude down from the lowest value
-                  scaleBeginAtZero : true,
-
-                  // Boolean - Whether grid lines are shown across the chart
-                  scaleShowGridLines : true,
-
-                  // String - Colour of the grid lines
-                  scaleGridLineColor : "#c0c0c0",
-
-                  // Number - Width of the grid lines
-                  scaleGridLineWidth : 1,
-
-                  // Boolean - Whether to show horizontal lines (except X axis)
-                  scaleShowHorizontalLines: true,
-
-                  // Boolean - Whether to show vertical lines (except Y axis)
-                  scaleShowVerticalLines: true,
-
-                  // Boolean - If there is a stroke on each bar
-                  barShowStroke : true,
-
-                  // Number - Pixel width of the bar stroke
-                  barStrokeWidth : 2,
-
-                  // Number - Spacing between each of the X value sets
-                  barValueSpacing : 5,
-
-                  // Number - Spacing between data sets within X values
-                  barDatasetSpacing : 1,
-
-                  // 表示の時のアニメーション
-                  animation : true,
-
-                  // アニメーションの速度 ( ステップ数 )
-                  animationSteps : 100,
-
-                  // アニメーションの種類, 以下が用意されている
-                  animationEasing : "easeOutBounce",
-
-                  // アニメーション終了後に実行する処理
-                  onAnimationComplete : null
-
-                }
-
-                // 棒グラフを描画する
-                var myNewChart1 = new Chart(ctx1).Bar(data1,option1);
+              // 棒グラフを描画する
+              var myNewChart1 = new Chart(ctx1).Bar(data1,option1);
 
 
 
@@ -733,15 +833,15 @@
                 });
 
 
-                  </script>
-                </body>
-                </html>
+                </script>
+              </body>
+              </html>
 
-                <% solo_hours.finish %>
-                <% all_hours.finish %>
-                <% music_hours.finish %>
-                <% music_all_hours.finish %>
-                <% nice_weather_hours.finish %>
-                <% bad_weather_hours.finish %>
+              <% solo_hours.finish %>
+              <% all_hours.finish %>
+              <% music_hours.finish %>
+              <% music_all_hours.finish %>
+              <% nice_weather_hours.finish %>
+              <% bad_weather_hours.finish %>
 
-                <% dbh.disconnect %>
+              <% dbh.disconnect %>
