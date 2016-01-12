@@ -29,6 +29,22 @@ def log_count
 
 end
 
+# 全ユーザ名が入った配列を返すメソッド
+def user_name_array
+
+  array = []
+
+  user = User.all
+  user.each do |row|
+
+    array.push(row.user_name)
+
+  end
+
+return array
+
+end
+
 # 各ユーザの合計記録回とユーザ名が入ったハッシュを返すメソッド(日別)
 # まだ未完成
 =begin
@@ -775,36 +791,6 @@ def total_time_1
 
 end
 
-# 各ユーザの合計記録回とユーザ名が入ったハッシュを返すメソッド(合計)
-def total_time_1
-
-  # ユーザ名と本日の合計学習時間がはいったハッシュ
-  total_time = {}
-
-  # ユーザテーブルのデータを持ってくる
-  user  = User.all
-  user.each do |row|
-
-    # 合計時間を計算するための変数
-    sum = 0
-
-    time = Task.where("DATE_FORMAT(start_time,'%Y-%m-%d') = '2015-12-1'")
-    time = time.where(user_id: row.user_id)
-    time = time.select("(UNIX_TIMESTAMP(finish_time) - UNIX_TIMESTAMP(start_time)) / 60 as total")
-
-    # 本日の合計時間を計算
-    time.each do |time_row|
-      sum = sum + time_row.total.to_i
-    end
-
-    total_time["#{row.user_name}"] = sum
-
-  end
-
-  return total_time
-
-end
-
 # 各ユーザの一回の平均コメント数とユーザ名が入ったハッシュを返すメソッド
 def char_count
 
@@ -840,6 +826,492 @@ def char_count
 
 end
 
+
+
+
+
+# 20151110の各ユーザの記録回数とユーザ名
+def total_count_10
+
+  # 返り値
+  count = {}
+
+  # ユーザテーブルのデータを持ってくる
+  user = User.all
+  user.each do |row|
+
+    # 各ユーザの記録回数をもってくる
+    task = Task.where("DATE_FORMAT(start_time,'%Y-%m-%d') = '2015-11-10'")
+    task = task.where(user_id:row.user_id)
+    task = task.count
+
+    count["#{row.user_name}"] = task
+  end
+
+  return count
+
+end
+
+# 20151111の各ユーザの記録回数とユーザ名
+def total_count_11
+
+  # 返り値
+  count = {}
+
+  # ユーザテーブルのデータを持ってくる
+  user = User.all
+  user.each do |row|
+
+    # 各ユーザの記録回数をもってくる
+    task = Task.where("DATE_FORMAT(start_time,'%Y-%m-%d') = '2015-11-11'")
+    task = task.where(user_id:row.user_id)
+    task = task.count
+
+    count["#{row.user_name}"] = task
+  end
+
+  return count
+
+end
+
+# 20151112の各ユーザの記録回数とユーザ名
+def total_count_12
+
+  # 返り値
+  count = {}
+
+  # ユーザテーブルのデータを持ってくる
+  user = User.all
+  user.each do |row|
+
+    # 各ユーザの記録回数をもってくる
+    task = Task.where("DATE_FORMAT(start_time,'%Y-%m-%d') = '2015-11-12'")
+    task = task.where(user_id:row.user_id)
+    task = task.count
+
+    count["#{row.user_name}"] = task
+  end
+
+  return count
+
+end
+
+# 20151113の各ユーザの記録回数とユーザ名
+def total_count_13
+
+  # 返り値
+  count = {}
+
+  # ユーザテーブルのデータを持ってくる
+  user = User.all
+  user.each do |row|
+
+    # 各ユーザの記録回数をもってくる
+    task = Task.where("DATE_FORMAT(start_time,'%Y-%m-%d') = '2015-11-13'")
+    task = task.where(user_id:row.user_id)
+    task = task.count
+
+    count["#{row.user_name}"] = task
+  end
+
+  return count
+
+end
+
+# 20151114の各ユーザの記録回数とユーザ名
+def total_count_14
+
+  # 返り値
+  count = {}
+
+  # ユーザテーブルのデータを持ってくる
+  user = User.all
+  user.each do |row|
+
+    # 各ユーザの記録回数をもってくる
+    task = Task.where("DATE_FORMAT(start_time,'%Y-%m-%d') = '2015-11-14'")
+    task = task.where(user_id:row.user_id)
+    task = task.count
+
+    count["#{row.user_name}"] = task
+  end
+
+  return count
+
+end
+
+# 20151115の各ユーザの記録回数とユーザ名
+def total_count_15
+
+  # 返り値
+  count = {}
+
+  # ユーザテーブルのデータを持ってくる
+  user = User.all
+  user.each do |row|
+
+    # 各ユーザの記録回数をもってくる
+    task = Task.where("DATE_FORMAT(start_time,'%Y-%m-%d') = '2015-11-15'")
+    task = task.where(user_id:row.user_id)
+    task = task.count
+
+    count["#{row.user_name}"] = task
+  end
+
+  return count
+
+end
+
+# 20151116の各ユーザの記録回数とユーザ名
+def total_count_16
+
+  # 返り値
+  count = {}
+
+  # ユーザテーブルのデータを持ってくる
+  user = User.all
+  user.each do |row|
+
+    # 各ユーザの記録回数をもってくる
+    task = Task.where("DATE_FORMAT(start_time,'%Y-%m-%d') = '2015-11-16'")
+    task = task.where(user_id:row.user_id)
+    task = task.count
+
+    count["#{row.user_name}"] = task
+  end
+
+  return count
+
+end
+
+# 20151117の各ユーザの記録回数とユーザ名
+def total_count_17
+
+  # 返り値
+  count = {}
+
+  # ユーザテーブルのデータを持ってくる
+  user = User.all
+  user.each do |row|
+
+    # 各ユーザの記録回数をもってくる
+    task = Task.where("DATE_FORMAT(start_time,'%Y-%m-%d') = '2015-11-17'")
+    task = task.where(user_id:row.user_id)
+    task = task.count
+
+    count["#{row.user_name}"] = task
+  end
+
+  return count
+
+end
+
+# 20151118の各ユーザの記録回数とユーザ名
+def total_count_18
+
+  # 返り値
+  count = {}
+
+  # ユーザテーブルのデータを持ってくる
+  user = User.all
+  user.each do |row|
+
+    # 各ユーザの記録回数をもってくる
+    task = Task.where("DATE_FORMAT(start_time,'%Y-%m-%d') = '2015-11-18'")
+    task = task.where(user_id:row.user_id)
+    task = task.count
+
+    count["#{row.user_name}"] = task
+  end
+
+  return count
+
+end
+
+# 20151119の各ユーザの記録回数とユーザ名
+def total_count_19
+
+  # 返り値
+  count = {}
+
+  # ユーザテーブルのデータを持ってくる
+  user = User.all
+  user.each do |row|
+
+    # 各ユーザの記録回数をもってくる
+    task = Task.where("DATE_FORMAT(start_time,'%Y-%m-%d') = '2015-11-19'")
+    task = task.where(user_id:row.user_id)
+    task = task.count
+
+    count["#{row.user_name}"] = task
+  end
+
+  return count
+
+end
+
+# 20151120の各ユーザの記録回数とユーザ名
+def total_count_20
+
+  # 返り値
+  count = {}
+
+  # ユーザテーブルのデータを持ってくる
+  user = User.all
+  user.each do |row|
+
+    # 各ユーザの記録回数をもってくる
+    task = Task.where("DATE_FORMAT(start_time,'%Y-%m-%d') = '2015-11-20'")
+    task = task.where(user_id:row.user_id)
+    task = task.count
+
+    count["#{row.user_name}"] = task
+  end
+
+  return count
+
+end
+
+# 20151121の各ユーザの記録回数とユーザ名
+def total_count_21
+
+  # 返り値
+  count = {}
+
+  # ユーザテーブルのデータを持ってくる
+  user = User.all
+  user.each do |row|
+
+    # 各ユーザの記録回数をもってくる
+    task = Task.where("DATE_FORMAT(start_time,'%Y-%m-%d') = '2015-11-21'")
+    task = task.where(user_id:row.user_id)
+    task = task.count
+
+    count["#{row.user_name}"] = task
+  end
+
+  return count
+
+end
+
+# 20151122の各ユーザの記録回数とユーザ名
+def total_count_22
+
+  # 返り値
+  count = {}
+
+  # ユーザテーブルのデータを持ってくる
+  user = User.all
+  user.each do |row|
+
+    # 各ユーザの記録回数をもってくる
+    task = Task.where("DATE_FORMAT(start_time,'%Y-%m-%d') = '2015-11-22'")
+    task = task.where(user_id:row.user_id)
+    task = task.count
+
+    count["#{row.user_name}"] = task
+  end
+
+  return count
+
+end
+
+# 20151123の各ユーザの記録回数とユーザ名
+def total_count_23
+
+  # 返り値
+  count = {}
+
+  # ユーザテーブルのデータを持ってくる
+  user = User.all
+  user.each do |row|
+
+    # 各ユーザの記録回数をもってくる
+    task = Task.where("DATE_FORMAT(start_time,'%Y-%m-%d') = '2015-11-23'")
+    task = task.where(user_id:row.user_id)
+    task = task.count
+
+    count["#{row.user_name}"] = task
+  end
+
+  return count
+
+end
+
+# 20151124の各ユーザの記録回数とユーザ名
+def total_count_24
+
+  # 返り値
+  count = {}
+
+  # ユーザテーブルのデータを持ってくる
+  user = User.all
+  user.each do |row|
+
+    # 各ユーザの記録回数をもってくる
+    task = Task.where("DATE_FORMAT(start_time,'%Y-%m-%d') = '2015-11-24'")
+    task = task.where(user_id:row.user_id)
+    task = task.count
+
+    count["#{row.user_name}"] = task
+  end
+
+  return count
+
+end
+# 20151125の各ユーザの記録回数とユーザ名
+def total_count_25
+
+  # 返り値
+  count = {}
+
+  # ユーザテーブルのデータを持ってくる
+  user = User.all
+  user.each do |row|
+
+    # 各ユーザの記録回数をもってくる
+    task = Task.where("DATE_FORMAT(start_time,'%Y-%m-%d') = '2015-11-25'")
+    task = task.where(user_id:row.user_id)
+    task = task.count
+
+    count["#{row.user_name}"] = task
+  end
+
+  return count
+
+end
+# 20151126の各ユーザの記録回数とユーザ名
+def total_count_26
+
+  # 返り値
+  count = {}
+
+  # ユーザテーブルのデータを持ってくる
+  user = User.all
+  user.each do |row|
+
+    # 各ユーザの記録回数をもってくる
+    task = Task.where("DATE_FORMAT(start_time,'%Y-%m-%d') = '2015-11-26'")
+    task = task.where(user_id:row.user_id)
+    task = task.count
+
+    count["#{row.user_name}"] = task
+  end
+
+  return count
+
+end
+# 20151127の各ユーザの記録回数とユーザ名
+def total_count_27
+
+  # 返り値
+  count = {}
+
+  # ユーザテーブルのデータを持ってくる
+  user = User.all
+  user.each do |row|
+
+    # 各ユーザの記録回数をもってくる
+    task = Task.where("DATE_FORMAT(start_time,'%Y-%m-%d') = '2015-11-27'")
+    task = task.where(user_id:row.user_id)
+    task = task.count
+
+    count["#{row.user_name}"] = task
+  end
+
+  return count
+
+end
+# 20151128の各ユーザの記録回数とユーザ名
+def total_count_28
+
+  # 返り値
+  count = {}
+
+  # ユーザテーブルのデータを持ってくる
+  user = User.all
+  user.each do |row|
+
+    # 各ユーザの記録回数をもってくる
+    task = Task.where("DATE_FORMAT(start_time,'%Y-%m-%d') = '2015-11-28'")
+    task = task.where(user_id:row.user_id)
+    task = task.count
+
+    count["#{row.user_name}"] = task
+  end
+
+  return count
+
+end
+
+# 20151128の各ユーザの記録回数とユーザ名
+def total_count_29
+
+  # 返り値
+  count = {}
+
+  # ユーザテーブルのデータを持ってくる
+  user = User.all
+  user.each do |row|
+
+    # 各ユーザの記録回数をもってくる
+    task = Task.where("DATE_FORMAT(start_time,'%Y-%m-%d') = '2015-11-29'")
+    task = task.where(user_id:row.user_id)
+    task = task.count
+
+    count["#{row.user_name}"] = task
+  end
+
+  return count
+
+end
+
+# 20151128の各ユーザの記録回数とユーザ名
+def total_count_30
+
+  # 返り値
+  count = {}
+
+  # ユーザテーブルのデータを持ってくる
+  user = User.all
+  user.each do |row|
+
+    # 各ユーザの記録回数をもってくる
+    task = Task.where("DATE_FORMAT(start_time,'%Y-%m-%d') = '2015-11-30'")
+    task = task.where(user_id:row.user_id)
+    task = task.count
+
+    count["#{row.user_name}"] = task
+  end
+
+  return count
+
+end
+
+# 20151128の各ユーザの記録回数とユーザ名
+def total_count_1
+
+  # 返り値
+  count = {}
+
+  # ユーザテーブルのデータを持ってくる
+  user = User.all
+  user.each do |row|
+
+    # 各ユーザの記録回数をもってくる
+    task = Task.where("DATE_FORMAT(start_time,'%Y-%m-%d') = '2015-12-1'")
+    task = task.where(user_id:row.user_id)
+    task = task.count
+
+    count["#{row.user_name}"] = task
+  end
+
+  return count
+
+end
+
+
+=begin
 # デバッグ
 p '記録数'
 p log_count()
@@ -893,3 +1365,4 @@ p '2015-11-30'
 p total_time_30()
 p '2015-12-1'
 p total_time_1()
+=end
