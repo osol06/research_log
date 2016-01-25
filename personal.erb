@@ -298,7 +298,7 @@
         buckets = 9,
         colors = ["#FBE9E7","#FFCCBC","#FF8A65","#FF7043","#FF5722","#F4511E","#E64A19","#D84315","#BF360C"], // alternatively colorbrewer.YlGnBu[9]
         days = ["日", "月", "火", "水", "木", "金", "土"],
-        times = ["1AM", "", "", "4AM", "", "", "7AM", "", "", "10AM", "", "", "1PM", "", "", "4AM", "", "", "7PM", "", "9PM", "", "", "12PM"];
+        times = ["1AM", "", "", "4AM", "", "", "7AM", "", "", "10AM", "", "", "1PM", "", "", "4PM", "", "", "7PM", "", "9PM", "", "", "12PM"];
         datasets = ["./tsv_data/<%= "#{session['user_id']}" %>.tsv", "data.tsv"];
 
         var svg = d3.select("#chart").append("svg")
@@ -582,7 +582,6 @@
 
                       <%   t = t + 1.day %>
                       <% } %>
-
 
                     ],
                     [

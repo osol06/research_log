@@ -54,6 +54,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bat"></span>
+          <span class="icon-bat"></span>
         </button>
         <a class="navbar-brand text-info" href="./index.rb"></a>
 
@@ -67,6 +68,7 @@
           <li><a href="./other.rb">みんなの活動</a></li>
           <li><a href="./diary.rb">卒研日記</a></li>
           <li><a href="./evaluate.rb">評価シート</a></li>
+          <li><a href="./evaluate_data.rb">実験結果</a></li>
         </ul>
       </div>
 
@@ -84,7 +86,7 @@
         <div class="panel panel-default">
           <table class="table table-bordered">
             <thead>
-              <tr><th class="text-center"><img src="./images/bell.png" width="20px;"></img> ログイン情報</th></tr>
+              <tr><th class="text-center">ログイン情報</th></tr>
             </thead>
             <tbody>
               <tr>
@@ -108,9 +110,9 @@
           <div class="col-sm-12">
 
           <div class="panel panel-default">
-            <h6 style="margin-left:10px; color:#c62828;">new!! 更新情報(12/23)</h6>
+            <h6 style="margin-left:10px; color:#c62828;">new!! 更新情報(1/11)</h6>
             <ul>
-              <li>クリスマス仕様</li>
+              <li>実験結果ページ公開</li>
             </ul>
           </div>
 
@@ -285,7 +287,7 @@
               <div class="panel panel-default">
                 <table class="table table-bordered scrollTable">
                   <thead>
-                    <tr><th class="text-center" style="height:35px;"><img src="./images/wreath.png" width="20px;"></img> タイムライン</th></tr>
+                    <tr><th class="text-center" style="height:35px;">タイムライン</th></tr>
                   </thead>
                   <tbody>
                     <tr style="height:1050px;">
@@ -721,25 +723,6 @@
             flg = 'default';
 
           }
-        });
-
-        // 雪を降らせる処理
-        $(document).snowfall({
-          // 雪の量 (数値)
-          flakeCount : 70,
-          // z-indexの値
-          flakeIndex : "888",
-          // 最小サイズ （数値）
-          minSize : 5,
-          // 最大サイズ（数値）
-          maxSize : 25,
-          // 最低速度（数値）
-          minSpeed : 1,
-          // 最高速度（数値）
-          maxSpeed : 2,
-          // オリジナル画像を使用する場合
-          image : "./images/crystal.png"
-
         });
 
         $('.christmasbtn').hover(

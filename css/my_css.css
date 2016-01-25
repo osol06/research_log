@@ -2,7 +2,7 @@
   ナビゲーションの中央に画像を入れる処理
 */
 .navbar-brand {
-  background: url("../images/christmas.png") no-repeat left center;
+  background: url("../images/logo.png") no-repeat left center;
   background-size: contain;
   margin: 4px;
   height: 45px;

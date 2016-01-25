@@ -1,0 +1,973 @@
+<%# coding: UTF-8 %>
+
+<% require 'rubygems' %>
+<% require 'dbi' %>
+<% require 'time' %>
+<% require './data_model.rb'%>
+<% require './my_ruby_library/login_data.rb' %>
+<% require './total_learning_time.rb' %>
+
+<% sumarray = Array.new() %>
+
+<% dbh = DBI.connect('DBI:SQLite3:research_log.db') %>
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <title>mimlab studylog</title>
+  <link rel="shortcut icon" href="images/icon.png" type="image/png">
+
+  <link href="https://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"  />
+  <link href="css/schedule/style.css" rel="stylesheet" type="text/css"  />
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" >
+  <link href="css/jqplot/jquery.jqplot.min.css" rel="stylesheet" >
+  <link type="text/css" rel="stylesheet" href="css/fakeLoader/fakeLoader.css">
+
+  <!-- my_cssの読み込み -->
+  <link href="css/my_css.css" rel="stylesheet" type="text/css" >
+
+</head>
+<body>
+
+  <div id="fakeloader"></div>
+
+  <!-- ナビゲーション -->
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container">
+
+      <!-- ナビゲーションヘッダー -->
+      <div class="navbar-header">
+
+        <!-- スマホサイズになった時のボタンの設定 -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand text-info" href="./index.rb"></a>
+
+      </div>
+
+      <!-- ナビゲーションの内容 -->
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="./index.rb">ホーム</a></li>
+          <li><a href="./personal.rb">学習データ</a></li>
+          <li><a href="./other.rb">みんなの活動</a></li>
+          <li><a href="./diary.rb">卒研日記</a></li>
+        </ul>
+      </div>
+
+    </div>
+  </nav>
+
+  <!-- メインコンテンツ  -->
+  <div class="container" style="padding: 20px 0">
+
+    <!-- ユーザ情報 -->
+    <!-- グリッドシステムを使用する -->
+    <div class="row">
+
+      <h4>ほかの人の記録を見る</h4>
+
+      <!-- 記録を見るユーザの選択ボタン -->
+      <div class="btn-group alignment" data-toggle="buttons-radio" style="margin-bottom:10px;">
+        <form method="post" action="./other_log_btm.rb">
+          <% user = User.all %>
+          <% user.each do |row| %>
+          <button type="submit" class="btn btn-info" value="<%= row.user_id %>" name="log_user_id" ><%= row.user_name %></button>
+          <% end %>
+        </form>
+      </div>
+
+      <!-- 記録回数の分析 -->
+      <div class="panel panel-default">
+        <table class="table table-bordered">
+          <thead>
+            <tr><th class="text-center">記録回数</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <div style="padding: 10px">
+
+                  <!-- 学習記録回数(棒グラフ) -->
+                  <canvas id="log_count_bar"></canvas>
+                  <p>合計記録回数 : <b><%= total_count_eval() %>回</b></p>
+
+                  <!-- 学習記録回数(折れ線グラフ) -->
+                  <canvas id="log_count_line"></canvas>
+                  <p>１日の平均記録回数 : <b><%= total_count_eval()/22 %></b></p>
+
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="panel panel-default">
+        <table class="table table-bordered">
+          <thead>
+            <tr><th class="text-center">学習時間</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <div style="padding: 10px">
+
+                  <!-- 学習記録回数(棒グラフ) -->
+                  <canvas id="log_time_bar"></canvas>
+                  <p>合計学習時間 : <b><%= total_time_eval() / 60 %></b></p>
+
+                  <!-- 学習記録回数(折れ線グラフ) -->
+                  <canvas id="log_time_line"></canvas>
+                  <% total_time_day = total_time_eval() / 22 %>
+                  <% user = user_name_array() %>
+                  <p>１日の平均学習時間 : <b><%= total_time_day / 60 %>時間</b></p>
+                  <p>１日の１人あたりの平均学習時間 : <b><%= total_time_day.to_f / user.length / 60 %>時間</b></p>
+
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="panel panel-default">
+        <table class="table table-bordered">
+          <thead>
+            <tr><th class="text-center">記録一回の平均コメント数</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <div style="padding: 10px">
+
+                  <table class="table table-striped table-headerfixed">
+                    <thead>
+                      <tr>
+
+                        <th></th>
+                        <% char_count = char_count() %>
+                        <% char_count.each{|key, value| %>
+
+                          <th><%= "#{key}" %></th>
+
+                        <% } %>
+
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>記録一回の平均コメント数</td>
+
+                        <% char_count.each{|key, value| %>
+
+                          <th><%= "#{value}" %>字</th>
+
+                        <% } %>
+
+                      </tr>
+                    </tbody>
+                  </table>
+
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-6">
+          <!-- 記録のグラフ -->
+          <div class="panel panel-default">
+            <table class="table table-bordered">
+              <thead>
+                <tr><th class="text-center">一週間の学習時間</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+
+                    <!-- みんなの学習時間グラフ -->
+                    <p>
+                      <canvas id="chart1" style=" width: 100% !important; max-width: 500px; height: auto !important; margin: 0 auto;">
+                      </canvas>
+                    </p>
+
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="col-sm-6">
+          <!-- 記録のグラフ -->
+          <div class="panel panel-default">
+            <table class="table table-bordered">
+              <thead>
+                <tr><th class="text-center">学習スタイル</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+
+                    <!-- みんなの学習スタイルグラフ -->
+                    <canvas id="chart3" style=" width: 100% !important; max-width: 500px; padding-top: 15px; margin: 0 auto;">
+                    </canvas>
+
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel panel-default">
+        <table class="table table-bordered">
+          <thead>
+            <tr><th class="text-center">学習時間帯と頻度</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+
+                <!-- hour heatmapchart -->
+                <div id="chart" style="margin-left:3%;"></div>
+
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="panel panel-default">
+        <table class="table table-bordered">
+          <thead>
+            <tr><th class="text-center">学習時間と気温</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+
+                <div id="jqPlot-sample" style="width: 100%; "></div>
+
+
+                <table class="table table-bordered" style="margin-top:50px;">
+                  <thead>
+                    <tr>
+                      <th></th>
+
+                      <% t = Time.now - 7.day %>
+                      <% (1..7).each{|num| %>
+
+                        <th class="text-center"><%= "#{t.strftime(" %m/%d")}".force_encoding("utf-8") %></th>
+
+                        <%   t = t + 1.day %>
+                        <% } %>
+
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="text-center" >天気</td>
+
+                        <% from = Time.now.in_time_zone.at_beginning_of_day %>
+                        <% from = from - 7.day  %>
+                        <% to = from + 7.day %>
+                        <% weather = Weather.where(date: from..to).order("date") %>
+                        <% weather.each{|weather| %>
+
+                          <td>
+                            <div class="text-center">
+                              <h5><%= "#{weather.weather}" %></h5>
+                              <div class="center-block">
+                                <img src="<%= "#{weather.icon_url}" %>" class="center-block" >
+                              </div>
+                              <span><%= "#{weather.max_temperature}" %></span> / <span><%= "#{weather.min_temperature}" %></span>℃
+                            </div>
+                          </td>
+
+                          <% } %>
+
+                        </tr>
+                        <tr>
+                          <td class="text-center">学習時間(分)</td>
+
+                          <% from = Time.now.in_time_zone.at_beginning_of_day %>
+                          <% from = from - 7.day + 9.hour %>
+                          <% to = from + 7.day %>
+                          <% time_week = total_time_week_from_yesterday(session['user_id']) %>
+                          <% (1..7).each{|num| %>
+
+                            <td class="text-center"><%= time_week[num-1] %>分</td>
+
+                            <% } %>
+
+                          </tr>
+                        </tbody>
+                      </table>
+
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+
+
+        <!-- footer -->
+        <footer class="footer" style="height: 40px; background-color: #f5f5f5;">
+          <div class="container" >
+            <p class="text-muted" style="padding: 5px;">Copyright (C) 2015 Takuma Sasaki ALL Right Reserved.</p>
+          </div>
+        </footer>
+
+        <!-- javascriptの読み込み -->
+        <script src="https://code.jquery.com/jquery-1.10.2.min.js" type="text/javascript" language="javascript"></script>
+        <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.min.js" type="text/javascript" language="javascript"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/2.3.2/js/bootstrap.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+
+
+        <!-- ライブラリ -->
+        <script src="js/datetimepicker/jquery.datetimepicker.js"></script>
+        <script src="http://momentjs.com/downloads/moment.js"></script>
+        <script src="js/Chart/Chart.js"></script>
+        <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+        <script type="text/javascript" src="js/schedule/jq.schedule.js"></script>
+        <script src="js/jqplot/jquery.jqplot.min.js"></script>
+        <script src="js/jqplot/jqplot.barRenderer.min.js"></script>
+        <script src="js/jqplot/jqplot.categoryAxisRenderer.js"></script>
+        <script src="js/fakeLoader/fakeLoader.min.js"></script>
+        <script type="text/javascript" language="javascript"  src="js/ccchart/ccchart.js"></script>
+        <script type="text/javascript" language="javascript"  src="js/ccchart/ccchart_my.js"></script>
+
+        <!-- 自分で書いたスクリプト -->
+        <script src="js/my_library/current_time.js"></script>
+        <script>
+
+        // 様々な処理をまとめた
+        $(function (){
+
+          // ローディングの画像を毎回読み込ませるためのスタンプ
+          var timestamp = new Date().getTime();
+
+          // ローディング画面
+          $("#fakeloader").fakeLoader({
+            timeToHide: 1200,
+            bgColor: "#80D8FF",
+            imagePath:"images/loading.gif?" + timestamp
+          });
+
+          // 学習時間の棒グラフを表示
+          var log_count_bar_data = {
+
+            "config": {
+              "title": "合計記録回数",
+              "subTitle": "2015/11/10から2015/12/1",
+              "type": "bar",
+              "colorSet":
+              ["red","#FF9114","#3CB000","#00A8A2","#0036C0","#C328FF","#FF34C0"],
+              "bgGradient": {
+                "direction":"vertical",
+                "from":"#687478",
+                "to":"#222222"
+              }
+            },
+
+            "data": [
+              ["ユーザ",
+
+              <% log_count.each{|key, value| %>
+
+                '<%= "#{key}" %>',
+
+              <% } %>
+
+              ],
+              ["記録回数",
+
+              <% log_count.each{|key, value| %>
+
+                <%= value %>,
+
+              <% } %>
+
+              ]
+            ]
+          };
+          ccchart.init('log_count_bar', log_count_bar_data)
+
+          var log_count_line_data = {
+
+            "config": {
+              "title": "記録回数の推移",
+              "subTitle": "2015/11/10から2015/12/1",
+              "type": "line",
+              "width" : "900", //チャート幅
+              "lineWidth": 4,
+              "colorSet":
+              ["red","#FF9114","#3CB000","#00A8A2","#0036C0","#C328FF","#FF34C0"],
+              "bgGradient": {
+                "direction":"vertical",
+                "from":"#687478",
+                "to":"#222222"
+              },
+              "useMarker": "css-ring",
+              "markerWidth": 12
+            },
+
+            "data": [
+              ["日付","11/10",11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,"12/1"],
+
+              <% user_name = user_name_array() %>
+              <% user_name.each do |name| %>
+              [
+
+                '<%= "#{name}" %>',
+                <%= total_count_10["#{name}"] %>,
+                <%= total_count_11["#{name}"] %>,
+                <%= total_count_12["#{name}"] %>,
+                <%= total_count_13["#{name}"] %>,
+                <%= total_count_14["#{name}"] %>,
+                <%= total_count_15["#{name}"] %>,
+                <%= total_count_16["#{name}"] %>,
+                <%= total_count_17["#{name}"] %>,
+                <%= total_count_18["#{name}"] %>,
+                <%= total_count_19["#{name}"] %>,
+                <%= total_count_20["#{name}"] %>,
+                <%= total_count_21["#{name}"] %>,
+                <%= total_count_22["#{name}"] %>,
+                <%= total_count_23["#{name}"] %>,
+                <%= total_count_24["#{name}"] %>,
+                <%= total_count_25["#{name}"] %>,
+                <%= total_count_26["#{name}"] %>,
+                <%= total_count_27["#{name}"] %>,
+                <%= total_count_28["#{name}"] %>,
+                <%= total_count_29["#{name}"] %>,
+                <%= total_count_30["#{name}"] %>,
+                <%= total_count_1["#{name}"] %>],
+              <% end %>
+            ]
+          };
+          ccchart.init('log_count_line', log_count_line_data)
+
+          // 学習時間の棒グラフを表示
+          var log_time_bar_data = {
+
+            "config": {
+              "title": "合計学習時間",
+              "subTitle": "2015/11/10から2015/12/1",
+              "type": "bar",
+              "colorSet":
+              ["red","#FF9114","#3CB000","#00A8A2","#0036C0","#C328FF","#FF34C0"],
+              "bgGradient": {
+                "direction":"vertical",
+                "from":"#687478",
+                "to":"#222222"
+              }
+            },
+
+            "data": [
+            ["ユーザ",
+
+            <% total_time = total_time() %>
+            <% total_time.each{|key, value| %>
+
+              '<%= "#{key}" %>',
+
+            <% } %>
+
+            ],
+              ["学習時間(時)",
+
+              <% total_time.each{|key, value| %>
+
+                <%= value / 60 %>,
+
+              <% } %>
+
+              ]
+            ]
+          };
+          ccchart.init('log_time_bar', log_time_bar_data)
+
+          var log_time_line_data = {
+
+            "config": {
+              "title": "学習時間の推移",
+              "subTitle": "2015/11/10から2015/12/1",
+              "type": "line",
+              "width" : "900", //チャート幅
+              "lineWidth": 4,
+              "colorSet":
+              ["red","#FF9114","#3CB000","#00A8A2","#0036C0","#C328FF","#FF34C0"],
+              "bgGradient": {
+                "direction":"vertical",
+                "from":"#687478",
+                "to":"#222222"
+              },
+              "useMarker": "css-ring",
+              "markerWidth": 12
+            },
+
+            "data": [
+              ["日付","11/10",11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,"12/1"],
+
+              <% user_name = user_name_array() %>
+              <% user_name.each do |name| %>
+              [
+
+                '<%= "#{name}" %>',
+                <%= total_time_10["#{name}"] %>,
+                <%= total_time_11["#{name}"] %>,
+                <%= total_time_12["#{name}"] %>,
+                <%= total_time_13["#{name}"] %>,
+                <%= total_time_14["#{name}"] %>,
+                <%= total_time_15["#{name}"] %>,
+                <%= total_time_16["#{name}"] %>,
+                <%= total_time_17["#{name}"] %>,
+                <%= total_time_18["#{name}"] %>,
+                <%= total_time_19["#{name}"] %>,
+                <%= total_time_20["#{name}"] %>,
+                <%= total_time_21["#{name}"] %>,
+                <%= total_time_22["#{name}"] %>,
+                <%= total_time_23["#{name}"] %>,
+                <%= total_time_24["#{name}"] %>,
+                <%= total_time_25["#{name}"] %>,
+                <%= total_time_26["#{name}"] %>,
+                <%= total_time_27["#{name}"] %>,
+                <%= total_time_28["#{name}"] %>,
+                <%= total_time_29["#{name}"] %>,
+                <%= total_time_30["#{name}"] %>,
+                <%= total_time_1["#{name}"] %>],
+              <% end %>
+            ]
+          };
+          ccchart.init('log_time_line', log_time_line_data)
+
+
+          // heatmapChart
+          var margin = { top: 50, right: 0, bottom: 100, left: 30 },
+          width = 900 - margin.left - margin.right ,
+          height = 430 - margin.top - margin.bottom,
+          gridSize = Math.floor(width / 24),
+          legendElementWidth = gridSize*2,
+          buckets = 9,
+          colors = ["#FBE9E7","#FFCCBC","#FF8A65","#FF7043","#FF5722","#F4511E","#E64A19","#D84315","#BF360C"], // alternatively colorbrewer.YlGnBu[9]
+          days = ["日", "月", "火", "水", "木", "金", "土"],
+          times = ["1AM", "", "", "4AM", "", "", "7AM", "", "", "10AM", "", "", "1PM", "", "", "4PM", "", "", "7PM", "", "9PM", "", "", "12PM"];
+          datasets = ["./tsv_data/<%= "#{session['user_id']}" %>.tsv", "data.tsv"];
+
+          var svg = d3.select("#chart").append("svg")
+          .attr("width", width + margin.left + margin.right)
+          .attr("height", height + margin.top + margin.bottom)
+          .append("g")
+          .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+          var dayLabels = svg.selectAll(".dayLabel")
+          .data(days)
+          .enter().append("text")
+          .text(function (d) { return d; })
+          .attr("x", 0)
+          .attr("y", function (d, i) { return i * gridSize; })
+          .style("text-anchor", "end")
+          .attr("transform", "translate(-6," + gridSize / 1.5 + ")")
+          .attr("class", function (d, i) { return ((i >= 0 && i <= 4) ? "dayLabel mono axis axis-workweek" : "dayLabel mono axis"); });
+
+          var timeLabels = svg.selectAll(".timeLabel")
+          .data(times)
+          .enter().append("text")
+          .text(function(d) { return d; })
+          .attr("x", function(d, i) { return i * gridSize; })
+          .attr("y", 0)
+          .style("text-anchor", "middle")
+          .attr("transform", "translate(" + gridSize / 2 + ", -6)")
+          .attr("class", function(d, i) { return ((i >= 7 && i <= 16) ? "timeLabel mono axis axis-worktime" : "timeLabel mono axis"); });
+
+          var heatmapChart = function(tsvFile) {
+            d3.tsv(tsvFile,
+              function(d) {
+                return {
+                  day: +d.day,
+                  hour: +d.hour,
+                  value: +d.value
+                };
+              },
+              function(error, data) {
+                var colorScale = d3.scale.quantile()
+                .domain([0, buckets - 1, d3.max(data, function (d) { return d.value; })])
+                .range(colors);
+
+                var cards = svg.selectAll(".hour")
+                .data(data, function(d) {return d.day+':'+d.hour;});
+
+                cards.append("title");
+
+                cards.enter().append("rect")
+                .attr("x", function(d) { return (d.hour - 1) * gridSize; })
+                .attr("y", function(d) { return (d.day - 1) * gridSize; })
+                .attr("rx", 4)
+                .attr("ry", 4)
+                .attr("class", "hour bordered")
+                .attr("width", gridSize)
+                .attr("height", gridSize)
+                .style("fill", colors[0]);
+
+                cards.transition().duration(1000)
+                .style("fill", function(d) { return colorScale(d.value); });
+
+                cards.select("title").text(function(d) { return d.value; });
+
+                cards.exit().remove();
+
+                var legend = svg.selectAll(".legend")
+                .data([0].concat(colorScale.quantiles()), function(d) { return d; });
+
+                legend.enter().append("g")
+                .attr("class", "legend");
+
+                legend.append("rect")
+                .attr("x", function(d, i) { return legendElementWidth * i; })
+                .attr("y", height)
+                .attr("width", legendElementWidth)
+                .attr("height", gridSize / 2)
+                .style("fill", function(d, i) { return colors[i]; });
+
+                legend.append("text")
+                .attr("class", "mono")
+                .text(function(d) { return "≥ " + Math.round(d); })
+                .attr("x", function(d, i) { return legendElementWidth * i; })
+                .attr("y", height + gridSize);
+
+                legend.exit().remove();
+
+              });
+            };
+
+            heatmapChart(datasets[0]);
+
+            // 現在の日付を取得
+            var m = moment();
+            var date = m.format("YYYY年MM月DD日");
+
+
+
+            // 現在の日付を表示するメソッド
+            current_time(date);
+
+
+            // 棒グラフを描画する処理
+            var ctx1 = $("#chart1").get(0).getContext("2d");
+
+            // 棒グラフのデータ
+            var data1 = {
+              // X軸のラベル
+              labels : [
+
+                <% from = Time.now.in_time_zone.at_beginning_of_day %>
+                <% from = from + 9.hour %>
+                <% to = from + 7.day %>
+                <% t = Time.now %>
+                <% (1..8).each{|num| %>
+
+                  "<%= "#{t.strftime(" %m/%d")}".force_encoding("utf-8") %>",
+
+                  <%   t = t - 1.day %>
+                  <% } %>
+
+
+                ],
+                datasets : [
+                  {
+                    // グラフの描画設定
+                    fillColor   : [
+                      "rgba(64,196,255,0.5)",
+
+                    ],
+                    strokeColor : [
+                      "rgba(64,196,255,1)",
+                    ],
+                    pointColor : "#00bfff", //点の色・透明度
+                    pointStrokeColor : "#fff",//点の周りの色
+                    data : [
+
+                      <% time_week = total_time_week(session['user_id']) %>
+                      <% time_week.each do |time| %>
+                      <%=   time %>,
+                      <% end %>
+
+                    ]
+                  }
+                ]
+              };
+
+              // 棒グラフの設定
+              var option1 = {
+
+                // 値の開始値などを自分で設定するか
+                scaleOverride : true,
+
+                // y軸の値のステップ数
+                scaleSteps : 3,
+
+                // y軸のステップする大きさ
+                scaleStepWidth : <%= time_week.sort.last / 2 %>,
+
+                // Y軸の値の始まりの値
+                scaleStartValue : 0,
+
+                // ラベルの表示 ( Y 軸の値 )
+                scaleShowLabels : true,
+
+                scaleFontFamily : "'Arial'",
+                // X, Y 軸値のフォントサイズ
+                scaleFontSize : 15,
+                // X, Y 軸値のフォントスタイル, normal, italic など
+                scaleFontStyle : "italic",
+                // X, Y 軸値の文字色
+                scaleFontColor : "#666",
+
+
+                // Boolean - Whether the scale should start at zero, or an order of magnitude down from the lowest value
+                scaleBeginAtZero : true,
+
+                // Boolean - Whether grid lines are shown across the chart
+                scaleShowGridLines : true,
+
+                // String - Colour of the grid lines
+                scaleGridLineColor : "#c0c0c0",
+
+                // Number - Width of the grid lines
+                scaleGridLineWidth : 1,
+
+                // Boolean - Whether to show horizontal lines (except X axis)
+                scaleShowHorizontalLines: true,
+
+                // Boolean - Whether to show vertical lines (except Y axis)
+                scaleShowVerticalLines: true,
+
+                // Boolean - If there is a stroke on each bar
+                barShowStroke : true,
+
+                // Number - Pixel width of the bar stroke
+                barStrokeWidth : 2,
+
+                // Number - Spacing between each of the X value sets
+                barValueSpacing : 5,
+
+                // Number - Spacing between data sets within X values
+                barDatasetSpacing : 1,
+
+                // 表示の時のアニメーション
+                animation : true,
+
+                // アニメーションの速度 ( ステップ数 )
+                animationSteps : 100,
+
+                // アニメーションの種類, 以下が用意されている
+                animationEasing : "easeOutBounce",
+
+                // アニメーション終了後に実行する処理
+                onAnimationComplete : null
+
+              }
+
+              // 棒グラフを描画する
+              var myNewChart1 = new Chart(ctx1).Bar(data1,option1);
+
+
+
+              // 気温と学習時間の関係グラフの描画
+              jQuery . jqplot(
+                'jqPlot-sample',
+                [
+                  [
+
+                    <% from = Time.now.in_time_zone.at_beginning_of_day %>
+                    <% from = from + 9.hour %>
+                    <% to = from + 7.day %>
+                    <% t = Time.now - 7.day %>
+                    <% time_week = total_time_week_from_yesterday(session['user_id']) %>
+                    <% (1..7).each{|num| %>
+
+                      [ '<%= "#{t.strftime(" %m/%d")}".force_encoding("utf-8") %>', <%= time_week[num-1] %> ],
+
+                      <%   t = t + 1.day %>
+                      <% } %>
+
+
+                    ],
+                    [
+                      <% from = from - 8.day + 9.hour %>
+                      <% to = from + 7.day %>
+                      <% temperature = Weather.where(date: from..to).order("date") %>
+                      <% num = 1 %>
+                      <% temperature.each{|row| %>
+
+                        [ <%= num %>, <%= row.max_temperature.to_i %> ],
+                        <% num = num + 1 %>
+                        <% } %>
+                      ]
+                    ],
+                    {
+                      series:[
+                        {
+                          renderer: jQuery . jqplot . BarRenderer
+                        },
+                        {
+                          xaxis: 'x2axis',
+                          yaxis: 'y2axis'
+                        }
+                      ],
+                      axes: {
+                        xaxis: {
+                          renderer: jQuery . jqplot . CategoryAxisRenderer,
+                        },
+                        x2axis: {
+                          renderer: jQuery . jqplot . CategoryAxisRenderer,
+                        },
+                        yaxis: {
+                          autoscale: true,
+                        },
+                        y2axis: {
+                          autoscale: true,
+                        }
+                      }
+                    }
+                  );
+
+
+                  // レーダーチャート描画する処理
+                  var ctx3 = $("#chart3").get(0).getContext("2d");
+
+                  // レーダーチャートのデータ
+                  var data3 = {
+                    labels: ["継続性", "勉強のバランス", "天気が良い", "音楽がある", "一人で学習"],
+                    datasets: [
+                      {
+                        fillColor : "rgba(255, 0, 51, 0.5)",
+                        strokeColor : "rgba(220, 220, 220, 1)",
+                        pointColor : "rgba(220, 220, 220, 1)",
+                        pointStrokeColor : "#fff",
+                        data : [100, 59,
+
+
+                          <% nice_weather_sum = 0 %>
+                          <% bad_weather_sum = 0 %>
+
+                          <% nice_weather_hours = dbh.execute("select (strftime('%s', tasks.finish_time) - strftime('%s', tasks.start_time)) / 60 from tasks where user_id = 2 and weather_frag = 1;") %>
+                          <% nice_weather_hours.each do |row| %>
+
+                          <%   nice_weather_sum = nice_weather_sum + row[0].to_i %>
+
+                          <% end %>
+
+                          <% bad_weather_hours = dbh.execute("select (strftime('%s', tasks.finish_time) - strftime('%s', tasks.start_time)) / 60 from tasks where user_id = 2 and weather_frag = 2;") %>
+                          <% bad_weather_hours.each do |row| %>
+
+                          <%   bad_weather_sum = bad_weather_sum + row[0].to_i %>
+
+                          <% end %>
+
+                          <%= (nice_weather_sum.to_f / (nice_weather_sum.to_f + bad_weather_sum.to_f)) * 100 %>,
+
+                          <% music_sum = 0 %>
+
+
+                          <% music_all_sum = 0 %>
+
+                          <% music_hours = dbh.execute("select (strftime('%s', tasks.finish_time) - strftime('%s', tasks.start_time)) / 60 from tasks where user_id = 2 and music_frag = 1;") %>
+                          <% music_hours.each do |row| %>
+
+                          <%   music_sum = music_sum + row[0].to_i %>
+
+                          <% end %>
+
+
+                          <% music_all_hours = dbh.execute("select (strftime('%s', tasks.finish_time) - strftime('%s', tasks.start_time)) / 60 from tasks where user_id = 2;") %>
+                          <% music_all_hours.each do |row| %>
+
+                          <%   music_all_sum = music_all_sum + row[0].to_i %>
+
+                          <% end %>
+
+                          <%= music_sum.to_f / music_all_sum.to_f * 100 %>,
+
+
+                          <% solo_sum = 0 %>
+
+
+                          <% hours_sum = 0 %>
+
+                          <% solo_hours = dbh.execute("select (strftime('%s', tasks.finish_time) - strftime('%s', tasks.start_time)) / 60 from tasks where user_id = 2 and group_frag = 0;") %>
+                          <% solo_hours.each do |row| %>
+
+                          <%   solo_sum = solo_sum + row[0].to_i %>
+
+                          <% end %>
+
+                          <% all_hours = dbh.execute("select (strftime('%s', tasks.finish_time) - strftime('%s', tasks.start_time)) / 60 from tasks where user_id = 2;") %>
+                          <% all_hours.each do |row| %>
+
+                          <%   hours_sum = hours_sum + row[0].to_i %>
+
+                          <% end %>
+
+                          <%= solo_sum.to_f / hours_sum.to_f * 100 %>
+
+                        ]
+                      },
+                    ]
+                  };
+
+                  // レーダーチャートの設定
+                  var option3 = {
+
+                    // ポイントラベルのサイズ
+                    pointLabelFontSize : 15,
+
+                    // 表示の時のアニメーション
+                    animation : true,
+                    // アニメーションの速度 ( ステップ数 )
+                    animationSteps : 60,
+
+                    animationEasing : "easeOutQuad",
+                    // アニメーション終了後に実行する処理
+                    // animation: false の時にも実行されるようです
+                    // e.g. onAnimationComplete : function() {alert('complete');}
+                    onAnimationComplete : null
+
+                  };
+
+                  // レーダーチャートを描画する
+                  var myNewChart3 = new Chart(ctx3).Radar(data3,option3);
+
+                });
+
+
+                </script>
+              </body>
+              </html>
+
+              <% solo_hours.finish %>
+              <% all_hours.finish %>
+              <% music_hours.finish %>
+              <% music_all_hours.finish %>
+              <% nice_weather_hours.finish %>
+              <% bad_weather_hours.finish %>
+
+              <% dbh.disconnect %>
