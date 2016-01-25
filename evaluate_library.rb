@@ -29,6 +29,24 @@ def log_count
 
 end
 
+# 実験期間中の合計記録回数を返すメソッド
+def total_count_eval
+
+  log_count = log_count()
+
+  total = 0
+
+  log_count.each{|key, value|
+
+    total = total + value
+
+  }
+
+  return total
+
+end
+
+
 # 全ユーザ名が入った配列を返すメソッド
 def user_name_array
 
@@ -41,7 +59,7 @@ def user_name_array
 
   end
 
-return array
+  return array
 
 end
 
@@ -70,7 +88,7 @@ def daily_log_count
 end
 =end
 
-# 各ユーザのいままでの学習時間の合計(分)とユーザ名が入ったハッシュを返すメソッド
+# 各ユーザの実験期間中の学習時間の合計(分)とユーザ名が入ったハッシュを返すメソッド
 # {"sasaki"=> 60, "ichitomo"=> 300, .... }
 def total_time
 
@@ -98,6 +116,24 @@ def total_time
   end
 
   return total_time
+
+end
+
+
+# 実験期間中の合計学習時間
+def total_time_eval
+
+  total_time = total_time()
+
+  total = 0
+
+  total_time.each{ |key, value|
+
+    total = total + value
+
+  }
+
+  return total
 
 end
 
